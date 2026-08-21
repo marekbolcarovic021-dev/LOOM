@@ -1,21 +1,20 @@
 import express from "express";
 import cors from "cors";
-import dotenv from "dotenv";
+
 import OpenAI from "openai";
 import receiptRoutes from "./routes/receipt.js";
-
-dotenv.config({
-    path: "../.env",
-});
 
 const app = express();
 
 app.use(
-    cors({
-        origin: "http://localhost:5173",
-        methods: ["GET", "POST", "OPTIONS"],
-        allowedHeaders: ["Content-Type"],
-    })
+  cors({
+    origin: [
+      "http://localhost:5173",
+      "https://loom-cwsr1r5ku-bmx7.vercel.app",
+    ],
+    methods: ["GET", "POST", "OPTIONS"],
+    allowedHeaders: ["Content-Type"],
+  })
 );
 
 app.use(express.json());
@@ -113,6 +112,4 @@ Instructions:
     }
 });
 
-app.listen(3001, () => {
-    console.log("AI server running on port 3001");
-});
+export default app;

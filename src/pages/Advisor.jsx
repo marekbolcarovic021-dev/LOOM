@@ -589,7 +589,7 @@ async function sendMessage(customMessage = null) {
 
     const response =
       await fetch(
-        "http://localhost:3001/api/chat",
+        "https://loom-cwsr1r5ku-bmx7.vercel.app/api/chat",
         {
           method: "POST",
 

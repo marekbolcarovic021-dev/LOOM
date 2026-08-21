@@ -87,7 +87,7 @@ export default function AITransactionImporter() {
 
       const response =
         await fetch(
-          "http://localhost:3001/api/receipt",
+          "https://loom-cwsr1r5ku-bmx7.vercel.app/api/receipt",
           {
             method: "POST",
             body: formData,
