@@ -91,26 +91,46 @@ exports.createCheckoutSession = onCall(
 
       let customerId = user?.stripeCustomerId;
 
-      /*
-       * CREATE STRIPE CUSTOMER
-       */
+/*
+ * GET OR CREATE STRIPE CUSTOMER
+ */
 
-      if (!customerId) {
+if (customerId) {
+  try {
+    // Verify that the customer exists in the current
+    // Stripe mode (LIVE or TEST).
+    await stripe.customers.retrieve(customerId);
+  } catch (error) {
+    if (error?.code === "resource_missing") {
+      console.log(
+        "Stored Stripe customer does not exist in current Stripe mode. Creating a new customer."
+      );
 
-        const customer = await stripe.customers.create({
-          email: request.auth.token.email || undefined,
+      customerId = null;
+    } else {
+      throw error;
+    }
+  }
+}
 
-          metadata: {
-            uid,
-          },
-        });
+if (!customerId) {
+  const customer = await stripe.customers.create({
+    email: request.auth.token.email || undefined,
 
-        customerId = customer.id;
+    metadata: {
+      uid,
+    },
+  });
 
-        await userRef.update({
-          stripeCustomerId: customerId,
-        });
-      }
+  customerId = customer.id;
+
+  await userRef.set(
+    {
+      stripeCustomerId: customerId,
+    },
+    { merge: true }
+  );
+}
 
       /*
        * CREATE CHECKOUT SESSION
@@ -189,10 +209,10 @@ exports.createCheckoutSession = onCall(
               ],
 
         success_url:
-          "http://localhost:3000/premium?success=true",
+          "https://loom-cwsr1r5ku-bmx7.vercel.app/premium?success=true",
 
         cancel_url:
-          "http://localhost:3000/premium?cancel=true",
+          "https://loom-cwsr1r5ku-bmx7.vercel.app/premium?cancel=true",
       });
 
       console.log(
