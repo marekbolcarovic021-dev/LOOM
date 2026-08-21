@@ -38,23 +38,23 @@ exports.createCheckoutSession = onCall(
     switch (type) {
 
       case "premium":
-        priceId = "price_1TzDIqGoLR6xYcDMayBIqtj8";
+        priceId = "price_1U6vl6GwXhNEXH1PqkyQkePP";
         break;
 
       case "tokens10":
-        priceId = "price_1TzDKIGoLR6xYcDMECpXHESY";
+        priceId = "price_1U6vl6GwXhNEXH1PeOjVm877";
         break;
 
       case "tokens20":
-        priceId = "price_1TzDL8GoLR6xYcDMfxVjwAIN";
+        priceId = "price_1U6vl7GwXhNEXH1PMWXZBWW0";
         break;
 
       case "tokens50":
-        priceId = "price_1TzDMHGoLR6xYcDM98Qj5roq";
+        priceId = "price_1U6vl6GwXhNEXH1PhjDCx5r1";
         break;
 
       case "tokens100":
-        priceId = "price_1TzDNbGoLR6xYcDMnLWorr4L";
+        priceId = "price_1U6vl7GwXhNEXH1PPa98QMvu";
         break;
 
       case "customTokens":
