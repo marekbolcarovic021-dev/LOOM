@@ -33,4 +33,5 @@ dist-ssr
 # Private configuration files
 .env
 functions/config.js
-src/firebase.js
+
+# src/firebase.js contains public Firebase web configuration and is tracked
