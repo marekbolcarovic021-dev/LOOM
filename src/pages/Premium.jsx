@@ -15,7 +15,7 @@ import {
 } from "lucide-react";
 
 import { useFinance } from "../context/FinanceContext";
-import { showNotification } from "../utils/notificationService";
+import { showNotification } from "../Utils/notificationService";
 
 import "./Premium.css";
 

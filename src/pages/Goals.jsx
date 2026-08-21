@@ -2,7 +2,7 @@ import BottomNav from "../components/BottomNav";
 import { useState } from "react";
 import { useFinance } from "../context/FinanceContext";
 import { useTranslation } from "react-i18next";
-import { formatCurrency } from "../utils/currency";
+import { formatCurrency } from "../Utils/currency";
 import Modal from "../components/Modal";
 
 function Goals() {

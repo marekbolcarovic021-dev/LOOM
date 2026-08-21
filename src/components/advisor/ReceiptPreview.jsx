@@ -3,7 +3,7 @@ import { useTranslation } from "react-i18next";
 
 import { useFinance } from "../../context/FinanceContext";
 
-import { formatCurrency } from "../../utils/currency";
+import { formatCurrency } from "../../Utils/currency";
 
 import {
     Check,

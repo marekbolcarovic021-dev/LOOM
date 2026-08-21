@@ -1,7 +1,7 @@
 import BottomNav from "../components/BottomNav";
 import { useFinance } from "../context/FinanceContext";
 import { useTranslation } from "react-i18next";
-import { formatCurrency } from "../utils/currency";
+import { formatCurrency } from "../Utils/currency";
 
 import {
   Landmark,
@@ -13,7 +13,7 @@ import {
 } from "lucide-react";
 
 import { useState, useRef } from "react";
-import { notify } from "../utils/notifications";
+import { notify } from "../Utils/notifications";
 
 function Accounts() {
 

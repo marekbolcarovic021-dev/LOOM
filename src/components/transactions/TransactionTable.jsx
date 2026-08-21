@@ -1,6 +1,6 @@
 import { useTranslation } from "react-i18next";
 import { Pencil, Trash2 } from "lucide-react";
-import { formatCurrency } from "../../utils/currency";
+import { formatCurrency } from "../../Utils/currency";
 import { useFinance } from "../../context/FinanceContext";
 
 function TransactionTable({

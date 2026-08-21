@@ -8,7 +8,7 @@ import { useTranslation } from "react-i18next";
 
 import { useFinance } from "../context/FinanceContext";
 
-import { formatCurrency } from "../utils/currency";
+import { formatCurrency } from "../Utils/currency";
 
 import BottomNav from "../components/BottomNav";
 
@@ -41,7 +41,7 @@ import {
     loadChats,
     saveChats,
     deleteChat
-} from "../utils/chatStorage";
+} from "../Utils/chatStorage";
 
 import { useNavigate } from "react-router-dom";
 

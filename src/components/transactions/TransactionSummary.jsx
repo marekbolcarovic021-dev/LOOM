@@ -1,5 +1,5 @@
 import { useTranslation } from "react-i18next";
-import { formatCurrency } from "../../utils/currency";
+import { formatCurrency } from "../../Utils/currency";
 import { useFinance } from "../../context/FinanceContext";
 
 
