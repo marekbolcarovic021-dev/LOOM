@@ -1,0 +1,608 @@
+.receipt-overlay{
+
+position:fixed;
+
+inset:0;
+
+background:rgba(0,0,0,.72);
+
+display:flex;
+
+justify-content:center;
+
+align-items:center;
+
+z-index:10000;
+
+backdrop-filter:blur(6px);
+
+animation:fadeIn .25s ease;
+
+}
+
+.receipt-modal{
+
+width:min(1050px,95vw);
+
+max-height:90vh;
+
+overflow:auto;
+
+background:#182133;
+
+border-radius:22px;
+
+border:1px solid rgba(59,130,246,.45);
+
+box-shadow:
+0 0 0 1px rgba(59,130,246,.18),
+0 30px 90px rgba(0,0,0,.55);
+
+padding:28px;
+
+animation:popup .3s ease;
+
+}
+
+.receipt-header{
+
+display:flex;
+
+justify-content:space-between;
+
+align-items:center;
+
+margin-bottom:28px;
+
+}
+
+.receipt-header h2{
+
+margin:0;
+
+font-size:1.45rem;
+
+}
+
+.receipt-header p{
+
+margin-top:6px;
+
+opacity:.75;
+
+}
+
+.receipt-close{
+
+width:42px;
+
+height:42px;
+
+border-radius:12px;
+
+border:none;
+
+background:#23324d;
+
+color:white;
+
+cursor:pointer;
+
+transition:.25s;
+
+}
+
+.receipt-close:hover{
+
+background:#3b82f6;
+
+transform:rotate(90deg);
+
+}
+
+.receipt-upload-area{
+
+border:2px dashed rgba(59,130,246,.45);
+
+border-radius:20px;
+
+padding:70px 30px;
+
+display:flex;
+
+flex-direction:column;
+
+align-items:center;
+
+justify-content:center;
+
+text-align:center;
+
+transition:.25s;
+
+cursor:pointer;
+
+}
+
+.receipt-upload-area:hover{
+
+border-color:#3b82f6;
+
+background:rgba(59,130,246,.06);
+
+}
+
+.receipt-upload-area.dragging{
+
+border-color:#60a5fa;
+
+background:rgba(59,130,246,.12);
+
+transform:scale(1.01);
+
+}
+
+.upload-icon{
+
+margin-bottom:18px;
+
+color:#60a5fa;
+
+}
+
+.browse-btn{
+
+margin-top:24px;
+
+display:flex;
+
+align-items:center;
+
+gap:10px;
+
+padding:12px 22px;
+
+border:none;
+
+border-radius:12px;
+
+background:#2563eb;
+
+color:white;
+
+font-weight:600;
+
+cursor:pointer;
+
+transition:.25s;
+
+}
+
+.browse-btn:hover{
+
+transform:translateY(-2px);
+
+background:#3b82f6;
+
+}
+
+.receipt-preview-image{
+
+max-width:100%;
+
+max-height:420px;
+
+border-radius:18px;
+
+box-shadow:0 15px 45px rgba(0,0,0,.4);
+
+}
+
+.receipt-loading{
+
+padding:90px;
+
+text-align:center;
+
+}
+
+.loader{
+
+width:70px;
+
+height:70px;
+
+border:6px solid rgba(255,255,255,.15);
+
+border-top:6px solid #3b82f6;
+
+border-radius:50%;
+
+margin:auto;
+
+animation:spin .9s linear infinite;
+
+}
+
+@keyframes spin{
+
+to{
+
+transform:rotate(360deg);
+
+}
+
+}
+
+@keyframes popup{
+
+from{
+
+opacity:0;
+
+transform:translateY(25px) scale(.96);
+
+}
+
+to{
+
+opacity:1;
+
+transform:none;
+
+}
+
+}
+
+@keyframes fadeIn{
+
+from{
+
+opacity:0;
+
+}
+
+to{
+
+opacity:1;
+
+}
+
+}
+
+.receipt-info{
+display:grid;
+grid-template-columns:repeat(4,1fr);
+gap:16px;
+margin-bottom:24px;
+}
+
+.receipt-info div{
+background:#1f2a40;
+padding:16px;
+border-radius:14px;
+border:1px solid rgba(255,255,255,.05);
+}
+
+.receipt-info span{
+display:block;
+font-size:.82rem;
+opacity:.65;
+margin-bottom:6px;
+}
+
+.receipt-info strong{
+font-size:1rem;
+}
+
+.receipt-table{
+    width:100%;
+    border-collapse:collapse;
+    margin-top:15px;
+    table-layout:fixed;
+}
+
+.receipt-table th{
+    background:#22304d;
+    padding:14px;
+    text-align:left;
+    font-weight:600;
+    white-space:nowrap;
+}
+
+.receipt-table td{
+    padding:12px;
+    border-bottom:1px solid rgba(255,255,255,.06);
+    vertical-align:middle;
+    overflow:hidden;
+}
+
+.receipt-table tr:hover{
+    background:rgba(59,130,246,.05);
+}
+
+/* Column widths */
+.receipt-table th:nth-child(1),
+.receipt-table td:nth-child(1){
+    width:16%;
+}
+
+.receipt-table th:nth-child(2),
+.receipt-table td:nth-child(2){
+    width:20%;
+}
+
+.receipt-table th:nth-child(3),
+.receipt-table td:nth-child(3){
+    width:16%;
+}
+
+.receipt-table th:nth-child(4),
+.receipt-table td:nth-child(4){
+    width:28%;
+}
+
+.receipt-table th:nth-child(5),
+.receipt-table td:nth-child(5){
+    width:20%;
+    text-align:right;
+}
+
+.receipt-table input,
+.receipt-table select{
+    width:100%;
+    min-width:0;
+    box-sizing:border-box;
+    background:#182133;
+    border:1px solid rgba(255,255,255,.12);
+    border-radius:8px;
+    padding:8px 10px;
+    color:white;
+    font-size:.9rem;
+}
+
+.receipt-table input:focus,
+.receipt-table select:focus{
+    outline:none;
+    border-color:#3b82f6;
+}
+
+.receipt-delete{
+    width:36px;
+    height:36px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    background:none;
+    border:none;
+    color:#ef4444;
+    cursor:pointer;
+}
+
+.receipt-scan-btn{
+    width:100%;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    gap:18px;
+
+    padding:18px 22px;
+
+    background:#1f2a40;
+    border:1px solid rgba(255,255,255,.06);
+    border-radius:16px;
+
+    color:white;
+    cursor:pointer;
+    transition:.25s;
+}
+
+.receipt-scan-btn svg{
+    flex-shrink:0;
+    color:#60a5fa;
+}
+
+.receipt-scan-btn div{
+    display:flex;
+    flex-direction:column;
+    align-items:flex-start;
+    text-align:left;
+}
+
+.receipt-scan-btn strong{
+    font-size:1rem;
+    font-weight:700;
+}
+
+.receipt-scan-btn span{
+    margin-top:2px;
+    font-size:.85rem;
+    opacity:.7;
+}
+
+.receipt-scan-btn:hover{
+    border-color:#3b82f6;
+    background:#23324d;
+    transform:translateY(-2px);
+    box-shadow:0 10px 25px rgba(37,99,235,.18);
+}
+
+.receipt-section{
+    margin:36px 0 40px;
+}
+
+/* =========================================
+   RECEIPT ACTION BUTTONS
+   ========================================= */
+
+.receipt-actions {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 10px;
+    margin-top: 18px;
+    padding-top: 14px;
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+
+/* Cancel */
+
+.receipt-actions .receipt-cancel {
+    appearance: none;
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    background: #263652;
+    color: #dbe4f5;
+
+    height: 42px;
+    padding: 0 20px;
+
+    border-radius: 10px;
+
+    font-family: inherit;
+    font-size: 14px;
+    font-weight: 600;
+
+    cursor: pointer;
+
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    transition:
+        background 0.2s ease,
+        border-color 0.2s ease,
+        transform 0.2s ease;
+}
+
+.receipt-actions .receipt-cancel:hover {
+    background: #304362;
+    border-color: rgba(255, 255, 255, 0.2);
+}
+
+
+/* Edit */
+
+.receipt-actions .receipt-edit {
+    appearance: none;
+    border: 1px solid rgba(108, 92, 231, 0.55);
+    background: rgba(108, 92, 231, 0.16);
+    color: #a99cff;
+
+    height: 42px;
+    padding: 0 18px;
+
+    border-radius: 10px;
+
+    font-family: inherit;
+    font-size: 14px;
+    font-weight: 600;
+
+    cursor: pointer;
+
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 7px;
+
+    transition:
+        background 0.2s ease,
+        border-color 0.2s ease,
+        transform 0.2s ease;
+}
+
+.receipt-actions .receipt-edit:hover {
+    background: rgba(108, 92, 231, 0.28);
+    border-color: rgba(108, 92, 231, 0.8);
+}
+
+
+/* Accept All */
+
+.receipt-actions .receipt-accept {
+    appearance: none;
+    border: none;
+    background: #2864e8;
+    color: #ffffff;
+
+    height: 42px;
+    padding: 0 20px;
+
+    border-radius: 10px;
+
+    font-family: inherit;
+    font-size: 14px;
+    font-weight: 700;
+
+    cursor: pointer;
+
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 7px;
+
+    box-shadow: 0 4px 12px rgba(40, 100, 232, 0.22);
+
+    transition:
+        background 0.2s ease,
+        transform 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+.receipt-actions .receipt-accept:hover {
+    background: #3472f2;
+    transform: translateY(-1px);
+    box-shadow: 0 6px 16px rgba(40, 100, 232, 0.3);
+}
+
+
+/* Press effect */
+
+.receipt-actions .receipt-cancel:active,
+.receipt-actions .receipt-edit:active,
+.receipt-actions .receipt-accept:active {
+    transform: translateY(0);
+}
+
+
+/* Delete row button */
+
+.receipt-actions .receipt-delete,
+.receipt-table .receipt-delete {
+    appearance: none;
+    border: none;
+    background: rgba(239, 83, 100, 0.12);
+    color: #ff6575;
+
+    width: 34px;
+    height: 34px;
+
+    padding: 0;
+    border-radius: 8px;
+
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    cursor: pointer;
+}
+
+.receipt-table .receipt-delete:hover {
+    background: rgba(239, 83, 100, 0.22);
+}
+
+@media (max-width: 600px) {
+
+    .receipt-actions {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 8px;
+    }
+
+    .receipt-actions .receipt-cancel,
+    .receipt-actions .receipt-edit,
+    .receipt-actions .receipt-accept {
+        width: 100%;
+    }
+
+}

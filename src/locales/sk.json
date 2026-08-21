@@ -1,0 +1,422 @@
+{
+  "transactions": "Transakcie",
+  "dashboard": "Prehľad",
+  "goals": "Ciele",
+  "advisor": "AI Poradca",
+
+  "addTransaction": "Pridať transakciu",
+
+  "income": "Príjmy",
+  "expenses": "Výdavky",
+
+  "balance": "Zostatok",
+
+"all": "Všetky",
+
+  "searchTransactions": "Hľadať transakcie...",
+
+  "month": "Mesiac",
+
+"january": "Január",
+"february": "Február",
+"march": "Marec",
+"april": "Apríl",
+"may": "Máj",
+"june": "Jún",
+"july": "Júl",
+"august": "August",
+"september": "September",
+"october": "Október",
+"november": "November",
+"december": "December",
+
+"totalIncome": "Celkové príjmy",
+"totalExpenses": "Celkové výdavky",
+
+"incomeVsExpenses":"Príjmy vs Výdavky",
+"expensesByCategory":"Výdavky podľa kategórií",
+"noExpenses":"Za tento mesiac nie sú žiadne výdavky.",
+
+"date":"Dátum",
+"category":"Kategória",
+"type":"Typ",
+"account":"Účet",
+"noTransactions":"Za tento mesiac nie sú žiadne transakcie",
+"editingTransaction": "Upravuje sa transakcia",
+"mainAccount": "Hlavný účet",
+  "cash": "Hotovosť",
+  "savings": "Úspory",
+  "unknown": "Neznámy",
+
+"food": "Jedlo",
+"transport": "Doprava",
+"housing": "Bývanie",
+"shopping": "Nakupovanie",
+"health": "Zdravie",
+"entertainment": "Zábava",
+"salary": "Mzda",
+"investment": "Investícia",
+"other": "Ostatné",
+
+"expense": "Výdavky",
+
+"weekly": "Týždenne",
+"monthly": "Mesačne",
+"yearly": "Ročne",
+"amount": "Suma",
+"selectType": "Vyber typ",
+"selectCategory": "Vyber kategóriu",
+"customCategory": "Alebo vlastná kategória",
+
+"recurringTransaction": "Opakovaná transakcia",
+
+"saveChanges": "Uložiť zmeny",
+"cancelEditing": "Zrušiť úpravu",
+
+"netWorth": "Čistá hodnota",
+"savingsRate": "Miera úspor",
+"monthlyOverview": "Mesačný prehľad",
+"budgetUsage": "Využitie rozpočtu",
+"goalsCompleted": "Splnené ciele",
+"investmentAllocation": "Počet investícií",
+"insights": "Odporúčania",
+"financialHealth": "Finančné zdravie",
+"portfolio": "Portfólio",
+"budgetAlerts": "Upozornenia rozpočtu",
+"recentTransactions": "Posledné transakcie",
+"goalsOverview": "Prehľad cieľov",
+
+"excellentFinancialDiscipline": "Výborná finančná disciplína",
+"goodProgress": "Dobrý pokrok s priestorom na zlepšenie",
+"needsAttention": "Vaše financie potrebujú viac pozornosti",
+"requiresImmediateAction": "Finančná situácia vyžaduje okamžitú pozornosť",
+
+"excellentSavingsRate": "Výborná miera úspor.",
+"lowSavingsRate": "Vaša miera úspor je nízka.",
+"noBudgetsCreated": "Nemáte vytvorené žiadne rozpočty.",
+"noFinancialGoals": "Nemáte vytvorené žiadne finančné ciele.",
+"noInvestmentsYet": "Zatiaľ nemáte žiadne investície.",
+"expensesConsumeIncome": "Výdavky spotrebujú väčšinu vašich príjmov.",
+"financesHealthy": "Vaše financie vyzerajú zdravo.",
+"budgets": "Rozpočty",
+
+"budget": "Rozpočet",
+"addBudget": "Pridať rozpočet",
+"monthlyLimit": "Mesačný limit",
+
+"totalBudgets": "Počet rozpočtov",
+"totalBudgeted": "Celkový rozpočet",
+"totalSpent": "Celkové výdavky",
+
+"spent": "Minuté",
+"remaining": "Zostáva",
+
+"usage": "Využitie",
+"used": "využité",
+
+"daysRemaining": "dní zostáva",
+"daysLeft": "dní zostáva tento mesiac",
+
+"noBudgetsYet": "Zatiaľ nemáte žiadne rozpočty.",
+"createFirstBudget": "Vytvorte svoj prvý rozpočet.",
+
+"sortedByUsage": "Zoradené podľa využitia",
+
+"budgetAlreadyExists": "Rozpočet pre túto kategóriu už existuje.",
+"deleteBudgetQuestion": "Vymazať tento rozpočet?",
+"deleteBudget": "Vymazať rozpočet",
+
+"budgetExceeded": "Rozpočet prekročený o ",
+
+"warning": "Upozornenie",
+"overBudget": "Prekročený rozpočet",
+
+"bills": "Účty",
+"taxes": "Dane",
+
+"noBudgetAlerts": "Žiadne upozornenia rozpočtu.",
+  "noGoalsYet": "Zatiaľ nemáte žiadne ciele.",
+  "createYourFirstFinancialGoal": "Vytvorte si svoj prvý finančný cieľ.",
+  "noGoalsCreated": "Nevytvorili ste zatiaľ žiadne ciele.",
+
+  "financialGoals": "Finančné ciele",
+"goalName": "Názov cieľa",
+"targetAmount": "Cieľová suma",
+"currentSavings": "Aktuálne úspory",
+"yearsToAchieve": "Počet rokov na dosiahnutie cieľa",
+"addGoal": "Pridať cieľ",
+"enterCurrentSavings": "Zadajte nové aktuálne úspory:",
+"deadline": "Termín",
+"monthlyNeeded": "Potrebné mesačne",
+"progress": "Pokrok",
+"completed": "splnené",
+"updateSavings": "Aktualizovať úspory",
+"deleteGoal": "Odstrániť cieľ",
+"year": "rok",
+"years": "rokov",
+"cancel": "Zrušiť",
+
+"investments": "Investície",
+"assetName": "Názov aktíva",
+"selectAssetType": "Vyberte typ aktíva",
+"stock": "Akcie",
+"crypto": "Kryptomeny",
+"realEstate": "Nehnuteľnosti",
+"investedAmount": "Investovaná suma",
+"currentValue": "Aktuálna hodnota",
+"addInvestment": "Pridať investíciu",
+"totalPortfolioValue": "Celková hodnota portfólia",
+"portfolioAllocation": "Rozdelenie portfólia",
+
+"createYourFirstInvestment": "Vytvorte svoju prvú investíciu.",
+"invested": "Investované",
+"profitLoss": "Zisk / Strata",
+"updateValue": "Aktualizovať hodnotu",
+"delete": "Odstrániť",
+
+"advisorWelcome":"Ahoj! Som tvoj AI finančný poradca. Opýtaj sa ma čokoľvek o svojich financiách, výdavkoch alebo cieľoch.",
+
+"promptSaveMoney":"Ako môžem viac ušetriť?",
+"promptAnalyzeSpending":"Analyzuj moje výdavky",
+"promptAchieveGoals":"Dosiahnem svoje ciele?",
+"promptBiggestExpense":"Aký je môj najväčší výdavok?",
+"promptFinancialSummary":"Zhrň moje financie",
+
+"noAIResponse":"AI neodpovedala.",
+
+"unableToContactAI":"Nepodarilo sa spojiť s AI serverom.",
+
+"aiAdvisor":"AI poradca",
+"futureVision":"Pohľad do budúcnosti",
+"selectGoal":"Vyberte cieľ",
+"currentPace":"Súčasné tempo",
+"requiredPace":"Potrebné tempo",
+"successProbability":"Pravdepodobnosť úspechu",
+"expectedCompletion":"Odhad dokončenia",
+"timeAdvantage":"Časová výhoda",
+"monthlyGap":"Mesačný rozdiel",
+
+"days":"dní",
+"never":"Nikdy",
+"excellent":"Výborné",
+"achievable":"Dosiahnuteľné",
+"highRisk":"Vysoké riziko",
+"additionalSavingsNeeded":"potrebné dodatočné úspory",
+"aiRecommendations":"AI odporúčania",
+"goalAheadOfSchedule":"Ste na dobrej ceste dosiahnuť svoj cieľ skôr, ako ste plánovali.",
+
+"actionPlan":"Akčný plán",
+"save300More":"Ušetriť o 300 € viac",
+"increaseSalary":"Zvýšiť plat o 20 %",
+"cutExpenses":"Znížiť výdavky o 200 €",
+"aggressivePlan":"Agresívny plán",
+
+"financialProjection":"Finančná projekcia",
+"currentPath":"Súčasný plán",
+"improvedPath":"Vylepšený plán",
+"goal":"Cieľ",
+
+"aiFinancialCoach":"AI finančný kouč",
+"askAnything":"Opýtajte sa čokoľvek o svojich financiách...",
+"send":"Odoslať",
+"thinking":"Premýšľam...",
+
+"recommendationSave":"Na dosiahnutie tohto cieľa potrebujete mesačne odkladať približne",
+
+  "everyMonth":"mesačne.",
+
+  "currentlySaving":"Momentálne odkladáte",
+
+  "needAdditional":"Potrebujete ešte",
+
+  
+
+  "youSpend":"Míňate",
+
+  "ofYourIncome":"zo svojho príjmu.",
+
+  "considerReducingExpenses":" Zvážte zníženie výdavkov.",
+
+  "largestExpenseCategory":"Vaša najväčšia výdavková kategória je",
+
+  "withSpendingOf":"s celkovými výdavkami",
+
+  "reduceFoodExpenses":"Zníženie výdavkov na jedlo o 10 % by mohlo ušetriť približne",
+
+  "reviewSubscriptions":"Kontrola predplatných by mohla ušetriť približne",
+
+  "increaseIncome":"Zvýšenie príjmu približne o",
+
+  "achieveGoalOnSchedule":"by vám umožnilo dosiahnuť cieľ načas.",
+
+  "missTarget":"Pri súčasnom tempe môžete svoj cieľ zmeškať približne o",
+
+  "saveAdditional":"Ušetrite navyše",
+
+  "reduceSpending":"Znížte výdavky v",
+
+  "reviewSubscriptionsCancel":"Skontrolujte predplatné a zrušte nevyužívané služby.",
+
+  "trackExpensesWeekly":"Pokračujte v týždennom sledovaní výdavkov.",
+
+  "estimatedGoalAchievement":"Odhadované dosiahnutie cieľa:",
+
+  "whatIfSimulator":"Simulátor scenárov",
+
+  "extraSavings":"Dodatočné mesačné úspory",
+
+  "expenseReduction":"Zníženie výdavkov",
+
+  "simulationResult":"Výsledok simulácie",
+
+  "newMonthlySavings":"Nové mesačné úspory:",
+
+  "newCompletion":"Nové dokončenie:",
+
+  "newSuccessProbability":"Nová pravdepodobnosť úspechu:",
+
+  "savingsProjection":"Projekcia úspor",
+
+  "advisorWelcomeHint": "Pomôžem ti analyzovať výdavky, vytvoriť rozpočet, zlepšiť sporenie, plánovať investície a dosiahnuť tvoje finančné ciele. Stačí sa opýtať.",
+  "incomeIncrease": "Zvýšenie platu (%)",
+
+  "accounts": "Účty",
+"addAccount": "Pridať účet",
+"editAccount": "Upraviť účet",
+"totalNetWorth": "Celková čistá hodnota",
+"transferMoney": "Prevod peňazí",
+"transferFunds": "Previesť prostriedky",
+"transferHistory": "História prevodov",
+"fromAccount": "Z účtu",
+"toAccount": "Na účet",
+
+"accountName": "Názov účtu",
+
+"bank": "Banka",
+"card": "Karta",
+
+"notEnoughMoney": "Na vybranom účte nie je dostatok prostriedkov.",
+"noTransfersYet": "Zatiaľ neexistujú žiadne prevody.",
+"edit": "Upraviť",
+
+"profile": "Profil",
+"changeAvatar": "Zmeniť avatar",
+"removeAvatar": "Odstrániť avatar",
+"freePlan": "Bezplatný plán",
+
+"assets": "Aktíva",
+"personalInformation": "Osobné údaje",
+"country": "Krajina",
+"currency": "Mena",
+"language": "Jazyk",
+"preferences": "Nastavenia",
+"darkTheme": "Tmavý motív",
+"yourStatistics": "Tvoje štatistiky",
+"dataManagement": "Správa údajov",
+"exportData": "Exportovať údaje",
+"importData": "Importovať údaje",
+"resetDemoData": "Obnoviť ukážkové údaje",
+"deleteAccount": "Odstrániť účet",
+"dataImported": "Údaje boli úspešne importované.",
+"invalidBackup": "Neplatný záložný súbor.",
+"resetDemoConfirm": "Naozaj chceš obnoviť všetky ukážkové údaje?",
+"logout": "Odhlásiť sa",
+
+"version": "Verzia",
+"memberSince": "Člen od {{date}}",
+
+"goodMorning": "Dobré ráno",
+"goodAfternoon": "Dobré popoludnie",
+"goodEvening": "Dobrý večer",
+
+"welcomeBack": "Vitaj späť, {{name}}",
+
+"dashboardMorning": "Pripravený začať deň? Tu je prehľad tvojich financií.",
+"dashboardAfternoon": "Pozrime sa, ako sa dnes zatiaľ darí tvojim financiám.",
+"dashboardEvening": "Poďme si zrekapitulovať dnešnú finančnú aktivitu.",
+
+"notifications": "Notifikácie",
+  "notificationsEnabled": "Notifikácie sú zapnuté",
+  "notificationsDisabled": "Notifikácie sú vypnuté",
+
+  "notificationsDescription": "Dostávaj upozornenia na dôležité finančné udalosti.",
+
+  "transferCompleted": "Prevod dokončený",
+"transferCompletedText": "{{amount}} bolo prevedených z účtu {{from}} na účet {{to}}.",
+
+"scanReceipt": "Naskenovať bloček",
+  "scanReceiptDescription": "Automaticky importujte transakcie pomocou AI.",
+
+  "receiptScanner": "AI skener bločkov",
+  "receiptScannerDescription": "Nahrajte bloček a AI automaticky vytvorí transakcie.",
+
+  "uploadReceipt": "Nahrať bloček",
+  "dragReceiptHere": "Pretiahnite bloček sem alebo vyberte obrázok.",
+  "browseImage": "Vybrať obrázok",
+
+  "analyzingReceipt": "Analyzujem bloček...",
+  "pleaseWait": "Prosím počkajte, AI spracováva transakcie.",
+
+  "merchant": "Obchod",
+  "receiptDate": "Dátum bločka",
+  "confidence": "Spoľahlivosť",
+
+  "notDetected": "Nezistené",
+
+  "onlyImagesAllowed": "Povolené sú iba obrázky.",
+
+  "acceptAll": "Prijať všetko",
+
+  "done": "Hotovo",
+
+  "newChat": "Nový chat",
+
+  "today": "Dnes",
+  "yesterday": "Včera",
+  "uploadNewImage":"Nahrať nový obrázok",
+"restoreDefault":"Obnoviť predvolený avatar",
+"upgrade":"Prejsť na Premium",
+
+"loomPremium": "LOOM Premium",
+  "premiumActive": "Premium je aktívny",
+  
+  "availableTokens": "Dostupné tokeny",
+  "premium": "Premium",
+  "perMonth": "mesačne",
+  "unlimitedAiCoach": "Neobmedzený AI finančný kouč",
+  "unlimitedReceiptScanner": "Neobmedzené skenovanie bločkov",
+  "futurePremiumFeatures": "Všetky budúce Premium funkcie",
+  "prioritySupport": "Prednostná podpora",
+  "subscribe": "Predplatiť",
+  "loomTokens": "LOOM Tokeny",
+  "oneTokenOneQuestion": "1 token = 1 otázka pre AI kouča",
+  "oneTokenOneScan": "1 token = 1 naskenovaný bloček",
+  "popular": "Najobľúbenejšie",
+  "tokens": "Tokeny",
+  "selectedPack": "Vybraný balík",
+  "buyTokens": "Kúpiť tokeny",
+  "or": "ALEBO",
+  "customAmount": "Vlastná suma",
+  "customAmountDescription": "Zadajte ľubovoľnú sumu. Každých 0,05 € predstavuje 1 token.",
+  "buyCustomTokens": "Kúpiť tokeny",
+  "paymentsSecured": "Platby sú bezpečne spracované prostredníctvom Stripe.",
+  "manageSubscription": "Spravovať predplatné",
+  "redirectingToCheckout": "Presmerovanie na zabezpečenú platbu...",
+
+  "premiumCancelledUntil": "Premium zrušené — prístup zostáva aktívny",
+  "premiumActiveUntil": "Aktívne do",
+
+  "deleteAccountTitle": "Odstrániť účet?",
+  "deleteAccountMessage": "Týmto sa natrvalo odstráni váš LOOM účet a všetky údaje, ktoré sú s ním spojené.",
+  "deleteAccountWarning": "Túto akciu nie je možné vrátiť späť.",
+  "confirmDeleteAccount": "Odstrániť účet",
+  "deletingAccount": "Odstraňovanie účtu...",
+  "deleteAccountError": "Účet sa nepodarilo odstrániť. Skúste to znova.",
+
+  "dataReset": "Demo dáta boli úspešne resetované.",
+"dataResetError": "Demo dáta sa nepodarilo resetovať. Skúste to znova.",
+
+"noInvestmentsCreated": "Zatiaľ neboli vytvorené žiadne investície",
+"save": "Uložiť",
+  "changeName": "Zmeniť meno"
+}
