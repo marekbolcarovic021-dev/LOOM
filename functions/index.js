@@ -366,7 +366,9 @@ exports.cancelSubscription = onCall(
 
 exports.checkToken = onCall(
   {
-    cors: ["http://localhost:5173"],
+    cors: ["http://localhost:5173",
+      "https://loom-cwsr1r5ku-bmx7.vercel.app"
+    ],
   },
   async (request) => {
 
@@ -439,7 +441,9 @@ exports.checkToken = onCall(
 
 exports.consumeToken = onCall(
   {
-    cors: ["http://localhost:5173"],
+    cors: ["http://localhost:5173",
+      "https://loom-cwsr1r5ku-bmx7.vercel.app"
+    ],
   },
   async (request) => {
 
