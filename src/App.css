@@ -9710,3 +9710,119 @@ cursor: pointer;
 
     overflow: hidden;
 }
+
+/* =========================================================
+   LOOM ADSENSE
+========================================================= */
+
+.loom-ad-container {
+    width: 100%;
+    box-sizing: border-box;
+    overflow: hidden;
+}
+
+
+/* =========================================================
+   DESKTOP SIDE ADS
+========================================================= */
+
+.advisor-desktop-ad {
+    position: fixed;
+
+    top: 50%;
+    transform: translateY(-50%);
+
+    width: 160px;
+    min-height: 300px;
+
+    z-index: 5;
+
+    overflow: hidden;
+
+    box-sizing: border-box;
+}
+
+.advisor-desktop-ad-left {
+    left: 10px;
+}
+
+.advisor-desktop-ad-right {
+    right: 10px;
+}
+
+
+/* =========================================================
+   MOBILE / TABLET AD
+========================================================= */
+
+.advisor-mobile-ad {
+    display: none;
+
+    width: 100%;
+
+    box-sizing: border-box;
+
+    padding: 8px 0;
+
+    margin-top: 18px;
+
+    overflow: hidden;
+}
+
+
+/* =========================================================
+   DESKTOP
+========================================================= */
+
+@media (min-width: 1400px) {
+
+    .advisor-desktop-ad {
+        display: block;
+    }
+
+    .advisor-mobile-ad {
+        display: none;
+    }
+
+}
+
+
+/* =========================================================
+   TABLET
+========================================================= */
+
+@media (min-width: 768px) and (max-width: 1399px) {
+
+    .advisor-desktop-ad {
+        display: none;
+    }
+
+    .advisor-mobile-ad {
+        display: block;
+
+        min-height: 100px;
+    }
+
+}
+
+
+/* =========================================================
+   PHONE
+========================================================= */
+
+@media (max-width: 767px) {
+
+    .advisor-desktop-ad {
+        display: none;
+    }
+
+    .advisor-mobile-ad {
+        display: block;
+
+        min-height: 100px;
+
+        margin-top: 16px;
+        padding: 8px 0;
+    }
+
+}
