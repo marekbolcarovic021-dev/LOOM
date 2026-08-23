@@ -44,6 +44,7 @@ import {
 } from "../Utils/chatStorage";
 
 import { useNavigate } from "react-router-dom";
+import AdSenseAnchor from "../components/AdSenseAnchor";
 
 function Advisor() {
  const {
@@ -55,6 +56,8 @@ function Advisor() {
   consumeToken,
   premium,
 } = useFinance();
+
+const isPremium = premium?.plan === "premium";
 
 const navigate = useNavigate();
 
@@ -783,6 +786,8 @@ function formatChatDate(timestamp) {
 
   return (
    <div className="page-container">
+
+   <AdSenseAnchor enabled={!isPremium} />
 
   <div
   className="advisor-token-badge"

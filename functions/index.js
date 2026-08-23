@@ -365,9 +365,7 @@ exports.cancelSubscription = onCall(
 );
 
 exports.checkToken = onCall(
-  {
-    cors: true,
-  },
+  {},
   async (request) => {
 
   const uid = request.auth?.uid;
@@ -438,11 +436,6 @@ exports.checkToken = onCall(
 ========================================================= */
 
 exports.consumeToken = onCall(
-  {
-    cors: ["http://localhost:5173",
-      "https://loom-cwsr1r5ku-bmx7.vercel.app"
-    ],
-  },
   async (request) => {
 
   console.log("=================================");
