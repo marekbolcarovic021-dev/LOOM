@@ -19,13 +19,13 @@ app.use(
 
 app.use(express.json());
 
-app.use("/receipt", receiptRoutes);
+app.use("/api/receipt", receiptRoutes);
 
 const client = new OpenAI({
     apiKey: process.env.OPENAI_API_KEY,
 });
 
-app.post("/chat", async (req, res) => {
+app.post("/api/chat", async (req, res) => {
     try {
         const {
             message,
