@@ -1461,185 +1461,384 @@ i18n.language,
     </div>
   </div>
 
-  <div className="receipt-scanner-box">
-    <AITransactionImporter />
+ <div className="receipt-scanner-box">
 
-    <div className="ai-token-cost">
-      <Coins size={15} strokeWidth={2.2} />
-      <span>1</span>
-    </div>
+  <div className="receipt-scanner-token">
+
+    <Coins
+      size={15}
+      strokeWidth={2.2}
+    />
+
+    <span>1</span>
+
   </div>
+
+  <AITransactionImporter />
+
+</div>
 
 </div>
 
 
      <div className="ai-chat-card">
 
+  {/* =====================================================
+      AI COACH HEADER
+      ===================================================== */}
+
   <div className="ai-chat-header">
 
-  <div>
-    <h2>{t("aiFinancialCoach")}</h2>
+    <div className="ai-chat-brand">
 
-    <span className="ai-chat-subtitle">
-      {t("advisorWelcomeHint")}
-    </span>
+      <div className="ai-chat-brand-icon">
+        <Bot size={21} strokeWidth={2.2} />
+      </div>
+
+      <div className="ai-chat-brand-text">
+
+        <h2>
+          {t("aiFinancialCoach")}
+        </h2>
+
+        <span className="ai-chat-subtitle">
+          {t("advisorWelcomeHint")}
+        </span>
+
+      </div>
+
+    </div>
+
+
+    <div className="ai-token-cost">
+
+      <Coins
+        size={16}
+        strokeWidth={2.2}
+      />
+
+      <span>1</span>
+
+    </div>
+
   </div>
 
-  <div className="ai-token-cost">
-    <Coins size={15} strokeWidth={2.2} />
-    <span>1</span>
-  </div>
 
-</div>
+  {/* =====================================================
+      QUICK PROMPTS
+      ===================================================== */}
 
   <div className="quick-prompts">
+
     {quickPrompts.map((prompt) => (
+
       <button
         key={prompt}
+        type="button"
         className="prompt-btn"
         onClick={() => sendMessage(prompt)}
       >
         {prompt}
       </button>
+
     ))}
+
   </div>
+
+
+  {/* =====================================================
+      CHAT AREA
+      ===================================================== */}
 
   <div className="chat-layout">
 
-  <div className="chat-sidebar">
 
-    <button
-    className="new-chat-sidebar-btn"
-    onClick={createNewChat}
->
-    <Plus size={20} strokeWidth={2.5} />
-<span>{t("newChat")}</span>
-</button>
+    {/* ===================================================
+        DESKTOP CHAT HISTORY
+        =================================================== */}
 
-    {conversations.map((conversation) => (
-  <div
-    key={conversation.id}
-    className={`conversation-item ${
-      activeConversation === conversation.id ? "active" : ""
-    }`}
-  >
-    <div
-  className="conversation-title"
-  onClick={() => setActiveConversation(conversation.id)}
->
-  <div className="conversation-icon">
-    <MessageSquare size={16} />
-  </div>
+    <aside className="chat-sidebar">
 
-  <div className="conversation-info">
-    <div className="conversation-name">
-      {conversation.title}
-    </div>
-
-    <div className="conversation-date">
-      {formatChatDate(conversation.createdAt)}
-    </div>
-  </div>
-</div>
-
-    <button
-    className="delete-chat-btn"
-    onClick={(e) => {
-        e.stopPropagation();
-        removeConversation(conversation.id);
-    }}
->
-    <Trash2 size={15}/>
-</button>
-  </div>
-))}
-
-  </div>
-
-  <div className="chat-window">
-
-    {messages.map((message) => (
-      <div
-        key={message.id}
-        className={`chat-row ${message.sender}`}
+      <button
+        type="button"
+        className="new-chat-sidebar-btn"
+        onClick={createNewChat}
       >
-        <div className={`chat-avatar ${message.sender}`}>
-          {message.sender === "ai" ? <Bot size={18} /> : <User size={18} />}
-        </div>
 
-       <div className={`chat-bubble ${message.sender}`}>
+        <Plus
+          size={20}
+          strokeWidth={2.5}
+        />
 
-    {message.sender === "ai" ? (
+        <span>
+          {t("newChat")}
+        </span>
 
-        <ReactMarkdown
-    remarkPlugins={[remarkGfm]}
->
-    {message.isWelcome
-        ? `${t("advisorWelcome")}
+      </button>
+
+
+      <div className="conversation-list">
+
+        {conversations.map((conversation) => (
+
+          <div
+            key={conversation.id}
+            className={`conversation-item ${
+              activeConversation === conversation.id
+                ? "active"
+                : ""
+            }`}
+          >
+
+            <div
+              className="conversation-title"
+              onClick={() =>
+                setActiveConversation(conversation.id)
+              }
+            >
+
+              <div className="conversation-icon">
+
+                <MessageSquare
+                  size={16}
+                  strokeWidth={2}
+                />
+
+              </div>
+
+
+              <div className="conversation-info">
+
+                <div className="conversation-name">
+                  {conversation.title}
+                </div>
+
+                <div className="conversation-date">
+                  {formatChatDate(
+                    conversation.createdAt
+                  )}
+                </div>
+
+              </div>
+
+            </div>
+
+
+            <button
+              type="button"
+              className="delete-chat-btn"
+              onClick={(e) => {
+
+                e.stopPropagation();
+
+                removeConversation(
+                  conversation.id
+                );
+
+              }}
+            >
+
+              <Trash2
+                size={15}
+                strokeWidth={2}
+              />
+
+            </button>
+
+          </div>
+
+        ))}
+
+      </div>
+
+    </aside>
+
+
+    {/* ===================================================
+        MAIN CHAT
+        =================================================== */}
+
+    <div className="chat-main">
+
+
+      {/* CHAT MESSAGES */}
+
+      <div className="chat-window">
+
+        {messages.length === 0 && (
+
+          <div className="chat-empty-state">
+
+            <div className="chat-empty-icon">
+
+              <Bot
+                size={28}
+                strokeWidth={2}
+              />
+
+            </div>
+
+            <h3>
+              {t("advisorWelcome")}
+            </h3>
+
+            <p>
+              {t("advisorWelcomeHint")}
+            </p>
+
+          </div>
+
+        )}
+
+
+        {messages.map((message) => (
+
+          <div
+            key={message.id}
+            className={`chat-row ${message.sender}`}
+          >
+
+            {/* AI / USER AVATAR */}
+
+            <div
+              className={`chat-avatar ${message.sender}`}
+            >
+
+              {message.sender === "ai" ? (
+
+                <Bot
+                  size={18}
+                  strokeWidth={2}
+                />
+
+              ) : (
+
+                <User
+                  size={18}
+                  strokeWidth={2}
+                />
+
+              )}
+
+            </div>
+
+
+            {/* MESSAGE */}
+
+            <div
+              className={`chat-bubble ${message.sender}`}
+            >
+
+              {message.sender === "ai" ? (
+
+                <ReactMarkdown
+                  remarkPlugins={[remarkGfm]}
+                >
+
+                  {message.isWelcome
+                    ? `${t("advisorWelcome")}
 
 ${t("advisorWelcomeHint")}`
-        : message.text}
-</ReactMarkdown>
+                    : message.text}
 
-    ) : (
+                </ReactMarkdown>
 
-        message.text
+              ) : (
 
-    )}
+                message.text
+
+              )}
+
+            </div>
+
+          </div>
+
+        ))}
+
+
+        {/* THINKING INDICATOR */}
+
+        {thinking && (
+
+          <div className="chat-row ai">
+
+            <div className="chat-avatar ai">
+
+              <Bot
+                size={18}
+                strokeWidth={2}
+              />
+
+            </div>
+
+
+            <div className="chat-bubble ai typing-bubble">
+
+              <span className="typing-dot"></span>
+              <span className="typing-dot"></span>
+              <span className="typing-dot"></span>
+
+            </div>
+
+          </div>
+
+        )}
+
+
+        <div ref={chatEndRef} />
+
+      </div>
+
+
+      {/* =================================================
+          CHATGPT-STYLE INPUT
+          ================================================= */}
+
+      <div className="chat-input-wrapper">
+
+        <div className="chat-input-container">
+
+          <input
+            type="text"
+            placeholder={t("askAnything")}
+            value={input}
+            onChange={(e) =>
+              setInput(e.target.value)
+            }
+            onKeyDown={(e) => {
+
+              if (e.key === "Enter") {
+                e.preventDefault();
+                sendMessage();
+              }
+
+            }}
+          />
+
+
+          <button
+            type="button"
+            className="coach-send-btn"
+            onClick={sendMessage}
+            aria-label={t("askAnything")}
+          >
+
+            <SendHorizontal
+              size={21}
+              strokeWidth={2.2}
+            />
+
+          </button>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
 
 </div>
-      </div>
-    ))}
-
-    {thinking && (
-      <div className="chat-row ai">
-
-        <div className="chat-avatar ai">
-          <Bot size={18} />
-        </div>
-
-        <div className="chat-bubble ai typing-bubble">
-          <span className="typing-dot"></span>
-          <span className="typing-dot"></span>
-          <span className="typing-dot"></span>
-        </div>
-
-      </div>
-    )}
-
-    <div ref={chatEndRef}></div>
-
-  </div>
-
-</div>   {/* chat-window */}
-
-
-<div className="chat-input-container">
-
-    <input
-      type="text"
-      placeholder={t("askAnything")}
-      value={input}
-      onChange={(e) =>
-        setInput(e.target.value)
-      }
-      onKeyDown={(e) => {
-        if (e.key === "Enter") {
-          sendMessage();
-        }
-      }}
-    />
-
-    <button
-      className="coach-send-btn"
-      onClick={sendMessage}
-    >
-      <SendHorizontal size={22} />
-    </button>
-
-  </div>
-
-</div> 
 
       {!isPremium && (
     <div className="advisor-mobile-ad">

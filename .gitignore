@@ -35,3 +35,4 @@ dist-ssr
 functions/config.js
 
 # src/firebase.js contains public Firebase web configuration and is tracked
+.vercel

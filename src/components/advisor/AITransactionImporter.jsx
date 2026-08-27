@@ -62,12 +62,10 @@ export default function AITransactionImporter() {
 
       if (!tokenResult.allowed) {
 
-        alert(
-          "You have no LOOM Tokens left. Please buy more tokens."
-        );
+    alert(t("noTokensAvailable"));
 
-        return;
-      }
+    return;
+}
 
 
       /*
@@ -224,30 +222,30 @@ export default function AITransactionImporter() {
 
             <div className="receipt-header">
 
-              <div>
+  <div className="receipt-header-content">
 
-                <h2>
-                  {t("receiptScanner")}
-                </h2>
+    <h2>
+      {t("receiptScanner")}
+    </h2>
 
-                <p>
-                  {t("receiptScannerDescription")}
-                </p>
+    <p>
+      {t("receiptScannerDescription")}
+    </p>
 
-              </div>
+  </div>
 
 
-              <button
-                className="receipt-close"
-                onClick={closeModal}
-                disabled={loading}
-              >
+  <button
+    className="receipt-close"
+    onClick={closeModal}
+    disabled={loading}
+  >
 
-                <X size={20} />
+    <X size={20} />
 
-              </button>
+  </button>
 
-            </div>
+</div>
 
 
             {/* UPLOAD */}
