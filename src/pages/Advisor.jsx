@@ -397,94 +397,669 @@ const estimatedGoalDate =
       )
     : t("unknown");
 
-    //AI Chat
+   // ==========================================================
+// AI FINANCIAL COACH
+// ==========================================================
 
-    useEffect(() => {
-  if (messages.length === 0) {
-    updateMessages([
-  {
-    id: 1,
-    sender: "ai",
-    isWelcome: true,
-  },
-]);
-  }
-}, []);
+// ----------------------------------------------------------
+// CHAT STORAGE / INITIALIZATION
+// ----------------------------------------------------------
 
-const [input, setInput] = useState("");
+const createWelcomeMessage = () => ({
+  id: `welcome-${Date.now()}-${Math.random()}`,
+  sender: "ai",
+  isWelcome: true,
+});
 
-function updateMessages(updater) {
-  setConversations((prev) =>
-    prev.map((conversation) => {
-      if (conversation.id !== activeConversation)
-        return conversation;
-
-      const newMessages =
-        typeof updater === "function"
-          ? updater(conversation.messages)
-          : updater;
-
-      return {
-        ...conversation,
-        messages: newMessages,
-      };
-    })
-  );
-}
-
-function createNewChat() {
-  const newConversation = {
-  id: Date.now(),
+const createConversation = () => ({
+  id: `chat-${Date.now()}-${Math.random()}`,
   title: t("newChat"),
   createdAt: Date.now(),
   messages: [
-  {
-    id: 1,
-    sender: "ai",
-    isWelcome: true,
-  },
-],
-  };
+    createWelcomeMessage(),
+  ],
+});
 
-  setConversations((prev) => [
-    newConversation,
-    ...prev,
-  ]);
+const [conversations, setConversations] =
+  useState(() => {
+    const storedChats = loadChats();
 
-  setActiveConversation(newConversation.id);
-}
+    if (
+      Array.isArray(storedChats) &&
+      storedChats.length > 0
+    ) {
+      return storedChats.map((chat) => ({
+        ...chat,
+        messages:
+          Array.isArray(chat.messages) &&
+          chat.messages.length > 0
+            ? chat.messages
+            : [createWelcomeMessage()],
+      }));
+    }
 
-const defaultConversation = {
-  id: Date.now(),
-  title: t("newChat"),
-  createdAt: Date.now(),
-messages: [
-  {
-    id: 1,
-    sender: "ai",
-    isWelcome: true,
-  },
-],
-};
-const initialChats = loadChats();
-
-const [conversations, setConversations] = useState(
-  initialChats.length
-    ? initialChats
-    : [defaultConversation]
-);
+    return [createConversation()];
+  });
 
 const [activeConversation, setActiveConversation] =
-  useState(
-    initialChats.length
-      ? initialChats[0].id
-      : defaultConversation.id
+  useState(() => {
+    const storedChats = loadChats();
+
+    if (
+      Array.isArray(storedChats) &&
+      storedChats.length > 0
+    ) {
+      return storedChats[0].id;
+    }
+
+    return null;
+  });
+
+const [input, setInput] =
+  useState("");
+
+const [thinking, setThinking] =
+  useState(false);
+
+const chatEndRef =
+  useRef(null);
+
+const chatInputRef =
+  useRef(null);
+
+const sendingRef =
+  useRef(false);
+
+
+// ----------------------------------------------------------
+// ENSURE ACTIVE CHAT EXISTS
+// ----------------------------------------------------------
+
+useEffect(() => {
+  if (!activeConversation) {
+    if (conversations.length > 0) {
+      setActiveConversation(
+        conversations[0].id
+      );
+    }
+
+    return;
+  }
+
+  const exists =
+    conversations.some(
+      (conversation) =>
+        conversation.id ===
+        activeConversation
+    );
+
+  if (!exists && conversations.length > 0) {
+    setActiveConversation(
+      conversations[0].id
+    );
+  }
+}, [
+  conversations,
+  activeConversation,
+]);
+
+
+// ----------------------------------------------------------
+// CURRENT CHAT
+// ----------------------------------------------------------
+
+const currentConversation =
+  conversations.find(
+    (conversation) =>
+      conversation.id ===
+      activeConversation
   );
 
 const messages =
-  conversations.find(
-    (c) => c.id === activeConversation
-  )?.messages || [];
+  currentConversation?.messages || [];
+
+
+// ----------------------------------------------------------
+// UPDATE CURRENT CHAT MESSAGES
+// ----------------------------------------------------------
+
+function updateMessages(updater) {
+  setConversations(
+    (previousConversations) =>
+      previousConversations.map(
+        (conversation) => {
+
+          if (
+            conversation.id !==
+            activeConversation
+          ) {
+            return conversation;
+          }
+
+          const previousMessages =
+            Array.isArray(
+              conversation.messages
+            )
+              ? conversation.messages
+              : [];
+
+          const newMessages =
+            typeof updater === "function"
+              ? updater(
+                  previousMessages
+                )
+              : updater;
+
+          return {
+            ...conversation,
+            messages: newMessages,
+          };
+        }
+      )
+  );
+}
+
+
+// ----------------------------------------------------------
+// CREATE NEW CHAT
+// ----------------------------------------------------------
+
+function createNewChat() {
+  const newConversation =
+    createConversation();
+
+  setConversations(
+    (previousConversations) => [
+      newConversation,
+      ...previousConversations,
+    ]
+  );
+
+  setActiveConversation(
+    newConversation.id
+  );
+
+  setInput("");
+
+  // Focus the input after the new chat appears.
+  setTimeout(() => {
+    chatInputRef.current?.focus();
+  }, 50);
+}
+
+
+// ----------------------------------------------------------
+// DELETE CHAT
+// ----------------------------------------------------------
+
+function removeConversation(id) {
+
+  const remainingChats =
+    conversations.filter(
+      (conversation) =>
+        conversation.id !== id
+    );
+
+  // ----------------------------------------------
+  // If this was the last chat, create a clean one.
+  // ----------------------------------------------
+
+  if (
+    remainingChats.length === 0
+  ) {
+
+    const replacementChat =
+      createConversation();
+
+    setConversations([
+      replacementChat,
+    ]);
+
+    setActiveConversation(
+      replacementChat.id
+    );
+
+    setInput("");
+
+    setTimeout(() => {
+      chatInputRef.current?.focus();
+    }, 50);
+
+    return;
+  }
+
+  // ----------------------------------------------
+  // Normal deletion
+  // ----------------------------------------------
+
+  setConversations(
+    remainingChats
+  );
+
+  if (
+    activeConversation === id
+  ) {
+    setActiveConversation(
+      remainingChats[0].id
+    );
+  }
+}
+
+
+// ----------------------------------------------------------
+// FORMAT CHAT DATE
+// ----------------------------------------------------------
+
+function formatChatDate(timestamp) {
+
+  const date =
+    new Date(timestamp);
+
+  const today =
+    new Date();
+
+  if (
+    date.toDateString() ===
+    today.toDateString()
+  ) {
+    return t("today");
+  }
+
+  const yesterday =
+    new Date();
+
+  yesterday.setDate(
+    today.getDate() - 1
+  );
+
+  if (
+    date.toDateString() ===
+    yesterday.toDateString()
+  ) {
+    return t("yesterday");
+  }
+
+  return date.toLocaleDateString(
+    i18n.language,
+    {
+      day: "numeric",
+      month: "short",
+    }
+  );
+}
+
+
+// ----------------------------------------------------------
+// THREE-MONTH AI FINANCIAL ANALYSIS
+// ----------------------------------------------------------
+//
+// IMPORTANT:
+// This is intentionally separate from the existing
+// Future Vision calculations above.
+// We are changing ONLY what the AI coach receives.
+//
+// ----------------------------------------------------------
+
+const now =
+  new Date();
+
+const threeMonthsAgo =
+  new Date(now);
+
+threeMonthsAgo.setMonth(
+  threeMonthsAgo.getMonth() - 3
+);
+
+const aiRecentTransactions =
+  transactions.filter(
+    (transaction) => {
+
+      const transactionDate =
+        new Date(
+          transaction.date
+        );
+
+      return (
+        !Number.isNaN(
+          transactionDate.getTime()
+        ) &&
+        transactionDate >=
+          threeMonthsAgo &&
+        transactionDate <= now
+      );
+    }
+  );
+
+
+// ----------------------------------------------------------
+// SAFE TRANSACTION AMOUNTS
+// ----------------------------------------------------------
+
+const aiIncomeTransactions =
+  aiRecentTransactions.filter(
+    (transaction) =>
+      transaction.type ===
+      "Income"
+  );
+
+const aiExpenseTransactions =
+  aiRecentTransactions.filter(
+    (transaction) =>
+      transaction.type ===
+      "Expense"
+  );
+
+
+// ----------------------------------------------------------
+// THREE-MONTH TOTALS
+// ----------------------------------------------------------
+
+const aiThreeMonthIncome =
+  aiIncomeTransactions.reduce(
+    (sum, transaction) =>
+      sum +
+      Number(
+        transaction.amount || 0
+      ),
+    0
+  );
+
+const aiThreeMonthExpenses =
+  aiExpenseTransactions.reduce(
+    (sum, transaction) =>
+      sum +
+      Number(
+        transaction.amount || 0
+      ),
+    0
+  );
+
+const aiThreeMonthSavings =
+  aiThreeMonthIncome -
+  aiThreeMonthExpenses;
+
+
+// ----------------------------------------------------------
+// MONTHLY AVERAGES
+// ----------------------------------------------------------
+
+const aiAverageMonthlyIncome =
+  aiThreeMonthIncome / 3;
+
+const aiAverageMonthlyExpenses =
+  aiThreeMonthExpenses / 3;
+
+const aiAverageMonthlySavings =
+  aiThreeMonthSavings / 3;
+
+const aiSavingsRate =
+  aiAverageMonthlyIncome > 0
+    ? Math.round(
+        (
+          aiAverageMonthlySavings /
+          aiAverageMonthlyIncome
+        ) * 100
+      )
+    : 0;
+
+
+// ----------------------------------------------------------
+// EXPENSE CATEGORY ANALYSIS
+// ----------------------------------------------------------
+
+const aiCategoryExpenses = {};
+
+aiExpenseTransactions.forEach(
+  (transaction) => {
+
+    const category =
+      transaction.category ||
+      "Other";
+
+    aiCategoryExpenses[
+      category
+    ] =
+      (
+        aiCategoryExpenses[
+          category
+        ] || 0
+      ) +
+      Number(
+        transaction.amount || 0
+      );
+  }
+);
+
+const aiTopExpenseCategories =
+  Object.entries(
+    aiCategoryExpenses
+  )
+    .sort(
+      (a, b) =>
+        b[1] - a[1]
+    )
+    .slice(0, 10)
+    .map(
+      ([category, amount]) => ({
+        category,
+        threeMonthAmount:
+          Math.round(amount),
+        averageMonthlyAmount:
+          Math.round(
+            amount / 3
+          ),
+      })
+    );
+
+
+// ----------------------------------------------------------
+// ACCOUNT / NET WORTH DATA
+// ----------------------------------------------------------
+
+const aiNetWorth =
+  accounts.reduce(
+    (sum, account) =>
+      sum +
+      Number(
+        account.balance || 0
+      ),
+    0
+  );
+
+
+// ----------------------------------------------------------
+// ACCOUNT BREAKDOWN
+// ----------------------------------------------------------
+
+const aiAccounts =
+  accounts.map(
+    (account) => ({
+      name:
+        account.name ||
+        "Unknown",
+
+      type:
+        account.type ||
+        "Unknown",
+
+      balance:
+        Number(
+          account.balance || 0
+        ),
+    })
+  );
+
+
+// ----------------------------------------------------------
+// GOAL SUMMARY
+// ----------------------------------------------------------
+
+const aiGoals =
+  goals.map(
+    (goal) => ({
+      name:
+        goal.name,
+
+      targetAmount:
+        Number(
+          goal.amount || 0
+        ),
+
+      currentSavings:
+        Number(
+          goal.currentSavings ||
+            0
+        ),
+
+      deadline:
+        Number(
+          goal.deadline || 0
+        ),
+    })
+  );
+
+
+// ----------------------------------------------------------
+// RECENT TRANSACTIONS FOR CONTEXT
+// ----------------------------------------------------------
+//
+// Only send a reasonable number of transactions to
+// the coach. The full three-month totals/categories are
+// already supplied above.
+//
+// ----------------------------------------------------------
+
+const aiRecentTransactionDetails =
+  [...aiRecentTransactions]
+    .sort(
+      (a, b) =>
+        new Date(b.date) -
+        new Date(a.date)
+    )
+    .slice(0, 100)
+    .map(
+      (transaction) => {
+
+        const account =
+          accounts.find(
+            (item) =>
+              item.id ===
+              transaction.accountId
+          );
+
+        return {
+          date:
+            transaction.date,
+
+          type:
+            transaction.type,
+
+          category:
+            transaction.category ||
+            "Other",
+
+          amount:
+            Number(
+              transaction.amount ||
+                0
+            ),
+
+          account:
+            account?.name ||
+            "Unknown",
+        };
+      }
+    );
+
+
+// ----------------------------------------------------------
+// AI COACH FINANCIAL PROFILE
+// ----------------------------------------------------------
+
+const aiFinancialProfile = {
+
+  currency:
+    profile.currency,
+
+  language:
+    i18n.language,
+
+  analysisPeriod:
+    "last 3 months",
+
+  analysisStart:
+    threeMonthsAgo.toISOString(),
+
+  analysisEnd:
+    now.toISOString(),
+
+  threeMonthTotals: {
+
+    income:
+      Math.round(
+        aiThreeMonthIncome
+      ),
+
+    expenses:
+      Math.round(
+        aiThreeMonthExpenses
+      ),
+
+    savings:
+      Math.round(
+        aiThreeMonthSavings
+      ),
+  },
+
+  monthlyAverages: {
+
+    income:
+      Math.round(
+        aiAverageMonthlyIncome
+      ),
+
+    expenses:
+      Math.round(
+        aiAverageMonthlyExpenses
+      ),
+
+    savings:
+      Math.round(
+        aiAverageMonthlySavings
+      ),
+  },
+
+  savingsRate:
+    aiSavingsRate,
+
+  netWorth:
+    Math.round(
+      aiNetWorth
+    ),
+
+  totalAccounts:
+    accounts.length,
+
+  totalGoals:
+    goals.length,
+
+  topExpenseCategories:
+    aiTopExpenseCategories,
+
+  accounts:
+    aiAccounts,
+
+  goals:
+    aiGoals,
+
+  recentTransactions:
+    aiRecentTransactionDetails,
+};
+
+
+// ----------------------------------------------------------
+// QUICK PROMPTS
+// ----------------------------------------------------------
 
 const quickPrompts = [
   t("promptSaveMoney"),
@@ -494,215 +1069,341 @@ const quickPrompts = [
   t("promptFinancialSummary"),
 ];
 
-const currentConversation =
-    conversations.find(
-        c => c.id === activeConversation
-    );
 
-async function sendMessage(customMessage = null) {
+// ----------------------------------------------------------
+// SEND MESSAGE
+// ----------------------------------------------------------
+
+async function sendMessage(
+  customMessage = null
+) {
+
+  // ----------------------------------------------
+  // Prevent multiple simultaneous requests
+  // ----------------------------------------------
+
+  if (sendingRef.current) {
+    return;
+  }
 
   const messageText = (
-    customMessage || input
+    customMessage ??
+    input
   ).trim();
 
-  if (!messageText) return;
+  if (!messageText) {
+    return;
+  }
 
+  sendingRef.current = true;
   setThinking(true);
 
   try {
 
-    /*
-     * ==========================================
-     * 1. CHECK LOOM TOKEN
-     * ==========================================
-     */
+    // ==================================================
+    // 1. CHECK TOKEN
+    // ==================================================
+    //
+    // Premium = unlimited.
+    // Free = one token per successful answer.
+    //
+    // ==================================================
 
-    const tokenResult =
-      await checkToken();
+    if (!isPremium) {
 
-    if (!tokenResult.allowed) {
+      const tokenResult =
+        await checkToken();
 
-      updateMessages((prev) => [
-        ...prev,
-        {
-          id: Date.now(),
-          sender: "ai",
-          text: t("noTokensAvailable"),
-        },
-      ]);
+      if (
+        !tokenResult ||
+        !tokenResult.allowed
+      ) {
 
-      return;
+        updateMessages(
+          (previousMessages) => [
+            ...previousMessages,
+            {
+              id:
+                `msg-${Date.now()}-${Math.random()}`,
+              sender: "ai",
+              text:
+                t(
+                  "noTokensAvailable"
+                ),
+            },
+          ]
+        );
+
+        return;
+      }
     }
 
 
-    /*
-     * ==========================================
-     * 2. ADD USER MESSAGE
-     * ==========================================
-     */
+    // ==================================================
+    // 2. CREATE USER MESSAGE
+    // ==================================================
 
     const userMessage = {
-      id: Date.now(),
-      sender: "user",
-      text: messageText,
+      id:
+        `msg-${Date.now()}-${Math.random()}`,
+
+      sender:
+        "user",
+
+      text:
+        messageText,
+
+      createdAt:
+        Date.now(),
     };
 
-    updateMessages((prev) => [
-      ...prev,
-      userMessage,
-    ]);
 
+    // ==================================================
+    // 3. CAPTURE CONVERSATION HISTORY
+    // ==================================================
+    //
+    // Use the conversation BEFORE adding the new
+    // message so the history does not contain a
+    // duplicate copy of the current question.
+    //
+    // ==================================================
 
-    /*
-     * ==========================================
-     * UPDATE CONVERSATION TITLE
-     * ==========================================
-     */
-
-    if (
-      currentConversation?.title ===
-      t("newChat")
-    ) {
-
-      setConversations((prev) =>
-        prev.map((conversation) =>
-          conversation.id === activeConversation
-            ? {
-                ...conversation,
-
-                title:
-                  userMessage.text.length > 32
-                    ? userMessage.text.substring(0, 32) + "..."
-                    : userMessage.text,
-              }
-            : conversation
+    const conversationHistory =
+      (
+        currentConversation
+          ?.messages || []
+      )
+        .filter(
+          (message) =>
+            !message.isWelcome &&
+            message.text
         )
-      );
+        .slice(-20)
+        .map(
+          (message) => ({
+            role:
+              message.sender ===
+              "user"
+                ? "user"
+                : "assistant",
 
+            content:
+              message.text,
+          })
+        );
+
+
+    // ==================================================
+    // 4. ADD USER MESSAGE TO UI
+    // ==================================================
+
+    updateMessages(
+      (previousMessages) => [
+        ...previousMessages,
+        userMessage,
+      ]
+    );
+
+
+    // ==================================================
+    // 5. UPDATE CHAT TITLE
+    // ==================================================
+
+    const currentTitle =
+      currentConversation?.title;
+
+    const isNewChat =
+      !currentTitle ||
+      currentTitle ===
+        t("newChat");
+
+    if (isNewChat) {
+
+      const cleanTitle =
+        messageText
+          .replace(/\s+/g, " ")
+          .trim();
+
+      const title =
+        cleanTitle.length > 40
+          ? `${cleanTitle.substring(
+              0,
+              40
+            )}...`
+          : cleanTitle;
+
+      setConversations(
+        (previousConversations) =>
+          previousConversations.map(
+            (conversation) =>
+              conversation.id ===
+              activeConversation
+                ? {
+                    ...conversation,
+                    title,
+                  }
+                : conversation
+          )
+      );
     }
 
 
+    // Clear input immediately
     setInput("");
 
 
-    /*
-     * ==========================================
-     * 3. SEND QUESTION TO AI SERVER
-     * ==========================================
-     */
+    // ==================================================
+    // 6. SEND TO AI SERVER
+    // ==================================================
 
     const response =
       await fetch(
         "/api/chat",
         {
-          method: "POST",
+          method:
+            "POST",
 
           headers: {
             "Content-Type":
               "application/json",
           },
 
-          body: JSON.stringify({
+          body:
+            JSON.stringify({
 
-            message:
-              messageText,
+              // Current question
+              message:
+                messageText,
 
-            language:
-              i18n.language,
+              // Current language
+              language:
+                i18n.language,
 
-            profile:
-              financialProfile,
+              // Proper 3-month financial analysis
+              profile:
+                aiFinancialProfile,
 
-            transactions,
+              // Full recent transaction context
+              transactions:
+                aiRecentTransactionDetails,
 
-            accounts,
+              // Current accounts
+              accounts:
+                aiAccounts,
 
-            goals,
+              // Current goals
+              goals:
+                aiGoals,
 
-          }),
+              // Previous conversation
+              conversationHistory:
+                conversationHistory,
+
+            }),
         }
       );
 
 
-    /*
-     * ==========================================
-     * AI SERVER ERROR
-     * ==========================================
-     */
+    // ==================================================
+    // 7. HANDLE SERVER ERRORS
+    // ==================================================
 
     if (!response.ok) {
 
-      throw new Error(
-        `AI server returned ${response.status}`
-      );
+      let serverMessage =
+        "";
 
+      try {
+        const errorData =
+          await response.json();
+
+        serverMessage =
+          errorData?.error ||
+          errorData?.message ||
+          "";
+      } catch {
+        // Ignore JSON parsing failure.
+      }
+
+      throw new Error(
+        serverMessage ||
+          `AI server returned ${response.status}`
+      );
     }
 
 
-    /*
-     * ==========================================
-     * 4. READ AI RESPONSE
-     * ==========================================
-     */
+    // ==================================================
+    // 8. READ RESPONSE
+    // ==================================================
 
     const data =
       await response.json();
 
+    const reply =
+      typeof data?.reply ===
+      "string"
+        ? data.reply.trim()
+        : "";
 
-    if (!data.reply) {
+
+    if (!reply) {
 
       throw new Error(
         "AI returned no response."
       );
-
     }
 
 
-    /*
-     * ==========================================
-     * 5. CONSUME TOKEN
-     * ==========================================
-     *
-     * IMPORTANT:
-     *
-     * This happens ONLY after the AI
-     * successfully returned an answer.
-     *
-     * Premium users are handled by
-     * the Firebase function and do NOT
-     * lose a token.
-     */
+    // ==================================================
+    // 9. CONSUME TOKEN
+    // ==================================================
+    //
+    // Premium users do NOT consume tokens.
+    //
+    // Free users consume one token only after
+    // receiving a valid answer.
+    //
+    // ==================================================
 
-    const consumed =
-      await consumeToken();
+    if (!isPremium) {
 
+      const consumed =
+        await consumeToken();
 
-    if (!consumed.success) {
+      if (
+        !consumed ||
+        !consumed.success
+      ) {
 
-      throw new Error(
-        "Token could not be consumed."
-      );
-
+        throw new Error(
+          "Token could not be consumed."
+        );
+      }
     }
 
 
-    /*
-     * ==========================================
-     * 6. SHOW AI RESPONSE
-     * ==========================================
-     */
+    // ==================================================
+    // 10. SHOW AI RESPONSE
+    // ==================================================
 
-    updateMessages((prev) => [
-      ...prev,
-      {
-        id: Date.now() + 1,
+    updateMessages(
+      (previousMessages) => [
+        ...previousMessages,
+        {
+          id:
+            `msg-${Date.now()}-${Math.random()}`,
 
-        sender: "ai",
+          sender:
+            "ai",
 
-        text:
-          data.reply,
-      },
-    ]);
+          text:
+            reply,
+
+          createdAt:
+            Date.now(),
+        },
+      ]
+    );
 
   } catch (error) {
 
@@ -711,79 +1412,81 @@ async function sendMessage(customMessage = null) {
       error
     );
 
-    updateMessages((prev) => [
-      ...prev,
-      {
-        id: Date.now() + 1,
 
-        sender: "ai",
+    // --------------------------------------------------
+    // Error message
+    // --------------------------------------------------
 
-        text:
-          t("unableToContactAI"),
-      },
-    ]);
+    const errorText =
+      error?.message ===
+      "AI returned no response."
+        ? t("noAIResponse")
+        : t("unableToContactAI");
+
+
+    updateMessages(
+      (previousMessages) => [
+        ...previousMessages,
+        {
+          id:
+            `error-${Date.now()}-${Math.random()}`,
+
+          sender:
+            "ai",
+
+          text:
+            errorText,
+
+          createdAt:
+            Date.now(),
+        },
+      ]
+    );
 
   } finally {
 
+    sendingRef.current =
+      false;
+
     setThinking(false);
 
+    setTimeout(() => {
+      chatInputRef.current?.focus();
+    }, 50);
   }
-
 }
 
-const chatEndRef = useRef(null);
-const [thinking, setThinking] =
-useState(false);
+
+// ----------------------------------------------------------
+// AUTO-SCROLL
+// ----------------------------------------------------------
 
 useEffect(() => {
+
   chatEndRef.current?.scrollIntoView({
     behavior: "smooth",
   });
-}, [messages]);
+
+}, [messages, thinking]);
+
+
+// ----------------------------------------------------------
+// SAVE CHATS
+// ----------------------------------------------------------
 
 useEffect(() => {
-    saveChats(conversations);
-}, [conversations]);
 
-const removeConversation = (id) => {
-
-    const chats = deleteChat(id);
-
-    if (chats.length === 0) {
-
-        createNewChat();
-        return;
-
-    }
-
-    setConversations(chats);
-
-    if (activeConversation === id)
-        setActiveConversation(chats[0].id);
-
-};
-
-function formatChatDate(timestamp) {
-  const date = new Date(timestamp);
-  const today = new Date();
-
-  const isToday =
-    date.toDateString() === today.toDateString();
-
-  if (isToday) return t("today");
-
-  const yesterday = new Date();
-  yesterday.setDate(today.getDate() - 1);
-
-  if (date.toDateString() === yesterday.toDateString()) {
-    return t("yesterday");
+  if (
+    Array.isArray(
+      conversations
+    )
+  ) {
+    saveChats(
+      conversations
+    );
   }
 
-  return date.toLocaleDateString(i18n.language, {
-    day: "numeric",
-    month: "short",
-  });
-}
+}, [conversations]);
 
  return (
   <div className="page-container">
@@ -1481,7 +2184,7 @@ i18n.language,
 </div>
 
 
-     <div className="ai-chat-card">
+    <div className="ai-chat-card">
 
   {/* =====================================================
       AI COACH HEADER
@@ -1492,7 +2195,12 @@ i18n.language,
     <div className="ai-chat-brand">
 
       <div className="ai-chat-brand-icon">
-        <Bot size={21} strokeWidth={2.2} />
+
+        <Bot
+          size={21}
+          strokeWidth={2.2}
+        />
+
       </div>
 
       <div className="ai-chat-brand-text">
@@ -1509,7 +2217,6 @@ i18n.language,
 
     </div>
 
-
     <div className="ai-token-cost">
 
       <Coins
@@ -1517,7 +2224,11 @@ i18n.language,
         strokeWidth={2.2}
       />
 
-      <span>1</span>
+      <span>
+        {isPremium
+          ? "∞"
+          : "1"}
+      </span>
 
     </div>
 
@@ -1530,18 +2241,23 @@ i18n.language,
 
   <div className="quick-prompts">
 
-    {quickPrompts.map((prompt) => (
+    {quickPrompts.map(
+      (prompt) => (
 
-      <button
-        key={prompt}
-        type="button"
-        className="prompt-btn"
-        onClick={() => sendMessage(prompt)}
-      >
-        {prompt}
-      </button>
+        <button
+          key={prompt}
+          type="button"
+          className="prompt-btn"
+          disabled={thinking}
+          onClick={() =>
+            sendMessage(prompt)
+          }
+        >
+          {prompt}
+        </button>
 
-    ))}
+      )
+    )}
 
   </div>
 
@@ -1554,7 +2270,7 @@ i18n.language,
 
 
     {/* ===================================================
-        DESKTOP CHAT HISTORY
+        CHAT HISTORY
         =================================================== */}
 
     <aside className="chat-sidebar">
@@ -1562,7 +2278,10 @@ i18n.language,
       <button
         type="button"
         className="new-chat-sidebar-btn"
-        onClick={createNewChat}
+        disabled={thinking}
+        onClick={
+          createNewChat
+        }
       >
 
         <Plus
@@ -1579,75 +2298,110 @@ i18n.language,
 
       <div className="conversation-list">
 
-        {conversations.map((conversation) => (
-
-          <div
-            key={conversation.id}
-            className={`conversation-item ${
-              activeConversation === conversation.id
-                ? "active"
-                : ""
-            }`}
-          >
+        {conversations.map(
+          (conversation) => (
 
             <div
-              className="conversation-title"
-              onClick={() =>
-                setActiveConversation(conversation.id)
+              key={
+                conversation.id
               }
+              className={`conversation-item ${
+                activeConversation ===
+                conversation.id
+                  ? "active"
+                  : ""
+              }`}
             >
 
-              <div className="conversation-icon">
+              <div
+                className="conversation-title"
+                onClick={() => {
 
-                <MessageSquare
-                  size={16}
+                  if (
+                    thinking
+                  ) {
+                    return;
+                  }
+
+                  setActiveConversation(
+                    conversation.id
+                  );
+
+                  setInput("");
+
+                  setTimeout(() => {
+                    chatInputRef.current?.focus();
+                  }, 50);
+
+                }}
+              >
+
+                <div className="conversation-icon">
+
+                  <MessageSquare
+                    size={16}
+                    strokeWidth={2}
+                  />
+
+                </div>
+
+
+                <div className="conversation-info">
+
+                  <div className="conversation-name">
+
+                    {conversation.title}
+
+                  </div>
+
+                  <div className="conversation-date">
+
+                    {formatChatDate(
+                      conversation.createdAt
+                    )}
+
+                  </div>
+
+                </div>
+
+              </div>
+
+
+              <button
+                type="button"
+                className="delete-chat-btn"
+                disabled={thinking}
+                aria-label={t(
+                  "delete"
+                )}
+                onClick={(e) => {
+
+                  e.stopPropagation();
+
+                  if (
+                    thinking
+                  ) {
+                    return;
+                  }
+
+                  removeConversation(
+                    conversation.id
+                  );
+
+                }}
+              >
+
+                <Trash2
+                  size={15}
                   strokeWidth={2}
                 />
 
-              </div>
-
-
-              <div className="conversation-info">
-
-                <div className="conversation-name">
-                  {conversation.title}
-                </div>
-
-                <div className="conversation-date">
-                  {formatChatDate(
-                    conversation.createdAt
-                  )}
-                </div>
-
-              </div>
+              </button>
 
             </div>
 
-
-            <button
-              type="button"
-              className="delete-chat-btn"
-              onClick={(e) => {
-
-                e.stopPropagation();
-
-                removeConversation(
-                  conversation.id
-                );
-
-              }}
-            >
-
-              <Trash2
-                size={15}
-                strokeWidth={2}
-              />
-
-            </button>
-
-          </div>
-
-        ))}
+          )
+        )}
 
       </div>
 
@@ -1661,7 +2415,9 @@ i18n.language,
     <div className="chat-main">
 
 
-      {/* CHAT MESSAGES */}
+      {/* =================================================
+          CHAT MESSAGES
+          ================================================= */}
 
       <div className="chat-window">
 
@@ -1683,7 +2439,9 @@ i18n.language,
             </h3>
 
             <p>
-              {t("advisorWelcomeHint")}
+              {t(
+                "advisorWelcomeHint"
+              )}
             </p>
 
           </div>
@@ -1691,72 +2449,92 @@ i18n.language,
         )}
 
 
-        {messages.map((message) => (
-
-          <div
-            key={message.id}
-            className={`chat-row ${message.sender}`}
-          >
-
-            {/* AI / USER AVATAR */}
+        {messages.map(
+          (message) => (
 
             <div
-              className={`chat-avatar ${message.sender}`}
+              key={
+                message.id
+              }
+              className={`chat-row ${
+                message.sender
+              }`}
             >
 
-              {message.sender === "ai" ? (
+              {/* AVATAR */}
 
-                <Bot
-                  size={18}
-                  strokeWidth={2}
-                />
+              <div
+                className={`chat-avatar ${
+                  message.sender
+                }`}
+              >
 
-              ) : (
+                {message.sender ===
+                "ai" ? (
 
-                <User
-                  size={18}
-                  strokeWidth={2}
-                />
+                  <Bot
+                    size={18}
+                    strokeWidth={2}
+                  />
 
-              )}
+                ) : (
+
+                  <User
+                    size={18}
+                    strokeWidth={2}
+                  />
+
+                )}
+
+              </div>
+
+
+              {/* MESSAGE */}
+
+              <div
+                className={`chat-bubble ${
+                  message.sender
+                }`}
+              >
+
+                {message.sender ===
+                "ai" ? (
+
+                  <ReactMarkdown
+                    remarkPlugins={[
+                      remarkGfm,
+                    ]}
+                  >
+
+                    {message.isWelcome
+                      ? `${t(
+                          "advisorWelcome"
+                        )}
+
+${t(
+  "advisorWelcomeHint"
+)}`
+                      : message.text}
+
+                  </ReactMarkdown>
+
+                ) : (
+
+                  message.text
+
+                )}
+
+              </div>
 
             </div>
 
-
-            {/* MESSAGE */}
-
-            <div
-              className={`chat-bubble ${message.sender}`}
-            >
-
-              {message.sender === "ai" ? (
-
-                <ReactMarkdown
-                  remarkPlugins={[remarkGfm]}
-                >
-
-                  {message.isWelcome
-                    ? `${t("advisorWelcome")}
-
-${t("advisorWelcomeHint")}`
-                    : message.text}
-
-                </ReactMarkdown>
-
-              ) : (
-
-                message.text
-
-              )}
-
-            </div>
-
-          </div>
-
-        ))}
+          )
+        )}
 
 
-        {/* THINKING INDICATOR */}
+        {/* =================================================
+            THINKING
+            ================================================= */}
 
         {thinking && (
 
@@ -1785,13 +2563,15 @@ ${t("advisorWelcomeHint")}`
         )}
 
 
-        <div ref={chatEndRef} />
+        <div
+          ref={chatEndRef}
+        />
 
       </div>
 
 
       {/* =================================================
-          CHATGPT-STYLE INPUT
+          INPUT
           ================================================= */}
 
       <div className="chat-input-wrapper">
@@ -1799,17 +2579,33 @@ ${t("advisorWelcomeHint")}`
         <div className="chat-input-container">
 
           <input
+            ref={chatInputRef}
             type="text"
-            placeholder={t("askAnything")}
+            placeholder={t(
+              "askAnything"
+            )}
             value={input}
+            disabled={thinking}
             onChange={(e) =>
-              setInput(e.target.value)
+              setInput(
+                e.target.value
+              )
             }
             onKeyDown={(e) => {
 
-              if (e.key === "Enter") {
+              if (
+                e.key ===
+                "Enter"
+              ) {
+
                 e.preventDefault();
-                sendMessage();
+
+                if (
+                  !thinking
+                ) {
+                  sendMessage();
+                }
+
               }
 
             }}
@@ -1819,8 +2615,16 @@ ${t("advisorWelcomeHint")}`
           <button
             type="button"
             className="coach-send-btn"
-            onClick={sendMessage}
-            aria-label={t("askAnything")}
+            disabled={
+              thinking ||
+              !input.trim()
+            }
+            onClick={
+              sendMessage
+            }
+            aria-label={t(
+              "send"
+            )}
           >
 
             <SendHorizontal
