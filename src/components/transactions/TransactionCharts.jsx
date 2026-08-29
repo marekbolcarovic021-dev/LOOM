@@ -22,30 +22,65 @@ function TransactionCharts({
 }) {
   const { t } = useTranslation();
 
+  // ==================================================
+  // SAFE VALUES
+  // ==================================================
+
+  const safeIncome =
+    Number(totalIncome || 0);
+
+  const safeExpenses =
+    Number(totalExpenses || 0);
+
+  // Prevent Recharts from receiving [0, 0]
+  // when there are no transactions.
+  const maxAmount = Math.max(
+    safeIncome,
+    safeExpenses
+  );
+
+  const chartMax =
+    maxAmount > 0
+      ? maxAmount * 1.2
+      : 10;
+
+  // ==================================================
+  // BAR CHART DATA
+  // ==================================================
+
+  const incomeLabel =
+    t("income");
+
   return (
     <div className="charts-grid">
 
-      {/* BAR CHART */}
+      {/* ==================================================
+          BAR CHART
+          ================================================== */}
 
       <div className="card chart-card">
 
-        <h2>{t("incomeVsExpenses")}</h2>
+        <h2>
+          {t("incomeVsExpenses")}
+        </h2>
 
         <ResponsiveContainer
           width="100%"
           height={300}
         >
-          <BarChart data={summaryData}>
 
-            <XAxis dataKey="name" />
+          <BarChart
+            data={summaryData}
+          >
+
+            <XAxis
+              dataKey="name"
+            />
 
             <YAxis
               domain={[
                 0,
-                Math.max(
-                  totalIncome,
-                  totalExpenses
-                ) * 1.2,
+                chartMax,
               ]}
             />
 
@@ -55,30 +90,37 @@ function TransactionCharts({
 
               {summaryData.map(
                 (entry, index) => (
+
                   <Cell
                     key={index}
                     fill={
                       entry.name ===
-                      "Income"
+                      incomeLabel
                         ? "#22c55e"
                         : "#ef4444"
                     }
                   />
+
                 )
               )}
 
             </Bar>
 
           </BarChart>
+
         </ResponsiveContainer>
 
       </div>
 
-      {/* PIE CHART */}
+      {/* ==================================================
+          PIE CHART
+          ================================================== */}
 
       <div className="card chart-card">
 
-        <h2>{t("expensesByCategory")}</h2>
+        <h2>
+          {t("expensesByCategory")}
+        </h2>
 
         {pieData.length > 0 ? (
 
@@ -99,6 +141,7 @@ function TransactionCharts({
 
                 {pieData.map(
                   (entry, index) => (
+
                     <Cell
                       key={index}
                       fill={
@@ -108,6 +151,7 @@ function TransactionCharts({
                         ]
                       }
                     />
+
                   )
                 )}
 
@@ -125,8 +169,10 @@ function TransactionCharts({
 
           <p
             style={{
-              textAlign: "center",
-              marginTop: "40px",
+              textAlign:
+                "center",
+              marginTop:
+                "40px",
             }}
           >
             {t("noExpenses")}

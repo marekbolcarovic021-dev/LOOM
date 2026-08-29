@@ -11,6 +11,8 @@ function SearchFilters({
   return (
     <div className="card search-card">
 
+      {/* SEARCH */}
+
       <div className="search-wrapper">
 
         <svg
@@ -20,25 +22,37 @@ function SearchFilters({
           viewBox="0 0 24 24"
           stroke="currentColor"
         >
+
           <path
             strokeLinecap="round"
             strokeLinejoin="round"
             strokeWidth={2}
             d="M21 21l-4.35-4.35m0 0A7.5 7.5 0 105.65 5.65a7.5 7.5 0 0010.6 10.6z"
           />
+
         </svg>
 
         <input
           className="search-input"
           type="text"
-          placeholder={t("searchTransactions")}
+          placeholder={t(
+            "searchTransactions"
+          )}
           value={search}
-          onChange={(e) => setSearch(e.target.value)}
+          onChange={(e) =>
+            setSearch(
+              e.target.value
+            )
+          }
         />
 
       </div>
 
+      {/* FILTERS */}
+
       <div className="filter-buttons">
+
+        {/* ALL */}
 
         <button
           className={
@@ -46,10 +60,14 @@ function SearchFilters({
               ? "filter-btn active-filter"
               : "filter-btn"
           }
-          onClick={() => setFilterType("All")}
+          onClick={() =>
+            setFilterType("All")
+          }
         >
           {t("all")}
         </button>
+
+        {/* INCOME */}
 
         <button
           className={
@@ -57,21 +75,27 @@ function SearchFilters({
               ? "filter-btn active-filter"
               : "filter-btn"
           }
-          onClick={() => setFilterType("Income")}
+          onClick={() =>
+            setFilterType("Income")
+          }
         >
           {t("income")}
         </button>
 
-  <button
-  className={
-    filterType === "Expense"
-      ? "filter-btn active-filter"
-      : "filter-btn"
-  }
-  onClick={() => setFilterType("Expense")}
->
-  {t("expenses")}
-</button>
+        {/* EXPENSE */}
+
+        <button
+          className={
+            filterType === "Expense"
+              ? "filter-btn active-filter"
+              : "filter-btn"
+          }
+          onClick={() =>
+            setFilterType("Expense")
+          }
+        >
+          {t("expense")}
+        </button>
 
       </div>
 

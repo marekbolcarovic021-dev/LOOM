@@ -2,58 +2,81 @@ import { useTranslation } from "react-i18next";
 import { formatCurrency } from "../../Utils/currency";
 import { useFinance } from "../../context/FinanceContext";
 
-
 function TransactionSummary({
   totalIncome,
   totalExpenses,
   balance,
 }) {
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
   const { profile } = useFinance();
 
   return (
     <div className="summary-container">
 
+      {/* TOTAL INCOME */}
+
       <div className="card">
-        <h2>{t("totalIncome")}</h2>
+
+        <h2>
+          {t("totalIncome")}
+        </h2>
 
         <div className="income amount">
+
           {formatCurrency(
-    totalIncome,
-    profile.currency,
-    profile.language
-)}
+            Number(totalIncome || 0),
+            profile.currency,
+            i18n.language
+          )}
+
         </div>
+
       </div>
 
+      {/* TOTAL EXPENSES */}
+
       <div className="card">
-        <h2>{t("totalExpenses")}</h2>
+
+        <h2>
+          {t("totalExpenses")}
+        </h2>
 
         <div className="expense amount">
-         {formatCurrency(
-    totalExpenses,
-    profile.currency,
-    profile.language
-)}
+
+          {formatCurrency(
+            Number(totalExpenses || 0),
+            profile.currency,
+            i18n.language
+          )}
+
         </div>
+
       </div>
 
+      {/* BALANCE */}
+
       <div className="card">
-        <h2>{t("balance")}</h2>
+
+        <h2>
+          {t("balance")}
+        </h2>
 
         <div
           className={
-            balance >= 0
+            Number(balance || 0) >= 0
               ? "income amount"
               : "expense amount"
           }
         >
+
           {formatCurrency(
-    balance,
-    profile.currency,
-    profile.language
-)}
+            Number(balance || 0),
+            profile.currency,
+            i18n.language
+          )}
+
         </div>
+
       </div>
 
     </div>

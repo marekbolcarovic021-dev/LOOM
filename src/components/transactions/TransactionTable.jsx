@@ -1,5 +1,8 @@
 import { useTranslation } from "react-i18next";
-import { Pencil, Trash2 } from "lucide-react";
+import {
+  Pencil,
+  Trash2,
+} from "lucide-react";
 import { formatCurrency } from "../../Utils/currency";
 import { useFinance } from "../../context/FinanceContext";
 
@@ -15,13 +18,18 @@ function TransactionTable({
   setAmount,
   setAccountId,
 }) {
-  const { t, i18n } = useTranslation();
-const { profile } = useFinance();
+  const { t, i18n } =
+    useTranslation();
+
+  const { profile } =
+    useFinance();
 
   return (
     <div className="card">
 
-      <h2>{t("transactions")}</h2>
+      <h2>
+        {t("transactions")}
+      </h2>
 
       <div className="transactions-table">
 
@@ -30,30 +38,52 @@ const { profile } = useFinance();
           <thead>
 
             <tr>
-              <th>{t("date")}</th>
-              <th>{t("category")}</th>
-              <th>{t("type")}</th>
-              <th>{t("account")}</th>
-              <th>{t("amount")}</th>
+
+              <th>
+                {t("date")}
+              </th>
+
+              <th>
+                {t("category")}
+              </th>
+
+              <th>
+                {t("type")}
+              </th>
+
+              <th>
+                {t("account")}
+              </th>
+
+              <th>
+                {t("amount")}
+              </th>
+
               <th></th>
+
             </tr>
 
           </thead>
 
           <tbody>
 
-            {filteredTransactions.length === 0 ? (
+            {filteredTransactions.length ===
+            0 ? (
 
               <tr>
 
                 <td
                   colSpan="6"
                   style={{
-                    textAlign: "center",
-                    padding: "30px",
+                    textAlign:
+                      "center",
+                    padding:
+                      "30px",
                   }}
                 >
-                  {t("noTransactions")}
+                  {t(
+                    "noTransactions"
+                  )}
                 </td>
 
               </tr>
@@ -63,88 +93,129 @@ const { profile } = useFinance();
               filteredTransactions.map(
                 (transaction) => (
 
-                  <tr key={transaction.id}>
+                  <tr
+                    key={
+                      transaction.id
+                    }
+                  >
+
+                    {/* DATE */}
 
                     <td>
                       {new Date(
-  transaction.date
-).toLocaleDateString(
-  i18n.language
-)}
+                        transaction.date
+                      ).toLocaleDateString(
+                        i18n.language
+                      )}
                     </td>
 
-                   <td>
+                    {/* CATEGORY */}
 
-  {
-  t(
-    transaction.category.toLowerCase(),
-    transaction.category
-  )
-}
+                    <td>
 
-  {transaction.recurring && (
+                      {t(
+                        transaction.category.toLowerCase(),
+                        transaction.category
+                      )}
 
-    <span className="recurring-badge">
-      ↻ {t(transaction.recurrence)}
-    </span>
+                      {transaction.recurring && (
 
-  )}
+                        <span className="recurring-badge">
 
-</td>
+                          ↻{" "}
+                          {t(
+                            transaction.recurrence
+                          )}
 
-                    
-                      <td>
-  {
-  transaction.type === "Income"
-    ? t("income")
-    : t("expense")
-}
-</td>
-                    
+                        </span>
 
-                   <td>
+                      )}
 
-  {(() => {
-    const account = accounts.find(
-      (a) =>
-        a.id === transaction.accountId
-    );
+                    </td>
 
-    if (!account)
-      return t("unknown");
+                    {/* TYPE */}
 
-    const accountTranslations = {
-      "Main Account": "mainAccount",
-      Cash: "cash",
-      Savings: "savings",
-    };
+                    <td>
 
-    return t(
-      accountTranslations[
-        account.name
-      ] || account.name
-    );
-  })()}
+                      {transaction.type ===
+                      "Income"
+                        ? t("income")
+                        : t("expense")}
 
-</td>
+                    </td>
 
-                  <td
-  className={
-    transaction.type === "Income"
-      ? "income"
-      : "expense"
-  }
->
-  {formatCurrency(
-    transaction.amount,
-    profile.currency,
-    i18n.language
-  )}
-</td>
+                    {/* ACCOUNT */}
+
+                    <td>
+
+                      {(() => {
+
+                        const account =
+                          accounts.find(
+                            (a) =>
+                              String(
+                                a.id
+                              ) ===
+                              String(
+                                transaction.accountId
+                              )
+                          );
+
+                        if (!account) {
+                          return t(
+                            "unknown"
+                          );
+                        }
+
+                        const accountTranslations = {
+                          "Main Account":
+                            "mainAccount",
+                          Cash:
+                            "cash",
+                          Savings:
+                            "savings",
+                        };
+
+                        return t(
+                          accountTranslations[
+                            account.name
+                          ] ||
+                            account.name
+                        );
+
+                      })()}
+
+                    </td>
+
+                    {/* AMOUNT */}
+
+                    <td
+                      className={
+                        transaction.type ===
+                        "Income"
+                          ? "income"
+                          : "expense"
+                      }
+                    >
+
+                      {formatCurrency(
+                        Number(
+                          transaction.amount ||
+                            0
+                        ),
+                        profile.currency,
+                        i18n.language
+                      )}
+
+                    </td>
+
+                    {/* ACTIONS */}
 
                     <td>
 
                       <div className="transaction-actions">
+
+                        {/* EDIT */}
 
                         <button
                           className="edit-btn"
@@ -166,70 +237,115 @@ const { profile } = useFinance();
                               transaction.amount
                             );
 
+                            // Keep the exact
+                            // account ID
+                            // associated with
+                            // the transaction.
                             setAccountId(
-                              transaction.accountId
+                              String(
+                                transaction.accountId
+                              )
                             );
 
-                            setTimeout(() => {
+                            setTimeout(
+                              () => {
 
-                              window.scrollTo({
-                                top: 0,
-                                behavior: "smooth",
-                              });
+                                window.scrollTo(
+                                  {
+                                    top: 0,
+                                    behavior:
+                                      "smooth",
+                                  }
+                                );
 
-                            }, 100);
+                              },
+                              100
+                            );
+
                           }}
                         >
 
                           <Pencil
                             size={18}
-                            strokeWidth={2.2}
+                            strokeWidth={
+                              2.2
+                            }
                           />
 
                         </button>
+
+                        {/* DELETE */}
 
                         <button
                           className="delete-btn"
                           onClick={() => {
 
+                            // Find the account
+                            // using a safe
+                            // string comparison.
                             setAccounts(
-                              accounts.map(
-                                (account) => {
+                              (prevAccounts) =>
+                                prevAccounts.map(
+                                  (
+                                    account
+                                  ) => {
 
-                                  if (
-                                    account.id !==
-                                    transaction.accountId
-                                  )
-                                    return account;
+                                    if (
+                                      String(
+                                        account.id
+                                      ) !==
+                                      String(
+                                        transaction.accountId
+                                      )
+                                    ) {
+                                      return account;
+                                    }
 
-                                  return {
-                                    ...account,
+                                    const currentBalance =
+                                      Number(
+                                        account.balance ||
+                                          0
+                                      );
 
-                                    balance:
-                                      transaction.type ===
-                                      "Income"
-                                        ? account.balance -
-                                          transaction.amount
-                                        : account.balance +
-                                          transaction.amount,
-                                  };
-                                }
-                              )
+                                    return {
+                                      ...account,
+
+                                      balance:
+                                        transaction.type ===
+                                        "Income"
+                                          ? currentBalance -
+                                            Number(
+                                              transaction.amount ||
+                                                0
+                                            )
+                                          : currentBalance +
+                                            Number(
+                                              transaction.amount ||
+                                                0
+                                            ),
+                                    };
+
+                                  }
+                                )
                             );
 
                             setTransactions(
-                              transactions.filter(
-                                (t) =>
-                                  t.id !==
-                                  transaction.id
-                              )
+                              (prevTransactions) =>
+                                prevTransactions.filter(
+                                  (t) =>
+                                    t.id !==
+                                    transaction.id
+                                )
                             );
+
                           }}
                         >
 
                           <Trash2
                             size={20}
-                            strokeWidth={2.2}
+                            strokeWidth={
+                              2.2
+                            }
                           />
 
                         </button>
