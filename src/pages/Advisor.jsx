@@ -90,190 +90,434 @@ const [
       goal.id === Number(selectedGoalId)
   );
 
-  // ==========================
-  // FINANCIAL DATA
-  // ==========================
+ // ==========================
+// FUTURE VISION FINANCIAL DATA
+// ==========================
+//
+// Future Vision uses the user's recent financial behavior.
+// We use a rolling 3-month period instead of treating all
+// historical transactions as "monthly" income/expenses.
+//
+// This section is ONLY for Future Vision.
+// The AI Coach below has its own financial analysis.
+// ==========================
 
-  const monthlyIncome = transactions
+const futureVisionNow = new Date();
+
+const futureVisionThreeMonthsAgo =
+  new Date(futureVisionNow);
+
+futureVisionThreeMonthsAgo.setMonth(
+  futureVisionThreeMonthsAgo.getMonth() - 3
+);
+
+
+// ----------------------------------------------------------
+// RECENT TRANSACTIONS
+// ----------------------------------------------------------
+
+const futureVisionRecentTransactions =
+  transactions.filter((transaction) => {
+
+    const transactionDate =
+      new Date(transaction.date);
+
+    return (
+      !Number.isNaN(
+        transactionDate.getTime()
+      ) &&
+      transactionDate >=
+        futureVisionThreeMonthsAgo &&
+      transactionDate <=
+        futureVisionNow
+    );
+  });
+
+
+// ----------------------------------------------------------
+// THREE-MONTH INCOME / EXPENSES
+// ----------------------------------------------------------
+
+const futureVisionThreeMonthIncome =
+  futureVisionRecentTransactions
     .filter(
-      (t) => t.type === "Income"
+      (transaction) =>
+        transaction.type ===
+        "Income"
     )
     .reduce(
-      (sum, t) => sum + t.amount,
+      (sum, transaction) =>
+        sum +
+        Number(
+          transaction.amount || 0
+        ),
       0
     );
 
-  const monthlyExpenses =
-    transactions
-      .filter(
-        (t) => t.type === "Expense"
-      )
-      .reduce(
-        (sum, t) => sum + t.amount,
-        0
-      );
-
-  const monthlySavings =
-    monthlyIncome -
-    monthlyExpenses;
-
-  // ==========================
-  // CATEGORY ANALYSIS
-  // ==========================
-
-  const categoryExpenses = {};
-
-  transactions
+const futureVisionThreeMonthExpenses =
+  futureVisionRecentTransactions
     .filter(
-      (t) => t.type === "Expense"
+      (transaction) =>
+        transaction.type ===
+        "Expense"
     )
-    .forEach((t) => {
-      categoryExpenses[t.category] =
-        (categoryExpenses[
-          t.category
-        ] || 0) + t.amount;
-    });
+    .reduce(
+      (sum, transaction) =>
+        sum +
+        Number(
+          transaction.amount || 0
+        ),
+      0
+    );
 
-  const topExpenseCategory =
-    Object.entries(categoryExpenses)
-      .sort(
-        (a, b) => b[1] - a[1]
-      )[0];
 
-  const foodExpenses =
-    categoryExpenses["Food"] || 0;
+// ----------------------------------------------------------
+// AVERAGE MONTHLY VALUES
+// ----------------------------------------------------------
 
-  const subscriptionsExpenses =
-    transactions
-      .filter(
-        (t) =>
-          t.type === "Expense" &&
-          [
-            "Netflix",
-            "Spotify",
-            "Subscriptions",
-          ].includes(t.category)
-      )
-      .reduce(
-        (sum, t) => sum + t.amount,
+const monthlyIncome =
+  futureVisionThreeMonthIncome / 3;
+
+const monthlyExpenses =
+  futureVisionThreeMonthExpenses / 3;
+
+const monthlySavings =
+  monthlyIncome -
+  monthlyExpenses;
+
+
+// ----------------------------------------------------------
+// CATEGORY ANALYSIS
+// ----------------------------------------------------------
+
+const categoryExpenses = {};
+
+futureVisionRecentTransactions
+  .filter(
+    (transaction) =>
+      transaction.type ===
+      "Expense"
+  )
+  .forEach((transaction) => {
+
+    const category =
+      transaction.category ||
+      "Other";
+
+    categoryExpenses[category] =
+      (
+        categoryExpenses[category] ||
         0
-      );
-
-  const expenseRatio =
-    monthlyIncome > 0
-      ? Math.round(
-          (monthlyExpenses /
-            monthlyIncome) *
-            100
-        )
-      : 0;
-
-  // ==========================
-  // GOAL CALCULATIONS
-  // ==========================
-
-  let requiredMonthlySavings = 0;
-  let probability = 0;
-  let expectedYears = 0;
-  let daysSaved = 0;
-  let incomeGap = 0;
-  let incomeIncreaseNeeded = 0;
-
-  if (selectedGoal) {
-    const targetAmount =
-      Number(selectedGoal.amount);
-
-    const currentAmount =
+      ) +
       Number(
-        selectedGoal.currentSavings
+        transaction.amount || 0
+      );
+  });
+
+const topExpenseCategory =
+  Object.entries(
+    categoryExpenses
+  )
+    .sort(
+      (a, b) =>
+        b[1] - a[1]
+    )[0];
+
+
+// ----------------------------------------------------------
+// SPECIFIC EXPENSE CATEGORIES
+// ----------------------------------------------------------
+
+const foodExpenses =
+  categoryExpenses["Food"] || 0;
+
+const subscriptionsExpenses =
+  futureVisionRecentTransactions
+    .filter(
+      (transaction) =>
+        transaction.type ===
+          "Expense" &&
+        [
+          "Netflix",
+          "Spotify",
+          "Subscriptions",
+        ].includes(
+          transaction.category
+        )
+    )
+    .reduce(
+      (sum, transaction) =>
+        sum +
+        Number(
+          transaction.amount || 0
+        ),
+      0
+    );
+
+
+// ----------------------------------------------------------
+// EXPENSE RATIO
+// ----------------------------------------------------------
+
+const expenseRatio =
+  monthlyIncome > 0
+    ? Math.round(
+        (
+          monthlyExpenses /
+          monthlyIncome
+        ) * 100
+      )
+    : 0;
+
+
+// ==========================
+// GOAL CALCULATIONS
+// ==========================
+
+let requiredMonthlySavings = 0;
+let probability = 0;
+let expectedYears = 0;
+let daysSaved = 0;
+let incomeGap = 0;
+let incomeIncreaseNeeded = 0;
+
+if (selectedGoal) {
+
+  const targetAmount =
+    Math.max(
+      0,
+      Number(
+        selectedGoal.amount || 0
+      )
+    );
+
+  const currentAmount =
+    Math.max(
+      0,
+      Number(
+        selectedGoal.currentSavings ||
+          0
+      )
+    );
+
+  const yearsRemaining =
+    Math.max(
+      0,
+      Number(
+        selectedGoal.deadline || 0
+      )
+    );
+
+  const monthsRemaining =
+    Math.max(
+      Math.round(
+        yearsRemaining * 12
+      ),
+      1
+    );
+
+  const remaining =
+    Math.max(
+      0,
+      targetAmount -
+        currentAmount
+    );
+
+
+  // --------------------------------------------------------
+  // GOAL ALREADY ACHIEVED
+  // --------------------------------------------------------
+
+  if (
+    currentAmount >=
+    targetAmount
+  ) {
+
+    requiredMonthlySavings = 0;
+
+    probability = 100;
+
+    expectedYears = 0;
+
+    daysSaved =
+      Math.round(
+        yearsRemaining *
+          365
       );
 
-    const remaining =
-      targetAmount - currentAmount;
+    incomeGap = 0;
 
-    const yearsRemaining =
-      Number(selectedGoal.deadline);
+    incomeIncreaseNeeded = 0;
 
-    const monthsRemaining =
-      Math.max(
-        yearsRemaining * 12,
-        1
-      );
+  } else {
+
+    // ------------------------------------------------------
+    // REQUIRED MONTHLY SAVINGS
+    // ------------------------------------------------------
 
     requiredMonthlySavings =
       remaining /
       monthsRemaining;
 
-    probability = Math.min(
-      100,
-      Math.round(
-        (monthlySavings /
-          requiredMonthlySavings) *
-          100
-      )
-    );
 
-    expectedYears =
-      remaining /
+    // ------------------------------------------------------
+    // CURRENT PROBABILITY
+    // ------------------------------------------------------
+
+    if (
+      monthlySavings >=
+      requiredMonthlySavings
+    ) {
+
+      probability = 100;
+
+    } else if (
+      monthlySavings <= 0
+    ) {
+
+      probability = 0;
+
+    } else {
+
+      probability =
+        Math.min(
+          100,
+          Math.round(
+            (
+              monthlySavings /
+              requiredMonthlySavings
+            ) * 100
+          )
+        );
+    }
+
+
+    // ------------------------------------------------------
+    // EXPECTED COMPLETION
+    // ------------------------------------------------------
+
+    if (
+      monthlySavings > 0
+    ) {
+
+      const monthsNeeded =
+        remaining /
+        monthlySavings;
+
+      expectedYears =
+        monthsNeeded / 12;
+
+    } else {
+
+      // Infinity means the goal is not currently
+      // reachable using the present saving rate.
+      expectedYears =
+        Infinity;
+    }
+
+
+    // ------------------------------------------------------
+    // TIME ADVANTAGE
+    // ------------------------------------------------------
+
+    if (
+      Number.isFinite(
+        expectedYears
+      ) &&
+      expectedYears <
+        yearsRemaining
+    ) {
+
+      daysSaved =
+        Math.max(
+          0,
+          Math.round(
+            (
+              yearsRemaining -
+              expectedYears
+            ) * 365
+          )
+        );
+
+    } else {
+
+      daysSaved = 0;
+
+    }
+
+
+    // ------------------------------------------------------
+    // MONTHLY GAP
+    // ------------------------------------------------------
+
+    incomeGap =
       Math.max(
-        monthlySavings * 12,
-        1
+        0,
+        Math.round(
+          requiredMonthlySavings -
+            monthlySavings
+        )
       );
 
-    daysSaved =
-      probability >= 100
-        ? Math.max(
-            0,
-            Math.round(
-              (yearsRemaining -
-                expectedYears) *
-                365
-            )
-          )
-        : 0;
 
-    incomeGap = Math.max(
-      0,
-      Math.round(
-        requiredMonthlySavings -
-          monthlySavings
-      )
-    );
+    // ------------------------------------------------------
+    // INCOME INCREASE NEEDED
+    // ------------------------------------------------------
 
     incomeIncreaseNeeded =
       monthlyIncome > 0
-        ? Math.round(
-            (incomeGap /
-              monthlyIncome) *
-              100
+        ? Math.max(
+            0,
+            Math.round(
+              (
+                incomeGap /
+                monthlyIncome
+              ) * 100
+            )
           )
         : 0;
   }
+}
+
+
+// ----------------------------------------------------------
+// FUTURE VISION PROFILE
+// ----------------------------------------------------------
 
 const financialProfile = {
-  monthlyIncome: Math.round(
-    monthlyIncome
-  ),
 
-  monthlyExpenses: Math.round(
-    monthlyExpenses
-  ),
+  monthlyIncome:
+    Math.round(
+      monthlyIncome
+    ),
 
-  monthlySavings: Math.round(
-    monthlySavings
-  ),
+  monthlyExpenses:
+    Math.round(
+      monthlyExpenses
+    ),
+
+  monthlySavings:
+    Math.round(
+      monthlySavings
+    ),
 
   expenseRatio,
 
-  netWorth: accounts.reduce(
-    (sum, account) =>
-      sum + account.balance,
-    0
-  ),
+  netWorth:
+    accounts.reduce(
+      (sum, account) =>
+        sum +
+        Number(
+          account.balance || 0
+        ),
+      0
+    ),
 
-  totalAccounts: accounts.length,
+  totalAccounts:
+    accounts.length,
 
-  totalGoals: goals.length,
+  totalGoals:
+    goals.length,
 
   biggestExpenseCategory:
     topExpenseCategory
@@ -283,119 +527,436 @@ const financialProfile = {
   biggestExpenseAmount:
     topExpenseCategory
       ? Math.round(
-          topExpenseCategory[1]
+          Number(
+            topExpenseCategory[1]
+          ) / 3
         )
       : 0,
 
-  selectedGoal: selectedGoal
-    ? {
-        name: selectedGoal.name,
-        targetAmount:
-          selectedGoal.amount,
-        currentSavings:
-          selectedGoal.currentSavings,
-        deadline:
-          selectedGoal.deadline,
+  selectedGoal:
+    selectedGoal
+      ? {
+          name:
+            selectedGoal.name,
 
-        successProbability:
-          probability,
+          targetAmount:
+            Math.max(
+              0,
+              Number(
+                selectedGoal.amount ||
+                  0
+              )
+            ),
 
-        requiredMonthlySavings:
-          Math.round(
-            requiredMonthlySavings
-          ),
+          currentSavings:
+            Math.max(
+              0,
+              Number(
+                selectedGoal.currentSavings ||
+                  0
+              )
+            ),
 
-        expectedCompletionYears:
-          Math.round(
-            expectedYears
-          ),
-      }
-    : null,
+          deadline:
+            Math.max(
+              0,
+              Number(
+                selectedGoal.deadline ||
+                  0
+              )
+            ),
+
+          successProbability:
+            probability,
+
+          requiredMonthlySavings:
+            Math.round(
+              requiredMonthlySavings
+            ),
+
+          expectedCompletionYears:
+            Number.isFinite(
+              expectedYears
+            )
+              ? Math.round(
+                  expectedYears
+                )
+              : null,
+        }
+      : null,
 };
 
-  // ==========================
-  // WHAT IF SIMULATOR
-  // ==========================
 
-  const simulatedSavings =
-  monthlySavings +
-  Number(extraSavings || 0) +
-  Number(expenseReduction || 0) +
-  monthlyIncome *
-    (Number(
+// ==========================
+// WHAT IF SIMULATOR
+// ==========================
+
+// ----------------------------------------------------------
+// SAFE SIMULATION VALUES
+// ----------------------------------------------------------
+
+const safeExtraSavings =
+  Math.max(
+    0,
+    Number(
+      extraSavings || 0
+    )
+  );
+
+const safeIncomeIncrease =
+  Math.max(
+    0,
+    Number(
       incomeIncrease || 0
-    ) / 100);
+    )
+  );
 
-  const simulatedYears =
-    selectedGoal
-      ? (selectedGoal.amount -
-          selectedGoal.currentSavings) /
-        Math.max(
-          simulatedSavings * 12,
-          1
-        )
-      : 0;
+const safeExpenseReduction =
+  Math.min(
+    Math.max(
+      0,
+      Number(
+        expenseReduction || 0
+      )
+    ),
+    Math.max(
+      0,
+      monthlyExpenses
+    )
+  );
 
-  const simulatedProbability =
-    requiredMonthlySavings > 0
-      ? Math.min(
-          100,
-          Math.round(
-            (simulatedSavings /
-              requiredMonthlySavings) *
-              100
-          )
+
+// ----------------------------------------------------------
+// SIMULATED MONTHLY SAVINGS
+// ----------------------------------------------------------
+
+const simulatedSavings =
+  monthlySavings +
+  safeExtraSavings +
+  safeExpenseReduction +
+  monthlyIncome *
+    (
+      safeIncomeIncrease /
+      100
+    );
+
+
+// ----------------------------------------------------------
+// SIMULATED GOAL
+// ----------------------------------------------------------
+
+let simulatedYears = 0;
+
+if (selectedGoal) {
+
+  const remaining =
+    Math.max(
+      0,
+      Number(
+        selectedGoal.amount || 0
+      ) -
+      Number(
+        selectedGoal.currentSavings ||
+          0
+      )
+    );
+
+
+  if (remaining <= 0) {
+
+    simulatedYears = 0;
+
+  } else if (
+    simulatedSavings > 0
+  ) {
+
+    simulatedYears =
+      remaining /
+      (
+        simulatedSavings *
+        12
+      );
+
+  } else {
+
+    simulatedYears =
+      Infinity;
+  }
+}
+
+
+// ----------------------------------------------------------
+// SIMULATED PROBABILITY
+// ----------------------------------------------------------
+
+let simulatedProbability = 0;
+
+if (
+  selectedGoal
+) {
+
+  const targetAmount =
+    Math.max(
+      0,
+      Number(
+        selectedGoal.amount || 0
+      )
+    );
+
+  const currentAmount =
+    Math.max(
+      0,
+      Number(
+        selectedGoal.currentSavings ||
+          0
+      )
+    );
+
+  const remaining =
+    Math.max(
+      0,
+      targetAmount -
+        currentAmount
+    );
+
+
+  if (
+    remaining <= 0
+  ) {
+
+    simulatedProbability = 100;
+
+  } else if (
+    requiredMonthlySavings <= 0
+  ) {
+
+    simulatedProbability = 0;
+
+  } else if (
+    simulatedSavings <= 0
+  ) {
+
+    simulatedProbability = 0;
+
+  } else {
+
+    simulatedProbability =
+      Math.min(
+        100,
+        Math.round(
+          (
+            simulatedSavings /
+            requiredMonthlySavings
+          ) * 100
         )
-      : 0;
+      );
+  }
+}
+
+
+// ==========================
+// PROJECTION DATA
+// ==========================
 
 const projectionData = [];
 
 if (selectedGoal) {
+
   const currentBalance =
-    Number(selectedGoal.currentSavings);
+    Math.max(
+      0,
+      Number(
+        selectedGoal.currentSavings ||
+          0
+      )
+    );
 
   const improvedSavings =
-    monthlySavings +
-    Number(extraSavings || 0) +
-    Number(expenseReduction || 0) +
-    monthlyIncome *
-      (Number(incomeIncrease || 0) / 100);
+    simulatedSavings;
 
-  let currentValue = currentBalance;
-  let improvedValue = currentBalance;
 
-  for (let year = 0; year <= 10; year++) {
+  // --------------------------------------------------------
+  // Choose a useful chart horizon.
+  //
+  // At least 10 years, but extend it if the goal itself
+  // has a longer deadline or the simulated path needs
+  // longer to reach the goal.
+  //
+  // Maximum 30 years prevents an enormous chart.
+  // --------------------------------------------------------
+
+  const deadlineYears =
+    Math.max(
+      0,
+      Number(
+        selectedGoal.deadline ||
+          0
+      )
+    );
+
+  const requiredProjectionYears =
+    Number.isFinite(
+      simulatedYears
+    )
+      ? Math.ceil(
+          simulatedYears
+        )
+      : 0;
+
+  const projectionYears =
+    Math.min(
+      30,
+      Math.max(
+        10,
+        Math.ceil(
+          deadlineYears
+        ),
+        requiredProjectionYears
+      )
+    );
+
+
+  let currentValue =
+    currentBalance;
+
+  let improvedValue =
+    currentBalance;
+
+
+  for (
+    let year = 0;
+    year <= projectionYears;
+    year++
+  ) {
+
     projectionData.push({
+
       year:
-        new Date().getFullYear() + year,
+        new Date()
+          .getFullYear() +
+        year,
 
       current:
-        Math.round(currentValue),
+        Math.round(
+          currentValue
+        ),
 
       improved:
-        Math.round(improvedValue),
+        Math.round(
+          improvedValue
+        ),
     });
 
-    currentValue += monthlySavings * 12;
 
-    improvedValue += improvedSavings * 12;
+    currentValue +=
+      monthlySavings *
+      12;
+
+    improvedValue +=
+      improvedSavings *
+      12;
   }
 }
 
-const estimatedGoalDate =
-  simulatedSavings > 0
-    ? new Date(
-        new Date().getFullYear() +
-          simulatedYears,
-        0
-      ).toLocaleDateString(
+
+// ==========================
+// ESTIMATED GOAL DATE
+// ==========================
+
+let estimatedGoalDate =
+  t("unknown");
+
+if (
+  selectedGoal
+) {
+
+  const targetAmount =
+    Math.max(
+      0,
+      Number(
+        selectedGoal.amount || 0
+      )
+    );
+
+  const currentAmount =
+    Math.max(
+      0,
+      Number(
+        selectedGoal.currentSavings ||
+          0
+      )
+    );
+
+  const remaining =
+    Math.max(
+      0,
+      targetAmount -
+        currentAmount
+    );
+
+
+  // --------------------------------------------------------
+  // Goal already achieved
+  // --------------------------------------------------------
+
+  if (
+    remaining <= 0
+  ) {
+
+    estimatedGoalDate =
+      new Date().toLocaleDateString(
         i18n.language,
         {
           month: "long",
           year: "numeric",
         }
-      )
-    : t("unknown");
+      );
+
+  }
+
+  // --------------------------------------------------------
+  // Goal can be reached
+  // --------------------------------------------------------
+
+  else if (
+    simulatedSavings > 0
+  ) {
+
+    const monthsNeeded =
+      Math.ceil(
+        remaining /
+        simulatedSavings
+      );
+
+    const goalDate =
+      new Date();
+
+    goalDate.setMonth(
+      goalDate.getMonth() +
+      monthsNeeded
+    );
+
+    estimatedGoalDate =
+      goalDate.toLocaleDateString(
+        i18n.language,
+        {
+          month: "long",
+          year: "numeric",
+        }
+      );
+
+  }
+
+  // --------------------------------------------------------
+  // Goal currently unreachable
+  // --------------------------------------------------------
+
+  else {
+
+    estimatedGoalDate =
+      t("unknown");
+  }
+}
 
    // ==========================================================
 // AI FINANCIAL COACH
