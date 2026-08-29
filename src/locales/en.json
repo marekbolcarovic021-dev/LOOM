@@ -333,5 +333,7 @@
     "noInvestmentsCreated": "No investments created yet",
     "save": "Save",
     "changeName": "Change name",
-    "noTokensAvailable": "No tokens available"
+    "noTokensAvailable": "No tokens available",
+    "noRecentTransactions": "No recent transactions.",
+"addFirstIncomeOrExpense": "Add your first income or expense to get started."
 }

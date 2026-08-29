@@ -337,5 +337,7 @@
     "noInvestmentsCreated": "Noch keine Investitionen erstellt",
     "save": "Speichern",
     "changeName": "Namen ändern",
-    "noTokensAvailable": "Keine Token verfügbar"
+    "noTokensAvailable": "Keine Token verfügbar",
+    "noRecentTransactions": "Keine aktuellen Transaktionen.",
+"addFirstIncomeOrExpense": "Füge deinen ersten Einnahmen- oder Ausgabeneintrag hinzu, um zu beginnen."
 }

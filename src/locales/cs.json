@@ -337,5 +337,7 @@
     "noInvestmentsCreated": "Zatím nebyly vytvořeny žádné investice",
     "save": "Uložit",
     "changeName": "Změnit název",
-    "noTokensAvailable": "Nejsou k dispozici žádné tokeny"
+    "noTokensAvailable": "Nejsou k dispozici žádné tokeny",
+    "noRecentTransactions": "Žádné nedávné transakce.",
+"addFirstIncomeOrExpense": "Začněte přidáním prvního příjmu nebo výdaje."
 }

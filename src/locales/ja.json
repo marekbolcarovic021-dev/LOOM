@@ -337,5 +337,7 @@
   "noInvestmentsCreated": "まだ投資が作成されていません",
   "save": "保存",
   "changeName": "名前を変更",
-  "noTokensAvailable": "利用可能なトークンがありません"
+  "noTokensAvailable": "利用可能なトークンがありません",
+  "noRecentTransactions": "最近の取引はありません。",
+"addFirstIncomeOrExpense": "最初の収入または支出を追加して始めましょう。"
 }

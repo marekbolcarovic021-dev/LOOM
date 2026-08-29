@@ -337,5 +337,7 @@
   "noInvestmentsCreated": "Инвестиции ещё не созданы",
   "save": "Сохранить",
   "changeName": "Изменить имя",
-  "noTokensAvailable": "Нет доступных токенов"
+  "noTokensAvailable": "Нет доступных токенов",
+  "noRecentTransactions": "Нет недавних транзакций.",
+"addFirstIncomeOrExpense": "Начните с добавления первого дохода или расхода."
 }
