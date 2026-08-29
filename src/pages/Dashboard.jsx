@@ -15,11 +15,91 @@ import {
 import { MdSavings } from "react-icons/md";
 import AnalyticsCharts from "../components/AnalyticsCharts";
 import { HiOutlineSparkles } from "react-icons/hi";
+import React from "react";
 
 function Dashboard() {
   const { t, i18n } = useTranslation();
   const finance = useFinance();
   const { profile } = finance;
+
+  function AnimatedNumber({
+  value,
+  formatter,
+  suffix = "",
+  duration = 1400,
+}) {
+  const [displayValue, setDisplayValue] =
+    React.useState(0);
+
+  React.useEffect(() => {
+    const target =
+      Number.isFinite(Number(value))
+        ? Number(value)
+        : 0;
+
+    const startTime =
+      performance.now();
+
+    let animationFrame;
+
+    const animate = (currentTime) => {
+      const elapsed =
+        currentTime - startTime;
+
+      const progress = Math.min(
+        elapsed / duration,
+        1
+      );
+
+      // Smooth ease-out cubic animation
+      const easedProgress =
+        1 -
+        Math.pow(
+          1 - progress,
+          3
+        );
+
+      const currentValue =
+        target *
+        easedProgress;
+
+      setDisplayValue(
+        currentValue
+      );
+
+      if (progress < 1) {
+        animationFrame =
+          requestAnimationFrame(
+            animate
+          );
+      } else {
+        setDisplayValue(target);
+      }
+    };
+
+    animationFrame =
+      requestAnimationFrame(
+        animate
+      );
+
+    return () => {
+      cancelAnimationFrame(
+        animationFrame
+      );
+    };
+  }, [value, duration]);
+
+  return (
+    <>
+      {formatter
+        ? formatter(displayValue)
+        : Math.round(
+            displayValue
+          )}
+      {suffix}
+    </>
+  );
+}
 
   // SAFE FALLBACKS
   const transactions = Array.isArray(
@@ -373,12 +453,17 @@ function Dashboard() {
           </div>
 
           <div className="stat-value">
-            {formatCurrency(
-              totalNetWorth,
-              profile.currency,
-              i18n.language
-            )}
-          </div>
+  <AnimatedNumber
+    value={totalNetWorth}
+    formatter={(value) =>
+      formatCurrency(
+        value,
+        profile.currency,
+        i18n.language
+      )
+    }
+  />
+</div>
 
         </div>
 
@@ -391,12 +476,17 @@ function Dashboard() {
           </div>
 
           <div className="stat-value income">
-            {formatCurrency(
-              totalIncome,
-              profile.currency,
-              i18n.language
-            )}
-          </div>
+  <AnimatedNumber
+    value={totalIncome}
+    formatter={(value) =>
+      formatCurrency(
+        value,
+        profile.currency,
+        i18n.language
+      )
+    }
+  />
+</div>
 
         </div>
 
@@ -409,12 +499,17 @@ function Dashboard() {
           </div>
 
           <div className="stat-value expense">
-            {formatCurrency(
-              totalExpenses,
-              profile.currency,
-              i18n.language
-            )}
-          </div>
+  <AnimatedNumber
+    value={totalExpenses}
+    formatter={(value) =>
+      formatCurrency(
+        value,
+        profile.currency,
+        i18n.language
+      )
+    }
+  />
+</div>
 
         </div>
 
@@ -427,8 +522,14 @@ function Dashboard() {
           </div>
 
           <div className="stat-value">
-            {savingsRate}%
-          </div>
+  <AnimatedNumber
+    value={savingsRate}
+    suffix="%"
+    formatter={(value) =>
+      Math.round(value)
+    }
+  />
+</div>
 
         </div>
 
