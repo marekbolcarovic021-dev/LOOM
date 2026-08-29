@@ -1,7 +1,7 @@
 import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
 import { Toaster } from "react-hot-toast";
-
+import { Analytics } from "@vercel/analytics/react";
 import "./index.css";
 import "./locales/i18n";
 
@@ -18,6 +18,7 @@ createRoot(document.getElementById("root")).render(
       <FinanceProvider>
         <CurrencyProvider>
           <App />
+           <Analytics />
 
           <Toaster
             position="top-right"

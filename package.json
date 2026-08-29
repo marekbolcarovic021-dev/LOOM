@@ -15,6 +15,7 @@
     "@capacitor/core": "^8.5.0",
     "@dataconnect/generated": "file:src/dataconnect-generated",
     "@stripe/stripe-js": "^9.12.1",
+    "@vercel/analytics": "^2.0.1",
     "cors": "^2.8.6",
     "dexie": "^4.4.4",
     "dotenv": "^17.4.2",
