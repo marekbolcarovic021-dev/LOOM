@@ -13434,96 +13434,79 @@ cursor: pointer;
    ========================================================== */
 
 .terms-agreement {
-    width: 100%;
-    margin: 8px 0 14px;
+  width: 100%;
+  margin: 4px 0 14px;
 }
 
 .terms-checkbox {
-    position: relative;
-
-    display: flex;
-    align-items: flex-start;
-
-    gap: 10px;
-
-    cursor: pointer;
-
-    user-select: none;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  width: 100%;
+  cursor: pointer;
+  color: #aebbd4;
+  font-size: 13px;
+  line-height: 1.5;
 }
 
 .terms-checkbox input {
-    position: absolute;
+  appearance: none;
+  -webkit-appearance: none;
 
-    opacity: 0;
+  width: 18px;
+  height: 18px;
 
-    width: 0;
-    height: 0;
+  min-width: 18px;
+  min-height: 18px;
+
+  margin: 0;
+
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: 5px;
+
+  background: #17233d;
+
+  cursor: pointer;
+
+  position: relative;
+}
+
+.terms-checkbox input:checked {
+  background: #3b82f6;
+  border-color: #3b82f6;
+}
+
+.terms-checkbox input:checked::after {
+  content: "✓";
+
+  position: absolute;
+
+  left: 50%;
+  top: 50%;
+
+  transform: translate(-50%, -52%);
+
+  color: white;
+  font-size: 13px;
+  font-weight: 700;
 }
 
 .terms-checkmark {
-    width: 21px;
-    height: 21px;
-
-    flex-shrink: 0;
-
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-    border-radius: 6px;
-
-    border:
-        1px solid
-        rgba(96, 145, 230, .55);
-
-    background:
-        rgba(18, 31, 55, .85);
-
-    color: #fff;
-
-    font-size: 13px;
-    font-weight: 800;
-
-    transition:
-        .2s ease;
-}
-
-.terms-checkbox input:checked
-+ .terms-checkmark {
-    background:
-        linear-gradient(
-            135deg,
-            #3478ee,
-            #6366f1
-        );
-
-    border-color:
-        transparent;
-
-    box-shadow:
-        0 5px 15px
-        rgba(59, 130, 246, .25);
+  display: none;
 }
 
 .terms-text {
-    color:
-        rgba(190, 204, 232, .78);
-
-    font-size: 13px;
-
-    line-height: 1.5;
+  flex: 1;
 }
 
 .terms-text a {
-    color: #70a5ff;
-
-    font-weight: 600;
-
-    text-decoration: none;
+  color: #5b8cff;
+  text-decoration: none;
+  font-weight: 600;
 }
 
 .terms-text a:hover {
-    text-decoration: underline;
+  text-decoration: underline;
 }
 
 
