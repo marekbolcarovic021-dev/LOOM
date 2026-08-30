@@ -5,6 +5,22 @@ import { useFinance } from "../context/FinanceContext";
 import { formatCurrency } from "../Utils/currency";
 import Modal from "../components/Modal";
 
+import {
+  TrendingUp,
+  TrendingDown,
+  Wallet,
+  PiggyBank,
+  BarChart3,
+  Plus,
+  Pencil,
+  Trash2,
+  Target,
+  CircleDollarSign,
+  PieChart,
+  ArrowUpRight,
+  ArrowDownRight,
+} from "lucide-react";
+
 function Investments() {
   const { t, i18n } = useTranslation();
 
@@ -58,7 +74,6 @@ function Investments() {
   // ==================================================
 
   function addInvestment() {
-    // Required text/select fields
     if (
       !assetName.trim() ||
       !assetType ||
@@ -74,7 +89,6 @@ function Investments() {
     const numericCurrentValue =
       Number(currentValue);
 
-    // Validate numbers
     if (
       !Number.isFinite(
         numericInvestedAmount
@@ -86,7 +100,6 @@ function Investments() {
       return;
     }
 
-    // Investment values cannot be negative
     if (
       numericInvestedAmount < 0 ||
       numericCurrentValue < 0
@@ -94,15 +107,15 @@ function Investments() {
       return;
     }
 
+    const cleanName =
+      assetName.trim();
+
     const newInvestment = {
       id: Date.now(),
 
       name:
-        assetName
-          .trim()
-          .charAt(0)
-          .toUpperCase() +
-        assetName.trim().slice(1),
+        cleanName.charAt(0).toUpperCase() +
+        cleanName.slice(1),
 
       type: assetType,
 
@@ -114,13 +127,12 @@ function Investments() {
     };
 
     setInvestments(
-      (prevInvestments) => [
-        ...prevInvestments,
+      (previousInvestments) => [
+        ...previousInvestments,
         newInvestment,
       ]
     );
 
-    // Reset form
     setAssetName("");
     setAssetType("");
     setInvestedAmount("");
@@ -134,8 +146,8 @@ function Investments() {
   function updateInvestment(id) {
     const investment =
       investments.find(
-        (inv) =>
-          inv.id === id
+        (item) =>
+          item.id === id
       );
 
     if (!investment) {
@@ -146,7 +158,6 @@ function Investments() {
       investment
     );
 
-    // Load BOTH values into the modal
     setNewInvestedAmount(
       investment.investedAmount ?? ""
     );
@@ -182,7 +193,6 @@ function Investments() {
         newCurrentValue
       );
 
-    // Validate numbers
     if (
       !Number.isFinite(
         numericInvestedAmount
@@ -194,7 +204,6 @@ function Investments() {
       return;
     }
 
-    // Prevent negative values
     if (
       numericInvestedAmount < 0 ||
       numericCurrentValue < 0
@@ -203,8 +212,8 @@ function Investments() {
     }
 
     setInvestments(
-      (prevInvestments) =>
-        prevInvestments.map(
+      (previousInvestments) =>
+        previousInvestments.map(
           (investment) =>
             investment.id ===
             editingInvestment.id
@@ -221,22 +230,17 @@ function Investments() {
         )
     );
 
-    // Close modal
-    setEditingInvestment(
-      null
-    );
-
+    setEditingInvestment(null);
     setNewInvestedAmount("");
     setNewCurrentValue("");
   }
 
   // ==================================================
-  // CLOSE UPDATE MODAL
+  // CLOSE MODAL
   // ==================================================
 
   function closeUpdateModal() {
     setEditingInvestment(null);
-
     setNewInvestedAmount("");
     setNewCurrentValue("");
   }
@@ -247,8 +251,8 @@ function Investments() {
 
   function deleteInvestment(id) {
     setInvestments(
-      (prevInvestments) =>
-        prevInvestments.filter(
+      (previousInvestments) =>
+        previousInvestments.filter(
           (investment) =>
             investment.id !== id
         )
@@ -256,7 +260,7 @@ function Investments() {
   }
 
   // ==================================================
-  // TOTAL CURRENT PORTFOLIO VALUE
+  // PORTFOLIO TOTALS
   // ==================================================
 
   const totalPortfolioValue =
@@ -273,36 +277,59 @@ function Investments() {
       0
     );
 
+  const totalInvested =
+    investments.reduce(
+      (
+        sum,
+        investment
+      ) =>
+        sum +
+        Number(
+          investment.investedAmount ||
+            0
+        ),
+      0
+    );
+
+  const totalProfit =
+    totalPortfolioValue -
+    totalInvested;
+
+  const totalProfitPercent =
+    totalInvested > 0
+      ? (
+          (totalProfit /
+            totalInvested) *
+          100
+        ).toFixed(1)
+      : "0.0";
+
+  const portfolioIsPositive =
+    totalProfit >= 0;
+
   // ==================================================
   // PORTFOLIO ALLOCATION
-  // ==================================================
-  //
-  // Allocation is based on CURRENT VALUE.
-  // This is correct because it represents the
-  // current composition of the portfolio.
-  //
   // ==================================================
 
   const allocation = {};
 
   investments.forEach(
     (investment) => {
+      const type =
+        investment.type ||
+        "Other";
+
       if (
-        !allocation[
-          investment.type
-        ]
+        !allocation[type]
       ) {
-        allocation[
-          investment.type
-        ] = 0;
+        allocation[type] = 0;
       }
 
-      allocation[
-        investment.type
-      ] += Number(
-        investment.currentValue ||
-          0
-      );
+      allocation[type] +=
+        Number(
+          investment.currentValue ||
+            0
+        );
     }
   );
 
@@ -319,458 +346,1049 @@ function Investments() {
     Cash: t("cash"),
   };
 
+  // ==================================================
+  // ASSET TYPE ICON
+  // ==================================================
+
+  function getAssetIcon(type) {
+    switch (type) {
+      case "Stock":
+        return (
+          <TrendingUp
+            size={22}
+            strokeWidth={2}
+          />
+        );
+
+      case "ETF":
+        return (
+          <BarChart3
+            size={22}
+            strokeWidth={2}
+          />
+        );
+
+      case "Crypto":
+        return (
+          <CircleDollarSign
+            size={22}
+            strokeWidth={2}
+          />
+        );
+
+      case "Real Estate":
+        return (
+          <Target
+            size={22}
+            strokeWidth={2}
+          />
+        );
+
+      case "Cash":
+        return (
+          <Wallet
+            size={22}
+            strokeWidth={2}
+          />
+        );
+
+      default:
+        return (
+          <PieChart
+            size={22}
+            strokeWidth={2}
+          />
+        );
+    }
+  }
+
   return (
-    <div className="goals-page">
-
-      <h1>
-        {t("investments")}
-      </h1>
+    <div className="investments-page">
 
       {/* ==================================================
-          ADD INVESTMENT FORM
+          PAGE HEADER
           ================================================== */}
 
-      <div className="goal-form">
+      <div className="investments-page-header">
 
-        {/* ASSET NAME */}
+        <div className="investments-title-block">
 
-        <input
-          type="text"
-          placeholder={t(
-            "assetName"
-          )}
-          value={assetName}
-          onChange={(e) =>
-            setAssetName(
-              e.target.value
-            )
-          }
-        />
+          <div className="investments-title-icon">
 
-        {/* ASSET TYPE */}
+            <TrendingUp
+              size={30}
+              strokeWidth={2}
+            />
 
-        <select
-          value={assetType}
-          onChange={(e) =>
-            setAssetType(
-              e.target.value
-            )
-          }
-        >
+          </div>
 
-          <option value="">
-            {t(
-              "selectAssetType"
-            )}
-          </option>
+          <div>
 
-          <option value="Stock">
-            {t("stock")}
-          </option>
+            <h1>
+              {t("investments")}
+            </h1>
 
-          <option value="ETF">
-            ETF
-          </option>
+            <p>
+              {t(
+                "portfolioAllocation"
+              )}
+            </p>
 
-          <option value="Crypto">
-            {t("crypto")}
-          </option>
-
-          <option value="Real Estate">
-            {t("realEstate")}
-          </option>
-
-          <option value="Cash">
-            {t("cash")}
-          </option>
-
-        </select>
-
-        {/* INVESTED AMOUNT */}
-
-        <input
-          type="number"
-          min="0"
-          step="any"
-          placeholder={`${t(
-            "investedAmount"
-          )} (${profile.currency})`}
-          value={
-            investedAmount
-          }
-          onChange={(e) =>
-            setInvestedAmount(
-              e.target.value
-            )
-          }
-        />
-
-        {/* CURRENT VALUE */}
-
-        <input
-          type="number"
-          min="0"
-          step="any"
-          placeholder={`${t(
-            "currentValue"
-          )} (${profile.currency})`}
-          value={
-            currentValue
-          }
-          onChange={(e) =>
-            setCurrentValue(
-              e.target.value
-            )
-          }
-        />
-
-        {/* ADD */}
-
-        <button
-          onClick={
-            addInvestment
-          }
-        >
-          {t(
-            "addInvestment"
-          )}
-        </button>
-
-      </div>
-
-      {/* ==================================================
-          TOTAL PORTFOLIO VALUE
-          ================================================== */}
-
-      <div className="card">
-
-        <h2>
-          {t(
-            "totalPortfolioValue"
-          )}
-        </h2>
-
-        <div className="portfolio-total">
-
-          {formatCurrency(
-            totalPortfolioValue,
-            profile.currency,
-            i18n.language
-          )}
+          </div>
 
         </div>
 
       </div>
+
+
+      {/* ==================================================
+          PORTFOLIO OVERVIEW
+          ================================================== */}
+
+      {investments.length > 0 && (
+
+        <div className="investment-overview">
+
+          {/* TOTAL VALUE */}
+
+          <div className="investment-overview-card">
+
+            <div className="investment-overview-icon value">
+
+              <Wallet
+                size={22}
+                strokeWidth={2}
+              />
+
+            </div>
+
+            <div>
+
+              <span>
+                {t(
+                  "totalPortfolioValue"
+                )}
+              </span>
+
+              <strong>
+
+                {formatCurrency(
+                  totalPortfolioValue,
+                  profile.currency,
+                  i18n.language
+                )}
+
+              </strong>
+
+            </div>
+
+          </div>
+
+
+          {/* TOTAL INVESTED */}
+
+          <div className="investment-overview-card">
+
+            <div className="investment-overview-icon invested">
+
+              <PiggyBank
+                size={22}
+                strokeWidth={2}
+              />
+
+            </div>
+
+            <div>
+
+              <span>
+                {t("invested")}
+              </span>
+
+              <strong>
+
+                {formatCurrency(
+                  totalInvested,
+                  profile.currency,
+                  i18n.language
+                )}
+
+              </strong>
+
+            </div>
+
+          </div>
+
+
+          {/* PROFIT */}
+
+          <div className="investment-overview-card">
+
+            <div
+              className={`investment-overview-icon ${
+                portfolioIsPositive
+                  ? "profit"
+                  : "loss"
+              }`}
+            >
+
+              {portfolioIsPositive ? (
+
+                <TrendingUp
+                  size={22}
+                  strokeWidth={2}
+                />
+
+              ) : (
+
+                <TrendingDown
+                  size={22}
+                  strokeWidth={2}
+                />
+
+              )}
+
+            </div>
+
+            <div>
+
+              <span>
+                {t(
+                  "profitLoss"
+                )}
+              </span>
+
+              <strong
+                className={
+                  portfolioIsPositive
+                    ? "overview-profit-positive"
+                    : "overview-profit-negative"
+                }
+              >
+
+                {formatCurrency(
+                  totalProfit,
+                  profile.currency,
+                  i18n.language
+                )}
+
+              </strong>
+
+            </div>
+
+          </div>
+
+
+          {/* RETURN */}
+
+          <div className="investment-overview-card">
+
+            <div
+              className={`investment-overview-icon ${
+                portfolioIsPositive
+                  ? "return"
+                  : "loss"
+              }`}
+            >
+
+              {portfolioIsPositive ? (
+
+                <ArrowUpRight
+                  size={22}
+                  strokeWidth={2}
+                />
+
+              ) : (
+
+                <ArrowDownRight
+                  size={22}
+                  strokeWidth={2}
+                />
+
+              )}
+
+            </div>
+
+            <div>
+
+              <span>
+                {t(
+                  "return"
+                )}
+              </span>
+
+              <strong
+                className={
+                  portfolioIsPositive
+                    ? "overview-profit-positive"
+                    : "overview-profit-negative"
+                }
+              >
+                {portfolioIsPositive
+                  ? "+"
+                  : ""}
+                {
+                  totalProfitPercent
+                }%
+              </strong>
+
+            </div>
+
+          </div>
+
+        </div>
+
+      )}
+
+
+      {/* ==================================================
+          ADD INVESTMENT
+          ================================================== */}
+
+      <div className="goal-form investments-create-card">
+
+        <div className="investments-form-header">
+
+          <div className="investments-form-icon">
+
+            <Plus
+              size={22}
+              strokeWidth={2.4}
+            />
+
+          </div>
+
+          <div>
+
+            <h2>
+              {t(
+                "addInvestment"
+              )}
+            </h2>
+
+            <p>
+              {t(
+                "createYourFirstInvestment"
+              )}
+            </p>
+
+          </div>
+
+        </div>
+
+
+        <div className="investments-form-grid">
+
+          {/* ASSET NAME */}
+
+          <div className="investment-input-wrapper">
+
+            <label>
+              {t("assetName")}
+            </label>
+
+            <div className="investment-input-with-icon">
+
+              <BarChart3
+                size={18}
+                strokeWidth={2}
+              />
+
+              <input
+                type="text"
+                placeholder={t(
+                  "assetName"
+                )}
+                value={
+                  assetName
+                }
+                onChange={(e) =>
+                  setAssetName(
+                    e.target.value
+                  )
+                }
+              />
+
+            </div>
+
+          </div>
+
+
+          {/* ASSET TYPE */}
+
+          <div className="investment-input-wrapper">
+
+            <label>
+              {t(
+                "selectAssetType"
+              )}
+            </label>
+
+            <div className="investment-select-with-icon">
+
+              <PieChart
+                size={18}
+                strokeWidth={2}
+              />
+
+              <select
+                value={
+                  assetType
+                }
+                onChange={(e) =>
+                  setAssetType(
+                    e.target.value
+                  )
+                }
+              >
+
+                <option value="">
+                  {t(
+                    "selectAssetType"
+                  )}
+                </option>
+
+                <option value="Stock">
+                  {t("stock")}
+                </option>
+
+                <option value="ETF">
+                  ETF
+                </option>
+
+                <option value="Crypto">
+                  {t("crypto")}
+                </option>
+
+                <option value="Real Estate">
+                  {t(
+                    "realEstate"
+                  )}
+                </option>
+
+                <option value="Cash">
+                  {t("cash")}
+                </option>
+
+              </select>
+
+            </div>
+
+          </div>
+
+
+          {/* INVESTED AMOUNT */}
+
+          <div className="investment-input-wrapper">
+
+            <label>
+              {t(
+                "investedAmount"
+              )}
+            </label>
+
+            <div className="investment-input-with-icon">
+
+              <PiggyBank
+                size={18}
+                strokeWidth={2}
+              />
+
+              <input
+                type="number"
+                min="0"
+                step="any"
+                placeholder={`${t(
+                  "investedAmount"
+                )} (${profile.currency})`}
+                value={
+                  investedAmount
+                }
+                onChange={(e) =>
+                  setInvestedAmount(
+                    e.target.value
+                  )
+                }
+              />
+
+            </div>
+
+          </div>
+
+
+          {/* CURRENT VALUE */}
+
+          <div className="investment-input-wrapper">
+
+            <label>
+              {t(
+                "currentValue"
+              )}
+            </label>
+
+            <div className="investment-input-with-icon">
+
+              <Wallet
+                size={18}
+                strokeWidth={2}
+              />
+
+              <input
+                type="number"
+                min="0"
+                step="any"
+                placeholder={`${t(
+                  "currentValue"
+                )} (${profile.currency})`}
+                value={
+                  currentValue
+                }
+                onChange={(e) =>
+                  setCurrentValue(
+                    e.target.value
+                  )
+                }
+              />
+
+            </div>
+
+          </div>
+
+        </div>
+
+
+        <button
+          className="investments-add-btn"
+          onClick={
+            addInvestment
+          }
+        >
+
+          <Plus
+            size={19}
+            strokeWidth={2.5}
+          />
+
+          {t(
+            "addInvestment"
+          )}
+
+        </button>
+
+      </div>
+
+
+      {/* ==================================================
+          EMPTY STATE
+          ================================================== */}
+
+      {investments.length ===
+        0 && (
+
+        <div className="investments-empty-state">
+
+          <div className="investments-empty-visual">
+
+            <div className="investments-empty-ring">
+
+              <TrendingUp
+                size={58}
+                strokeWidth={1.5}
+              />
+
+            </div>
+
+            <div className="investment-floating-icon chart">
+
+              <BarChart3
+                size={21}
+                strokeWidth={2}
+              />
+
+            </div>
+
+            <div className="investment-floating-icon wallet">
+
+              <Wallet
+                size={19}
+                strokeWidth={2}
+              />
+
+            </div>
+
+          </div>
+
+
+          <div className="investments-empty-content">
+
+            <h2>
+              {t(
+                "noInvestmentsYet"
+              )}
+            </h2>
+
+            <p>
+              {t(
+                "createYourFirstInvestment"
+              )}
+            </p>
+
+            <div className="investments-empty-hint">
+
+              <Plus
+                size={16}
+                strokeWidth={2.5}
+              />
+
+              <span>
+                {t(
+                  "addInvestment"
+                )}
+              </span>
+
+            </div>
+
+          </div>
+
+        </div>
+
+      )}
+
 
       {/* ==================================================
           PORTFOLIO ALLOCATION
           ================================================== */}
 
-      <div className="card">
+      {investments.length > 0 && (
 
-        <h2>
-          {t(
-            "portfolioAllocation"
-          )}
-        </h2>
+        <div className="investment-allocation-card">
 
-        {Object.keys(
-          allocation
-        ).length === 0 ? (
+          <div className="investment-section-header">
 
-          <p
-            style={{
-              textAlign:
-                "center",
-              padding:
-                "25px",
-            }}
-          >
-            {t(
-              "noInvestmentsYet"
+            <div>
+
+              <h2>
+                {t(
+                  "portfolioAllocation"
+                )}
+              </h2>
+
+              <p>
+                {t(
+                  "totalPortfolioValue"
+                )}
+              </p>
+
+            </div>
+
+            <div className="investment-section-icon">
+
+              <PieChart
+                size={21}
+                strokeWidth={2}
+              />
+
+            </div>
+
+          </div>
+
+
+          <div className="investment-allocation-list">
+
+            {Object.entries(
+              allocation
+            ).map(
+              ([type, value]) => {
+
+                const percentage =
+                  totalPortfolioValue >
+                  0
+                    ? (
+                        (value /
+                          totalPortfolioValue) *
+                        100
+                      )
+                    : 0;
+
+                return (
+
+                  <div
+                    className="investment-allocation-item"
+                    key={type}
+                  >
+
+                    <div className="allocation-info">
+
+                      <div className="allocation-name">
+
+                        <div className="allocation-type-icon">
+
+                          {getAssetIcon(
+                            type
+                          )}
+
+                        </div>
+
+                        <span>
+                          {
+                            assetTypeTranslations[
+                              type
+                            ] || type
+                          }
+                        </span>
+
+                      </div>
+
+                      <div className="allocation-value">
+
+                        <strong>
+                          {
+                            percentage.toFixed(
+                              1
+                            )
+                          }%
+                        </strong>
+
+                        <span>
+
+                          {formatCurrency(
+                            value,
+                            profile.currency,
+                            i18n.language
+                          )}
+
+                        </span>
+
+                      </div>
+
+                    </div>
+
+
+                    <div className="allocation-bar">
+
+                      <div
+                        className="allocation-fill"
+                        style={{
+                          width:
+                            `${percentage}%`,
+                        }}
+                      />
+
+                    </div>
+
+                  </div>
+
+                );
+              }
             )}
-          </p>
 
-        ) : (
+          </div>
 
-          Object.entries(
-            allocation
-          ).map(
-            ([type, value]) => {
+        </div>
 
-              const percentage =
-                totalPortfolioValue >
-                0
+      )}
+
+
+      {/* ==================================================
+          INVESTMENTS
+          ================================================== */}
+
+      {investments.length > 0 && (
+
+        <div className="investments-list">
+
+          {investments.map(
+            (investment) => {
+
+              const numericInvested =
+                Number(
+                  investment.investedAmount ||
+                    0
+                );
+
+              const numericCurrent =
+                Number(
+                  investment.currentValue ||
+                    0
+                );
+
+              const profit =
+                numericCurrent -
+                numericInvested;
+
+              const profitPercent =
+                numericInvested > 0
                   ? (
-                      (value /
-                        totalPortfolioValue) *
+                      (profit /
+                        numericInvested) *
                       100
                     ).toFixed(1)
                   : "0.0";
 
+              const isPositive =
+                profit >= 0;
+
               return (
 
                 <div
-                  key={type}
-                  className="allocation-row"
+                  className={`investment-card ${
+                    isPositive
+                      ? "investment-positive"
+                      : "investment-negative"
+                  }`}
+                  key={
+                    investment.id
+                  }
                 >
 
-                  <span>
-                    {assetTypeTranslations[
-                      type
-                    ] || type}
-                  </span>
+                  {/* CARD HEADER */}
 
-                  <span>
+                  <div className="investment-card-header">
 
-                    {percentage}% (
+                    <div className="investment-card-title">
 
-                    {formatCurrency(
-                      value,
-                      profile.currency,
-                      i18n.language
-                    )}
+                      <div className="investment-card-icon">
 
-                    )
+                        {getAssetIcon(
+                          investment.type
+                        )}
 
-                  </span>
+                      </div>
+
+                      <div>
+
+                        <h2>
+                          {
+                            investment.name
+                          }
+                        </h2>
+
+                        <span>
+                          {
+                            assetTypeTranslations[
+                              investment.type
+                            ] ||
+                            investment.type
+                          }
+                        </span>
+
+                      </div>
+
+                    </div>
+
+
+                    <div
+                      className={`investment-performance-badge ${
+                        isPositive
+                          ? "positive"
+                          : "negative"
+                      }`}
+                    >
+
+                      {isPositive ? (
+
+                        <TrendingUp
+                          size={15}
+                          strokeWidth={2.3}
+                        />
+
+                      ) : (
+
+                        <TrendingDown
+                          size={15}
+                          strokeWidth={2.3}
+                        />
+
+                      )}
+
+                      {isPositive
+                        ? "+"
+                        : ""}
+                      {
+                        profitPercent
+                      }%
+
+                    </div>
+
+                  </div>
+
+
+                  {/* CURRENT VALUE */}
+
+                  <div className="investment-main-value">
+
+                    <span>
+                      {t(
+                        "currentValue"
+                      )}
+                    </span>
+
+                    <strong>
+
+                      {formatCurrency(
+                        numericCurrent,
+                        profile.currency,
+                        i18n.language
+                      )}
+
+                    </strong>
+
+                  </div>
+
+
+                  {/* DETAILS */}
+
+                  <div className="investment-details-grid">
+
+                    <div className="investment-detail">
+
+                      <div className="investment-detail-icon">
+
+                        <PiggyBank
+                          size={17}
+                          strokeWidth={2}
+                        />
+
+                      </div>
+
+                      <div>
+
+                        <span>
+                          {t(
+                            "invested"
+                          )}
+                        </span>
+
+                        <strong>
+
+                          {formatCurrency(
+                            numericInvested,
+                            profile.currency,
+                            i18n.language
+                          )}
+
+                        </strong>
+
+                      </div>
+
+                    </div>
+
+
+                    <div className="investment-detail">
+
+                      <div
+                        className={`investment-detail-icon ${
+                          isPositive
+                            ? "positive"
+                            : "negative"
+                        }`}
+                      >
+
+                        {isPositive ? (
+
+                          <ArrowUpRight
+                            size={17}
+                            strokeWidth={2}
+                          />
+
+                        ) : (
+
+                          <ArrowDownRight
+                            size={17}
+                            strokeWidth={2}
+                          />
+
+                        )}
+
+                      </div>
+
+                      <div>
+
+                        <span>
+                          {t(
+                            "profitLoss"
+                          )}
+                        </span>
+
+                        <strong
+                          className={
+                            isPositive
+                              ? "profit-positive"
+                              : "profit-negative"
+                          }
+                        >
+
+                          {formatCurrency(
+                            profit,
+                            profile.currency,
+                            i18n.language
+                          )}
+
+                        </strong>
+
+                      </div>
+
+                    </div>
+
+                  </div>
+
+
+                  {/* ACTIONS */}
+
+                  <div className="investment-actions">
+
+                    <button
+                      className="investment-update-btn"
+                      onClick={() =>
+                        updateInvestment(
+                          investment.id
+                        )
+                      }
+                    >
+
+                      <Pencil
+                        size={17}
+                        strokeWidth={2.2}
+                      />
+
+                      {t(
+                        "updateValue"
+                      )}
+
+                    </button>
+
+
+                    <button
+                      className="investment-delete-btn"
+                      onClick={() =>
+                        deleteInvestment(
+                          investment.id
+                        )
+                      }
+                    >
+
+                      <Trash2
+                        size={17}
+                        strokeWidth={2.2}
+                      />
+
+                      {t(
+                        "delete"
+                      )}
+
+                    </button>
+
+                  </div>
 
                 </div>
 
               );
             }
-          )
-
-        )}
-
-      </div>
-
-      {/* ==================================================
-          INVESTMENT CARDS
-          ================================================== */}
-
-      {investments.length ===
-      0 ? (
-
-        <div className="card">
-
-          <p
-            style={{
-              textAlign:
-                "center",
-              padding:
-                "30px",
-            }}
-          >
-
-            {t(
-              "noInvestmentsYet"
-            )}
-
-            <br />
-
-            {t(
-              "createYourFirstInvestment"
-            )}
-
-          </p>
+          )}
 
         </div>
 
-      ) : (
-
-        investments.map(
-          (investment) => {
-
-            const numericInvested =
-              Number(
-                investment.investedAmount ||
-                  0
-              );
-
-            const numericCurrent =
-              Number(
-                investment.currentValue ||
-                  0
-              );
-
-            // PROFIT / LOSS
-
-            const profit =
-              numericCurrent -
-              numericInvested;
-
-            const profitPercent =
-              numericInvested >
-              0
-                ? (
-                    (profit /
-                      numericInvested) *
-                    100
-                  ).toFixed(1)
-                : "0.0";
-
-            return (
-
-              <div
-                className="goal-card"
-                key={
-                  investment.id
-                }
-              >
-
-                {/* NAME */}
-
-                <h2>
-                  {
-                    investment.name
-                  }
-                </h2>
-
-                {/* TYPE */}
-
-                <p>
-
-                  <span className="label">
-                    {t(
-                      "type"
-                    )}:
-                  </span>
-
-                  <span className="value">
-
-                    {" "}
-
-                    {
-                      assetTypeTranslations[
-                        investment.type
-                      ] ||
-                      investment.type
-                    }
-
-                  </span>
-
-                </p>
-
-                {/* INVESTED */}
-
-                <p>
-
-                  <span className="label">
-                    {t(
-                      "invested"
-                    )}:
-                  </span>
-
-                  <span className="value">
-
-                    {" "}
-
-                    {formatCurrency(
-                      numericInvested,
-                      profile.currency,
-                      i18n.language
-                    )}
-
-                  </span>
-
-                </p>
-
-                {/* CURRENT VALUE */}
-
-                <p>
-
-                  <span className="label">
-                    {t(
-                      "currentValue"
-                    )}:
-                  </span>
-
-                  <span className="value">
-
-                    {" "}
-
-                    {formatCurrency(
-                      numericCurrent,
-                      profile.currency,
-                      i18n.language
-                    )}
-
-                  </span>
-
-                </p>
-
-                {/* PROFIT / LOSS */}
-
-                <p
-                  className={
-                    profit >= 0
-                      ? "profit-positive"
-                      : "profit-negative"
-                  }
-                >
-
-                  {t(
-                    "profitLoss"
-                  )}:
-
-                  {" "}
-
-                  {formatCurrency(
-                    profit,
-                    profile.currency,
-                    i18n.language
-                  )}
-
-                  {" "}
-
-                  (
-                  {profit >= 0
-                    ? "+"
-                    : ""}
-                  {
-                    profitPercent
-                  }%)
-
-                </p>
-
-                {/* BUTTONS */}
-
-                <div className="investment-buttons">
-
-                  <button
-                    className="update-btn"
-                    onClick={() =>
-                      updateInvestment(
-                        investment.id
-                      )
-                    }
-                  >
-                    {t(
-                      "updateValue"
-                    )}
-                  </button>
-
-                  <button
-                    className="delete-btn"
-                    onClick={() =>
-                      deleteInvestment(
-                        investment.id
-                      )
-                    }
-                  >
-                    {t("delete")}
-                  </button>
-
-                </div>
-
-              </div>
-
-            );
-          }
-        )
-
       )}
+
 
       {/* ==================================================
           UPDATE MODAL
@@ -796,23 +1414,45 @@ function Investments() {
           }
         >
 
-          {/* INVESTMENT NAME */}
+          <div className="investment-modal-header">
 
-          <h3
-            style={{
-              textAlign:
-                "center",
-              color: "#fff",
-              marginBottom:
-                "18px",
-            }}
-          >
-            {
-              editingInvestment.name
-            }
-          </h3>
+            <div className="investment-modal-icon">
 
-          {/* INVESTED AMOUNT */}
+              {getAssetIcon(
+                editingInvestment.type
+              )}
+
+            </div>
+
+            <div>
+
+              <h3>
+                {
+                  editingInvestment.name
+                }
+              </h3>
+
+              <span>
+                {
+                  assetTypeTranslations[
+                    editingInvestment.type
+                  ] ||
+                  editingInvestment.type
+                }
+              </span>
+
+            </div>
+
+          </div>
+
+
+          <label className="investment-modal-label">
+
+            {t(
+              "investedAmount"
+            )}
+
+          </label>
 
           <input
             type="number"
@@ -831,7 +1471,14 @@ function Investments() {
             )} (${profile.currency})`}
           />
 
-          {/* CURRENT VALUE */}
+
+          <label className="investment-modal-label">
+
+            {t(
+              "currentValue"
+            )}
+
+          </label>
 
           <input
             type="number"
@@ -854,6 +1501,7 @@ function Investments() {
         </Modal>
 
       )}
+
 
       <BottomNav />
 
