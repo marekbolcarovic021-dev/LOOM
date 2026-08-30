@@ -13428,3 +13428,323 @@ cursor: pointer;
     }
 
 }
+
+/* ==========================================================
+   REGISTER TERMS
+   ========================================================== */
+
+.terms-agreement {
+    width: 100%;
+    margin: 8px 0 14px;
+}
+
+.terms-checkbox {
+    position: relative;
+
+    display: flex;
+    align-items: flex-start;
+
+    gap: 10px;
+
+    cursor: pointer;
+
+    user-select: none;
+}
+
+.terms-checkbox input {
+    position: absolute;
+
+    opacity: 0;
+
+    width: 0;
+    height: 0;
+}
+
+.terms-checkmark {
+    width: 21px;
+    height: 21px;
+
+    flex-shrink: 0;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 6px;
+
+    border:
+        1px solid
+        rgba(96, 145, 230, .55);
+
+    background:
+        rgba(18, 31, 55, .85);
+
+    color: #fff;
+
+    font-size: 13px;
+    font-weight: 800;
+
+    transition:
+        .2s ease;
+}
+
+.terms-checkbox input:checked
++ .terms-checkmark {
+    background:
+        linear-gradient(
+            135deg,
+            #3478ee,
+            #6366f1
+        );
+
+    border-color:
+        transparent;
+
+    box-shadow:
+        0 5px 15px
+        rgba(59, 130, 246, .25);
+}
+
+.terms-text {
+    color:
+        rgba(190, 204, 232, .78);
+
+    font-size: 13px;
+
+    line-height: 1.5;
+}
+
+.terms-text a {
+    color: #70a5ff;
+
+    font-weight: 600;
+
+    text-decoration: none;
+}
+
+.terms-text a:hover {
+    text-decoration: underline;
+}
+
+
+/* ==========================================================
+   REGISTER ERROR
+   ========================================================== */
+
+.register-error {
+    width: 100%;
+
+    margin:
+        0 0 14px;
+
+    padding: 11px 13px;
+
+    box-sizing: border-box;
+
+    border-radius: 10px;
+
+    color: #ff8585;
+
+    background:
+        rgba(239, 68, 68, .09);
+
+    border:
+        1px solid
+        rgba(239, 68, 68, .22);
+
+    font-size: 13px;
+
+    line-height: 1.45;
+}
+
+.register-form button:disabled,
+.register-disabled {
+    opacity: .45;
+
+    cursor: not-allowed;
+
+    transform: none !important;
+
+    box-shadow: none !important;
+}
+
+
+/* ==========================================================
+   LEGAL PAGE
+   ========================================================== */
+
+.legal-page {
+    min-height: 100vh;
+
+    padding:
+        60px 20px 130px;
+
+    box-sizing: border-box;
+
+    background:
+        radial-gradient(
+            circle at 50% 0%,
+            rgba(53, 101, 190, .10),
+            transparent 38%
+        ),
+        #0d1728;
+}
+
+.legal-container {
+    width: min(
+        900px,
+        100%
+    );
+
+    margin: 0 auto;
+
+    padding: 40px 48px;
+
+    box-sizing: border-box;
+
+    border-radius: 25px;
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(29, 48, 83, .98),
+            rgba(20, 35, 63, .98)
+        );
+
+    border:
+        1px solid
+        rgba(77, 133, 232, .30);
+
+    box-shadow:
+        0 25px 70px
+        rgba(0, 0, 0, .20);
+}
+
+.legal-header {
+    padding-bottom: 25px;
+
+    margin-bottom: 28px;
+
+    border-bottom:
+        1px solid
+        rgba(255, 255, 255, .08);
+}
+
+.legal-header h1 {
+    margin: 0 0 8px;
+
+    color: #fff;
+
+    font-size: 34px;
+
+    line-height: 1.2;
+}
+
+.legal-header p {
+    margin: 0;
+
+    color:
+        rgba(180, 198, 229, .65);
+
+    font-size: 13px;
+}
+
+.legal-container section {
+    margin-bottom: 30px;
+}
+
+.legal-container section h2 {
+    margin:
+        0 0 11px;
+
+    color: #fff;
+
+    font-size: 19px;
+}
+
+.legal-container section p {
+    margin:
+        0 0 11px;
+
+    color:
+        rgba(202, 214, 235, .78);
+
+    font-size: 14px;
+
+    line-height: 1.75;
+}
+
+.legal-container section p:last-child {
+    margin-bottom: 0;
+}
+
+.legal-notice {
+    margin-top: 40px;
+
+    padding: 18px 20px;
+
+    border-radius: 15px;
+
+    background:
+        rgba(245, 158, 11, .07);
+
+    border:
+        1px solid
+        rgba(245, 158, 11, .20);
+}
+
+.legal-notice strong {
+    display: block;
+
+    margin-bottom: 7px;
+
+    color: #fbbf24;
+
+    font-size: 14px;
+}
+
+.legal-notice p {
+    margin: 0;
+
+    color:
+        rgba(220, 211, 190, .76);
+
+    font-size: 13px;
+
+    line-height: 1.65;
+}
+
+
+/* ==========================================================
+   MOBILE
+   ========================================================== */
+
+@media (max-width: 650px) {
+
+    .legal-page {
+        padding:
+            25px 12px 100px;
+    }
+
+    .legal-container {
+        padding:
+            28px 20px;
+
+        border-radius: 19px;
+    }
+
+    .legal-header h1 {
+        font-size: 27px;
+    }
+
+    .legal-container section h2 {
+        font-size: 17px;
+    }
+
+    .legal-container section p {
+        font-size: 13px;
+
+        line-height: 1.7;
+    }
+
+}

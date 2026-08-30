@@ -335,5 +335,15 @@
     "changeName": "Change name",
     "noTokensAvailable": "No tokens available",
     "noRecentTransactions": "No recent transactions.",
-"addFirstIncomeOrExpense": "Add your first income or expense to get started."
+"addFirstIncomeOrExpense": "Add your first income or expense to get started.",
+ "register": "Register",
+  "email": "Email",
+  "password": "Password",
+  "agreeToTerms": "I have read and agree to the",
+  "termsAndConditions": "Terms & Conditions",
+  "mustAgreeToTerms": "You must agree to the Terms & Conditions before creating an account.",
+  "enterEmail": "Please enter your email address.",
+  "passwordTooShort": "Password must contain at least 6 characters.",
+  "creatingAccount": "Creating account...",
+  "registrationFailed": "Registration failed."
 }

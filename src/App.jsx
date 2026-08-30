@@ -11,7 +11,7 @@ import Accounts from "./pages/Accounts";
 import Advisor from "./pages/Advisor";
 import Premium from "./pages/Premium";
 import Login from "./pages/Login";
-
+import Terms from "./pages/Terms";
 import { useAuth } from "./context/AuthContext";
 
 import "./App.css";
@@ -37,6 +37,7 @@ function App() {
         <Route path="/accounts" element={<Accounts />} />
         <Route path="/advisor" element={<Advisor />} />
         <Route path="/premium" element={<Premium />} />
+        <Route path="/terms" element={<Terms />} />
       </Routes>
     </BrowserRouter>
   );
