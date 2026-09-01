@@ -44,8 +44,7 @@ import {
 } from "../Utils/chatStorage";
 
 import { useNavigate } from "react-router-dom";
-import AdSenseAnchor from "../components/AdSenseAnchor";
-import AdSenseBanner from "../components/AdSenseBanner";
+
 
 function Advisor() {
  const {
@@ -2052,24 +2051,6 @@ useEffect(() => {
  return (
   <div className="page-container">
 
-    <AdSenseAnchor enabled={!isPremium} />
-
-    {!isPremium && (
-    <>
-        <div className="advisor-desktop-ad advisor-desktop-ad-left">
-            <AdSenseBanner
-                slot="1872346216"
-            />
-        </div>
-
-        <div className="advisor-desktop-ad advisor-desktop-ad-right">
-            <AdSenseBanner
-                slot="2554872490"
-            />
-        </div>
-    </>
-)}
-
   <div
   className="advisor-token-badge"
   onClick={() => navigate("/premium")}
@@ -3205,13 +3186,6 @@ ${t(
 
 </div>
 
-      {!isPremium && (
-    <div className="advisor-mobile-ad">
-        <AdSenseBanner
-            slot="8928709158"
-        />
-    </div>
-)}
 
 <BottomNav />
 
