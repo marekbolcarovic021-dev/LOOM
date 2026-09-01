@@ -339,5 +339,6 @@
     "changeName": "Namen ändern",
     "noTokensAvailable": "Keine Token verfügbar",
     "noRecentTransactions": "Keine aktuellen Transaktionen.",
-"addFirstIncomeOrExpense": "Füge deinen ersten Einnahmen- oder Ausgabeneintrag hinzu, um zu beginnen."
+"addFirstIncomeOrExpense": "Füge deinen ersten Einnahmen- oder Ausgabeneintrag hinzu, um zu beginnen.",
+"highExpenseRatio": "Hohe Kostenquote"
 }

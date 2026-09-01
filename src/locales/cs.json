@@ -339,5 +339,6 @@
     "changeName": "Změnit název",
     "noTokensAvailable": "Nejsou k dispozici žádné tokeny",
     "noRecentTransactions": "Žádné nedávné transakce.",
-"addFirstIncomeOrExpense": "Začněte přidáním prvního příjmu nebo výdaje."
+"addFirstIncomeOrExpense": "Začněte přidáním prvního příjmu nebo výdaje.",
+"highExpenseRatio": "Vysoký poměr nákladů"
 }

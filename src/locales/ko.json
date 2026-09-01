@@ -339,5 +339,6 @@
   "changeName": "이름 변경",
   "noTokensAvailable": "사용 가능한 토큰이 없습니다",
   "noRecentTransactions": "최근 거래가 없습니다.",
-"addFirstIncomeOrExpense": "첫 번째 수입 또는 지출을 추가하여 시작하세요."
+"addFirstIncomeOrExpense": "첫 번째 수입 또는 지출을 추가하여 시작하세요.",
+"highExpenseRatio": "높은 운용보수율"
 }

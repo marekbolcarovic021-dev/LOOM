@@ -339,5 +339,6 @@
   "changeName": "更改名称",
   "noTokensAvailable": "没有可用代币",
   "noRecentTransactions": "没有最近的交易。",
-"addFirstIncomeOrExpense": "添加您的第一笔收入或支出即可开始使用。"
+"addFirstIncomeOrExpense": "添加您的第一笔收入或支出即可开始使用。",
+"highExpenseRatio": "费用率较高"
 }

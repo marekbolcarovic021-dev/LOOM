@@ -345,5 +345,6 @@
   "enterEmail": "Please enter your email address.",
   "passwordTooShort": "Password must contain at least 6 characters.",
   "creatingAccount": "Creating account...",
-  "registrationFailed": "Registration failed."
+  "registrationFailed": "Registration failed.",
+  "highExpenseRatio": "High expense ratio"
 }

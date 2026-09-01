@@ -339,5 +339,6 @@
   "changeName": "Изменить имя",
   "noTokensAvailable": "Нет доступных токенов",
   "noRecentTransactions": "Нет недавних транзакций.",
-"addFirstIncomeOrExpense": "Начните с добавления первого дохода или расхода."
+"addFirstIncomeOrExpense": "Начните с добавления первого дохода или расхода.",
+"highExpenseRatio": "Высокий коэффициент расходов"
 }

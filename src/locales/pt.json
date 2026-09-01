@@ -339,5 +339,6 @@
   "changeName": "Alterar nome",
   "noTokensAvailable": "Nenhum token disponível",
   "noRecentTransactions": "Não há transações recentes.",
-"addFirstIncomeOrExpense": "Comece adicionando sua primeira receita ou despesa."
+"addFirstIncomeOrExpense": "Comece adicionando sua primeira receita ou despesa.",
+"highExpenseRatio": "Rácio de despesas elevado"
 }
