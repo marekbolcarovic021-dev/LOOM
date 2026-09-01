@@ -340,5 +340,67 @@
   "noTokensAvailable": "利用可能なトークンがありません",
   "noRecentTransactions": "最近の取引はありません。",
 "addFirstIncomeOrExpense": "最初の収入または支出を追加して始めましょう。",
-"highExpenseRatio": "高い経費率"
+"highExpenseRatio": "高い経費率",
+
+"aboutLoomTitle": "お金を理解して、未来を計画しましょう。",
+"aboutLoomDescription": "LOOMは、現在の財務状況を理解し、お金を整理し、より informed な金融上の意思決定を行えるようサポートするパーソナルファイナンスプラットフォームです。",
+"getStarted": "始める",
+
+"whatIsLoom": "LOOMとは？",
+"whatIsLoomText1": "LOOMは、個人のお金を管理するために必要な主要な機能をひとつの場所にまとめています。",
+"whatIsLoomText2": "取引の確認、口座の管理、財務目標の作成、投資の確認などを行い、自分の財務状況をより理解できます。",
+"whatIsLoomText3": "LOOMでは、金融に関する教育コンテンツや分析ツールも提供し、自分自身の金融上の意思決定をより深く理解できるようサポートします。",
+
+"everythingInOnePlace": "あなたの財務をひとつの場所で",
+
+"transactionTracking": "取引の管理",
+"transactionTrackingDescription": "収入と支出を記録し、お金がどこに使われているかを把握できます。",
+"accountsDescription": "金融口座と残高をひとつの場所で整理できます。",
+"financialGoalsDescription": "貯蓄目標を設定し、達成までの進捗を確認できます。",
+"investmentsDescription": "投資を管理し、全体的な財務状況への影響を確認できます。",
+"budgetsDescription": "支出の上限を設定し、実際の支出と計画を比較できます。",
+"aiFinancialCoachDescription": "金融情報を使って質問したり、さまざまな金融シナリオを理解したりできます。",
+
+"learn": "学ぶ",
+"learnMoreAboutMoney": "パーソナルファイナンスについて学ぶ",
+"learnMoreAboutMoneyDescription": "予算管理、貯蓄、投資、財務目標、パーソナルファイナンス、債務についての実用的なガイドをご覧ください。",
+"exploreGuides": "ガイドを見る",
+
+"importantNotice": "重要なお知らせ",
+"financialEducationDisclaimer": "LOOMが提供する情報は、一般的な情報提供および教育のみを目的としています。個別の投資、税務、法律、金融その他の専門的なアドバイスを提供するものではありません。金融上の意思決定にはリスクが伴うため、必要に応じて資格を持つ専門家に相談してください。",
+
+"contactDescription": "ご質問、問題の報告、その他LOOMへのお問い合わせがありますか？",
+"getInTouch": "お問い合わせ",
+"contactEmailDescription": "ご質問、フィードバック、技術的な問題、その他のお問い合わせはメールでご連絡ください。",
+"beforeContacting": "お問い合わせの前に",
+"contactPrivacyNotice": "メールでパスワード、認証コード、決済カード番号、その他の非常に機密性の高い情報を送信しないでください。",
+
+"financialGuidesIntro": "予算管理、貯蓄、投資、その他のパーソナルファイナンスについて理解を深めるための実用的なガイドです。",
+"explore": "見る",
+"financialTopics": "金融に関するテーマ",
+"financialTopicsDescription": "テーマを選択して、実用的な情報や金融教育コンテンツをご覧ください。",
+
+"budgetingGuideDescription": "収入を整理し、支出を理解し、現実的な予算を作成する方法を学びましょう。",
+"savingGuideDescription": "貯蓄を増やし、予期せぬ支出に備え、継続的な貯蓄習慣を身につける方法を学びましょう。",
+"investingGuideDescription": "投資の基本、リスク、分散投資、長期投資について理解しましょう。",
+"financialGoalsGuideDescription": "現実的な財務目標を設定し、それを達成するための計画を立てる方法を学びましょう。",
+"personalFinance": "パーソナルファイナンス",
+"personalFinanceGuideDescription": "自分自身の財務状況を管理するための基本を学びましょう。",
+"debt": "債務",
+"debtGuideDescription": "さまざまな種類の債務と、その返済を管理するための実用的な方法を理解しましょう。",
+
+"financialEducation": "金融教育",
+"financialEducationDescription": "パーソナルファイナンスに関する意思決定は、長期的な影響をもたらす可能性があります。このガイドでは、金融に関する概念を分かりやすく実用的な形で説明し、より informed な判断を行えるようサポートします。",
+"financialEducationSourceNotice": "金融に関する情報は、国、個人の状況、適用される法律によって異なる場合があります。重要な金融上の意思決定を行う前に、必ず自分の状況を考慮してください。",
+
+"manageFinancesWithLoom": "金融知識を実生活に活かしましょう",
+"manageFinancesWithLoomDescription": "LOOMなら、取引、口座、予算、目標、投資をひとつの場所で整理できます。",
+
+"guide": "ガイド",
+"guides": "ガイド",
+"readGuides": "ガイドを読む",
+"explorePracticalInformation": "このテーマに関する実用的な情報をご覧ください。",
+"moreGuidesComingSoon": "さらにガイドを公開予定",
+"guidesComingSoonDescription": "このテーマについて、実用的で詳しいガイドを準備しています。",
+"backToFinancialGuides": "金融ガイドに戻る"
 }

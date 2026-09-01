@@ -340,5 +340,67 @@
   "noTokensAvailable": "사용 가능한 토큰이 없습니다",
   "noRecentTransactions": "최근 거래가 없습니다.",
 "addFirstIncomeOrExpense": "첫 번째 수입 또는 지출을 추가하여 시작하세요.",
-"highExpenseRatio": "높은 운용보수율"
+"highExpenseRatio": "높은 운용보수율",
+
+"aboutLoomTitle": "돈을 이해하고 미래를 계획하세요.",
+"aboutLoomDescription": "LOOM은 자신의 재정 상황을 이해하고, 돈을 체계적으로 관리하며, 더 나은 금융 결정을 내릴 수 있도록 돕는 개인 금융 플랫폼입니다.",
+"getStarted": "시작하기",
+
+"whatIsLoom": "LOOM이란?",
+"whatIsLoomText1": "LOOM은 개인 금융 관리에 필요한 주요 기능을 한곳에 모았습니다.",
+"whatIsLoomText2": "거래 내역을 확인하고, 계좌를 관리하고, 재무 목표를 만들고, 투자를 추적하며 자신의 재정 상황을 더 잘 이해할 수 있습니다.",
+"whatIsLoomText3": "LOOM은 금융 교육 콘텐츠와 분석 도구도 제공하여 자신의 금융 의사결정을 더 잘 이해할 수 있도록 돕습니다.",
+
+"everythingInOnePlace": "한곳에서 관리하는 나의 재정",
+
+"transactionTracking": "거래 내역 관리",
+"transactionTrackingDescription": "수입과 지출을 기록하고 돈이 어디에 사용되는지 파악하세요.",
+"accountsDescription": "금융 계좌와 잔액을 한곳에서 정리하세요.",
+"financialGoalsDescription": "저축 목표를 설정하고 달성 과정을 확인하세요.",
+"investmentsDescription": "투자를 추적하고 전체 재정 상황에 미치는 영향을 확인하세요.",
+"budgetsDescription": "지출 한도를 설정하고 실제 지출과 계획을 비교하세요.",
+"aiFinancialCoachDescription": "금융 정보를 활용하여 질문하고 다양한 금융 상황을 이해해 보세요.",
+
+"learn": "배우기",
+"learnMoreAboutMoney": "개인 금융에 대해 더 알아보기",
+"learnMoreAboutMoneyDescription": "예산 관리, 저축, 투자, 재무 목표, 개인 금융 및 부채에 관한 실용적인 가이드를 확인하세요.",
+"exploreGuides": "가이드 보기",
+
+"importantNotice": "중요 안내",
+"financialEducationDisclaimer": "LOOM에서 제공하는 정보는 일반적인 정보 제공 및 교육 목적으로만 제공됩니다. 개인별 금융, 투자, 세금, 법률 또는 기타 전문적인 조언을 제공하는 것이 아닙니다. 금융 결정에는 위험이 따르므로 사용자는 자신의 상황을 고려하고 필요한 경우 자격을 갖춘 전문가에게 상담을 받아야 합니다.",
+
+"contactDescription": "질문이 있거나 문제를 발견했거나 LOOM에 문의하고 싶으신가요?",
+"getInTouch": "문의하기",
+"contactEmailDescription": "질문, 의견, 기술적 문제 또는 기타 문의 사항은 이메일로 연락해 주세요.",
+"beforeContacting": "문의하기 전에",
+"contactPrivacyNotice": "이메일로 비밀번호, 인증 코드, 결제 카드 번호 또는 기타 매우 민감한 정보를 보내지 마세요.",
+
+"financialGuidesIntro": "예산 관리, 저축, 투자 및 기타 개인 금융 분야를 더 잘 이해할 수 있도록 돕는 실용적인 가이드입니다.",
+"explore": "둘러보기",
+"financialTopics": "금융 주제",
+"financialTopicsDescription": "주제를 선택하여 실용적인 정보와 금융 교육 자료를 확인하세요.",
+
+"budgetingGuideDescription": "수입을 관리하고 지출을 이해하며 현실적인 예산을 만드는 방법을 알아보세요.",
+"savingGuideDescription": "저축을 늘리고 예상치 못한 지출에 대비하며 지속 가능한 저축 습관을 만드는 방법을 알아보세요.",
+"investingGuideDescription": "투자의 기본, 위험, 분산 투자 및 장기 투자에 대해 알아보세요.",
+"financialGoalsGuideDescription": "현실적인 재무 목표를 설정하고 목표를 달성하기 위한 계획을 세우는 방법을 알아보세요.",
+"personalFinance": "개인 금융",
+"personalFinanceGuideDescription": "전반적인 재정 상황을 관리하는 기본적인 방법을 알아보세요.",
+"debt": "부채",
+"debtGuideDescription": "다양한 부채 유형과 상환을 관리하는 실용적인 방법을 이해하세요.",
+
+"financialEducation": "금융 교육",
+"financialEducationDescription": "개인 금융에 관한 결정은 장기적인 영향을 미칠 수 있습니다. 이 가이드는 금융 개념을 명확하고 실용적인 방식으로 설명하여 더 informed 한 결정을 내릴 수 있도록 돕습니다.",
+"financialEducationSourceNotice": "금융 정보는 국가, 개인의 상황 및 적용되는 법률에 따라 달라질 수 있습니다. 중요한 금융 결정을 내리기 전에 항상 자신의 상황을 고려하세요.",
+
+"manageFinancesWithLoom": "금융 지식을 실제 생활에 활용하세요",
+"manageFinancesWithLoomDescription": "LOOM을 사용하면 거래, 계좌, 예산, 목표 및 투자를 한곳에서 관리할 수 있습니다.",
+
+"guide": "가이드",
+"guides": "가이드",
+"readGuides": "가이드 읽기",
+"explorePracticalInformation": "이 주제와 관련된 실용적인 정보를 확인하세요.",
+"moreGuidesComingSoon": "더 많은 가이드가 곧 제공됩니다",
+"guidesComingSoonDescription": "이 주제에 대한 실용적이고 자세한 가이드를 준비하고 있습니다.",
+"backToFinancialGuides": "금융 가이드로 돌아가기"
 }

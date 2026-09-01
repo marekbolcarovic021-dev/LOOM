@@ -340,5 +340,66 @@
     "noTokensAvailable": "No hay tokens disponibles",
     "noRecentTransactions": "No hay transacciones recientes.",
 "addFirstIncomeOrExpense": "Añade tu primer ingreso o gasto para empezar.",
-"highExpenseRatio": "Ratio de gastos elevado"
+"highExpenseRatio": "Ratio de gastos elevado",
+"aboutLoomTitle": "Entiende tu dinero. Planifica tu futuro.",
+"aboutLoomDescription": "LOOM es una plataforma de finanzas personales diseñada para ayudarte a comprender tu situación financiera, organizar tu dinero y tomar decisiones financieras más informadas.",
+"getStarted": "Comenzar",
+
+"whatIsLoom": "¿Qué es LOOM?",
+"whatIsLoomText1": "LOOM reúne las partes más importantes de la gestión de las finanzas personales en un solo lugar.",
+"whatIsLoomText2": "Puedes realizar un seguimiento de tus transacciones, gestionar cuentas, crear objetivos financieros, controlar inversiones y comprender mejor tu situación financiera.",
+"whatIsLoomText3": "LOOM también ofrece educación financiera y herramientas de análisis diseñadas para ayudarte a comprender mejor tus propias decisiones financieras.",
+
+"everythingInOnePlace": "Tus finanzas en un solo lugar",
+
+"transactionTracking": "Seguimiento de transacciones",
+"transactionTrackingDescription": "Controla tus ingresos y gastos y descubre en qué utilizas tu dinero.",
+"accountsDescription": "Organiza tus cuentas financieras y saldos en un solo lugar.",
+"financialGoalsDescription": "Establece objetivos de ahorro y sigue tu progreso para alcanzarlos.",
+"investmentsDescription": "Controla tus inversiones y comprende su contribución a tu situación financiera general.",
+"budgetsDescription": "Crea límites de gasto y compara tus gastos reales con tus planes.",
+"aiFinancialCoachDescription": "Utiliza tu información financiera para explorar preguntas y comprender diferentes situaciones financieras.",
+
+"learn": "APRENDER",
+"learnMoreAboutMoney": "Aprende más sobre finanzas personales",
+"learnMoreAboutMoneyDescription": "Explora guías prácticas sobre presupuestos, ahorro, inversión, objetivos financieros, finanzas personales y deudas.",
+"exploreGuides": "Explorar guías",
+
+"importantNotice": "Aviso importante",
+"financialEducationDisclaimer": "La información proporcionada por LOOM está destinada únicamente a fines generales de información y educación. No constituye asesoramiento financiero, de inversión, fiscal, legal ni otro tipo de asesoramiento profesional personalizado. Las decisiones financieras implican riesgos y los usuarios deben considerar sus circunstancias individuales y buscar asesoramiento profesional cualificado cuando corresponda.",
+
+"contactDescription": "¿Tienes alguna pregunta, has encontrado un problema o quieres ponerte en contacto con LOOM?",
+"getInTouch": "Contacta con nosotros",
+"contactEmailDescription": "Para preguntas, comentarios, problemas técnicos u otras consultas, puedes contactarnos por correo electrónico.",
+"beforeContacting": "Antes de contactar con nosotros",
+"contactPrivacyNotice": "No envíes por correo electrónico contraseñas, códigos de autenticación, números de tarjetas de pago ni otra información altamente sensible.",
+
+"financialGuidesIntro": "Guías prácticas para ayudarte a comprender mejor los presupuestos, el ahorro, la inversión y otras áreas de las finanzas personales.",
+"explore": "EXPLORAR",
+"financialTopics": "Temas financieros",
+"financialTopicsDescription": "Elige un tema para explorar información práctica y educación financiera.",
+
+"budgetingGuideDescription": "Aprende a organizar tus ingresos, comprender tus gastos y crear un presupuesto realista.",
+"savingGuideDescription": "Aprende a crear ahorros, prepararte para gastos inesperados y desarrollar hábitos de ahorro sostenibles.",
+"investingGuideDescription": "Comprende los fundamentos de la inversión, el riesgo, la diversificación y la inversión a largo plazo.",
+"financialGoalsGuideDescription": "Aprende a establecer objetivos financieros realistas y crear un plan para alcanzarlos.",
+"personalFinance": "Finanzas personales",
+"personalFinanceGuideDescription": "Explora los fundamentos de la gestión de tu situación financiera general.",
+"debt": "Deuda",
+"debtGuideDescription": "Comprende los diferentes tipos de deuda y los enfoques prácticos para gestionar su pago.",
+
+"financialEducation": "Educación financiera",
+"financialEducationDescription": "Las decisiones sobre finanzas personales pueden tener consecuencias a largo plazo. Estas guías explican conceptos financieros de forma clara y práctica para ayudarte a tomar decisiones mejor informadas.",
+"financialEducationSourceNotice": "La información financiera puede variar según tu país, tus circunstancias y las leyes aplicables. Antes de tomar decisiones financieras importantes, considera siempre tu situación individual.",
+
+"manageFinancesWithLoom": "Pon tus conocimientos financieros en práctica",
+"manageFinancesWithLoomDescription": "LOOM te ayuda a organizar transacciones, cuentas, presupuestos, objetivos e inversiones en un solo lugar.",
+
+"guide": "guía",
+"guides": "guías",
+"readGuides": "Leer guías",
+"explorePracticalInformation": "Explora información práctica relacionada con este tema.",
+"moreGuidesComingSoon": "Más guías próximamente",
+"guidesComingSoonDescription": "Estamos preparando guías prácticas y detalladas sobre este tema.",
+"backToFinancialGuides": "Volver a las guías financieras"
 }

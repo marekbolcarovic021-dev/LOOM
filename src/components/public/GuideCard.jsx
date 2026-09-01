@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 
 function GuideCard({
   to,
@@ -7,6 +8,8 @@ function GuideCard({
   description,
   articleCount,
 }) {
+  const { t } = useTranslation();
+
   return (
     <Link
       to={to}
@@ -30,13 +33,13 @@ function GuideCard({
           <span className="guide-card-count">
             {articleCount}{" "}
             {articleCount === 1
-              ? "guide"
-              : "guides"}
+              ? t("guide")
+              : t("guides")}
           </span>
         )}
 
         <span className="guide-card-read">
-          Read guides →
+          {t("readGuides")} →
         </span>
 
       </div>

@@ -26,14 +26,13 @@ function GuideCategoryPage({
 
           <div className="guide-articles-heading">
 
-            <h2>
-              Guides
-            </h2>
+           <h2>
+  {t("guides")}
+</h2>
 
-            <p>
-              Explore practical information
-              related to this topic.
-            </p>
+<p>
+  {t("explorePracticalInformation")}
+</p>
 
           </div>
 
@@ -76,20 +75,19 @@ function GuideCategoryPage({
           </div>
 
           <h2>
-            More guides coming soon
-          </h2>
+  {t("moreGuidesComingSoon")}
+</h2>
 
-          <p>
-            We're preparing practical,
-            detailed guides for this topic.
-          </p>
+<p>
+  {t("guidesComingSoonDescription")}
+</p>
 
-          <Link
-            to="/guides"
-            className="public-secondary-button"
-          >
-            Back to Financial Guides
-          </Link>
+<Link
+  to="/guides"
+  className="public-secondary-button"
+>
+  {t("backToFinancialGuides")}
+</Link>
 
         </section>
 

@@ -340,5 +340,67 @@
   "noTokensAvailable": "没有可用代币",
   "noRecentTransactions": "没有最近的交易。",
 "addFirstIncomeOrExpense": "添加您的第一笔收入或支出即可开始使用。",
-"highExpenseRatio": "费用率较高"
+"highExpenseRatio": "费用率较高",
+
+"aboutLoomTitle": "了解你的资金，规划你的未来。",
+"aboutLoomDescription": "LOOM 是一个个人财务管理平台，旨在帮助你了解自己的财务状况、管理资金，并做出更加明智的财务决策。",
+"getStarted": "开始使用",
+
+"whatIsLoom": "什么是 LOOM？",
+"whatIsLoomText1": "LOOM 将个人财务管理中最重要的功能集中在一个地方。",
+"whatIsLoomText2": "用户可以跟踪交易、管理账户、创建财务目标、跟踪投资，并更好地了解自己的财务状况。",
+"whatIsLoomText3": "LOOM 还提供金融教育内容和分析工具，帮助用户更好地理解自己的财务决策。",
+
+"everythingInOnePlace": "一处管理你的财务",
+
+"transactionTracking": "交易跟踪",
+"transactionTrackingDescription": "记录收入和支出，了解你的资金流向。",
+"accountsDescription": "在一个地方整理你的金融账户和余额。",
+"financialGoalsDescription": "设定储蓄目标并跟踪实现目标的进度。",
+"investmentsDescription": "跟踪投资，并了解投资对整体财务状况的影响。",
+"budgetsDescription": "设置支出限额，并将实际支出与计划进行比较。",
+"aiFinancialCoachDescription": "利用你的财务信息提出问题，并了解不同的财务情景。",
+
+"learn": "了解更多",
+"learnMoreAboutMoney": "了解更多个人财务知识",
+"learnMoreAboutMoneyDescription": "探索有关预算、储蓄、投资、财务目标、个人财务和债务的实用指南。",
+"exploreGuides": "浏览指南",
+
+"importantNotice": "重要提示",
+"financialEducationDisclaimer": "LOOM 提供的信息仅用于一般信息和教育目的，不构成个性化的投资、税务、法律或其他专业财务建议。财务决策存在风险，用户应结合自身情况进行判断，并在适当情况下寻求合格专业人士的建议。",
+
+"contactDescription": "有问题、发现错误，或者想联系 LOOM？",
+"getInTouch": "联系我们",
+"contactEmailDescription": "如有问题、反馈、技术问题或其他咨询，请通过电子邮件联系我们。",
+"beforeContacting": "联系我们之前",
+"contactPrivacyNotice": "请不要通过电子邮件发送密码、身份验证代码、银行卡号或其他高度敏感的信息。",
+
+"financialGuidesIntro": "实用指南，帮助你更好地了解预算、储蓄、投资以及个人财务的其他领域。",
+"explore": "探索",
+"financialTopics": "财务主题",
+"financialTopicsDescription": "选择一个主题，了解实用信息和金融教育内容。",
+
+"budgetingGuideDescription": "学习如何管理收入、了解支出并制定合理的预算。",
+"savingGuideDescription": "学习如何建立储蓄、应对意外支出并培养可持续的储蓄习惯。",
+"investingGuideDescription": "了解投资基础、风险、分散投资和长期投资。",
+"financialGoalsGuideDescription": "学习如何制定合理的财务目标，并创建实现目标的计划。",
+"personalFinance": "个人财务",
+"personalFinanceGuideDescription": "了解管理个人整体财务状况的基本方法。",
+"debt": "债务",
+"debtGuideDescription": "了解不同类型的债务以及管理债务偿还的实用方法。",
+
+"financialEducation": "金融教育",
+"financialEducationDescription": "个人财务决策可能产生长期影响。这些指南以清晰、实用的方式解释金融概念，帮助你做出更加明智的决定。",
+"financialEducationSourceNotice": "金融信息可能因国家、个人情况和适用法律而有所不同。在做出重要财务决定之前，请始终考虑自己的具体情况。",
+
+"manageFinancesWithLoom": "将金融知识应用到实际生活中",
+"manageFinancesWithLoomDescription": "LOOM 帮助你在一个地方管理交易、账户、预算、目标和投资。",
+
+"guide": "指南",
+"guides": "指南",
+"readGuides": "阅读指南",
+"explorePracticalInformation": "探索与该主题相关的实用信息。",
+"moreGuidesComingSoon": "更多指南即将推出",
+"guidesComingSoonDescription": "我们正在准备有关该主题的实用且详细的指南。",
+"backToFinancialGuides": "返回金融指南"
 }

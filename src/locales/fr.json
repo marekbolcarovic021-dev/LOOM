@@ -340,5 +340,66 @@
     "noTokensAvailable": "Aucun token disponible",
     "noRecentTransactions": "Aucune transaction récente.",
 "addFirstIncomeOrExpense": "Ajoutez votre premier revenu ou dépense pour commencer.",
-"highExpenseRatio": "Ratio de frais élevé"
+"highExpenseRatio": "Ratio de frais élevé",
+"aboutLoomTitle": "Comprenez votre argent. Préparez votre avenir.",
+"aboutLoomDescription": "LOOM est une plateforme de finances personnelles conçue pour vous aider à comprendre votre situation financière, à organiser votre argent et à prendre des décisions financières plus éclairées.",
+"getStarted": "Commencer",
+
+"whatIsLoom": "Qu'est-ce que LOOM ?",
+"whatIsLoomText1": "LOOM réunit les éléments essentiels de la gestion des finances personnelles en un seul endroit.",
+"whatIsLoomText2": "Les utilisateurs peuvent suivre leurs transactions, gérer leurs comptes, créer des objectifs financiers, suivre leurs investissements et mieux comprendre leur situation financière.",
+"whatIsLoomText3": "LOOM propose également des ressources d'éducation financière et des outils d'analyse conçus pour aider les utilisateurs à mieux comprendre leurs propres décisions financières.",
+
+"everythingInOnePlace": "Vos finances au même endroit",
+
+"transactionTracking": "Suivi des transactions",
+"transactionTrackingDescription": "Suivez vos revenus et vos dépenses et comprenez où va votre argent.",
+"accountsDescription": "Organisez vos comptes financiers et vos soldes au même endroit.",
+"financialGoalsDescription": "Définissez des objectifs d'épargne et suivez vos progrès.",
+"investmentsDescription": "Suivez vos investissements et comprenez leur contribution à votre situation financière globale.",
+"budgetsDescription": "Créez des limites de dépenses et comparez vos dépenses réelles à vos prévisions.",
+"aiFinancialCoachDescription": "Utilisez vos informations financières pour poser des questions et comprendre différents scénarios financiers.",
+
+"learn": "APPRENDRE",
+"learnMoreAboutMoney": "En savoir plus sur les finances personnelles",
+"learnMoreAboutMoneyDescription": "Découvrez des guides pratiques sur le budget, l'épargne, l'investissement, les objectifs financiers, les finances personnelles et les dettes.",
+"exploreGuides": "Explorer les guides",
+
+"importantNotice": "Avis important",
+"financialEducationDisclaimer": "Les informations fournies par LOOM sont destinées uniquement à des fins générales d'information et d'éducation. Elles ne constituent pas des conseils financiers, d'investissement, fiscaux, juridiques ou autres conseils professionnels personnalisés. Les décisions financières comportent des risques et les utilisateurs doivent tenir compte de leur situation personnelle et consulter un professionnel qualifié lorsque cela est approprié.",
+
+"contactDescription": "Vous avez une question, avez trouvé un problème ou souhaitez contacter LOOM ?",
+"getInTouch": "Nous contacter",
+"contactEmailDescription": "Pour toute question, remarque, problème technique ou autre demande, vous pouvez nous contacter par e-mail.",
+"beforeContacting": "Avant de nous contacter",
+"contactPrivacyNotice": "Veuillez ne pas envoyer par e-mail de mots de passe, codes d'authentification, numéros de cartes de paiement ou autres informations hautement sensibles.",
+
+"financialGuidesIntro": "Des guides pratiques pour vous aider à mieux comprendre le budget, l'épargne, l'investissement et d'autres domaines des finances personnelles.",
+"explore": "EXPLORER",
+"financialTopics": "Thèmes financiers",
+"financialTopicsDescription": "Choisissez un sujet pour découvrir des informations pratiques et des ressources d'éducation financière.",
+
+"budgetingGuideDescription": "Apprenez à organiser vos revenus, à comprendre vos dépenses et à créer un budget réaliste.",
+"savingGuideDescription": "Apprenez à constituer une épargne, à vous préparer aux dépenses imprévues et à développer des habitudes d'épargne durables.",
+"investingGuideDescription": "Comprenez les principes fondamentaux de l'investissement, le risque, la diversification et l'investissement à long terme.",
+"financialGoalsGuideDescription": "Apprenez à définir des objectifs financiers réalistes et à créer un plan pour les atteindre.",
+"personalFinance": "Finances personnelles",
+"personalFinanceGuideDescription": "Découvrez les principes fondamentaux de la gestion de votre situation financière globale.",
+"debt": "Dettes",
+"debtGuideDescription": "Comprenez les différents types de dettes et les approches pratiques pour gérer leur remboursement.",
+
+"financialEducation": "Éducation financière",
+"financialEducationDescription": "Les décisions en matière de finances personnelles peuvent avoir des conséquences à long terme. Ces guides expliquent les concepts financiers de manière claire et pratique afin de vous aider à prendre des décisions mieux éclairées.",
+"financialEducationSourceNotice": "Les informations financières peuvent varier selon votre pays, votre situation et les lois applicables. Tenez toujours compte de votre situation personnelle avant de prendre des décisions financières importantes.",
+
+"manageFinancesWithLoom": "Mettez vos connaissances financières en pratique",
+"manageFinancesWithLoomDescription": "LOOM vous aide à organiser vos transactions, comptes, budgets, objectifs et investissements au même endroit.",
+
+"guide": "guide",
+"guides": "guides",
+"readGuides": "Lire les guides",
+"explorePracticalInformation": "Découvrez des informations pratiques sur ce sujet.",
+"moreGuidesComingSoon": "D'autres guides arrivent bientôt",
+"guidesComingSoonDescription": "Nous préparons des guides pratiques et détaillés sur ce sujet.",
+"backToFinancialGuides": "Retour aux guides financiers"
 }

@@ -340,5 +340,74 @@
   "noTokensAvailable": "Žiadne dostupné tokeny",
   "noRecentTransactions": "Žiadne nedávne transakcie.",
 "addFirstIncomeOrExpense": "Začnite pridaním prvého príjmu alebo výdavku.",
-"highExpenseRatio": "Vysoký pomer výdavkov"
+"highExpenseRatio": "Vysoký pomer výdavkov",
+
+"aboutLoomTitle": "Rozumejte svojim peniazom. Plánujte svoju budúcnosť.",
+"aboutLoomDescription": "LOOM je platforma pre osobné financie navrhnutá tak, aby vám pomohla pochopiť vašu finančnú situáciu, organizovať svoje financie a robiť informovanejšie finančné rozhodnutia.",
+
+"getStarted": "Začať",
+
+"whatIsLoom": "Čo je LOOM?",
+"whatIsLoomText1": "LOOM spája najdôležitejšie časti správy osobných financií na jednom mieste.",
+"whatIsLoomText2": "Používatelia môžu sledovať transakcie, spravovať účty, vytvárať finančné ciele, sledovať investície a lepšie pochopiť svoju finančnú situáciu.",
+"whatIsLoomText3": "LOOM tiež poskytuje finančné vzdelávanie a analytické nástroje, ktoré pomáhajú používateľom lepšie porozumieť vlastným finančným rozhodnutiam.",
+
+"everythingInOnePlace": "Vaše financie na jednom mieste",
+
+"transactionTracking": "Sledovanie transakcií",
+"transactionTrackingDescription": "Sledujte príjmy a výdavky a zistite, kam vaše peniaze smerujú.",
+
+"accountsDescription": "Majte svoje finančné účty a zostatky usporiadané na jednom mieste.",
+
+"financialGoalsDescription": "Nastavte si ciele sporenia a sledujte svoj pokrok pri ich dosahovaní.",
+
+"investmentsDescription": "Sledujte svoje investície a pochopte ich vplyv na vašu celkovú finančnú situáciu.",
+
+"budgetsDescription": "Vytvárajte limity výdavkov a porovnávajte skutočné výdavky so svojím plánom.",
+
+"aiFinancialCoachDescription": "Využite svoje finančné údaje na otázky a lepšie pochopenie rôznych finančných situácií.",
+
+"learn": "VZDELÁVANIE",
+"learnMoreAboutMoney": "Zistite viac o osobných financiách",
+"learnMoreAboutMoneyDescription": "Preskúmajte praktické príručky o rozpočtovaní, sporení, investovaní, finančných cieľoch, osobných financiách a dlhoch.",
+"exploreGuides": "Preskúmať príručky",
+
+"importantNotice": "Dôležité upozornenie",
+"financialEducationDisclaimer": "Informácie poskytované spoločnosťou LOOM slúžia na všeobecné informačné a vzdelávacie účely. Nepredstavujú individuálne investičné, daňové, právne ani iné odborné finančné poradenstvo. Finančné rozhodnutia zahŕňajú riziko a používatelia by mali zohľadniť svoju individuálnu situáciu a v prípade potreby vyhľadať kvalifikované odborné poradenstvo.",
+
+"contactDescription": "Máte otázku, našli ste problém alebo nás chcete kontaktovať?",
+"getInTouch": "Kontaktujte nás",
+"contactEmailDescription": "V prípade otázok, spätnej väzby, technických problémov alebo iných požiadaviek nás môžete kontaktovať e-mailom.",
+"beforeContacting": "Pred kontaktovaním nás",
+"contactPrivacyNotice": "Do e-mailu neposielajte heslá, overovacie kódy, čísla platobných kariet ani iné vysoko citlivé informácie.",
+
+"financialGuidesIntro": "Praktické príručky, ktoré vám pomôžu lepšie porozumieť rozpočtovaniu, sporeniu, investovaniu a ďalším oblastiam osobných financií.",
+"explore": "PRESKÚMAŤ",
+"financialTopics": "Finančné témy",
+"financialTopicsDescription": "Vyberte si tému a preskúmajte praktické informácie a finančné vzdelávanie.",
+
+"budgetingGuideDescription": "Naučte sa organizovať svoje príjmy, porozumieť svojim výdavkom a vytvoriť realistický rozpočet.",
+"savingGuideDescription": "Naučte sa budovať úspory, pripraviť sa na neočakávané výdavky a vytvoriť si udržateľné návyky sporenia.",
+"investingGuideDescription": "Spoznajte základy investovania, riziko, diverzifikáciu a dlhodobé investovanie.",
+"financialGoalsGuideDescription": "Naučte sa stanovovať realistické finančné ciele a vytvoriť plán na ich dosiahnutie.",
+"personalFinance": "Osobné financie",
+"personalFinanceGuideDescription": "Spoznajte základy riadenia svojej celkovej finančnej situácie.",
+"debt": "Dlhy",
+"debtGuideDescription": "Spoznajte rôzne typy dlhov a praktické prístupy k ich splácaniu.",
+
+"financialEducation": "Finančné vzdelávanie",
+"financialEducationDescription": "Rozhodnutia v oblasti osobných financií môžu mať dlhodobé dôsledky. Tieto príručky vysvetľujú finančné pojmy jasným a praktickým spôsobom, aby vám pomohli robiť informovanejšie rozhodnutia.",
+"financialEducationSourceNotice": "Finančné informácie sa môžu líšiť v závislosti od vašej krajiny, okolností a platných právnych predpisov. Pred dôležitými finančnými rozhodnutiami vždy zvážte svoju individuálnu situáciu.",
+
+"manageFinancesWithLoom": "Premieňajte svoje finančné znalosti na prax",
+"manageFinancesWithLoomDescription": "LOOM vám pomáha spravovať transakcie, účty, rozpočty, ciele a investície na jednom mieste.",
+
+
+"guide": "príručka",
+"guides": "príručky",
+"readGuides": "Čítať príručky",
+"explorePracticalInformation": "Preskúmajte praktické informácie týkajúce sa tejto témy.",
+"moreGuidesComingSoon": "Ďalšie príručky už čoskoro",
+"guidesComingSoonDescription": "Pripravujeme praktické a podrobné príručky k tejto téme.",
+"backToFinancialGuides": "Späť na finančné príručky"
 }

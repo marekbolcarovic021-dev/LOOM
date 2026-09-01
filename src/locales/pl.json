@@ -340,5 +340,67 @@
   "noTokensAvailable": "Brak dostępnych tokenów",
   "noRecentTransactions": "Brak ostatnich transakcji.",
 "addFirstIncomeOrExpense": "Zacznij od dodania pierwszego przychodu lub wydatku.",
-"highExpenseRatio": "Wysoki wskaźnik kosztów"
+"highExpenseRatio": "Wysoki wskaźnik kosztów",
+
+"aboutLoomTitle": "Zrozum swoje pieniądze. Zaplanuj swoją przyszłość.",
+"aboutLoomDescription": "LOOM to platforma do zarządzania finansami osobistymi, która pomaga zrozumieć swoją sytuację finansową, uporządkować pieniądze i podejmować bardziej świadome decyzje finansowe.",
+"getStarted": "Rozpocznij",
+
+"whatIsLoom": "Czym jest LOOM?",
+"whatIsLoomText1": "LOOM łączy najważniejsze elementy zarządzania finansami osobistymi w jednym miejscu.",
+"whatIsLoomText2": "Użytkownicy mogą śledzić transakcje, zarządzać kontami, tworzyć cele finansowe, monitorować inwestycje i lepiej rozumieć swoją sytuację finansową.",
+"whatIsLoomText3": "LOOM oferuje również edukację finansową i narzędzia analityczne pomagające lepiej zrozumieć własne decyzje finansowe.",
+
+"everythingInOnePlace": "Twoje finanse w jednym miejscu",
+
+"transactionTracking": "Śledzenie transakcji",
+"transactionTrackingDescription": "Śledź swoje przychody i wydatki oraz sprawdzaj, na co przeznaczasz pieniądze.",
+"accountsDescription": "Organizuj swoje konta finansowe i salda w jednym miejscu.",
+"financialGoalsDescription": "Ustalaj cele oszczędnościowe i śledź postępy w ich realizacji.",
+"investmentsDescription": "Monitoruj inwestycje i sprawdzaj, jak wpływają na Twoją ogólną sytuację finansową.",
+"budgetsDescription": "Ustalaj limity wydatków i porównuj rzeczywiste wydatki ze swoimi planami.",
+"aiFinancialCoachDescription": "Wykorzystuj informacje finansowe do zadawania pytań i analizowania różnych sytuacji finansowych.",
+
+"learn": "WIEDZA",
+"learnMoreAboutMoney": "Dowiedz się więcej o finansach osobistych",
+"learnMoreAboutMoneyDescription": "Poznaj praktyczne poradniki dotyczące budżetowania, oszczędzania, inwestowania, celów finansowych, finansów osobistych i zadłużenia.",
+"exploreGuides": "Przeglądaj poradniki",
+
+"importantNotice": "Ważna informacja",
+"financialEducationDisclaimer": "Informacje udostępniane przez LOOM mają wyłącznie charakter ogólny, informacyjny i edukacyjny. Nie stanowią indywidualnej porady finansowej, inwestycyjnej, podatkowej, prawnej ani innej profesjonalnej porady. Decyzje finansowe wiążą się z ryzykiem, dlatego użytkownicy powinni uwzględniać swoją indywidualną sytuację i w razie potrzeby skorzystać z pomocy wykwalifikowanego specjalisty.",
+
+"contactDescription": "Masz pytanie, znalazłeś problem lub chcesz skontaktować się z LOOM?",
+"getInTouch": "Skontaktuj się z nami",
+"contactEmailDescription": "W przypadku pytań, opinii, problemów technicznych lub innych spraw możesz skontaktować się z nami przez e-mail.",
+"beforeContacting": "Przed skontaktowaniem się z nami",
+"contactPrivacyNotice": "Nie wysyłaj pocztą elektroniczną haseł, kodów uwierzytelniających, numerów kart płatniczych ani innych szczególnie wrażliwych informacji.",
+
+"financialGuidesIntro": "Praktyczne poradniki, które pomogą Ci lepiej zrozumieć budżetowanie, oszczędzanie, inwestowanie i inne obszary finansów osobistych.",
+"explore": "ODKRYWAJ",
+"financialTopics": "Tematy finansowe",
+"financialTopicsDescription": "Wybierz temat, aby poznać praktyczne informacje i materiały edukacyjne dotyczące finansów.",
+
+"budgetingGuideDescription": "Dowiedz się, jak organizować dochody, rozumieć wydatki i tworzyć realistyczny budżet.",
+"savingGuideDescription": "Dowiedz się, jak budować oszczędności, przygotować się na nieprzewidziane wydatki i rozwijać trwałe nawyki oszczędzania.",
+"investingGuideDescription": "Poznaj podstawy inwestowania, ryzyko, dywersyfikację i inwestowanie długoterminowe.",
+"financialGoalsGuideDescription": "Dowiedz się, jak wyznaczać realistyczne cele finansowe i tworzyć plan ich realizacji.",
+"personalFinance": "Finanse osobiste",
+"personalFinanceGuideDescription": "Poznaj podstawy zarządzania swoją ogólną sytuacją finansową.",
+"debt": "Zadłużenie",
+"debtGuideDescription": "Poznaj różne rodzaje zadłużenia i praktyczne sposoby zarządzania jego spłatą.",
+
+"financialEducation": "Edukacja finansowa",
+"financialEducationDescription": "Decyzje dotyczące finansów osobistych mogą mieć długoterminowe konsekwencje. Te poradniki wyjaśniają pojęcia finansowe w jasny i praktyczny sposób, aby pomóc Ci podejmować bardziej świadome decyzje.",
+"financialEducationSourceNotice": "Informacje finansowe mogą różnić się w zależności od kraju, sytuacji osobistej i obowiązujących przepisów. Przed podjęciem ważnych decyzji finansowych zawsze uwzględnij swoją indywidualną sytuację.",
+
+"manageFinancesWithLoom": "Wykorzystaj swoją wiedzę finansową w praktyce",
+"manageFinancesWithLoomDescription": "LOOM pomaga organizować transakcje, konta, budżety, cele i inwestycje w jednym miejscu.",
+
+"guide": "poradnik",
+"guides": "poradniki",
+"readGuides": "Czytaj poradniki",
+"explorePracticalInformation": "Poznaj praktyczne informacje dotyczące tego tematu.",
+"moreGuidesComingSoon": "Więcej poradników już wkrótce",
+"guidesComingSoonDescription": "Przygotowujemy praktyczne i szczegółowe poradniki dotyczące tego tematu.",
+"backToFinancialGuides": "Wróć do poradników finansowych"
 }
