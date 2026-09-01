@@ -6,7 +6,7 @@ import {
 } from "react-router-dom";
 
 // ======================================================
-// EXISTING LOOM APP PAGES
+// LOOM APP PAGES
 // ======================================================
 
 import Transactions from "./pages/Transactions";
@@ -20,11 +20,10 @@ import Advisor from "./pages/Advisor";
 import Premium from "./pages/Premium";
 
 // ======================================================
-// AUTH PAGES
+// AUTH
 // ======================================================
 
 import Login from "./pages/Login";
-import Register from "./pages/Register";
 
 // ======================================================
 // PUBLIC PAGES
@@ -59,258 +58,6 @@ import { useAuth } from "./context/AuthContext";
 // ======================================================
 
 import "./App.css";
-import CreateMonthlyBudget from "./pages/guides/articles/CreateMonthlyBudget";
-
-
-// ======================================================
-// PRIVATE ROUTE
-// ======================================================
-
-function PrivateRoute({ children }) {
-  const { currentUser } = useAuth();
-
-  if (!currentUser) {
-    return <Navigate to="/login" replace />;
-  }
-
-  return children;
-}
-
-
-// ======================================================
-// PUBLIC ROUTES
-// ======================================================
-
-function PublicRoutes() {
-  return (
-    <>
-      {/* ------------------------------------------------
-          PUBLIC WEBSITE
-      ------------------------------------------------- */}
-
-      <Route
-        path="/about"
-        element={<About />}
-      />
-
-      <Route
-        path="/contact"
-        element={<Contact />}
-      />
-
-      <Route
-        path="/privacy"
-        element={<PrivacyPolicy />}
-      />
-
-      <Route
-        path="/cookies"
-        element={<CookiePolicy />}
-      />
-
-      <Route
-        path="/terms"
-        element={<Terms />}
-      />
-
-
-      {/* ------------------------------------------------
-          AUTH
-      ------------------------------------------------- */}
-
-      <Route
-        path="/login"
-        element={<Login />}
-      />
-
-      <Route
-        path="/register"
-        element={<Register />}
-      />
-
-
-      {/* ------------------------------------------------
-          FINANCIAL GUIDES
-      ------------------------------------------------- */}
-
-      <Route
-        path="/guides"
-        element={<FinancialGuides />}
-      />
-      
-<Route
-  path="/guides/budgeting/create-a-monthly-budget"
-  element={<CreateMonthlyBudget />}
-/>
-
-      <Route
-        path="/guides/budgeting"
-        element={<Budgeting />}
-      />
-
-      <Route
-        path="/guides/saving"
-        element={<Saving />}
-      />
-
-      <Route
-        path="/guides/investing"
-        element={<Investing />}
-      />
-
-      <Route
-        path="/guides/financial-goals"
-        element={<FinancialGoals />}
-      />
-
-      <Route
-        path="/guides/personal-finance"
-        element={<PersonalFinance />}
-      />
-
-      <Route
-        path="/guides/debt"
-        element={<Debt />}
-      />
-    </>
-  );
-}
-
-
-// ======================================================
-// PRIVATE APP ROUTES
-// ======================================================
-
-function PrivateRoutes() {
-  return (
-    <>
-      {/* ------------------------------------------------
-          DASHBOARD
-      ------------------------------------------------- */}
-
-      <Route
-        path="/"
-        element={
-          <PrivateRoute>
-            <Dashboard />
-          </PrivateRoute>
-        }
-      />
-
-
-      {/* ------------------------------------------------
-          TRANSACTIONS
-      ------------------------------------------------- */}
-
-      <Route
-        path="/transactions"
-        element={
-          <PrivateRoute>
-            <Transactions />
-          </PrivateRoute>
-        }
-      />
-
-
-      {/* ------------------------------------------------
-          BUDGETS
-      ------------------------------------------------- */}
-
-      <Route
-        path="/budgets"
-        element={
-          <PrivateRoute>
-            <Budgets />
-          </PrivateRoute>
-        }
-      />
-
-
-      {/* ------------------------------------------------
-          GOALS
-      ------------------------------------------------- */}
-
-      <Route
-        path="/goals"
-        element={
-          <PrivateRoute>
-            <Goals />
-          </PrivateRoute>
-        }
-      />
-
-
-      {/* ------------------------------------------------
-          INVESTMENTS
-      ------------------------------------------------- */}
-
-      <Route
-        path="/investments"
-        element={
-          <PrivateRoute>
-            <Investments />
-          </PrivateRoute>
-        }
-      />
-
-
-      {/* ------------------------------------------------
-          ACCOUNTS
-      ------------------------------------------------- */}
-
-      <Route
-        path="/accounts"
-        element={
-          <PrivateRoute>
-            <Accounts />
-          </PrivateRoute>
-        }
-      />
-
-
-      {/* ------------------------------------------------
-          ADVISOR
-      ------------------------------------------------- */}
-
-      <Route
-        path="/advisor"
-        element={
-          <PrivateRoute>
-            <Advisor />
-          </PrivateRoute>
-        }
-      />
-
-
-      {/* ------------------------------------------------
-          PREMIUM
-      ------------------------------------------------- */}
-
-      <Route
-        path="/premium"
-        element={
-          <PrivateRoute>
-            <Premium />
-          </PrivateRoute>
-        }
-      />
-
-
-      {/* ------------------------------------------------
-          PROFILE
-      ------------------------------------------------- */}
-
-      <Route
-        path="/profile"
-        element={
-          <PrivateRoute>
-            <Profile />
-          </PrivateRoute>
-        }
-      />
-    </>
-  );
-}
 
 
 // ======================================================
@@ -318,33 +65,193 @@ function PrivateRoutes() {
 // ======================================================
 
 function App() {
+  const { currentUser } = useAuth();
+
   return (
     <BrowserRouter>
 
       <Routes>
 
-        {/* =================================================
-            PUBLIC ROUTES
-        ================================================== */}
+        {/* ==================================================
+            PUBLIC WEBSITE
+            ================================================== */}
 
-        <PublicRoutes />
+        <Route
+          path="/about"
+          element={<About />}
+        />
 
-        {/* =================================================
-            PRIVATE LOOM APP
-        ================================================== */}
+        <Route
+          path="/home"
+          element={<About />}
+        />
 
-        <PrivateRoutes />
+        <Route
+          path="/contact"
+          element={<Contact />}
+        />
+
+        <Route
+          path="/privacy"
+          element={<PrivacyPolicy />}
+        />
+
+        <Route
+          path="/cookies"
+          element={<CookiePolicy />}
+        />
+
+        <Route
+          path="/terms"
+          element={<Terms />}
+        />
 
 
-        {/* =================================================
-            FALLBACK
-        ================================================== */}
+        {/* ==================================================
+            FINANCIAL GUIDES
+            ================================================== */}
+
+        <Route
+          path="/guides"
+          element={<FinancialGuides />}
+        />
+
+        <Route
+          path="/guides/budgeting"
+          element={<Budgeting />}
+        />
+
+        <Route
+          path="/guides/saving"
+          element={<Saving />}
+        />
+
+        <Route
+          path="/guides/investing"
+          element={<Investing />}
+        />
+
+        <Route
+          path="/guides/financial-goals"
+          element={<FinancialGoals />}
+        />
+
+        <Route
+          path="/guides/personal-finance"
+          element={<PersonalFinance />}
+        />
+
+        <Route
+          path="/guides/debt"
+          element={<Debt />}
+        />
+
+
+        {/* ==================================================
+            LOOM APPLICATION
+            ==================================================
+            
+            Every private page checks currentUser.
+            If the user is not logged in, they are sent
+            to the login page.
+            
+            ================================================== */}
+
+        <Route
+          path="/"
+          element={
+            currentUser
+              ? <Dashboard />
+              : <Login />
+          }
+        />
+
+        <Route
+          path="/transactions"
+          element={
+            currentUser
+              ? <Transactions />
+              : <Login />
+          }
+        />
+
+        <Route
+          path="/budgets"
+          element={
+            currentUser
+              ? <Budgets />
+              : <Login />
+          }
+        />
+
+        <Route
+          path="/goals"
+          element={
+            currentUser
+              ? <Goals />
+              : <Login />
+          }
+        />
+
+        <Route
+          path="/investments"
+          element={
+            currentUser
+              ? <Investments />
+              : <Login />
+          }
+        />
+
+        <Route
+          path="/profile"
+          element={
+            currentUser
+              ? <Profile />
+              : <Login />
+          }
+        />
+
+        <Route
+          path="/accounts"
+          element={
+            currentUser
+              ? <Accounts />
+              : <Login />
+          }
+        />
+
+        <Route
+          path="/advisor"
+          element={
+            currentUser
+              ? <Advisor />
+              : <Login />
+          }
+        />
+
+        <Route
+          path="/premium"
+          element={
+            currentUser
+              ? <Premium />
+              : <Login />
+          }
+        />
+
+
+        {/* ==================================================
+            UNKNOWN ROUTES
+            ================================================== */}
 
         <Route
           path="*"
           element={
             <Navigate
-              to="/about"
+              to={
+                currentUser
+                  ? "/"
+                  : "/about"
+              }
               replace
             />
           }
