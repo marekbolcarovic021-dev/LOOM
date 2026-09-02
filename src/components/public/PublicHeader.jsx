@@ -1,6 +1,8 @@
 import { Link, useLocation } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 
+import "../../styles/public/PublicLayout.css";
+
 function PublicHeader() {
   const { t } = useTranslation();
   const location = useLocation();
@@ -8,23 +10,27 @@ function PublicHeader() {
   const navigation = [
     {
       path: "/about",
-      label: t("aboutLoom") || "About LOOM",
+      label: t("aboutLoom", {
+        defaultValue: "About LOOM",
+      }),
     },
     {
       path: "/guides",
-      label: t("financialGuides") || "Financial Guides",
+      label: t("financialGuides", {
+        defaultValue: "Financial Guides",
+      }),
     },
     {
       path: "/contact",
-      label: t("contact") || "Contact",
+      label: t("contact", {
+        defaultValue: "Contact",
+      }),
     },
   ];
 
   function isActive(path) {
     if (path === "/guides") {
-      return location.pathname.startsWith(
-        "/guides"
-      );
+      return location.pathname.startsWith("/guides");
     }
 
     return location.pathname === path;
@@ -48,7 +54,9 @@ function PublicHeader() {
             alt="LOOM"
           />
 
-          <span>LOOM</span>
+          <span>
+            LOOM
+          </span>
         </Link>
 
 
@@ -87,14 +95,18 @@ function PublicHeader() {
             to="/login"
             className="public-login-link"
           >
-            {t("login") || "Login"}
+            {t("login", {
+              defaultValue: "Login",
+            })}
           </Link>
 
           <Link
             to="/register"
             className="public-register-button"
           >
-            {t("register") || "Get Started"}
+            {t("register", {
+              defaultValue: "Get Started",
+            })}
           </Link>
 
         </div>

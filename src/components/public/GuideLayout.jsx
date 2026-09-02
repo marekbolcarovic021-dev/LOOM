@@ -1,78 +1,93 @@
 import { Link } from "react-router-dom";
-import { useTranslation } from "react-i18next";
 
 import PublicHeader from "./PublicHeader";
 import PublicFooter from "./PublicFooter";
+
+import "../../styles/public/PublicLayout.css";
+import "../../styles/articles/ArticleLayout.css";
+import "../../styles/articles/ArticleContent.css";
+import { useTranslation } from "react-i18next";
 
 function GuideLayout({
   icon,
   title,
   description,
+  category,
+  categoryPath = "/guides",
   children,
 }) {
-  const { t } = useTranslation();
 
+    const { t } = useTranslation();
   return (
-    <div className="public-page">
+    <div className="public-page article-page">
 
       <PublicHeader />
 
-      <main className="guide-layout">
+      <main className="article-main">
 
         {/* ==================================================
-            BREADCRUMB
+            ARTICLE HERO
         ================================================== */}
 
-        <div className="guide-breadcrumb">
+        <section className="article-hero">
+<Link
+  to={categoryPath}
+  className="article-back-link"
+>
+  <span aria-hidden="true">←</span>
 
-          <Link to="/guides">
-            {t("financialGuides") ||
-              "Financial Guides"}
-          </Link>
+  {t("backToFinancialGuides", {
+    defaultValue: "Financial Guides",
+  })}
+</Link>
 
-          <span>
-            /
+          <span className="article-category">
+            {icon} {category}
           </span>
 
-          <span>
+          <h1 className="article-title">
             {title}
-          </span>
+          </h1>
 
-        </div>
-
-
-        {/* ==================================================
-            HERO
-        ================================================== */}
-
-        <section className="guide-hero">
-
-          <div className="guide-hero-icon">
-            {icon}
-          </div>
-
-          <div>
-
-            <h1>
-              {title}
-            </h1>
-
-            <p>
+          {description && (
+            <p className="article-intro">
               {description}
             </p>
-
-          </div>
+          )}
 
         </section>
 
 
         {/* ==================================================
-            CONTENT
+            ARTICLE CONTENT
         ================================================== */}
 
-        <div className="guide-content">
+        <div className="article-content-wrapper">
 
-          {children}
+          <article className="article-content">
+            {children}
+          </article>
+
+        </div>
+
+
+        {/* ==================================================
+            ARTICLE FOOTER
+        ================================================== */}
+
+        <div className="article-footer">
+
+          <Link
+  to={categoryPath}
+  className="public-secondary-button"
+>
+  <span aria-hidden="true">←</span>
+
+  {t("backToCategory", {
+    defaultValue: "Back to {{category}}",
+    category: category || "Financial Guides",
+  })}
+</Link>
 
         </div>
 

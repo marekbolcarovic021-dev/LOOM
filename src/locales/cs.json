@@ -402,5 +402,124 @@
 "explorePracticalInformation": "Prozkoumejte praktické informace k tomuto tématu.",
 "moreGuidesComingSoon": "Další příručky již brzy",
 "guidesComingSoonDescription": "Připravujeme praktické a podrobné příručky k tomuto tématu.",
-"backToFinancialGuides": "Zpět na finanční příručky"
+"backToFinancialGuides": "Zpět na finanční příručky",
+
+"aboutLoom": "O LOOM",
+
+"agreeToTerms": "Přečetl(a) jsem si a souhlasím s",
+
+"allRightsReserved": "Všechna práva vyhrazena.",
+
+"backToCategory": "Zpět na {{category}}",
+
+"budgetArticleEnd": "Dobrý rozpočet neznamená vyhýbat se všem výdajům. Znamená vědět, kam vaše peníze směřují, a zajistit, aby podporovaly vaše priority.",
+
+"budgetArticleExpenseDebt": "Splátky dluhů",
+"budgetArticleExpenseInsurance": "Pojištění",
+"budgetArticleExpenseRent": "Nájem nebo hypotéka",
+"budgetArticleExpenseSubscriptions": "Předplatné",
+"budgetArticleExpenseTransport": "Doprava",
+"budgetArticleExpenseUtilities": "Služby a energie",
+
+"budgetArticleStep1Text1": "Začněte tím, že si spočítáte, kolik peněz každý měsíc dostáváte.",
+"budgetArticleStep1Text2": "Zahrňte pravidelnou mzdu a další spolehlivé zdroje příjmů.",
+"budgetArticleStep1Text3": "Pokud se váš příjem měsíc od měsíce mění, použijte konzervativní odhad místo předpokladu nejvyššího možného příjmu.",
+"budgetArticleStep1Title": "1. Spočítejte své příjmy",
+
+"budgetArticleStep2Intro": "Zapište si výdaje, které běžně platíte každý měsíc.",
+"budgetArticleStep2Text": "Tyto výdaje se obvykle snáze předvídají, protože se z měsíce na měsíc výrazně nemění.",
+"budgetArticleStep2Title": "2. Sepište své pravidelné výdaje",
+
+"budgetArticleStep3Intro": "Dále se podívejte na výdaje, které se mohou měsíc od měsíce měnit.",
+"budgetArticleStep3Text": "Pohled na skutečné výdaje vám usnadní vytvoření limitů, které jsou pro vás realistické.",
+"budgetArticleStep3Title": "3. Sledujte každodenní výdaje",
+
+"budgetArticleStep4Text1": "Po pokrytí nezbytných výdajů se rozhodněte, kolik chcete vložit do úspor, splácení dluhů a dalších cílů.",
+"budgetArticleStep4Text2": "Dejte svým penězům účel ještě předtím, než je začnete utrácet.",
+"budgetArticleStep4Title": "4. Stanovte si priority",
+
+"budgetArticleStep5Text1": "Rozpočet je užitečný pouze tehdy, pokud odpovídá vašemu skutečnému životu. Na konci měsíce porovnejte, co jste plánovali, s tím, co jste skutečně utratili.",
+"budgetArticleStep5Text2": "Pokud je některá kategorie dlouhodobě příliš nízká, upravte ji místo nastavení nereálného limitu, který nedokážete dodržovat.",
+"budgetArticleStep5Title": "5. Porovnejte rozpočet se skutečnými výdaji",
+
+"budgetArticleTipText": "Nejlepší rozpočet je takový, který dokážete dlouhodobě dodržovat. Začněte s kategoriemi, na kterých vám nejvíce záleží, a podrobnější rozpočet vytvořte pouze tehdy, pokud ho potřebujete.",
+"budgetArticleTipTitle": "Udržujte to jednoduché",
+
+"budgetArticleVariableEntertainment": "Zábava",
+"budgetArticleVariableFood": "Jídlo",
+"budgetArticleVariableOther": "Ostatní každodenní výdaje",
+"budgetArticleVariableShopping": "Nakupování",
+
+"budgeting": "Rozpočtování",
+
+"contact": "Kontakt",
+
+"contactPersonalDataNotice": "V případě žádostí týkajících se ochrany osobních údajů uveďte dostatek informací, abychom mohli vaši žádost identifikovat a zpracovat. Neposílejte hesla, ověřovací kódy, čísla platebních karet ani přihlašovací údaje k bankovnictví.",
+
+"contactSupport": "Kontaktovat podporu",
+"contactSupportAccount": "Problémy s účtem nebo předplatným",
+"contactSupportFeedback": "Zpětná vazba a návrhy",
+"contactSupportPrivacy": "Žádosti týkající se soukromí a osobních údajů",
+"contactSupportQuestions": "Obecné dotazy",
+"contactSupportTechnical": "Technické chyby nebo problémy",
+
+"cookiePolicy": "Zásady používání cookies",
+
+"creatingAccount": "Vytváření účtu...",
+
+"email": "E-mail",
+
+"enterEmail": "Zadejte svou e-mailovou adresu.",
+
+"features": "FUNKCE",
+
+"financialGuides": "Finanční příručky",
+
+"footerFinancialDisclaimer": "LOOM poskytuje obecné finanční informace, vzdělávací obsah a nástroje pro finanční plánování. LOOM neposkytuje regulované investiční, daňové ani právní poradenství. Finanční rozhodnutí jsou spojena s rizikem.",
+
+"howToCreateABudgetIntro": "Jednoduchý způsob, jak si uspořádat příjmy a výdaje a vytvořit rozpočet, který můžete skutečně dodržovat.",
+"howToCreateABudgetTitle": "Jak vytvořit rozpočet",
+
+"investing": "Investování",
+
+"investingForBeginnersIntro": "Základní principy, kterým byste měli rozumět, než vložíte peníze do investic.",
+"investingForBeginnersTitle": "Investování pro začátečníky",
+
+"legal": "Právní informace",
+
+"loomFooterDescription": "LOOM vám pomáhá organizovat finance, porozumět své finanční situaci a činit informovanější finanční rozhodnutí.",
+"loomHomeAboutLabel": "LOOM – O nás",
+
+"mustAgreeToTerms": "Před vytvořením účtu musíte souhlasit s podmínkami používání.",
+
+"password": "Heslo",
+
+"passwordTooShort": "Heslo musí obsahovat alespoň 6 znaků.",
+
+"privacyPolicy": "Zásady ochrany osobních údajů",
+
+"privacyQuestions": "Dotazy týkající se soukromí",
+"privacyQuestionsDescription": "V případě dotazů týkajících se vašich osobních údajů, vašich práv na ochranu soukromí nebo způsobu, jakým LOOM zpracovává vaše informace, nás kontaktujte.",
+
+"register": "Registrovat se",
+
+"registrationFailed": "Registrace se nezdařila.",
+
+"saving": "Spoření",
+
+"settingFinancialGoalsIntro": "Proměňte obecnou představu, například „Chci více spořit“, v jasný finanční cíl, který můžete skutečně sledovat.",
+"settingFinancialGoalsTitle": "Jak si stanovit finanční cíl",
+
+"startingToSaveIntro": "Jednoduchý přístup k budování úspor bez zbytečného komplikování vašeho měsíčního rozpočtu.",
+"startingToSaveTitle": "Jak začít spořit",
+
+"termsAndConditions": "Podmínky používání",
+
+"understandingDebtIntro": "Jednoduchý průvodce, který vám pomůže porozumět tomu, co dlužíte, kolik vás to stojí a jak přistupovat ke splácení.",
+"understandingDebtTitle": "Porozumění dluhům a jejich správa",
+
+"understandingYourFinancesIntro": "Jednoduchý způsob, jak se podívat na své příjmy, výdaje, úspory, majetek a dluhy jako na jeden finanční celek.",
+"understandingYourFinancesTitle": "Porozumění vaší finanční situaci",
+
+"whatIsLoomText4": "LOOM je navržen tak, aby vám pomohl organizovat finanční informace a dozvědět se více o osobních financích, aniž by nahrazoval kvalifikované odborné finanční poradenství."
 }

@@ -415,5 +415,95 @@
 "explorePracticalInformation": "Explore practical information related to this topic.",
 "moreGuidesComingSoon": "More guides coming soon",
 "guidesComingSoonDescription": "We're preparing practical, detailed guides for this topic.",
-"backToFinancialGuides": "Back to Financial Guides"
+"backToFinancialGuides": "Back to Financial Guides",
+
+"startingToSaveTitle": "How to Start Saving Money",
+"startingToSaveIntro": "A simple approach to building savings without making your monthly budget unnecessarily complicated.",
+"investingForBeginnersTitle": "Investing for Beginners",
+"investingForBeginnersIntro": "The basic ideas you should understand before putting money into investments.",
+
+"settingFinancialGoalsTitle": "How to Set a Financial Goal",
+"settingFinancialGoalsIntro": "Turn a general idea such as 'I want to save more' into a clear financial goal you can actually track.",
+
+"understandingYourFinancesTitle": "Understanding Your Financial Situation",
+"understandingYourFinancesIntro": "A simple way to look at your income, spending, savings, assets and debts as one financial picture.",
+
+"understandingDebtTitle": "Understanding and Managing Debt",
+"understandingDebtIntro": "A simple guide to understanding what you owe, what it costs and how to approach repayment.",
+
+"howToCreateABudgetTitle": "How to Create a Budget",
+"howToCreateABudgetIntro": "A simple way to organize your income and expenses and build a budget you can actually follow.",
+
+"budgetArticleStep1Title": "1. Calculate your income",
+"budgetArticleStep1Text1": "Start by calculating how much money you receive each month.",
+"budgetArticleStep1Text2": "Include your regular salary and other reliable sources of income.",
+"budgetArticleStep1Text3": "If your income changes from month to month, use a conservative estimate rather than assuming your highest possible income.",
+
+"budgetArticleStep2Title": "2. List your regular expenses",
+"budgetArticleStep2Intro": "Write down expenses that you normally have every month.",
+"budgetArticleExpenseRent": "Rent or mortgage",
+"budgetArticleExpenseUtilities": "Utilities",
+"budgetArticleExpenseInsurance": "Insurance",
+"budgetArticleExpenseDebt": "Debt payments",
+"budgetArticleExpenseSubscriptions": "Subscriptions",
+"budgetArticleExpenseTransport": "Transportation",
+"budgetArticleStep2Text": "These expenses are usually easier to predict because they do not change significantly from month to month.",
+
+"budgetArticleStep3Title": "3. Track your everyday spending",
+"budgetArticleStep3Intro": "Next, look at expenses that can change from month to month.",
+"budgetArticleVariableFood": "Food",
+"budgetArticleVariableEntertainment": "Entertainment",
+"budgetArticleVariableShopping": "Shopping",
+"budgetArticleVariableOther": "Other everyday expenses",
+"budgetArticleStep3Text": "Looking at your actual spending makes it easier to create limits that are realistic for you.",
+
+"budgetArticleStep4Title": "4. Set your priorities",
+"budgetArticleStep4Text1": "After covering your essential expenses, decide how much you want to put toward savings, debt repayment and other goals.",
+"budgetArticleStep4Text2": "Give your money a purpose before you start spending it.",
+
+"budgetArticleStep5Title": "5. Compare your budget with your actual spending",
+"budgetArticleStep5Text1": "A budget is only useful if it reflects your real life. At the end of the month, compare what you planned with what you actually spent.",
+"budgetArticleStep5Text2": "If a category is consistently too low, adjust it instead of setting an unrealistic limit that you cannot maintain.",
+
+"budgetArticleTipTitle": "Keep it simple",
+"budgetArticleTipText": "The best budget is one you can follow consistently. Start with the categories that matter most and make it more detailed only if you need to.",
+
+"budgetArticleEnd": "A good budget does not mean avoiding all spending. It means knowing where your money is going and making sure it supports your priorities.",
+
+"backToCategory": "Back to {{category}}",
+
+"contactSupport": "Contact Support",
+"contactSupportQuestions": "General questions",
+"contactSupportTechnical": "Technical bugs or issues",
+"contactSupportAccount": "Account or subscription issues",
+"contactSupportPrivacy": "Privacy and personal data requests",
+"contactSupportFeedback": "Feedback and suggestions",
+
+"privacyQuestions": "Privacy questions",
+"privacyQuestionsDescription": "For questions about your personal data, privacy rights or how LOOM processes your information, please contact us.",
+
+"contactPersonalDataNotice": "For privacy-related requests, please provide enough information for us to identify and process your request. Do not send passwords, authentication codes, payment-card numbers or bank login credentials.",
+
+"whatIsLoomText4": "LOOM is designed to help you organize your financial information and learn more about personal finance without replacing qualified professional financial advice.",
+
+"features": "FEATURES",
+
+"loomHomeAboutLabel": "LOOM - About",
+"loomFooterDescription": "LOOM helps you organize your finances, understand your financial situation and make more informed financial decisions.",
+
+"aboutLoom": "About LOOM",
+
+"contact": "Contact",
+
+"budgeting": "Budgeting",
+"saving": "Saving",
+"investing": "Investing",
+
+"legal": "Legal",
+"privacyPolicy": "Privacy Policy",
+"cookiePolicy": "Cookie Policy",
+
+"footerFinancialDisclaimer": "LOOM provides general financial information, educational content and financial-planning tools. LOOM does not provide regulated investment, tax or legal advice. Financial decisions involve risk.",
+"financialGuides": "Financial Guides",
+"allRightsReserved": "All rights reserved."
 }

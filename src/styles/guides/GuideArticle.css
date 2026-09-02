@@ -1,0 +1,274 @@
+/* ======================================================
+   LOOM — FINANCIAL GUIDE ARTICLE
+====================================================== */
+
+.guide-article-page {
+  width: 100%;
+}
+
+
+/* ======================================================
+   ARTICLE CONTAINER
+====================================================== */
+
+.guide-article {
+  width: min(900px, calc(100% - 40px));
+
+  margin: 0 auto;
+
+  padding:
+    42px
+    0
+    100px;
+}
+
+
+/* ======================================================
+   BACK LINK
+====================================================== */
+
+.guide-article-back {
+  display: inline-flex;
+  align-items: center;
+
+  margin-bottom: 38px;
+
+  color: rgba(255, 255, 255, 0.58);
+
+  text-decoration: none;
+
+  font-size: 14px;
+  font-weight: 500;
+
+  transition:
+    color 0.2s ease,
+    transform 0.2s ease;
+}
+
+.guide-article-back:hover {
+  color: #fff;
+
+  transform: translateX(-3px);
+}
+
+
+/* ======================================================
+   HEADER
+====================================================== */
+
+.guide-article-header {
+  max-width: 820px;
+
+  margin-bottom: 58px;
+}
+
+.guide-article-header h1 {
+  margin:
+    14px
+    0
+    22px;
+
+  font-size:
+    clamp(38px, 5.5vw, 62px);
+
+  line-height: 1.05;
+
+  letter-spacing: -2px;
+
+  font-weight: 750;
+}
+
+.guide-article-description {
+  max-width: 720px;
+
+  margin: 0;
+
+  color:
+    rgba(255, 255, 255, 0.66);
+
+  font-size: 19px;
+
+  line-height: 1.7;
+}
+
+
+/* ======================================================
+   ARTICLE CONTENT
+====================================================== */
+
+.guide-article-content {
+  max-width: 760px;
+}
+
+.guide-article-content h2 {
+  margin:
+    54px
+    0
+    17px;
+
+  color: #fff;
+
+  font-size: 28px;
+
+  line-height: 1.25;
+
+  letter-spacing: -0.5px;
+}
+
+.guide-article-content h2:first-child {
+  margin-top: 0;
+}
+
+.guide-article-content p {
+  margin:
+    0
+    0
+    21px;
+
+  color:
+    rgba(255, 255, 255, 0.72);
+
+  font-size: 17px;
+
+  line-height: 1.82;
+}
+
+.guide-article-content ul {
+  margin:
+    12px
+    0
+    27px;
+
+  padding-left: 25px;
+}
+
+.guide-article-content li {
+  margin-bottom: 10px;
+
+  color:
+    rgba(255, 255, 255, 0.72);
+
+  font-size: 17px;
+
+  line-height: 1.7;
+}
+
+.guide-article-content strong {
+  color: #fff;
+}
+
+
+/* ======================================================
+   SIMPLE INFO BOX
+====================================================== */
+
+.guide-article-tip {
+  margin:
+    32px
+    0;
+
+  padding: 22px 24px;
+
+  border:
+    1px solid
+    rgba(255, 255, 255, 0.08);
+
+  border-radius: 16px;
+
+  background:
+    rgba(255, 255, 255, 0.035);
+}
+
+.guide-article-tip strong {
+  display: block;
+
+  margin-bottom: 8px;
+
+  font-size: 15px;
+}
+
+.guide-article-tip p {
+  margin: 0;
+
+  font-size: 15px;
+}
+
+
+/* ======================================================
+   DISCLAIMER
+====================================================== */
+
+.guide-article .public-disclaimer {
+  max-width: 760px;
+
+  margin-top: 65px;
+}
+
+
+/* ======================================================
+   FOOTER ACTION
+====================================================== */
+
+.guide-article-footer {
+  display: flex;
+
+  justify-content: center;
+
+  margin-top: 45px;
+}
+
+
+/* ======================================================
+   MOBILE
+====================================================== */
+
+@media (max-width: 700px) {
+
+  .guide-article {
+    width:
+      calc(100% - 32px);
+
+    padding:
+      28px
+      0
+      75px;
+  }
+
+  .guide-article-back {
+    margin-bottom: 28px;
+  }
+
+  .guide-article-header {
+    margin-bottom: 42px;
+  }
+
+  .guide-article-header h1 {
+    font-size: 38px;
+
+    letter-spacing: -1.2px;
+  }
+
+  .guide-article-description {
+    font-size: 17px;
+
+    line-height: 1.65;
+  }
+
+  .guide-article-content h2 {
+    margin-top: 42px;
+
+    font-size: 24px;
+  }
+
+  .guide-article-content p,
+  .guide-article-content li {
+    font-size: 16px;
+
+    line-height: 1.72;
+  }
+
+  .guide-article-tip {
+    padding: 18px;
+  }
+
+}

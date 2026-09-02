@@ -48,6 +48,31 @@ import PersonalFinance from "./pages/guides/PersonalFinance";
 import Debt from "./pages/guides/Debt";
 
 // ======================================================
+// FINANCIAL GUIDE ARTICLES
+// ======================================================
+
+import HowToCreateABudget
+  from "./pages/guides/articles/HowToCreateABudget";
+
+import MonthlyBudget
+  from "./pages/guides/articles/MonthlyBudget";
+
+import StartingToSave
+  from "./pages/guides/articles/StartingToSave";
+
+import InvestingForBeginners
+  from "./pages/guides/articles/InvestingForBeginners";
+
+import SettingFinancialGoals
+  from "./pages/guides/articles/SettingFinancialGoals";
+
+import UnderstandingYourFinances
+  from "./pages/guides/articles/UnderstandingYourFinances";
+
+import UnderstandingDebt
+  from "./pages/guides/articles/UnderstandingDebt";
+
+// ======================================================
 // AUTH CONTEXT
 // ======================================================
 
@@ -59,7 +84,6 @@ import { useAuth } from "./context/AuthContext";
 
 import "./App.css";
 
-
 // ======================================================
 // APP
 // ======================================================
@@ -69,12 +93,35 @@ function App() {
 
   return (
     <BrowserRouter>
-
       <Routes>
 
         {/* ==================================================
+            MAIN ENTRY POINT
+        ==================================================
+
+            The public LOOM website is always the homepage.
+
+            Logged out:
+              /
+              -> About LOOM
+
+            Logged in:
+              /
+              -> About LOOM
+
+            The authenticated Dashboard has its own route:
+              /dashboard
+        ================================================== */}
+
+        <Route
+          path="/"
+          element={<About />}
+        />
+
+
+        {/* ==================================================
             PUBLIC WEBSITE
-            ================================================== */}
+        ================================================== */}
 
         <Route
           path="/about"
@@ -82,8 +129,22 @@ function App() {
         />
 
         <Route
+          path="/login"
+          element={<Login />}
+        />
+
+        {/* Old homepage route.
+            Keep it working, but redirect it to the
+            new canonical homepage. */}
+
+        <Route
           path="/home"
-          element={<About />}
+          element={
+            <Navigate
+              to="/"
+              replace
+            />
+          }
         />
 
         <Route
@@ -109,12 +170,17 @@ function App() {
 
         {/* ==================================================
             FINANCIAL GUIDES
-            ================================================== */}
+        ================================================== */}
 
         <Route
           path="/guides"
           element={<FinancialGuides />}
         />
+
+
+        {/* ==================================================
+            BUDGETING
+        ================================================== */}
 
         <Route
           path="/guides/budgeting"
@@ -122,9 +188,34 @@ function App() {
         />
 
         <Route
+          path="/guides/budgeting/how-to-create-a-budget"
+          element={<HowToCreateABudget />}
+        />
+
+        <Route
+          path="/guides/budgeting/monthly-budget"
+          element={<MonthlyBudget />}
+        />
+
+
+        {/* ==================================================
+            SAVING
+        ================================================== */}
+
+        <Route
           path="/guides/saving"
           element={<Saving />}
         />
+
+        <Route
+          path="/guides/saving/starting-to-save"
+          element={<StartingToSave />}
+        />
+
+
+        {/* ==================================================
+            INVESTING
+        ================================================== */}
 
         <Route
           path="/guides/investing"
@@ -132,9 +223,29 @@ function App() {
         />
 
         <Route
+          path="/guides/investing/investing-for-beginners"
+          element={<InvestingForBeginners />}
+        />
+
+
+        {/* ==================================================
+            FINANCIAL GOALS
+        ================================================== */}
+
+        <Route
           path="/guides/financial-goals"
           element={<FinancialGoals />}
         />
+
+        <Route
+          path="/guides/financial-goals/setting-financial-goals"
+          element={<SettingFinancialGoals />}
+        />
+
+
+        {/* ==================================================
+            PERSONAL FINANCE
+        ================================================== */}
 
         <Route
           path="/guides/personal-finance"
@@ -142,27 +253,47 @@ function App() {
         />
 
         <Route
-          path="/guides/debt"
-          element={<Debt />}
+          path="/guides/personal-finance/understanding-your-finances"
+          element={<UnderstandingYourFinances />}
         />
 
 
         {/* ==================================================
-            LOOM APPLICATION
-            ==================================================
-            
-            Every private page checks currentUser.
-            If the user is not logged in, they are sent
-            to the login page.
-            
-            ================================================== */}
+            DEBT
+        ================================================== */}
 
         <Route
-          path="/"
+          path="/guides/debt"
+          element={<Debt />}
+        />
+
+        <Route
+          path="/guides/debt/understanding-debt"
+          element={<UnderstandingDebt />}
+        />
+
+
+        {/* ==================================================
+            PROTECTED LOOM APPLICATION
+        ==================================================
+
+            Dashboard:
+              /dashboard
+
+            All application routes require authentication.
+
+            Logged out users are redirected to /login.
+        ================================================== */}
+
+        <Route
+          path="/dashboard"
           element={
             currentUser
               ? <Dashboard />
-              : <Login />
+              : <Navigate
+                  to="/login"
+                  replace
+                />
           }
         />
 
@@ -171,7 +302,10 @@ function App() {
           element={
             currentUser
               ? <Transactions />
-              : <Login />
+              : <Navigate
+                  to="/login"
+                  replace
+                />
           }
         />
 
@@ -180,7 +314,10 @@ function App() {
           element={
             currentUser
               ? <Budgets />
-              : <Login />
+              : <Navigate
+                  to="/login"
+                  replace
+                />
           }
         />
 
@@ -189,7 +326,10 @@ function App() {
           element={
             currentUser
               ? <Goals />
-              : <Login />
+              : <Navigate
+                  to="/login"
+                  replace
+                />
           }
         />
 
@@ -198,7 +338,10 @@ function App() {
           element={
             currentUser
               ? <Investments />
-              : <Login />
+              : <Navigate
+                  to="/login"
+                  replace
+                />
           }
         />
 
@@ -207,7 +350,10 @@ function App() {
           element={
             currentUser
               ? <Profile />
-              : <Login />
+              : <Navigate
+                  to="/login"
+                  replace
+                />
           }
         />
 
@@ -216,7 +362,10 @@ function App() {
           element={
             currentUser
               ? <Accounts />
-              : <Login />
+              : <Navigate
+                  to="/login"
+                  replace
+                />
           }
         />
 
@@ -225,7 +374,10 @@ function App() {
           element={
             currentUser
               ? <Advisor />
-              : <Login />
+              : <Navigate
+                  to="/login"
+                  replace
+                />
           }
         />
 
@@ -234,31 +386,34 @@ function App() {
           element={
             currentUser
               ? <Premium />
-              : <Login />
+              : <Navigate
+                  to="/login"
+                  replace
+                />
           }
         />
 
 
         {/* ==================================================
             UNKNOWN ROUTES
-            ================================================== */}
+        ==================================================
+
+            Any unknown URL goes to the public LOOM homepage.
+
+            The homepage is always About.
+        ================================================== */}
 
         <Route
           path="*"
           element={
             <Navigate
-              to={
-                currentUser
-                  ? "/"
-                  : "/about"
-              }
+              to="/"
               replace
             />
           }
         />
 
       </Routes>
-
     </BrowserRouter>
   );
 }

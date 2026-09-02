@@ -13,72 +13,78 @@ function FinancialGuides() {
       id: "budgeting",
       path: "/guides/budgeting",
       icon: "▣",
-      title:
-        t("budgeting") ||
-        "Budgeting",
-      description:
-        t("budgetingGuideDescription") ||
-        "Learn how to organize your income, manage expenses and create a realistic budget.",
+      title: t("budgeting", {
+        defaultValue: "Budgeting",
+      }),
+      description: t("budgetingGuideDescription", {
+        defaultValue:
+          "Learn how to organize your income, manage expenses and create a realistic budget.",
+      }),
     },
 
     {
       id: "saving",
       path: "/guides/saving",
       icon: "◈",
-      title:
-        t("saving") ||
-        "Saving",
-      description:
-        t("savingGuideDescription") ||
-        "Learn practical ways to save money, build financial reserves and prepare for unexpected expenses.",
+      title: t("saving", {
+        defaultValue: "Saving",
+      }),
+      description: t("savingGuideDescription", {
+        defaultValue:
+          "Learn practical ways to save money, build financial reserves and prepare for unexpected expenses.",
+      }),
     },
 
     {
       id: "investing",
       path: "/guides/investing",
       icon: "↗",
-      title:
-        t("investing") ||
-        "Investing",
-      description:
-        t("investingGuideDescription") ||
-        "Understand the fundamentals of investing, risk, diversification and long-term wealth building.",
+      title: t("investing", {
+        defaultValue: "Investing",
+      }),
+      description: t("investingGuideDescription", {
+        defaultValue:
+          "Understand the fundamentals of investing, risk, diversification and long-term wealth building.",
+      }),
     },
 
     {
       id: "financialGoals",
       path: "/guides/financial-goals",
       icon: "◎",
-      title:
-        t("financialGoals") ||
-        "Financial Goals",
-      description:
-        t("financialGoalsGuideDescription") ||
-        "Learn how to set realistic financial goals and create a plan to achieve them.",
+      title: t("financialGoals", {
+        defaultValue: "Financial Goals",
+      }),
+      description: t("financialGoalsGuideDescription", {
+        defaultValue:
+          "Learn how to set realistic financial goals and create a plan to achieve them.",
+      }),
     },
 
     {
       id: "personalFinance",
       path: "/guides/personal-finance",
       icon: "◇",
-      title:
-        t("personalFinance") ||
-        "Personal Finance",
-      description:
-        t("personalFinanceGuideDescription") ||
-        "Build a stronger understanding of the decisions that shape your overall financial situation.",
+      title: t("personalFinance", {
+        defaultValue: "Personal Finance",
+      }),
+      description: t("personalFinanceGuideDescription", {
+        defaultValue:
+          "Build a stronger understanding of the decisions that shape your overall financial situation.",
+      }),
     },
 
     {
       id: "debt",
       path: "/guides/debt",
       icon: "−",
-      title:
-        t("debt") ||
-        "Debt",
-      description:
-        t("debtGuideDescription") ||
-        "Understand different types of debt and learn practical approaches to managing repayment.",
+      title: t("debt", {
+        defaultValue: "Debt",
+      }),
+      description: t("debtGuideDescription", {
+        defaultValue:
+          "Understand different types of debt and learn practical approaches to managing repayment.",
+      }),
     },
   ];
 
@@ -100,13 +106,16 @@ function FinancialGuides() {
           </span>
 
           <h1>
-            {t("financialGuides") ||
-              "Financial Guides"}
+            {t("financialGuides", {
+              defaultValue: "Financial Guides",
+            })}
           </h1>
 
           <p>
-            {t("financialGuidesIntro") ||
-              "Practical guides to help you better understand budgeting, saving, investing and other areas of personal finance."}
+            {t("financialGuidesIntro", {
+              defaultValue:
+                "Practical guides to help you better understand budgeting, saving, investing and other areas of personal finance.",
+            })}
           </p>
 
         </section>
@@ -121,17 +130,22 @@ function FinancialGuides() {
           <div className="public-section-heading">
 
             <span className="public-eyebrow">
-              {t("explore") || "EXPLORE"}
+              {t("explore", {
+                defaultValue: "EXPLORE",
+              })}
             </span>
 
             <h2>
-              {t("financialTopics") ||
-                "Financial topics"}
+              {t("financialTopics", {
+                defaultValue: "Financial topics",
+              })}
             </h2>
 
             <p>
-              {t("financialTopicsDescription") ||
-                "Choose a topic to explore practical information and financial education."}
+              {t("financialTopicsDescription", {
+                defaultValue:
+                  "Choose a topic to explore practical information and financial education.",
+              })}
             </p>
 
           </div>
@@ -157,7 +171,7 @@ function FinancialGuides() {
 
 
         {/* ==================================================
-            WHY THESE GUIDES
+            FINANCIAL EDUCATION
         ================================================== */}
 
         <section className="public-section guides-info-section">
@@ -171,18 +185,23 @@ function FinancialGuides() {
             <div>
 
               <h2>
-                {t("financialEducation") ||
-                  "Financial education"}
+                {t("financialEducation", {
+                  defaultValue: "Financial education",
+                })}
               </h2>
 
               <p>
-                {t("financialEducationDescription") ||
-                  "Personal finance decisions can have long-term consequences. These guides are designed to explain financial concepts in clear, practical language so you can make better-informed decisions."}
+                {t("financialEducationDescription", {
+                  defaultValue:
+                    "Personal finance decisions can have long-term consequences. These guides are designed to explain financial concepts in clear, practical language so you can make better-informed decisions.",
+                })}
               </p>
 
               <p>
-                {t("financialEducationSourceNotice") ||
-                  "Financial information can vary depending on your country, circumstances and applicable laws. Always consider your individual situation before making important financial decisions."}
+                {t("financialEducationSourceNotice", {
+                  defaultValue:
+                    "Financial information can vary depending on your country, circumstances and applicable laws. Always consider your individual situation before making important financial decisions.",
+                })}
               </p>
 
             </div>
@@ -205,13 +224,17 @@ function FinancialGuides() {
             </span>
 
             <h2>
-              {t("manageFinancesWithLoom") ||
-                "Put your financial knowledge into practice"}
+              {t("manageFinancesWithLoom", {
+                defaultValue:
+                  "Put your financial knowledge into practice",
+              })}
             </h2>
 
             <p>
-              {t("manageFinancesWithLoomDescription") ||
-                "LOOM helps you organize transactions, accounts, budgets, goals and investments in one place."}
+              {t("manageFinancesWithLoomDescription", {
+                defaultValue:
+                  "LOOM helps you organize transactions, accounts, budgets, goals and investments in one place.",
+              })}
             </p>
 
           </div>
@@ -220,8 +243,9 @@ function FinancialGuides() {
             to="/register"
             className="public-primary-button"
           >
-            {t("getStarted") ||
-              "Get Started"}
+            {t("getStarted", {
+              defaultValue: "Get Started",
+            })}
           </Link>
 
         </section>
@@ -234,13 +258,16 @@ function FinancialGuides() {
         <section className="public-disclaimer">
 
           <strong>
-            {t("importantNotice") ||
-              "Important notice"}
+            {t("importantNotice", {
+              defaultValue: "Important notice",
+            })}
           </strong>
 
           <p>
-            {t("financialEducationDisclaimer") ||
-              "Information provided by LOOM is intended for general informational and educational purposes. It does not constitute individualized investment, tax, legal or other professional financial advice. Financial decisions involve risk and users should consider their individual circumstances and seek qualified professional advice where appropriate."}
+            {t("financialEducationDisclaimer", {
+              defaultValue:
+                "Information provided by LOOM is intended for general informational and educational purposes. It does not constitute individualized investment, tax, legal or other professional financial advice. Financial decisions involve risk and users should consider their individual circumstances and seek qualified professional advice where appropriate.",
+            })}
           </p>
 
         </section>

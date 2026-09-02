@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 
 import GuideLayout from "./GuideLayout";
 import GuideCard from "./GuideCard";
@@ -9,6 +10,8 @@ function GuideCategoryPage({
   description,
   articles = [],
 }) {
+  const { t } = useTranslation();
+
   return (
     <GuideLayout
       icon={icon}
@@ -17,7 +20,7 @@ function GuideCategoryPage({
     >
 
       {/* ==================================================
-          INTRODUCTION
+          ARTICLES
       ================================================== */}
 
       {articles.length > 0 && (
@@ -26,20 +29,21 @@ function GuideCategoryPage({
 
           <div className="guide-articles-heading">
 
-           <h2>
-  {t("guides")}
-</h2>
+            <h2>
+              {t("guides", {
+  defaultValue: "Guides",
+})}
+            </h2>
 
-<p>
-  {t("explorePracticalInformation")}
-</p>
+            <p>
+              {t("exploreGuidesForTopic", {
+  defaultValue:
+    "Explore practical information related to this topic.",
+})}
+            </p>
 
           </div>
 
-
-          {/* ==================================================
-              ARTICLE GRID
-          ================================================== */}
 
           <div className="guide-article-grid">
 
@@ -63,7 +67,7 @@ function GuideCategoryPage({
 
 
       {/* ==================================================
-          EMPTY / COMING CONTENT
+          EMPTY STATE
       ================================================== */}
 
       {articles.length === 0 && (
@@ -75,19 +79,22 @@ function GuideCategoryPage({
           </div>
 
           <h2>
-  {t("moreGuidesComingSoon")}
-</h2>
+            {t("moreGuidesComingSoon") ||
+              "More guides coming soon"}
+          </h2>
 
-<p>
-  {t("guidesComingSoonDescription")}
-</p>
+          <p>
+            {t("guidesBeingPrepared") ||
+              "We're preparing practical, detailed guides for this topic."}
+          </p>
 
-<Link
-  to="/guides"
-  className="public-secondary-button"
->
-  {t("backToFinancialGuides")}
-</Link>
+          <Link
+            to="/guides"
+            className="public-secondary-button"
+          >
+            {t("backToFinancialGuides") ||
+              "Back to Financial Guides"}
+          </Link>
 
         </section>
 

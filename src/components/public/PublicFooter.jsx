@@ -18,18 +18,28 @@ function PublicFooter() {
           <Link
             to="/about"
             className="public-footer-logo"
+            aria-label={t(
+              "loomHomeAboutLabel",
+              "LOOM - About"
+            )}
           >
             <img
               src="/loom-favicon.png"
-              alt="LOOM"
+              alt=""
+              width="32"
+              height="32"
             />
 
-            <span>LOOM</span>
+            <span>
+              LOOM
+            </span>
           </Link>
 
           <p>
-            {t("loomFooterDescription") ||
-              "A smarter way to understand and manage your finances."}
+            {t(
+              "loomFooterDescription",
+              "A personal finance platform for understanding, organizing and planning your finances."
+            )}
           </p>
 
         </div>
@@ -46,11 +56,17 @@ function PublicFooter() {
           </h3>
 
           <Link to="/about">
-            {t("aboutLoom") || "About LOOM"}
+            {t(
+              "aboutLoom",
+              "About LOOM"
+            )}
           </Link>
 
           <Link to="/contact">
-            {t("contact") || "Contact"}
+            {t(
+              "contact",
+              "Contact"
+            )}
           </Link>
 
         </div>
@@ -63,34 +79,52 @@ function PublicFooter() {
         <div className="public-footer-column">
 
           <h3>
-            {t("financialGuides") ||
-              "Financial Guides"}
+            {t(
+              "financialGuides",
+              "Financial Guides"
+            )}
           </h3>
 
           <Link to="/guides/budgeting">
-            {t("budgeting") || "Budgeting"}
+            {t(
+              "budgeting",
+              "Budgeting"
+            )}
           </Link>
 
           <Link to="/guides/saving">
-            {t("saving") || "Saving"}
+            {t(
+              "saving",
+              "Saving"
+            )}
           </Link>
 
           <Link to="/guides/investing">
-            {t("investing") || "Investing"}
+            {t(
+              "investing",
+              "Investing"
+            )}
           </Link>
 
           <Link to="/guides/financial-goals">
-            {t("financialGoals") ||
-              "Financial Goals"}
+            {t(
+              "financialGoals",
+              "Financial Goals"
+            )}
           </Link>
 
           <Link to="/guides/personal-finance">
-            {t("personalFinance") ||
-              "Personal Finance"}
+            {t(
+              "personalFinance",
+              "Personal Finance"
+            )}
           </Link>
 
           <Link to="/guides/debt">
-            {t("debt") || "Debt"}
+            {t(
+              "debt",
+              "Debt"
+            )}
           </Link>
 
         </div>
@@ -103,25 +137,50 @@ function PublicFooter() {
         <div className="public-footer-column">
 
           <h3>
-            {t("legal") || "Legal"}
+            {t(
+              "legal",
+              "Legal"
+            )}
           </h3>
 
           <Link to="/privacy">
-            {t("privacyPolicy") ||
-              "Privacy Policy"}
+            {t(
+              "privacyPolicy",
+              "Privacy Policy"
+            )}
           </Link>
 
           <Link to="/cookies">
-            {t("cookiePolicy") ||
-              "Cookie Policy"}
+            {t(
+              "cookiePolicy",
+              "Cookie Policy"
+            )}
           </Link>
 
           <Link to="/terms">
-            {t("termsAndConditions") ||
-              "Terms & Conditions"}
+            {t(
+              "termsAndConditions",
+              "Terms & Conditions"
+            )}
           </Link>
 
         </div>
+
+      </div>
+
+
+      {/* ==================================================
+          LEGAL / FINANCIAL DISCLAIMER
+      ================================================== */}
+
+      <div className="public-footer-disclaimer">
+
+        <p>
+          {t(
+            "footerFinancialDisclaimer",
+            "LOOM provides general financial information, educational content and financial-planning tools. LOOM does not provide regulated investment, tax or legal advice. Financial decisions involve risk."
+          )}
+        </p>
 
       </div>
 
@@ -137,8 +196,10 @@ function PublicFooter() {
         </span>
 
         <span>
-          {t("allRightsReserved") ||
-            "All rights reserved."}
+          {t(
+            "allRightsReserved",
+            "All rights reserved."
+          )}
         </span>
 
       </div>
