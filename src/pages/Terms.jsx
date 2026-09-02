@@ -1,12 +1,28 @@
+import PublicHeader from "../components/public/PublicHeader";
+import PublicFooter from "../components/public/PublicFooter";
+
 function Terms() {
   return (
-    <div className="legal-page">
-      <div className="legal-container">
+    <div className="public-page">
 
-        <div className="legal-header">
-          <h1>LOOM Terms &amp; Conditions</h1>
-          <p>Last updated: 2 September 2026</p>
-        </div>
+      <PublicHeader />
+
+      <main className="legal-public-page">
+
+        <div className="legal-public-container">
+
+          <span className="public-eyebrow">
+            LOOM
+          </span>
+
+          <h1>
+            LOOM Terms &amp; Conditions
+          </h1>
+
+          <p className="legal-updated">
+            Last updated: 2 September 2026
+          </p>
+          </div>
 
         {/* ==================================================
             IMPORTANT LEGAL INFORMATION
@@ -16,23 +32,17 @@ function Terms() {
           <h2>LOOM Legal Information</h2>
 
           <p>
-            LOOM is operated by:
+            LOOM is currently operated as an independent personal software
+            project.
           </p>
 
           <p>
-            <strong>[LEGAL ENTITY NAME]</strong>
-            <br />
-            [REGISTERED ADDRESS]
-            <br />
-            [COMPANY REGISTRATION NUMBER]
-            <br />
-            Email: <strong>[OFFICIAL CONTACT EMAIL]</strong>
+            For questions concerning LOOM or these Terms, you can contact us
+            at:
           </p>
 
           <p>
-            The information above identifies the legal operator of the LOOM
-            Service and should be completed before LOOM is made available to
-            consumers.
+            Email: <strong>loomapp.support@gmail.com</strong>
           </p>
         </section>
 
@@ -1087,7 +1097,7 @@ function Terms() {
           </p>
 
           <p>
-            <strong>[OFFICIAL CONTACT EMAIL]</strong>
+            <strong>loomapp.support@gmail.com</strong>
           </p>
 
           <p>
@@ -1140,9 +1150,12 @@ function Terms() {
             Mandatory rights and obligations under applicable law remain
             unaffected.
           </p>
-        </div>
+                </div>
 
-      </div>
+      </main>
+
+      <PublicFooter />
+
     </div>
   );
 }

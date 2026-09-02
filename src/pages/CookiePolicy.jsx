@@ -494,7 +494,7 @@ function CookiePolicy() {
 
             <p>
               <strong>
-                contact@loom-finance.com
+                loomapp.support@gmail.com
               </strong>
             </p>
 

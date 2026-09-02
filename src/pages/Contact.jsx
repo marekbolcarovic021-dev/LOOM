@@ -66,11 +66,11 @@ function Contact() {
             </p>
 
             <a
-              href="mailto:contact@loom-finance.com"
+              href="mailto:loomapp.support@gmail.com"
               className="public-primary-button"
-              aria-label="Email LOOM at contact@loom-finance.com"
+              aria-label="Email LOOM at loomapp.support@gmail.com"
             >
-              contact@loom-finance.com
+              loomapp.support@gmail.com
             </a>
 
           </div>

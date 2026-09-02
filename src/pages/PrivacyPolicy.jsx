@@ -60,27 +60,16 @@ function PrivacyPolicy() {
             <h2>2. Data Controller</h2>
 
             <p>
-              The controller responsible for personal data processed through
-              LOOM is:
+              LOOM is currently operated as an independent personal software
+              project.
             </p>
 
             <p>
-              <strong>[LEGAL ENTITY NAME]</strong>
-              <br />
-              [REGISTERED ADDRESS]
-              <br />
-              [COMPANY REGISTRATION NUMBER]
-              <br />
-              Email: <strong>contact@loom-finance.com</strong>
+              For privacy-related questions, you can contact us at:
             </p>
 
             <p>
-              If a Data Protection Officer is legally required and appointed,
-              their contact details will be provided here:
-            </p>
-
-            <p>
-              <strong>[DPO CONTACT, IF APPLICABLE]</strong>
+              <strong>loomapp.support@gmail.com</strong>
             </p>
           </section>
 
@@ -762,7 +751,7 @@ function PrivacyPolicy() {
 
             <p>
               <strong>
-                contact@loom-finance.com
+                loomapp.support@gmail.com
               </strong>
             </p>
 
@@ -964,7 +953,7 @@ function PrivacyPolicy() {
 
             <p>
               <strong>
-                contact@loom-finance.com
+                loomapp.support@gmail.com
               </strong>
             </p>
 
