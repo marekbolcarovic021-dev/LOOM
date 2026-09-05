@@ -13999,3 +13999,624 @@ cursor: pointer;
   }
 
 }
+
+/* ==========================================================
+   REGISTER PAGE
+   ========================================================== */
+
+.register-page {
+  min-height: 100vh;
+  width: 100%;
+  box-sizing: border-box;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  position: relative;
+
+  padding: 40px 24px;
+
+  background:
+    radial-gradient(
+      circle at 50% 20%,
+      rgba(58, 92, 160, 0.16),
+      transparent 38%
+    ),
+    #0b1529;
+
+  color: #ffffff;
+
+  overflow-x: hidden;
+}
+
+
+/* ==========================================================
+   REGISTER CARD
+   ========================================================== */
+
+.register-form {
+  width: min(100%, 450px);
+  box-sizing: border-box;
+
+  display: flex;
+  flex-direction: column;
+
+  padding: 42px 40px 38px;
+
+  background: rgba(25, 38, 66, 0.96);
+
+  border: 1px solid rgba(91, 124, 255, 0.30);
+
+  border-radius: 24px;
+
+  box-shadow:
+    0 24px 70px rgba(0, 0, 0, 0.38),
+    0 0 50px rgba(45, 82, 160, 0.08);
+
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+}
+
+
+/* ==========================================================
+   TITLE
+   ========================================================== */
+
+.register-form h1 {
+  margin: 0 0 30px;
+
+  text-align: center;
+
+  font-size: 42px;
+  line-height: 1.1;
+  font-weight: 800;
+
+  color: #ffffff;
+}
+
+
+/* ==========================================================
+   INPUTS
+   ========================================================== */
+
+.register-form > input,
+.register-form .password-input-wrapper {
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.register-form > input {
+  height: 58px;
+
+  margin: 0 0 16px;
+  padding: 0 17px;
+
+  box-sizing: border-box;
+
+  border: 1px solid rgba(91, 124, 255, 0.28);
+  border-radius: 14px;
+
+  background: #0d1a33;
+
+  color: #ffffff;
+
+  font-size: 16px;
+  font-weight: 500;
+
+  outline: none;
+
+  transition:
+    border-color 0.2s ease,
+    box-shadow 0.2s ease,
+    background 0.2s ease;
+}
+
+.register-form > input::placeholder {
+  color: rgba(255, 255, 255, 0.48);
+}
+
+.register-form > input:focus {
+  border-color: rgba(91, 124, 255, 0.85);
+
+  background: #0e1d39;
+
+  box-shadow:
+    0 0 0 3px rgba(91, 124, 255, 0.12);
+}
+
+
+/* ==========================================================
+   PASSWORD
+   ========================================================== */
+
+.register-form .password-input-wrapper {
+  position: relative;
+
+  margin: 0 0 22px;
+}
+
+.register-form .password-input-wrapper input {
+  width: 100%;
+  height: 58px;
+
+  box-sizing: border-box;
+
+  padding: 0 54px 0 17px;
+
+  border: 1px solid rgba(91, 124, 255, 0.28);
+  border-radius: 14px;
+
+  background: #0d1a33;
+
+  color: #ffffff;
+
+  font-size: 16px;
+  font-weight: 500;
+
+  outline: none;
+
+  transition:
+    border-color 0.2s ease,
+    box-shadow 0.2s ease,
+    background 0.2s ease;
+}
+
+.register-form .password-input-wrapper input::placeholder {
+  color: rgba(255, 255, 255, 0.48);
+}
+
+.register-form .password-input-wrapper input:focus {
+  border-color: rgba(91, 124, 255, 0.85);
+
+  background: #0e1d39;
+
+  box-shadow:
+    0 0 0 3px rgba(91, 124, 255, 0.12);
+}
+
+
+/* ==========================================================
+   PASSWORD EYE
+   ========================================================== */
+
+.register-form .password-toggle {
+  position: absolute;
+
+  top: 50%;
+  right: 10px;
+
+  transform: translateY(-50%);
+
+  width: 38px;
+  height: 38px;
+
+  margin: 0;
+  padding: 0;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border: none;
+  border-radius: 9px;
+
+  background: transparent;
+
+  color: rgba(255, 255, 255, 0.52);
+
+  cursor: pointer;
+
+  box-shadow: none;
+
+  transition:
+    color 0.2s ease,
+    background 0.2s ease;
+}
+
+.register-form .password-toggle:hover {
+  color: #ffffff;
+
+  background: rgba(255, 255, 255, 0.06);
+}
+
+.register-form .password-toggle:focus-visible {
+  outline: 2px solid rgba(91, 124, 255, 0.8);
+  outline-offset: 2px;
+}
+
+.register-form .password-toggle svg {
+  width: 20px;
+  height: 20px;
+
+  display: block;
+}
+
+
+/* ==========================================================
+   TERMS
+   ========================================================== */
+
+.register-form .terms-agreement {
+  width: 100%;
+  margin: 0 0 22px;
+}
+
+.register-form .terms-checkbox {
+  width: 100%;
+
+  display: flex;
+  align-items: flex-start;
+
+  gap: 10px;
+
+  cursor: pointer;
+
+  color: rgba(255, 255, 255, 0.68);
+
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+
+/* Hide the native checkbox visually,
+   but keep it accessible */
+
+.register-form .terms-checkbox input {
+  position: absolute;
+
+  width: 1px;
+  height: 1px;
+
+  opacity: 0;
+
+  pointer-events: none;
+}
+
+
+/* Custom checkbox */
+
+.register-form .terms-checkmark {
+  flex: 0 0 20px;
+
+  width: 20px;
+  height: 20px;
+
+  margin-top: 1px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  box-sizing: border-box;
+
+  border: 1px solid rgba(255, 255, 255, 0.22);
+  border-radius: 6px;
+
+  background: #0d1a33;
+
+  color: #ffffff;
+
+  font-size: 13px;
+  font-weight: 800;
+
+  transition:
+    background 0.2s ease,
+    border-color 0.2s ease;
+}
+
+.register-form .terms-checkbox input:checked + .terms-checkmark {
+  background: #4b7cf3;
+
+  border-color: #4b7cf3;
+}
+
+.register-form .terms-checkbox:focus-within .terms-checkmark {
+  outline: 2px solid rgba(91, 124, 255, 0.7);
+  outline-offset: 2px;
+}
+
+
+/* Terms text */
+
+.register-form .terms-text {
+  flex: 1;
+
+  min-width: 0;
+}
+
+.register-form .terms-text a {
+  color: #6f9cff;
+
+  font-weight: 600;
+
+  text-decoration: none;
+}
+
+.register-form .terms-text a:hover {
+  color: #9ab8ff;
+
+  text-decoration: underline;
+}
+
+
+/* ==========================================================
+   ERROR
+   ========================================================== */
+
+.register-form .register-error {
+  width: 100%;
+  box-sizing: border-box;
+
+  margin: 0 0 18px;
+  padding: 12px 14px;
+
+  border: 1px solid rgba(255, 100, 100, 0.28);
+  border-radius: 11px;
+
+  background: rgba(150, 40, 40, 0.16);
+
+  color: #ffb2b2;
+
+  font-size: 14px;
+  line-height: 1.45;
+}
+
+
+/* ==========================================================
+   REGISTER BUTTON
+   ========================================================== */
+
+.register-form > button[type="submit"] {
+  width: 100%;
+  height: 58px;
+
+  margin: 0;
+  padding: 0 20px;
+
+  box-sizing: border-box;
+
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 14px;
+
+  background: linear-gradient(
+    135deg,
+    #3f82ed,
+    #6366e8
+  );
+
+  color: #ffffff;
+
+  font-size: 16px;
+  font-weight: 700;
+
+  cursor: pointer;
+
+  box-shadow:
+    0 10px 26px rgba(56, 96, 200, 0.22);
+
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease,
+    opacity 0.2s ease;
+}
+
+.register-form > button[type="submit"]:hover:not(:disabled) {
+  transform: translateY(-1px);
+
+  box-shadow:
+    0 14px 32px rgba(56, 96, 200, 0.30);
+}
+
+.register-form > button[type="submit"]:active:not(:disabled) {
+  transform: translateY(0);
+}
+
+.register-form > button[type="submit"]:focus-visible {
+  outline: 2px solid rgba(255, 255, 255, 0.85);
+  outline-offset: 3px;
+}
+
+.register-form > button[type="submit"]:disabled,
+.register-form > button.register-disabled {
+  opacity: 0.42;
+
+  cursor: not-allowed;
+
+  transform: none;
+
+  box-shadow: none;
+}
+
+
+/* ==========================================================
+   RETURN TO ABOUT
+   ========================================================== */
+
+.register-page .auth-return-button {
+  position: fixed;
+
+  left: 24px;
+  bottom: 24px;
+
+  z-index: 100;
+
+  display: inline-flex;
+  align-items: center;
+
+  gap: 9px;
+
+  padding: 11px 17px;
+
+  border: 1px solid rgba(255, 255, 255, 0.10);
+  border-radius: 12px;
+
+  background: rgba(12, 22, 42, 0.92);
+
+  color: rgba(255, 255, 255, 0.78);
+
+  text-decoration: none;
+
+  font-size: 14px;
+  font-weight: 600;
+
+  box-shadow:
+    0 8px 24px rgba(0, 0, 0, 0.28);
+
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+
+  transition:
+    transform 0.2s ease,
+    background 0.2s ease,
+    color 0.2s ease,
+    border-color 0.2s ease;
+}
+
+.register-page .auth-return-button:hover {
+  transform: translateY(-2px);
+
+  background: rgba(25, 38, 66, 0.96);
+
+  color: #ffffff;
+
+  border-color: rgba(255, 255, 255, 0.18);
+}
+
+.register-page .auth-return-button:focus-visible {
+  outline: 2px solid rgba(91, 124, 255, 0.85);
+  outline-offset: 3px;
+}
+
+.register-page .auth-return-arrow {
+  font-size: 19px;
+  line-height: 1;
+}
+
+
+/* ==========================================================
+   MOBILE
+   ========================================================== */
+
+@media (max-width: 600px) {
+
+  .register-page {
+    min-height: 100svh;
+
+    padding: 24px 14px 90px;
+
+    align-items: center;
+  }
+
+  .register-form {
+    width: 100%;
+
+    max-width: 430px;
+
+    padding: 32px 22px 28px;
+
+    border-radius: 20px;
+  }
+
+  .register-form h1 {
+    margin-bottom: 26px;
+
+    font-size: 34px;
+  }
+
+  .register-form > input,
+  .register-form .password-input-wrapper input {
+    height: 54px;
+
+    font-size: 16px;
+
+    border-radius: 13px;
+  }
+
+  .register-form > input {
+    padding-left: 15px;
+    padding-right: 15px;
+
+    margin-bottom: 14px;
+  }
+
+  .register-form .password-input-wrapper {
+    margin-bottom: 19px;
+  }
+
+  .register-form .password-input-wrapper input {
+    padding-left: 15px;
+    padding-right: 50px;
+  }
+
+  .register-form .password-toggle {
+    right: 8px;
+
+    width: 38px;
+    height: 38px;
+  }
+
+  .register-form .terms-checkbox {
+    gap: 9px;
+
+    font-size: 13px;
+  }
+
+  .register-form .terms-checkmark {
+    flex-basis: 19px;
+
+    width: 19px;
+    height: 19px;
+  }
+
+  .register-form > button[type="submit"] {
+    height: 54px;
+
+    border-radius: 13px;
+
+    font-size: 16px;
+  }
+
+  .register-page .auth-return-button {
+    left: 14px;
+    bottom: 14px;
+
+    padding: 10px 14px;
+
+    gap: 7px;
+
+    border-radius: 11px;
+
+    font-size: 13px;
+  }
+
+  .register-page .auth-return-arrow {
+    font-size: 18px;
+  }
+}
+
+
+/* ==========================================================
+   VERY SMALL PHONES
+   ========================================================== */
+
+@media (max-width: 380px) {
+
+  .register-page {
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+
+  .register-form {
+    padding: 28px 17px 24px;
+  }
+
+  .register-form h1 {
+    font-size: 31px;
+  }
+
+  .register-form .terms-checkbox {
+    font-size: 12px;
+  }
+
+}
