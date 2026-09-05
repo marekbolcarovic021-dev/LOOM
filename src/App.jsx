@@ -24,6 +24,7 @@ import Premium from "./pages/Premium";
 // ======================================================
 
 import Login from "./pages/Login";
+import Register from "./pages/Register";
 
 // ======================================================
 // PUBLIC PAGES
@@ -132,6 +133,11 @@ function App() {
           path="/login"
           element={<Login />}
         />
+
+        <Route
+  path="/register"
+  element={<Register />}
+/>
 
         {/* Old homepage route.
             Keep it working, but redirect it to the

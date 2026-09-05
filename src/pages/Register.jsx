@@ -151,7 +151,7 @@ function Register() {
       // REDIRECT AFTER REGISTRATION
       // ----------------------------------------------
 
-      window.location.href = "/";
+      window.location.href = "/dashboard";
 
     } catch (error) {
       console.error(

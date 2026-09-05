@@ -240,7 +240,7 @@ function FinancialGuides() {
           </div>
 
           <Link
-            to="/register"
+            to="/login"
             className="public-primary-button"
           >
             {t("getStarted", {

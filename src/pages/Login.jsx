@@ -1,8 +1,11 @@
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { useAuth } from "../context/AuthContext";
 import logo from "../assets/logo.png";
 
 function Login() {
+  const navigate = useNavigate();
+
   const { login, signup } =
     useAuth();
 
@@ -18,19 +21,21 @@ function Login() {
   const [isLogin, setIsLogin] =
     useState(true);
 
-  async function handleSubmit(e) {
-    e.preventDefault();
+ async function handleSubmit(e) {
+  e.preventDefault();
 
-    try {
-      if (isLogin) {
-        await login(email, password);
-      } else {
-        await signup(email, password);
-      }
-    } catch (error) {
-      alert(error.message);
+  try {
+    if (isLogin) {
+      await login(email, password);
+      navigate("/dashboard");
+    } else {
+      await signup(email, password);
+      navigate("/dashboard");
     }
+  } catch (error) {
+    alert(error.message);
   }
+}
 
   return (
     <div className="auth-page">
