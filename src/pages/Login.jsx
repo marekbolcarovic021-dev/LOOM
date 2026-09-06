@@ -6,42 +6,27 @@ import logo from "../assets/logo.png";
 function Login() {
   const navigate = useNavigate();
 
-  const { login, signup } =
-    useAuth();
+  const { login } = useAuth();
 
-  const [email, setEmail] =
-    useState("");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [showPassword, setShowPassword] = useState(false);
 
-  const [password, setPassword] =
-    useState("");
+  async function handleSubmit(e) {
+    e.preventDefault();
 
-  const [showPassword, setShowPassword] =
-    useState(false);
-
-  const [isLogin, setIsLogin] =
-    useState(true);
-
- async function handleSubmit(e) {
-  e.preventDefault();
-
-  try {
-    if (isLogin) {
+    try {
       await login(email, password);
       navigate("/dashboard");
-    } else {
-      await signup(email, password);
-      navigate("/dashboard");
+    } catch (error) {
+      alert(error.message);
     }
-  } catch (error) {
-    alert(error.message);
   }
-}
 
   return (
     <div className="auth-page">
 
       <div className="auth-logo-wrapper">
-
       </div>
 
       <div className="auth-card">
@@ -57,9 +42,7 @@ function Login() {
         </div>
 
         <h1>
-          {isLogin
-            ? "Login"
-            : "Create Account"}
+          Login
         </h1>
 
         <p className="auth-subtitle">
@@ -75,12 +58,9 @@ function Login() {
             onChange={(e) =>
               setEmail(e.target.value)
             }
+            autoComplete="email"
             required
           />
-
-          {/* ------------------------------------------
-              PASSWORD
-          ------------------------------------------- */}
 
           <div className="password-input-wrapper">
 
@@ -93,15 +73,9 @@ function Login() {
               placeholder="Password"
               value={password}
               onChange={(e) =>
-                setPassword(
-                  e.target.value
-                )
+                setPassword(e.target.value)
               }
-              autoComplete={
-                isLogin
-                  ? "current-password"
-                  : "new-password"
-              }
+              autoComplete="current-password"
               required
             />
 
@@ -192,40 +166,30 @@ function Login() {
           </div>
 
           <button type="submit">
-
-            {isLogin
-              ? "Login"
-              : "Sign Up"}
-
+            Login
           </button>
 
         </form>
 
         <div className="auth-switch">
 
-          {isLogin
-            ? "No account yet? "
-            : "Already registered? "}
+          <span>
+            No account yet?{" "}
+          </span>
 
           <button
             className="auth-link"
             type="button"
             onClick={() =>
-              setIsLogin(!isLogin)
+              navigate("/register")
             }
           >
-            {isLogin
-              ? "Create account"
-              : "Login"}
+            Create account
           </button>
 
         </div>
 
       </div>
-
-      {/* --------------------------------------------
-          RETURN TO ABOUT
-      --------------------------------------------- */}
 
       <a
         href="/about"

@@ -2,7 +2,7 @@ import { useEffect } from "react";
 
 const ADSENSE_CLIENT = "ca-pub-9227355054250070";
 
-export default function AdSenseAnchor({ enabled }) {
+export default function AdSenseAnchor({ enabled = false }) {
     useEffect(() => {
         if (!enabled) return;
 
@@ -24,6 +24,7 @@ export default function AdSenseAnchor({ enabled }) {
         script.dataset.loomAdsense = "true";
 
         document.head.appendChild(script);
+
     }, [enabled]);
 
     return null;

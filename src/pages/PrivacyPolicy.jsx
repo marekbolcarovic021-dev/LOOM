@@ -20,7 +20,7 @@ function PrivacyPolicy() {
           </h1>
 
           <p className="legal-updated">
-            Last updated: 2 September 2026
+            Last updated: 5 September 2026
           </p>
 
 
@@ -40,14 +40,20 @@ function PrivacyPolicy() {
             <p>
               This Privacy Policy explains what personal data LOOM may
               collect, why it is processed, how it may be shared, how long it
-              may be retained and what rights you have under applicable
+              may be retained and what rights you may have under applicable
               data-protection law.
             </p>
 
             <p>
               Where the General Data Protection Regulation ("GDPR") applies,
               this Privacy Policy is intended to provide the information
-              required by applicable GDPR transparency requirements.
+              required by applicable transparency requirements.
+            </p>
+
+            <p>
+              This Privacy Policy applies to the LOOM website, including
+              publicly accessible pages and areas of the Service that require
+              an account.
             </p>
           </section>
 
@@ -60,12 +66,18 @@ function PrivacyPolicy() {
             <h2>2. Data Controller</h2>
 
             <p>
-              LOOM is currently operated as an independent personal software
-              project.
+              LOOM is currently operated by an individual developer as an
+              independent personal software project.
             </p>
 
             <p>
-              For privacy-related questions, you can contact us at:
+              The operator of LOOM is responsible for the processing of
+              personal data described in this Privacy Policy.
+            </p>
+
+            <p>
+              For privacy-related questions, requests or concerns, you can
+              contact LOOM at:
             </p>
 
             <p>
@@ -97,7 +109,7 @@ function PrivacyPolicy() {
                 financial information entered by you;
               </li>
               <li>
-                account balances and account names;
+                account names and balances;
               </li>
               <li>
                 income and expense information;
@@ -106,32 +118,38 @@ function PrivacyPolicy() {
                 transaction information;
               </li>
               <li>
-                savings and financial goals;
+                savings information and financial goals;
               </li>
               <li>
                 investment information entered by you;
               </li>
               <li>
-                information contained in messages submitted to AI features;
+                information contained in messages submitted to LOOM AI
+                features;
               </li>
               <li>
                 subscription, purchase and token or credit information;
               </li>
               <li>
-                technical information required to operate and secure the
-                Service;
+                technical information required to operate, secure and
+                maintain the Service;
               </li>
               <li>
-                information concerning your preferences and settings; and
+                language, interface and other application preferences;
               </li>
               <li>
-                information you voluntarily provide when contacting LOOM.
+                information submitted when contacting LOOM; and
+              </li>
+              <li>
+                information collected through advertising and consent
+                technologies on publicly accessible pages, as described
+                below.
               </li>
             </ul>
 
             <p>
-              LOOM does not need access to your bank login credentials merely
-              to allow you to manually record financial information.
+              LOOM does not require your bank login credentials merely to
+              allow you to manually record financial information.
             </p>
           </section>
 
@@ -158,8 +176,14 @@ function PrivacyPolicy() {
 
             <p>
               Financial information entered into LOOM is generally information
-              you choose to provide. You should not enter information that is
-              unnecessary for the feature you are using.
+              that you choose to provide. You should not enter information
+              that is unnecessary for the feature you are using.
+            </p>
+
+            <p>
+              LOOM does not use your private financial information from your
+              account to create advertising audiences or to select
+              personalised advertisements for you.
             </p>
           </section>
 
@@ -184,15 +208,14 @@ function PrivacyPolicy() {
             </p>
 
             <p>
-              Authentication may be provided through a third-party service
-              provider.
+              Authentication services may be provided by third-party
+              infrastructure providers used by LOOM.
             </p>
 
             <p>
-              <strong>
-                The specific authentication provider used by the production
-                version of LOOM should be identified here before publication.
-              </strong>
+              LOOM only uses authentication-related information to provide,
+              secure and maintain account functionality and does not use
+              private account information to create advertising audiences.
             </p>
           </section>
 
@@ -219,7 +242,7 @@ function PrivacyPolicy() {
                 storing and displaying information entered by users;
               </li>
               <li>
-                calculating financial metrics and projections;
+                calculating financial metrics, summaries and projections;
               </li>
               <li>
                 analysing income, expenses, savings and financial goals;
@@ -244,11 +267,14 @@ function PrivacyPolicy() {
                 complying with legal obligations;
               </li>
               <li>
-                responding to support and privacy requests; and
+                responding to support and privacy requests;
               </li>
               <li>
-                protecting LOOM's legal rights and legitimate business
-                interests.
+                displaying and measuring advertising on eligible public
+                pages; and
+              </li>
+              <li>
+                protecting LOOM's legal rights and legitimate interests.
               </li>
             </ul>
           </section>
@@ -263,7 +289,7 @@ function PrivacyPolicy() {
 
             <p>
               Where the GDPR applies, LOOM processes personal data on one or
-              more legal bases permitted by law.
+              more legal bases permitted by applicable law.
             </p>
 
             <p>
@@ -273,8 +299,9 @@ function PrivacyPolicy() {
             <ul>
               <li>
                 <strong>Performance of a contract</strong> — where processing
-                is necessary to provide the Service you requested;
+                is necessary to provide the Service or feature you requested;
               </li>
+
               <li>
                 <strong>Legitimate interests</strong> — where processing is
                 necessary for security, fraud prevention, service
@@ -282,21 +309,23 @@ function PrivacyPolicy() {
                 interests, provided those interests are not overridden by
                 your rights;
               </li>
+
               <li>
                 <strong>Legal obligations</strong> — where processing is
                 necessary to comply with applicable law; and
               </li>
+
               <li>
-                <strong>Consent</strong> — where LOOM relies on your consent,
-                including where consent is required for certain optional
-                cookies, analytics, marketing or other optional processing.
+                <strong>Consent</strong> — where LOOM relies on consent,
+                including consent required for certain optional advertising,
+                cookies or similar technologies.
               </li>
             </ul>
 
             <p>
-              Where processing is based on consent, you may withdraw that
-              consent at any time. Withdrawal does not affect the lawfulness
-              of processing carried out before consent was withdrawn.
+              Where processing is based on consent, you may withdraw your
+              consent where applicable. Withdrawal does not affect the
+              lawfulness of processing carried out before withdrawal.
             </p>
           </section>
 
@@ -322,6 +351,12 @@ function PrivacyPolicy() {
               If information necessary for a particular feature is not
               provided, LOOM may be unable to provide that feature or service.
             </p>
+
+            <p>
+              Financial information is generally optional and is entered by
+              users when they choose to use the corresponding financial
+              management features.
+            </p>
           </section>
 
 
@@ -333,8 +368,8 @@ function PrivacyPolicy() {
             <h2>9. AI Features</h2>
 
             <p>
-              LOOM may provide AI-powered features, including an AI financial
-              coach or other automated analytical functionality.
+              LOOM provides AI-powered functionality, including the AI
+              Financial Coach and related analytical features.
             </p>
 
             <p>
@@ -351,8 +386,13 @@ function PrivacyPolicy() {
             </p>
 
             <p>
-              LOOM uses AI to provide informational and analytical
-              functionality. AI output is not intended to constitute
+              LOOM currently uses OpenAI technology to provide certain AI
+              functionality.
+            </p>
+
+            <p>
+              AI-generated responses are provided for informational and
+              analytical purposes. They are not intended to constitute
               professional financial, investment, tax or legal advice.
             </p>
 
@@ -365,15 +405,6 @@ function PrivacyPolicy() {
             <p>
               Users should avoid submitting unnecessary sensitive personal
               information in free-form AI messages.
-            </p>
-
-            <p>
-              <strong>
-                The specific AI provider used by the production version of
-                LOOM should be identified in this Privacy Policy before
-                publication, together with the applicable international
-                transfer safeguards where relevant.
-              </strong>
             </p>
           </section>
 
@@ -398,9 +429,15 @@ function PrivacyPolicy() {
             </p>
 
             <p>
-              LOOM does not intend to use automated processing to make
-              decisions about a user's eligibility for credit, employment,
-              insurance or other regulated services.
+              LOOM does not use automated processing to determine a user's
+              eligibility for credit, employment, insurance or other regulated
+              services.
+            </p>
+
+            <p>
+              LOOM does not use private financial information from user
+              accounts to create advertising audiences or to select
+              personalised advertisements.
             </p>
 
             <p>
@@ -435,10 +472,9 @@ function PrivacyPolicy() {
             </p>
 
             <p>
-              <strong>
-                The specific payment provider used by the production version
-                of LOOM should be identified here before publication.
-              </strong>
+              Payment information is used for payment administration,
+              subscription management, fraud prevention and related
+              operational purposes.
             </p>
           </section>
 
@@ -451,32 +487,32 @@ function PrivacyPolicy() {
             <h2>12. Cookies and Similar Technologies</h2>
 
             <p>
-              LOOM may use cookies, local storage and similar technologies to
-              operate the Service, remember preferences, maintain sessions,
-              provide security and understand how the Service is used.
+              LOOM may use cookies, local storage and similar technologies for
+              authentication, security, application functionality,
+              preferences, consent management and advertising.
             </p>
 
             <p>
-              Strictly necessary technologies may be used where they are
-              required for the operation or security of the Service.
+              LOOM currently uses browser local storage for certain
+              application functionality, including language preferences and
+              application data required by the Service.
+            </p>
+
+            <p>
+              LOOM does not intentionally use its own cookies to track users
+              across unrelated websites.
+            </p>
+
+            <p>
+              Third-party services integrated into LOOM may use cookies,
+              local storage, web beacons, pixels or similar technologies for
+              their respective purposes.
             </p>
 
             <p>
               Where applicable law requires consent for optional cookies or
-              similar technologies, LOOM will request consent before using
-              those technologies.
-            </p>
-
-            <p>
-              Optional technologies may include analytics, advertising,
-              measurement or other functionality depending on the services
-              enabled on the website.
-            </p>
-
-            <p>
-              Users should be able to review or change applicable cookie
-              preferences through the cookie or privacy controls provided by
-              LOOM.
+              similar technologies, the relevant technologies are subject to
+              the applicable consent mechanism.
             </p>
           </section>
 
@@ -486,32 +522,72 @@ function PrivacyPolicy() {
           ================================================== */}
 
           <section>
-            <h2>13. Advertising and Analytics</h2>
+            <h2>13. Advertising and Google AdSense</h2>
 
             <p>
-              LOOM may use analytics or advertising technologies to understand
-              website usage, measure performance or display advertising.
+              LOOM uses Google AdSense to display advertising on eligible
+              publicly accessible pages of the website.
             </p>
 
             <p>
-              Where advertising or analytics providers process personal data,
-              their processing may be subject to their own privacy policies
-              and applicable legal requirements.
+              Google and its advertising partners may process information
+              associated with advertising requests and ad delivery. Depending
+              on the applicable configuration and user choices, this may
+              include information such as IP addresses, browser or device
+              information, identifiers, cookies, web beacons, advertising
+              interaction information and information used to measure or
+              personalise advertising.
             </p>
 
             <p>
-              Where consent is legally required for advertising or
-              non-essential analytics technologies, LOOM will request the
-              applicable consent before activating those technologies.
+              Third parties, including Google and other advertising partners,
+              may place and read cookies on users' browsers or use web beacons,
+              IP addresses or similar technologies as a result of serving
+              advertisements on the LOOM website.
             </p>
 
             <p>
-              <strong>
-                If Google AdSense, Google Analytics or another advertising or
-                analytics service is enabled on the production website, the
-                exact services and applicable consent mechanism should be
-                identified here before publication.
-              </strong>
+              For information about how Google uses data when websites or apps
+              use its services, users can review Google's explanation at:
+            </p>
+
+            <p>
+              <a
+                href="https://policies.google.com/technologies/partner-sites"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                How Google uses information from sites or apps that use our
+                services
+              </a>
+            </p>
+
+            <p>
+              LOOM does not use private financial information from user
+              accounts, including income, expenses, balances, debts,
+              investments or transaction history, to create Google advertising
+              audiences or to select personalised advertisements.
+            </p>
+
+            <p>
+              Advertising is intended to be separated from the private
+              financial functionality of the LOOM application. LOOM does not
+              intentionally place advertising on private account screens such
+              as the user's financial dashboard, transaction records or AI
+              Financial Coach interface.
+            </p>
+
+            <p>
+              Google may use information about users and their interaction
+              with advertising services in accordance with Google's own
+              policies and applicable law.
+            </p>
+
+            <p>
+              Where personalised advertising or other processing requires
+              consent under applicable law, LOOM uses the Google Privacy &
+              Messaging consent mechanism configured for European
+              regulations.
             </p>
           </section>
 
@@ -521,52 +597,42 @@ function PrivacyPolicy() {
           ================================================== */}
 
           <section>
-            <h2>14. Service Providers and Data Recipients</h2>
+            <h2>14. European Consent Management</h2>
 
             <p>
-              LOOM may share personal data with service providers where
-              necessary to operate and provide the Service.
+              For users in the European Economic Area ("EEA"), the United
+              Kingdom and Switzerland, LOOM uses Google's Privacy & Messaging
+              European regulations message to obtain and manage consent where
+              required for advertising and related processing.
             </p>
 
             <p>
-              Depending on the features enabled, these providers may include:
-            </p>
-
-            <ul>
-              <li>
-                hosting and cloud infrastructure providers;
-              </li>
-              <li>
-                authentication providers;
-              </li>
-              <li>
-                payment and billing providers;
-              </li>
-              <li>
-                AI and machine-learning service providers;
-              </li>
-              <li>
-                analytics providers;
-              </li>
-              <li>
-                security and fraud-prevention providers;
-              </li>
-              <li>
-                customer-support providers; and
-              </li>
-              <li>
-                advertising providers where advertising is enabled.
-              </li>
-            </ul>
-
-            <p>
-              LOOM does not sell users' financial information as a product.
+              The consent message may provide users with options to consent,
+              decline consent or manage available privacy choices.
             </p>
 
             <p>
-              Service providers receive only the information reasonably
-              necessary for the services they provide, subject to applicable
-              agreements and law.
+              The consent mechanism may process and store information about
+              the user's consent choices so that those choices can be
+              respected when advertising services are used.
+            </p>
+
+            <p>
+              The Google consent mechanism may present information about
+              Google and other advertising partners involved in advertising
+              on the website.
+            </p>
+
+            <p>
+              Users can manage applicable consent choices through the
+              controls provided by the consent mechanism.
+            </p>
+
+            <p>
+              LOOM does not use the European consent mechanism to request
+              advertising consent for the user's private financial information
+              or to create advertising profiles from the user's financial
+              account data.
             </p>
           </section>
 
@@ -576,7 +642,97 @@ function PrivacyPolicy() {
           ================================================== */}
 
           <section>
-            <h2>15. International Data Transfers</h2>
+            <h2>15. Service Providers and Data Recipients</h2>
+
+            <p>
+              LOOM may share personal data with service providers where
+              necessary to operate and provide the Service.
+            </p>
+
+            <p>
+              Depending on the functionality used, these providers may
+              include:
+            </p>
+
+            <ul>
+              <li>
+                hosting and cloud infrastructure providers;
+              </li>
+              <li>
+                authentication and account infrastructure providers;
+              </li>
+              <li>
+                payment and billing providers;
+              </li>
+              <li>
+                AI and machine-learning service providers, including OpenAI
+                for applicable AI functionality;
+              </li>
+              <li>
+                security and fraud-prevention providers;
+              </li>
+              <li>
+                customer-support providers; and
+              </li>
+              <li>
+                advertising providers, including Google AdSense, for
+                advertising functionality.
+              </li>
+            </ul>
+
+            <p>
+              Service providers receive only information reasonably necessary
+              for the services they provide, subject to applicable agreements
+              and law.
+            </p>
+
+            <p>
+              LOOM does not sell users' financial information as a product.
+            </p>
+          </section>
+
+
+          {/* ==================================================
+              16
+          ================================================== */}
+
+          <section>
+            <h2>16. Advertising Data and Financial Information</h2>
+
+            <p>
+              LOOM treats information about a user's personal financial
+              situation as private application information.
+            </p>
+
+            <p>
+              LOOM does not provide users' private financial information to
+              Google or other advertising partners for the purpose of creating
+              advertising audiences or selecting personalised advertisements
+              based on that financial information.
+            </p>
+
+            <p>
+              In particular, LOOM does not use information such as account
+              balances, income, expenses, debt information, investment
+              information or transaction history as advertising audience
+              signals.
+            </p>
+
+            <p>
+              Advertising technologies may nevertheless process technical
+              information associated with a user's browser or device as
+              described in this Privacy Policy and the applicable Google
+              policies.
+            </p>
+          </section>
+
+
+          {/* ==================================================
+              17
+          ================================================== */}
+
+          <section>
+            <h2>17. International Data Transfers</h2>
 
             <p>
               Some LOOM service providers may process personal data outside
@@ -597,18 +753,19 @@ function PrivacyPolicy() {
             </p>
 
             <p>
-              Information about relevant safeguards may be requested using
-              the contact details provided below where required by law.
+              Some third-party providers may independently process information
+              in countries outside the EEA in accordance with their own
+              privacy policies and applicable transfer safeguards.
             </p>
           </section>
 
 
           {/* ==================================================
-              16
+              18
           ================================================== */}
 
           <section>
-            <h2>16. Data Security</h2>
+            <h2>18. Data Security</h2>
 
             <p>
               LOOM uses reasonable technical and organisational measures
@@ -631,11 +788,11 @@ function PrivacyPolicy() {
 
 
           {/* ==================================================
-              17
+              19
           ================================================== */}
 
           <section>
-            <h2>17. Data Retention</h2>
+            <h2>19. Data Retention</h2>
 
             <p>
               LOOM retains personal data only for as long as reasonably
@@ -647,6 +804,13 @@ function PrivacyPolicy() {
             <p>
               Different categories of information may be retained for
               different periods.
+            </p>
+
+            <p>
+              Information stored in an active LOOM account is generally
+              retained while the account remains active or until deletion is
+              requested, subject to applicable legal, security and operational
+              requirements.
             </p>
 
             <p>
@@ -663,11 +827,11 @@ function PrivacyPolicy() {
 
 
           {/* ==================================================
-              18
+              20
           ================================================== */}
 
           <section>
-            <h2>18. Account Deletion</h2>
+            <h2>20. Account Deletion</h2>
 
             <p>
               Users may request deletion of their LOOM account and associated
@@ -685,15 +849,21 @@ function PrivacyPolicy() {
               accounting, security, fraud-prevention or dispute-resolution
               purposes where permitted or required by law.
             </p>
+
+            <p>
+              Deletion of an account does not necessarily remove information
+              that a third-party provider is independently required or
+              permitted to retain under its own legal obligations and policies.
+            </p>
           </section>
 
 
           {/* ==================================================
-              19
+              21
           ================================================== */}
 
           <section>
-            <h2>19. Your Data Protection Rights</h2>
+            <h2>21. Your Data Protection Rights</h2>
 
             <p>
               Depending on applicable law, you may have the right to:
@@ -738,11 +908,11 @@ function PrivacyPolicy() {
 
 
           {/* ==================================================
-              20
+              22
           ================================================== */}
 
           <section>
-            <h2>20. How to Exercise Your Rights</h2>
+            <h2>22. How to Exercise Your Rights</h2>
 
             <p>
               To exercise a privacy right or ask a question about the
@@ -771,11 +941,11 @@ function PrivacyPolicy() {
 
 
           {/* ==================================================
-              21
+              23
           ================================================== */}
 
           <section>
-            <h2>21. Right to Lodge a Complaint</h2>
+            <h2>23. Right to Lodge a Complaint</h2>
 
             <p>
               If you believe that LOOM has processed your personal data in
@@ -797,11 +967,11 @@ function PrivacyPolicy() {
 
 
           {/* ==================================================
-              22
+              24
           ================================================== */}
 
           <section>
-            <h2>22. Children's Privacy</h2>
+            <h2>24. Children's Privacy</h2>
 
             <p>
               LOOM is not intended to be used by children who are below the
@@ -814,6 +984,11 @@ function PrivacyPolicy() {
             </p>
 
             <p>
+              LOOM does not knowingly use personal data from children for
+              personalised advertising.
+            </p>
+
+            <p>
               If you believe that a child has provided personal data to LOOM
               improperly, please contact us so that the situation can be
               reviewed.
@@ -822,11 +997,11 @@ function PrivacyPolicy() {
 
 
           {/* ==================================================
-              23
+              25
           ================================================== */}
 
           <section>
-            <h2>23. Data Breaches and Security Incidents</h2>
+            <h2>25. Data Breaches and Security Incidents</h2>
 
             <p>
               If LOOM becomes aware of a personal-data breach, LOOM will
@@ -843,15 +1018,16 @@ function PrivacyPolicy() {
 
 
           {/* ==================================================
-              24
+              26
           ================================================== */}
 
           <section>
-            <h2>24. Third-Party Websites and Services</h2>
+            <h2>26. Third-Party Websites and Services</h2>
 
             <p>
               LOOM may contain links to websites or services operated by third
-              parties.
+              parties, including service providers and external information
+              resources.
             </p>
 
             <p>
@@ -863,15 +1039,21 @@ function PrivacyPolicy() {
               Users should review the privacy policies of third-party
               services before providing them with personal information.
             </p>
+
+            <p>
+              Third-party services, including Google and OpenAI, may have
+              their own privacy policies governing their processing of
+              information.
+            </p>
           </section>
 
 
           {/* ==================================================
-              25
+              27
           ================================================== */}
 
           <section>
-            <h2>25. Marketing Communications</h2>
+            <h2>27. Marketing Communications</h2>
 
             <p>
               LOOM may send service-related communications that are necessary
@@ -895,11 +1077,11 @@ function PrivacyPolicy() {
 
 
           {/* ==================================================
-              26
+              28
           ================================================== */}
 
           <section>
-            <h2>26. No Sale of Financial Information</h2>
+            <h2>28. No Sale of Financial Information</h2>
 
             <p>
               LOOM does not sell users' financial information as a standalone
@@ -908,18 +1090,25 @@ function PrivacyPolicy() {
 
             <p>
               Personal data may nevertheless be disclosed to service
-              providers where necessary to provide LOOM's functionality, as
-              described in this Privacy Policy.
+              providers where necessary to provide LOOM's functionality,
+              including hosting, AI, payment, security and advertising
+              services as described in this Privacy Policy.
+            </p>
+
+            <p>
+              LOOM does not provide users' private financial information to
+              advertising partners for the purpose of creating advertising
+              audiences or selecting personalised advertisements.
             </p>
           </section>
 
 
           {/* ==================================================
-              27
+              29
           ================================================== */}
 
           <section>
-            <h2>27. Changes to This Privacy Policy</h2>
+            <h2>29. Changes to This Privacy Policy</h2>
 
             <p>
               This Privacy Policy may be updated from time to time to reflect
@@ -940,11 +1129,11 @@ function PrivacyPolicy() {
 
 
           {/* ==================================================
-              28
+              30
           ================================================== */}
 
           <section>
-            <h2>28. Contact</h2>
+            <h2>30. Contact</h2>
 
             <p>
               For questions about this Privacy Policy, requests concerning
@@ -976,17 +1165,32 @@ function PrivacyPolicy() {
             </strong>
 
             <p>
-              This Privacy Policy describes the intended privacy framework for
-              the LOOM Service. It does not replace legal advice and must be
-              kept consistent with the actual technical implementation,
-              service providers, cookies, analytics, advertising technologies,
-              payment systems and AI providers used by LOOM.
+              This Privacy Policy is intended to describe the privacy
+              practices of the LOOM Service and its currently implemented
+              advertising and consent configuration.
             </p>
 
             <p>
-              If the production implementation changes the categories of
-              personal data collected or the purposes or providers involved,
-              this Privacy Policy should be reviewed and updated accordingly.
+              LOOM uses Google AdSense on eligible public website pages.
+              Google and other advertising partners may process technical
+              information such as IP addresses, browser or device information,
+              identifiers, cookies, web beacons and advertising interaction
+              information in connection with ad serving, measurement and
+              personalisation, subject to applicable consent requirements and
+              their own policies.
+            </p>
+
+            <p>
+              LOOM does not use private financial information contained in
+              user accounts to create advertising audiences or to select
+              personalised advertisements.
+            </p>
+
+            <p>
+              If LOOM introduces new categories of personal data, new
+              advertising or analytics services, new payment providers or
+              materially changes its processing practices, this Privacy Policy
+              will be reviewed and updated accordingly.
             </p>
 
           </div>

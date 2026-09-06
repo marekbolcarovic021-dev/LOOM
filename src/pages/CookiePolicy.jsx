@@ -20,7 +20,7 @@ function CookiePolicy() {
           </h1>
 
           <p className="legal-updated">
-            Last updated: 2 September 2026
+            Last updated: 5 September 2026
           </p>
 
 
@@ -32,20 +32,21 @@ function CookiePolicy() {
             <h2>1. What Are Cookies?</h2>
 
             <p>
-              Cookies are small text files or similar technologies that may
-              be stored on your computer, smartphone or other device when you
-              visit a website.
+              Cookies are small text files and similar technologies that
+              may be stored on or accessed from your computer, smartphone,
+              tablet or other device when you visit a website.
             </p>
 
             <p>
-              Cookies can allow a website to remember information about your
-              visit, maintain a login session, remember preferences, measure
-              website usage or provide other functionality.
+              Cookies and similar technologies can be used to remember
+              preferences, maintain sessions, provide security, measure
+              website usage and support advertising.
             </p>
 
             <p>
-              This Cookie Policy explains how LOOM may use cookies and similar
-              technologies on the LOOM website and how you can manage them.
+              This Cookie Policy explains how LOOM uses cookies and similar
+              technologies on the LOOM website and how these technologies
+              relate to advertising and privacy.
             </p>
           </section>
 
@@ -55,42 +56,45 @@ function CookiePolicy() {
           ================================================== */}
 
           <section>
-            <h2>2. Types of Technologies We May Use</h2>
+            <h2>2. Technologies Used by LOOM</h2>
 
             <p>
-              Depending on the features enabled on the LOOM website, we may
-              use the following categories of cookies or similar technologies:
+              LOOM uses a limited number of cookies and similar technologies
+              for website functionality, preferences, consent management and
+              advertising.
+            </p>
+
+            <p>
+              Depending on the page and the user's location, these
+              technologies may include:
             </p>
 
             <ul>
               <li>
-                <strong>Strictly necessary technologies</strong> — required
-                for core website functionality, security, authentication or
-                other functions that users have requested.
+                browser local storage and session storage;
               </li>
 
               <li>
-                <strong>Preference technologies</strong> — used to remember
-                choices such as language, interface preferences or consent
-                settings.
+                technologies used for necessary website functionality;
               </li>
 
               <li>
-                <strong>Analytics technologies</strong> — used to understand
-                how visitors interact with the website and help us improve
-                performance and functionality.
+                technologies used to remember privacy and consent choices;
               </li>
 
               <li>
-                <strong>Advertising technologies</strong> — used, where
-                enabled and legally permitted, to provide, measure or
-                personalise advertising.
+                Google Privacy &amp; Messaging technologies used to manage
+                consent where required; and
+              </li>
+
+              <li>
+                Google AdSense advertising technologies.
               </li>
             </ul>
 
             <p>
-              The exact technologies used by LOOM may change as the Service
-              develops.
+              LOOM does not use cookies as a substitute for the financial
+              information stored within a user's LOOM account.
             </p>
           </section>
 
@@ -103,32 +107,34 @@ function CookiePolicy() {
             <h2>3. Strictly Necessary Technologies</h2>
 
             <p>
-              Some cookies or similar technologies may be necessary for the
-              website or application to function correctly.
+              Certain technologies may be necessary for LOOM to provide
+              functionality that a user has requested or for the secure
+              operation of the website.
             </p>
 
             <p>
-              These technologies may be used for purposes such as:
+              Such technologies may support functions including:
             </p>
 
             <ul>
               <li>
-                maintaining authentication and login sessions;
+                maintaining necessary application functionality;
               </li>
+
               <li>
-                maintaining account security;
+                remembering technical preferences;
               </li>
+
               <li>
-                preventing fraud or abuse;
+                maintaining security and preventing abuse;
               </li>
+
               <li>
-                remembering necessary technical settings;
+                storing necessary application state; and
               </li>
+
               <li>
-                maintaining basic website functionality; and
-              </li>
-              <li>
-                remembering your cookie-consent choice.
+                remembering privacy and consent choices.
               </li>
             </ul>
 
@@ -145,22 +151,29 @@ function CookiePolicy() {
           ================================================== */}
 
           <section>
-            <h2>4. Preference Technologies</h2>
+            <h2>4. Preference Technologies and Local Storage</h2>
 
             <p>
-              LOOM may use technologies that remember choices you make while
-              using the website.
+              LOOM may use browser local storage, session storage and similar
+              technologies to provide application functionality and remember
+              user preferences.
             </p>
 
             <p>
-              These may include preferences such as language, display
-              settings or other choices that improve the user experience.
+              Examples may include language preferences, interface settings
+              and temporary application information.
             </p>
 
             <p>
-              Where applicable law requires consent for a particular
-              preference technology, LOOM will request that consent before
-              using it.
+              These technologies are different from traditional HTTP cookies,
+              but applicable privacy and electronic-communications laws may
+              treat certain forms of local storage in a similar manner.
+            </p>
+
+            <p>
+              Where consent is legally required before using a particular
+              technology, LOOM will obtain the required consent before using
+              that technology for the relevant purpose.
             </p>
           </section>
 
@@ -173,29 +186,16 @@ function CookiePolicy() {
             <h2>5. Analytics</h2>
 
             <p>
-              LOOM may use analytics services to understand how visitors use
-              the website and to improve its performance, usability and
-              functionality.
+              LOOM does not describe a separate third-party analytics provider
+              in this Cookie Policy because no specific analytics provider is
+              relied upon for the purposes described here.
             </p>
 
             <p>
-              Depending on the service used, analytics technologies may
-              collect information such as pages visited, approximate
-              technical information about the device or browser, referral
-              information, interaction events and other usage information.
-            </p>
-
-            <p>
-              Where analytics cookies or similar technologies require consent
-              under applicable law, they will not be activated until the
-              required consent has been obtained.
-            </p>
-
-            <p>
-              <strong>
-                The specific analytics provider used by the production version
-                of LOOM should be identified here before publication.
-              </strong>
+              If LOOM introduces an analytics service in the future, this
+              Cookie Policy will be updated to identify the relevant provider,
+              the technologies used, their purposes and the applicable
+              consent requirements.
             </p>
           </section>
 
@@ -208,44 +208,81 @@ function CookiePolicy() {
             <h2>6. Advertising and Google AdSense</h2>
 
             <p>
-              LOOM may display advertising through third-party advertising
-              services, including Google AdSense, if such services are enabled
-              on the website.
+              LOOM uses Google AdSense to display advertising on eligible
+              public pages of the LOOM website.
             </p>
 
             <p>
-              Advertising technologies may use cookies or similar
-              technologies to deliver, measure or personalise advertisements,
-              depending on the configuration of the advertising service and
-              applicable law.
+              Google AdSense may use cookies and similar technologies in
+              connection with advertising. These technologies may include
+              cookies, web beacons, IP addresses and other identifiers or
+              technical information associated with a browser or device.
             </p>
 
             <p>
-              Where consent is required for personalised advertising or other
-              non-essential advertising technologies, LOOM will request the
-              appropriate consent before activating those technologies.
+              Google explains that an AdSense cookie may be sent when a page
+              contains Google advertising tags. An advertising tag may also
+              result in certain Google technologies being loaded even when a
+              visible advertisement is not ultimately displayed.
             </p>
 
             <p>
-              Refusing optional advertising or analytics cookies should not
-              prevent access to the core public content of LOOM where the
-              applicable service can reasonably be provided without those
-              technologies.
+              Third-party advertising providers, including Google, may place
+              or read cookies on a user's browser and may use web beacons,
+              IP addresses or similar technologies as a result of advertising
+              being served on the website.
             </p>
 
             <p>
-              Third-party advertising providers may process information in
-              accordance with their own privacy policies and applicable legal
-              requirements.
+              Google's use of advertising cookies may allow Google and its
+              advertising partners to serve, measure and personalise
+              advertising, subject to the user's consent choices and the
+              applicable configuration of the Google advertising service.
             </p>
 
             <p>
-              <strong>
-                If Google AdSense is enabled, LOOM's production cookie-consent
-                configuration must be implemented consistently with the
-                applicable Google consent requirements and applicable
-                European data-protection law.
-              </strong>
+              LOOM does not intentionally provide Google with private
+              financial information from a user's LOOM account for the purpose
+              of creating advertising audiences or selecting personalised
+              advertisements.
+            </p>
+
+            <p>
+              Private financial information may include information such as
+              income, expenses, account balances, debts, investments,
+              transactions, financial goals or information entered into the
+              LOOM AI Financial Coach.
+            </p>
+
+            <p>
+              For more information about Google's use of information from
+              websites and applications that use Google services, see:
+            </p>
+
+            <p>
+              <a
+                href="https://policies.google.com/technologies/partner-sites"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                How Google uses information from sites or apps that use our
+                services
+              </a>
+            </p>
+
+            <p>
+              Google also provides information about its advertising data
+              practices at:
+            </p>
+
+            <p>
+              <a
+                href="https://business.safety.google/privacy/"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Google Business Data Responsibility
+              </a>
             </p>
           </section>
 
@@ -255,28 +292,36 @@ function CookiePolicy() {
           ================================================== */}
 
           <section>
-            <h2>7. Third-Party Cookies</h2>
+            <h2>7. Google Privacy &amp; Messaging</h2>
 
             <p>
-              Some cookies or similar technologies may be placed by third
-              parties whose services are integrated into LOOM.
+              LOOM uses Google's Privacy &amp; Messaging system to provide a
+              consent mechanism for users in jurisdictions where consent for
+              cookies, local storage or personalised advertising is required.
             </p>
 
             <p>
-              Examples may include payment services, analytics providers,
-              authentication services, advertising providers or other
-              technology providers.
+              For users in the European Economic Area, the United Kingdom and
+              Switzerland, the relevant European regulations consent mechanism
+              may request consent for the use of cookies or local storage and
+              for the collection, sharing and use of personal data for
+              personalised advertising.
             </p>
 
             <p>
-              Third-party technologies may allow the relevant provider to
-              recognise a device or browser when interacting with its
-              services.
+              The consent mechanism allows users to make a choice regarding
+              advertising-related purposes and to manage available consent
+              options.
             </p>
 
             <p>
-              The use of third-party technologies is subject to the relevant
-              provider's own terms and privacy information.
+              LOOM does not use its own cookie banner to replace Google's
+              certified consent management mechanism for Google advertising.
+            </p>
+
+            <p>
+              Google's consent management requirements for publishers apply
+              to Google AdSense advertising in the EEA, UK and Switzerland.
             </p>
           </section>
 
@@ -286,29 +331,42 @@ function CookiePolicy() {
           ================================================== */}
 
           <section>
-            <h2>8. Cookie Consent</h2>
+            <h2>8. Consent Choices</h2>
 
             <p>
-              Where applicable law requires consent before storing or
-              accessing information on a user's device, LOOM will request
-              consent before activating the relevant non-essential
-              technologies.
+              Where consent is required, LOOM relies on the applicable Google
+              Privacy &amp; Messaging consent mechanism to present users with
+              available choices.
             </p>
 
             <p>
-              The consent interface may allow users to accept, reject or
-              manage categories of optional cookies and similar technologies.
+              Depending on the user's location and applicable requirements,
+              the consent interface may provide options to:
+            </p>
+
+            <ul>
+              <li>
+                consent to the relevant purposes;
+              </li>
+
+              <li>
+                decline consent; or
+              </li>
+
+              <li>
+                manage individual consent options.
+              </li>
+            </ul>
+
+            <p>
+              Consent is not inferred merely from continued browsing where
+              applicable law requires an affirmative choice.
             </p>
 
             <p>
-              Consent should be voluntary, informed, specific and based on a
-              clear affirmative action where consent is legally required.
-            </p>
-
-            <p>
-              Continuing to browse the website or merely failing to interact
-              with a consent mechanism will not be treated as consent where
-              applicable law requires an affirmative action.
+              The user's consent choices are handled through the applicable
+              consent-management system and may be stored or otherwise
+              processed so that the user's choice can be respected.
             </p>
           </section>
 
@@ -318,23 +376,29 @@ function CookiePolicy() {
           ================================================== */}
 
           <section>
-            <h2>9. Managing Your Cookie Preferences</h2>
+            <h2>9. Withdrawal and Management of Consent</h2>
 
             <p>
-              Where LOOM provides a cookie-consent or privacy-settings tool,
-              you may use it to review, accept or reject available categories
-              of optional technologies.
+              Users who have previously provided consent for advertising
+              purposes must be able to review or change their consent choices
+              where required by applicable law and Google's consent
+              requirements.
             </p>
 
             <p>
-              You may also be able to control cookies through your browser
-              settings.
+              Google Privacy &amp; Messaging provides a mechanism through which
+              users can revisit the European regulations consent message and
+              change their choices.
             </p>
 
             <p>
-              Most browsers allow you to delete existing cookies or block
-              future cookies. However, blocking strictly necessary cookies
-              may cause some parts of LOOM to stop functioning correctly.
+              Where available on the LOOM website, this functionality may be
+              presented as a "Privacy and cookie settings" option.
+            </p>
+
+            <p>
+              Withdrawal of consent does not affect the lawfulness of
+              processing that took place before consent was withdrawn.
             </p>
           </section>
 
@@ -344,26 +408,26 @@ function CookiePolicy() {
           ================================================== */}
 
           <section>
-            <h2>10. Withdrawal of Consent</h2>
+            <h2>10. Third-Party Technologies</h2>
 
             <p>
-              Where processing is based on your consent, you may withdraw your
-              consent at any time.
+              Some technologies used on LOOM may be provided by third parties.
             </p>
 
             <p>
-              LOOM will provide an appropriate mechanism for changing or
-              withdrawing optional cookie consent where required by applicable
-              law.
+              The principal third-party advertising technology currently
+              disclosed in this Cookie Policy is Google AdSense together with
+              Google's Privacy &amp; Messaging consent system.
             </p>
 
             <p>
-              Withdrawal of consent should be as easy as providing consent.
+              Third-party providers may process information according to their
+              own privacy policies and applicable legal requirements.
             </p>
 
             <p>
-              Withdrawal does not affect the lawfulness of processing carried
-              out before consent was withdrawn.
+              LOOM does not control cookies or similar technologies that are
+              set directly by third-party providers on their own domains.
             </p>
           </section>
 
@@ -373,31 +437,46 @@ function CookiePolicy() {
           ================================================== */}
 
           <section>
-            <h2>11. Cookie Duration</h2>
+            <h2>11. What Information May Be Associated With Advertising
+              Technologies?</h2>
 
             <p>
-              Cookies may be either session cookies or persistent cookies.
+              Depending on the advertising configuration and the user's
+              consent choices, advertising technologies may process technical
+              information such as:
             </p>
 
-            <p>
-              <strong>Session cookies</strong> are generally deleted when you
-              close your browser.
-            </p>
+            <ul>
+              <li>
+                IP address;
+              </li>
+
+              <li>
+                browser and device information;
+              </li>
+
+              <li>
+                cookie or advertising identifiers;
+              </li>
+
+              <li>
+                information about interaction with advertisements;
+              </li>
+
+              <li>
+                approximate technical or geographic information derived from
+                the connection; and
+              </li>
+
+              <li>
+                information necessary to measure or deliver advertising.
+              </li>
+            </ul>
 
             <p>
-              <strong>Persistent cookies</strong> remain on your device for a
-              defined period or until they are deleted.
-            </p>
-
-            <p>
-              The duration of individual cookies depends on their purpose and
-              the service that places them.
-            </p>
-
-            <p>
-              Where LOOM uses identifiable cookies that require disclosure of
-              their duration, the production cookie list should provide the
-              applicable name, provider, purpose and retention period.
+              The exact information processed depends on the advertising
+              configuration, the user's consent choices, the user's browser
+              and device, and the services used to provide advertising.
             </p>
           </section>
 
@@ -407,23 +486,31 @@ function CookiePolicy() {
           ================================================== */}
 
           <section>
-            <h2>12. Local Storage and Similar Technologies</h2>
+            <h2>12. Financial Information and Advertising</h2>
 
             <p>
-              LOOM may use browser local storage, session storage or similar
-              technologies in addition to traditional cookies.
+              LOOM is a personal finance application and therefore may process
+              sensitive or highly private financial information as part of its
+              core functionality.
             </p>
 
             <p>
-              These technologies may be used to store application settings,
-              temporary information, authentication-related information or
-              other data required for functionality.
+              Financial information entered into or generated by the private
+              LOOM application is intended to remain separate from the
+              advertising functionality of the public website.
             </p>
 
             <p>
-              Where applicable law treats these technologies in the same way
-              as cookies or otherwise requires consent, LOOM will apply the
-              appropriate consent requirements.
+              LOOM does not intentionally use a user's private financial
+              information, including income, expenses, balances, debts,
+              investments, transactions or financial goals, to create
+              personalised advertising audiences or to select advertisements.
+            </p>
+
+            <p>
+              Advertising technologies are intended to operate independently
+              from the private financial records and AI Financial Coach
+              functionality of LOOM.
             </p>
           </section>
 
@@ -433,23 +520,32 @@ function CookiePolicy() {
           ================================================== */}
 
           <section>
-            <h2>13. Cookies and Personal Data</h2>
+            <h2>13. Cookie Duration</h2>
 
             <p>
-              Some cookies and similar technologies may process information
-              that constitutes personal data under applicable data-protection
-              law.
+              Cookies and similar technologies may be temporary or persistent.
             </p>
 
             <p>
-              Information about the processing of personal data, including
-              purposes, legal bases, recipients, retention and user rights, is
-              provided in the LOOM Privacy Policy.
+              <strong>Session technologies</strong> generally remain available
+              during a browser session and may be removed when the session
+              ends.
             </p>
 
             <p>
-              This Cookie Policy should therefore be read together with the
-              LOOM Privacy Policy.
+              <strong>Persistent technologies</strong> may remain on a device
+              for a defined period or until they are deleted or expire.
+            </p>
+
+            <p>
+              The duration of individual technologies depends on their
+              provider, purpose and technical configuration.
+            </p>
+
+            <p>
+              Google may determine the duration of advertising cookies used by
+              Google advertising services according to its own technical and
+              advertising configuration.
             </p>
           </section>
 
@@ -459,23 +555,27 @@ function CookiePolicy() {
           ================================================== */}
 
           <section>
-            <h2>14. Changes to This Cookie Policy</h2>
+            <h2>14. Managing Cookies Through Your Browser</h2>
 
             <p>
-              This Cookie Policy may be updated when LOOM's use of cookies,
-              local storage, analytics, advertising or similar technologies
-              changes.
+              Most modern browsers provide settings that allow users to view,
+              delete or block cookies.
             </p>
 
             <p>
-              The "Last updated" date at the beginning of this policy
-              indicates when it was most recently revised.
+              Users may also be able to configure their browser to reject
+              certain cookies or to notify them when cookies are being used.
             </p>
 
             <p>
-              Where required by applicable law, LOOM will provide appropriate
-              notice of material changes or request renewed consent where
-              necessary.
+              Blocking or deleting strictly necessary technologies may affect
+              the functionality of LOOM.
+            </p>
+
+            <p>
+              Browser controls do not necessarily replace the consent
+              mechanisms required for Google advertising in jurisdictions
+              where Google's consent requirements apply.
             </p>
           </section>
 
@@ -485,11 +585,62 @@ function CookiePolicy() {
           ================================================== */}
 
           <section>
-            <h2>15. Contact</h2>
+            <h2>15. Relationship With the Privacy Policy</h2>
 
             <p>
-              Questions about cookies, privacy preferences or this Cookie
-              Policy can be sent to:
+              This Cookie Policy explains the use of cookies and similar
+              technologies.
+            </p>
+
+            <p>
+              The LOOM Privacy Policy provides additional information about
+              the processing of personal data, including information about
+              purposes, legal bases, recipients, data retention and user
+              rights.
+            </p>
+
+            <p>
+              The Cookie Policy and Privacy Policy should therefore be read
+              together.
+            </p>
+          </section>
+
+
+          {/* ==================================================
+              16
+          ================================================== */}
+
+          <section>
+            <h2>16. Changes to This Cookie Policy</h2>
+
+            <p>
+              LOOM may update this Cookie Policy when the website's use of
+              cookies, local storage, advertising technologies or consent
+              mechanisms changes.
+            </p>
+
+            <p>
+              The "Last updated" date at the beginning of this policy
+              indicates when it was most recently revised.
+            </p>
+
+            <p>
+              Where required by applicable law, LOOM will provide appropriate
+              notice or request renewed consent when necessary.
+            </p>
+          </section>
+
+
+          {/* ==================================================
+              17
+          ================================================== */}
+
+          <section>
+            <h2>17. Contact</h2>
+
+            <p>
+              Questions regarding cookies, advertising technologies, consent
+              choices or this Cookie Policy can be sent to:
             </p>
 
             <p>
@@ -501,7 +652,13 @@ function CookiePolicy() {
             <p>
               LOOM website:
               {" "}
-              www.loom-finance.com
+              <a
+                href="https://www.loom-finance.com"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                www.loom-finance.com
+              </a>
             </p>
           </section>
 
@@ -517,16 +674,22 @@ function CookiePolicy() {
             </strong>
 
             <p>
-              This Cookie Policy describes the intended framework for the use
-              of cookies and similar technologies on LOOM. The final version
-              must remain consistent with the technologies actually deployed
-              on the production website.
+              This Cookie Policy is intended to describe the cookie,
+              advertising and consent configuration used by the production
+              version of LOOM.
             </p>
 
             <p>
-              In particular, the production cookie list, consent mechanism,
-              analytics configuration and advertising configuration should be
-              reviewed whenever a new third-party service is added.
+              If LOOM adds a new analytics provider, advertising provider,
+              payment provider, tracking technology or other third-party
+              service that uses cookies or similar technologies, this policy
+              should be updated to accurately describe that technology before
+              or when it is introduced.
+            </p>
+
+            <p>
+              Google's own policies and consent requirements also apply to
+              Google advertising services used on LOOM.
             </p>
 
           </div>

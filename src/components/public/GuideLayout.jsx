@@ -1,12 +1,13 @@
 import { Link } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 
 import PublicHeader from "./PublicHeader";
 import PublicFooter from "./PublicFooter";
+import AdSenseAnchor from "../AdSenseAnchor";
 
 import "../../styles/public/PublicLayout.css";
 import "../../styles/articles/ArticleLayout.css";
 import "../../styles/articles/ArticleContent.css";
-import { useTranslation } from "react-i18next";
 
 function GuideLayout({
   icon,
@@ -17,9 +18,30 @@ function GuideLayout({
   children,
 }) {
 
-    const { t } = useTranslation();
+  const { t } = useTranslation();
+
+const handlePrivacySettings = () => {
+  if (
+    window.googlefc &&
+    window.googlefc.callbackQueue &&
+    typeof window.googlefc.showRevocationMessage === "function"
+  ) {
+    window.googlefc.callbackQueue.push(
+      window.googlefc.showRevocationMessage
+    );
+  }
+};
+
   return (
     <div className="public-page article-page">
+
+      {/* ==================================================
+          ADSENSE
+          Only guide/article pages use GuideLayout.
+          Legal pages do not load the AdSense tag.
+      ================================================== */}
+
+      <AdSenseAnchor enabled={true} />
 
       <PublicHeader />
 
@@ -30,16 +52,17 @@ function GuideLayout({
         ================================================== */}
 
         <section className="article-hero">
-<Link
-  to={categoryPath}
-  className="article-back-link"
->
-  <span aria-hidden="true">←</span>
 
-  {t("backToFinancialGuides", {
-    defaultValue: "Financial Guides",
-  })}
-</Link>
+          <Link
+            to={categoryPath}
+            className="article-back-link"
+          >
+            <span aria-hidden="true">←</span>
+
+            {t("backToFinancialGuides", {
+              defaultValue: "Financial Guides",
+            })}
+          </Link>
 
           <span className="article-category">
             {icon} {category}
@@ -78,16 +101,24 @@ function GuideLayout({
         <div className="article-footer">
 
           <Link
-  to={categoryPath}
-  className="public-secondary-button"
->
-  <span aria-hidden="true">←</span>
+            to={categoryPath}
+            className="public-secondary-button"
+          >
+            <span aria-hidden="true">←</span>
 
-  {t("backToCategory", {
-    defaultValue: "Back to {{category}}",
-    category: category || "Financial Guides",
-  })}
-</Link>
+            {t("backToCategory", {
+              defaultValue: "Back to {{category}}",
+              category: category || "Financial Guides",
+            })}
+          </Link>
+
+          <button
+            type="button"
+            className="public-secondary-button"
+            onClick={handlePrivacySettings}
+          >
+            Privacy and cookie settings
+          </button>
 
         </div>
 
