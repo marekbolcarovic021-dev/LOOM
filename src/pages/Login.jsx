@@ -6,7 +6,7 @@ import logo from "../assets/logo.png";
 function Login() {
   const navigate = useNavigate();
 
-  const { login } = useAuth();
+  const { login, googleLogin } = useAuth();
 
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -19,6 +19,20 @@ function Login() {
       await login(email, password);
       navigate("/dashboard");
     } catch (error) {
+      alert(error.message);
+    }
+  }
+
+  async function handleGoogleLogin() {
+    try {
+      await googleLogin();
+      navigate("/dashboard");
+    } catch (error) {
+      console.error(
+        "GOOGLE LOGIN ERROR:",
+        error
+      );
+
       alert(error.message);
     }
   }
@@ -170,6 +184,22 @@ function Login() {
           </button>
 
         </form>
+
+        <div className="auth-divider">
+          <span>or</span>
+        </div>
+
+        <button
+          type="button"
+          className="google-auth-button"
+          onClick={handleGoogleLogin}
+        >
+          <span className="google-icon">
+            G
+          </span>
+
+          Continue with Google
+        </button>
 
         <div className="auth-switch">
 

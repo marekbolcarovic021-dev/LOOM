@@ -15,7 +15,7 @@ import logo from "../assets/logo.png";
 function Register() {
   const navigate = useNavigate();
 
-  const { signup } = useAuth();
+  const { signup, googleLogin } = useAuth();
   const { t } = useTranslation();
 
   const [email, setEmail] = useState("");
@@ -170,6 +170,112 @@ function Register() {
     }
   }
 
+  async function handleGoogleSignup() {
+    if (!acceptedTerms) {
+      setError(
+        t("mustAgreeToTerms") ||
+          "You must agree to the Terms & Conditions before creating an account."
+      );
+
+      return;
+    }
+
+    setError("");
+    setLoading(true);
+
+    try {
+      const result =
+        await googleLogin();
+
+      // ------------------------------------------------
+      // CREATE FIRESTORE USER DOCUMENT
+      // ------------------------------------------------
+
+      await setDoc(
+        doc(
+          db,
+          "users",
+          result.user.uid
+        ),
+        {
+          profile: {
+            name:
+              result.user.displayName ||
+              result.user.email
+                ?.split("@")[0]
+                .trim() ||
+              "User",
+
+            country:
+              "Slovakia",
+
+            currency:
+              "EUR (€)",
+
+            language:
+              "English",
+
+            avatar:
+              result.user.photoURL ||
+              "",
+          },
+
+          premium: {
+            plan: "free",
+
+            tokens: 3,
+
+            expiresAt: null,
+
+            source: null,
+          },
+
+          stats: {
+            aiQuestions: 0,
+
+            receiptScans: 0,
+          },
+
+          // --------------------------------------------
+          // LEGAL ACCEPTANCE RECORD
+          // --------------------------------------------
+
+          legal: {
+            termsAccepted: true,
+
+            termsVersion:
+              "2026-08-30",
+
+            termsAcceptedAt:
+              serverTimestamp(),
+          },
+
+          createdAt:
+            serverTimestamp(),
+
+          updatedAt:
+            serverTimestamp(),
+        }
+      );
+
+      navigate("/dashboard");
+
+    } catch (error) {
+      console.error(
+        "GOOGLE SIGNUP ERROR:",
+        error
+      );
+
+      setError(
+        error.message ||
+          t("registrationFailed") ||
+          "Registration failed."
+      );
+    } finally {
+      setLoading(false);
+    }
+  }
+
   return (
     <div className="auth-page">
 
@@ -282,7 +388,7 @@ function Register() {
                   />
 
                   <path
-                    d="M9.88 5.09A10.9 10.9 0 0 1 12 4.88c5 0 8.73 3.11 10 7.12a11.6 11.6 0 0 1-3.07 4.68"
+                    d="M9.88 5.09A10.9 10.9 0 0 1 12 4.88c5 0 8.73 3.11 10 7.12a11.6 11.6 0 0 1 2.12 4.68"
                     fill="none"
                     stroke="currentColor"
                     strokeWidth="2"
@@ -417,6 +523,26 @@ function Register() {
           </button>
 
         </form>
+
+        <div className="auth-divider">
+          <span>or</span>
+        </div>
+
+        <button
+          type="button"
+          className="google-auth-button"
+          onClick={handleGoogleSignup}
+          disabled={
+            !acceptedTerms ||
+            loading
+          }
+        >
+          <span className="google-icon">
+            G
+          </span>
+
+          Continue with Google
+        </button>
 
         {/* --------------------------------------------
             LOGIN LINK

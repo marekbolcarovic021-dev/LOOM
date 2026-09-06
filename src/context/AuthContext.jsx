@@ -8,6 +8,8 @@ import {
 import {
   createUserWithEmailAndPassword,
   signInWithEmailAndPassword,
+  signInWithPopup,
+  GoogleAuthProvider,
   signOut,
   onAuthStateChanged,
 } from "firebase/auth";
@@ -15,6 +17,9 @@ import {
 import { auth } from "../firebase";
 
 const AuthContext = createContext(null);
+
+const googleProvider =
+  new GoogleAuthProvider();
 
 export function useAuth() {
   const context = useContext(AuthContext);
@@ -29,11 +34,17 @@ export function useAuth() {
 }
 
 export function AuthProvider({ children }) {
-  const [currentUser, setCurrentUser] = useState(null);
-  const [loading, setLoading] = useState(true);
+  const [currentUser, setCurrentUser] =
+    useState(null);
+
+  const [loading, setLoading] =
+    useState(true);
 
   // REGISTER
-  const signup = async (email, password) => {
+  const signup = async (
+    email,
+    password
+  ) => {
     return createUserWithEmailAndPassword(
       auth,
       email,
@@ -42,11 +53,22 @@ export function AuthProvider({ children }) {
   };
 
   // LOGIN
-  const login = async (email, password) => {
+  const login = async (
+    email,
+    password
+  ) => {
     return signInWithEmailAndPassword(
       auth,
       email,
       password
+    );
+  };
+
+  // GOOGLE LOGIN / SIGN UP
+  const googleLogin = async () => {
+    return signInWithPopup(
+      auth,
+      googleProvider
     );
   };
 
@@ -57,20 +79,28 @@ export function AuthProvider({ children }) {
 
   // FIREBASE AUTH STATE
   useEffect(() => {
-    const unsubscribe = onAuthStateChanged(
-      auth,
-      (user) => {
-        console.log("Firebase user:", user);
+    const unsubscribe =
+      onAuthStateChanged(
+        auth,
+        (user) => {
+          console.log(
+            "Firebase user:",
+            user
+          );
 
-        setCurrentUser(user);
-        setLoading(false);
-      },
-      (error) => {
-        console.error("Firebase auth error:", error);
-        setCurrentUser(null);
-        setLoading(false);
-      }
-    );
+          setCurrentUser(user);
+          setLoading(false);
+        },
+        (error) => {
+          console.error(
+            "Firebase auth error:",
+            error
+          );
+
+          setCurrentUser(null);
+          setLoading(false);
+        }
+      );
 
     return unsubscribe;
   }, []);
@@ -79,12 +109,15 @@ export function AuthProvider({ children }) {
     currentUser,
     signup,
     login,
+    googleLogin,
     logout,
     loading,
   };
 
   return (
-    <AuthContext.Provider value={value}>
+    <AuthContext.Provider
+      value={value}
+    >
       {children}
     </AuthContext.Provider>
   );
