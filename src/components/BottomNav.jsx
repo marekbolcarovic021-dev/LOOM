@@ -14,7 +14,7 @@ import { MdSavings } from "react-icons/md";
 function BottomNav() {
   return (
     <nav className="bottom-nav">
-      <NavLink to="/"><HiHome size={24} /></NavLink>
+      <NavLink to="/dashboard"><HiHome size={24} /></NavLink>
       <NavLink to="/goals"><HiOutlineFlag size={24} /></NavLink>
       <NavLink to="/transactions"><HiOutlineCreditCard size={24} /></NavLink>
       <NavLink to="/budgets"><MdSavings size={24} /></NavLink>
