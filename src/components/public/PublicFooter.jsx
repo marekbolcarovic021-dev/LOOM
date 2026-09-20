@@ -69,6 +69,13 @@ function PublicFooter() {
             )}
           </Link>
 
+          <Link to="/guides">
+            {t(
+              "financialGuides",
+              "Financial Guides"
+            )}
+          </Link>
+
         </div>
 
 
@@ -124,6 +131,71 @@ function PublicFooter() {
             {t(
               "debt",
               "Debt"
+            )}
+          </Link>
+
+        </div>
+
+
+        {/* ==================================================
+            GUIDE ARTICLES
+        ================================================== */}
+
+        <div className="public-footer-column">
+
+          <h3>
+            {t(
+              "guideArticles",
+              "Guides & Articles"
+            )}
+          </h3>
+
+          <Link to="/guides/budgeting/how-to-create-a-budget">
+            {t(
+              "howToCreateBudget",
+              "How to Create a Budget"
+            )}
+          </Link>
+
+          <Link to="/guides/budgeting/monthly-budget">
+            {t(
+              "monthlyBudget",
+              "Monthly Budget"
+            )}
+          </Link>
+
+          <Link to="/guides/saving/starting-to-save">
+            {t(
+              "startingToSave",
+              "Starting to Save"
+            )}
+          </Link>
+
+          <Link to="/guides/investing/investing-for-beginners">
+            {t(
+              "investingForBeginners",
+              "Investing for Beginners"
+            )}
+          </Link>
+
+          <Link to="/guides/financial-goals/setting-financial-goals">
+            {t(
+              "settingFinancialGoals",
+              "Setting Financial Goals"
+            )}
+          </Link>
+
+          <Link to="/guides/personal-finance/understanding-your-finances">
+            {t(
+              "understandingYourFinances",
+              "Understanding Your Finances"
+            )}
+          </Link>
+
+          <Link to="/guides/debt/understanding-debt">
+            {t(
+              "understandingDebt",
+              "Understanding Debt"
             )}
           </Link>
 

@@ -15028,3 +15028,9 @@ cursor: pointer;
     padding-right: 18px;
   }
 }
+
+.public-footer-inner {
+  grid-template-columns:
+    minmax(220px, 1.4fr)
+    repeat(4, minmax(140px, 1fr));
+}
