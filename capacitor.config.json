@@ -1,5 +1,5 @@
 {
   "appId": "com.loom.finance",
   "appName": "LOOM",
-  "webDir": "dist"
+  "webDir": "dist-app"
 }

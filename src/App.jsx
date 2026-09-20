@@ -104,11 +104,11 @@ function App() {
 
             Logged out:
               /
-              -> About LOOM
+                -> About LOOM
 
             Logged in:
               /
-              -> About LOOM
+                -> About LOOM
 
             The authenticated Dashboard has its own route:
               /dashboard
@@ -118,7 +118,6 @@ function App() {
           path="/"
           element={<About />}
         />
-
 
         {/* ==================================================
             PUBLIC WEBSITE
@@ -135,9 +134,9 @@ function App() {
         />
 
         <Route
-  path="/register"
-  element={<Register />}
-/>
+          path="/register"
+          element={<Register />}
+        />
 
         {/* Old homepage route.
             Keep it working, but redirect it to the
@@ -173,7 +172,6 @@ function App() {
           element={<Terms />}
         />
 
-
         {/* ==================================================
             FINANCIAL GUIDES
         ================================================== */}
@@ -182,7 +180,6 @@ function App() {
           path="/guides"
           element={<FinancialGuides />}
         />
-
 
         {/* ==================================================
             BUDGETING
@@ -203,7 +200,6 @@ function App() {
           element={<MonthlyBudget />}
         />
 
-
         {/* ==================================================
             SAVING
         ================================================== */}
@@ -217,7 +213,6 @@ function App() {
           path="/guides/saving/starting-to-save"
           element={<StartingToSave />}
         />
-
 
         {/* ==================================================
             INVESTING
@@ -233,7 +228,6 @@ function App() {
           element={<InvestingForBeginners />}
         />
 
-
         {/* ==================================================
             FINANCIAL GOALS
         ================================================== */}
@@ -247,7 +241,6 @@ function App() {
           path="/guides/financial-goals/setting-financial-goals"
           element={<SettingFinancialGoals />}
         />
-
 
         {/* ==================================================
             PERSONAL FINANCE
@@ -263,7 +256,6 @@ function App() {
           element={<UnderstandingYourFinances />}
         />
 
-
         {/* ==================================================
             DEBT
         ================================================== */}
@@ -277,7 +269,6 @@ function App() {
           path="/guides/debt/understanding-debt"
           element={<UnderstandingDebt />}
         />
-
 
         {/* ==================================================
             PROTECTED LOOM APPLICATION
@@ -398,7 +389,6 @@ function App() {
                 />
           }
         />
-
 
         {/* ==================================================
             UNKNOWN ROUTES

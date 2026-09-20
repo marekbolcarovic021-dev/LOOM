@@ -10,6 +10,8 @@ import {
   signInWithEmailAndPassword,
   signInWithPopup,
   GoogleAuthProvider,
+  setPersistence,
+  browserLocalPersistence,
   signOut,
   onAuthStateChanged,
 } from "firebase/auth";
@@ -20,6 +22,23 @@ const AuthContext = createContext(null);
 
 const googleProvider =
   new GoogleAuthProvider();
+
+/*
+======================================================
+FIREBASE AUTH PERSISTENCE
+
+Keep the user logged in on this device.
+
+Firebase stores the authentication session locally.
+The user's password is NOT stored by LOOM.
+======================================================
+*/
+
+const authPersistence =
+  setPersistence(
+    auth,
+    browserLocalPersistence
+  );
 
 export function useAuth() {
   const context = useContext(AuthContext);
@@ -45,6 +64,9 @@ export function AuthProvider({ children }) {
     email,
     password
   ) => {
+
+    await authPersistence;
+
     return createUserWithEmailAndPassword(
       auth,
       email,
@@ -57,6 +79,9 @@ export function AuthProvider({ children }) {
     email,
     password
   ) => {
+
+    await authPersistence;
+
     return signInWithEmailAndPassword(
       auth,
       email,
@@ -66,6 +91,9 @@ export function AuthProvider({ children }) {
 
   // GOOGLE LOGIN / SIGN UP
   const googleLogin = async () => {
+
+    await authPersistence;
+
     return signInWithPopup(
       auth,
       googleProvider
@@ -79,30 +107,58 @@ export function AuthProvider({ children }) {
 
   // FIREBASE AUTH STATE
   useEffect(() => {
-    const unsubscribe =
-      onAuthStateChanged(
-        auth,
-        (user) => {
-          console.log(
-            "Firebase user:",
-            user
+
+    let unsubscribe;
+
+    authPersistence
+      .then(() => {
+
+        unsubscribe =
+          onAuthStateChanged(
+            auth,
+            (user) => {
+
+              console.log(
+                "Firebase user:",
+                user
+              );
+
+              setCurrentUser(user);
+              setLoading(false);
+            },
+            (error) => {
+
+              console.error(
+                "Firebase auth error:",
+                error
+              );
+
+              setCurrentUser(null);
+              setLoading(false);
+            }
           );
 
-          setCurrentUser(user);
-          setLoading(false);
-        },
-        (error) => {
-          console.error(
-            "Firebase auth error:",
-            error
-          );
+      })
+      .catch((error) => {
 
-          setCurrentUser(null);
-          setLoading(false);
-        }
-      );
+        console.error(
+          "Firebase persistence error:",
+          error
+        );
 
-    return unsubscribe;
+        setCurrentUser(null);
+        setLoading(false);
+
+      });
+
+    return () => {
+
+      if (unsubscribe) {
+        unsubscribe();
+      }
+
+    };
+
   }, []);
 
   const value = {
@@ -122,3 +178,5 @@ export function AuthProvider({ children }) {
     </AuthContext.Provider>
   );
 }
+
+export default AuthContext;
