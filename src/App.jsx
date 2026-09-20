@@ -18,6 +18,7 @@ import Budgets from "./pages/Budgets";
 import Accounts from "./pages/Accounts";
 import Advisor from "./pages/Advisor";
 import Premium from "./pages/Premium";
+import NotFound from "./pages/NotFound";
 
 // ======================================================
 // AUTH
@@ -171,6 +172,8 @@ function App() {
           path="/terms"
           element={<Terms />}
         />
+
+        <Route path="*" element={<NotFound />} />
 
         {/* ==================================================
             FINANCIAL GUIDES
@@ -387,25 +390,6 @@ function App() {
                   to="/login"
                   replace
                 />
-          }
-        />
-
-        {/* ==================================================
-            UNKNOWN ROUTES
-        ==================================================
-
-            Any unknown URL goes to the public LOOM homepage.
-
-            The homepage is always About.
-        ================================================== */}
-
-        <Route
-          path="*"
-          element={
-            <Navigate
-              to="/"
-              replace
-            />
           }
         />
 
