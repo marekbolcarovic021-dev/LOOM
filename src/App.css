@@ -15034,3 +15034,506 @@ cursor: pointer;
     minmax(220px, 1.4fr)
     repeat(4, minmax(140px, 1fr));
 }
+
+/* =========================================================
+   LOOM ANDROID / CAPACITOR SAFE AREAS
+   ========================================================= */
+
+body.loom-native-app {
+  /*
+     Prevent Android WebView content from sitting underneath
+     the system status/navigation areas.
+  */
+  padding-top: env(safe-area-inset-top, 0px);
+  padding-bottom: env(safe-area-inset-bottom, 0px);
+}
+
+
+/* =========================================================
+   ANDROID BOTTOM NAVIGATION
+   ========================================================= */
+
+body.loom-native-app .bottom-nav {
+  bottom: calc(20px + env(safe-area-inset-bottom, 0px));
+}
+
+
+/* =========================================================
+   ANDROID TOKEN BADGE
+   ========================================================= */
+
+body.loom-native-app .advisor-token-badge {
+  top: calc(16px + env(safe-area-inset-top, 0px));
+}
+
+
+/* =========================================================
+   ANDROID AUTH RETURN BUTTON
+   ========================================================= */
+
+body.loom-native-app .auth-return-button {
+  bottom: calc(24px + env(safe-area-inset-bottom, 0px));
+}
+
+
+body.loom-native-app .register-page .auth-return-button {
+  bottom: calc(24px + env(safe-area-inset-bottom, 0px));
+}
+
+/* ======================================================
+   LOOM ANDROID STARTUP INTRO
+   ====================================================== */
+
+.loom-startup-intro {
+  position: fixed;
+  inset: 0;
+  z-index: 999999;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background: #0F172A;
+
+  overflow: hidden;
+
+  opacity: 1;
+
+  transition:
+    opacity 0.30s ease,
+    transform 0.30s ease;
+}
+
+
+/* CONTENT */
+
+.loom-startup-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  width: 100%;
+  max-width: 420px;
+
+  transform: translateY(-2vh);
+}
+
+
+/* ======================================================
+   SYMBOL
+   ====================================================== */
+
+.loom-startup-symbol-wrapper {
+  position: relative;
+
+  width: 180px;
+  height: 180px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  opacity: 0;
+
+  transform:
+    scale(0.82)
+    translateY(12px);
+
+  filter:
+    drop-shadow(
+      0 0 0 rgba(0, 174, 255, 0)
+    );
+
+  transition:
+    opacity 0.45s ease,
+    transform 0.55s cubic-bezier(.22,1,.36,1),
+    filter 0.55s ease;
+}
+
+
+.loom-startup-symbol {
+  width: 100%;
+  height: 100%;
+
+  object-fit: contain;
+
+  display: block;
+}
+
+
+/* ======================================================
+   SYMBOL GLOW
+   ====================================================== */
+
+.loom-startup-glow
+  .loom-startup-symbol-wrapper {
+  filter:
+    drop-shadow(
+      0 0 10px rgba(0, 174, 255, 0.25)
+    )
+    drop-shadow(
+      0 0 28px rgba(0, 119, 255, 0.18)
+    );
+}
+
+
+/* ======================================================
+   WORDMARK
+   ====================================================== */
+
+.loom-startup-wordmark {
+  margin-top: 22px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  gap: 1px;
+
+  font-family:
+    Arial,
+    Helvetica,
+    sans-serif;
+
+  font-size: 34px;
+  font-weight: 700;
+
+  letter-spacing: 7px;
+
+  color: rgba(255, 255, 255, 0.96);
+
+  line-height: 1;
+
+  opacity: 0;
+}
+
+
+.loom-letter {
+  display: inline-block;
+
+  opacity: 0;
+
+  transform:
+    translateY(12px)
+    scale(0.92);
+
+  filter:
+    blur(4px);
+
+  transition:
+    opacity 0.32s ease,
+    transform 0.42s cubic-bezier(.22,1,.36,1),
+    filter 0.42s ease;
+}
+
+
+/* ======================================================
+   LOGO APPEAR
+   ====================================================== */
+
+.loom-startup-logo
+  .loom-startup-symbol-wrapper {
+
+  opacity: 1;
+
+  transform:
+    scale(1)
+    translateY(0);
+}
+
+
+/* ======================================================
+   TEXT APPEAR
+   ====================================================== */
+
+.loom-startup-text
+  .loom-startup-wordmark {
+  opacity: 1;
+}
+
+
+/* L */
+
+.loom-startup-text
+  .loom-letter-1 {
+  opacity: 1;
+
+  transform:
+    translateY(0)
+    scale(1);
+
+  filter: blur(0);
+}
+
+
+/* O */
+
+.loom-startup-text
+  .loom-letter-2 {
+  opacity: 1;
+
+  transform:
+    translateY(0)
+    scale(1);
+
+  filter: blur(0);
+
+  transition-delay: 0.07s;
+}
+
+
+/* O */
+
+.loom-startup-text
+  .loom-letter-3 {
+  opacity: 1;
+
+  transform:
+    translateY(0)
+    scale(1);
+
+  filter: blur(0);
+
+  transition-delay: 0.14s;
+}
+
+
+/* M */
+
+.loom-startup-text
+  .loom-letter-4 {
+  opacity: 1;
+
+  transform:
+    translateY(0)
+    scale(1);
+
+  filter: blur(0);
+
+  transition-delay: 0.21s;
+}
+
+
+/* ======================================================
+   WORDMARK GLOW
+   ====================================================== */
+
+.loom-startup-glow
+  .loom-startup-wordmark {
+
+  color: #ffffff;
+
+  text-shadow:
+    0 0 6px rgba(0, 174, 255, 0.45),
+    0 0 18px rgba(0, 119, 255, 0.30),
+    0 0 34px rgba(0, 119, 255, 0.16);
+
+  transition:
+    text-shadow 0.35s ease;
+}
+
+
+/* ======================================================
+   EXIT
+   ====================================================== */
+
+.loom-startup-exit {
+  opacity: 0;
+
+  transform: scale(1.015);
+
+  pointer-events: none;
+}
+
+
+/* ======================================================
+   MOBILE
+   ====================================================== */
+
+@media (max-width: 480px) {
+
+  .loom-startup-symbol-wrapper {
+    width: 160px;
+    height: 160px;
+  }
+
+  .loom-startup-wordmark {
+    margin-top: 20px;
+
+    font-size: 30px;
+
+    letter-spacing: 6px;
+  }
+}
+
+
+/* ======================================================
+   REDUCED MOTION
+   ====================================================== */
+
+@media (prefers-reduced-motion: reduce) {
+
+  .loom-startup-intro,
+  .loom-startup-symbol-wrapper,
+  .loom-letter {
+    transition: none !important;
+  }
+}
+
+/* ======================================================
+   LOOM ANDROID STARTUP — FINAL SYMBOL OVERRIDE
+   ====================================================== */
+
+.loom-startup-intro {
+  position: fixed !important;
+  inset: 0 !important;
+  z-index: 999999 !important;
+
+  width: 100vw !important;
+  height: 100vh !important;
+
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+
+  background: #0F172A !important;
+
+  overflow: hidden !important;
+}
+
+.loom-startup-symbol-wrapper {
+  width: 180px !important;
+  height: 180px !important;
+
+  min-width: 180px !important;
+  min-height: 180px !important;
+
+  max-width: 180px !important;
+  max-height: 180px !important;
+
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+
+  background: transparent !important;
+  border: none !important;
+  border-radius: 0 !important;
+
+  overflow: visible !important;
+}
+
+.loom-startup-symbol {
+  width: 180px !important;
+  height: 180px !important;
+
+  min-width: 180px !important;
+  min-height: 180px !important;
+
+  max-width: 180px !important;
+  max-height: 180px !important;
+
+  display: block !important;
+
+  object-fit: contain !important;
+
+  background: transparent !important;
+
+  border: none !important;
+  border-radius: 0 !important;
+
+  overflow: visible !important;
+}
+
+/* ======================================================
+   LOOM ANDROID DOWNLOAD BUTTON
+====================================================== */
+
+.public-download-button {
+  position: relative;
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  min-height: 48px;
+  padding: 0 22px;
+
+  border-radius: 12px;
+
+  border: 1px solid rgba(255, 255, 255, 0.14);
+
+  background:
+    linear-gradient(
+      135deg,
+      rgba(52, 120, 246, 0.16),
+      rgba(88, 101, 242, 0.12)
+    );
+
+  color: rgba(255, 255, 255, 0.92);
+
+  font-size: 15px;
+  font-weight: 650;
+
+  line-height: 1;
+  text-decoration: none;
+
+  cursor: pointer;
+
+  box-shadow:
+    0 8px 24px rgba(52, 120, 246, 0.10);
+
+  transition:
+    transform 0.2s ease,
+    border-color 0.2s ease,
+    background 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.public-download-button::before {
+  content: "↓";
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  margin-right: 9px;
+
+  font-size: 17px;
+  font-weight: 700;
+
+  line-height: 1;
+}
+
+.public-download-button:hover {
+  transform: translateY(-2px);
+
+  border-color:
+    rgba(95, 150, 255, 0.42);
+
+  background:
+    linear-gradient(
+      135deg,
+      rgba(52, 120, 246, 0.24),
+      rgba(88, 101, 242, 0.18)
+    );
+
+  box-shadow:
+    0 12px 30px rgba(52, 120, 246, 0.18);
+}
+
+.public-download-button:active {
+  transform: translateY(0);
+}
+
+.public-download-button:focus-visible {
+  outline: 2px solid rgba(95, 150, 255, 0.65);
+  outline-offset: 3px;
+}
+
+@media (max-width: 600px) {
+  .public-download-button {
+    width: 100%;
+    max-width: 320px;
+  }
+}

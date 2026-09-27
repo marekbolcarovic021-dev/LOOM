@@ -42,23 +42,31 @@ function About() {
               )}
             </p>
 
-            <div className="public-hero-actions">
+           <div className="public-hero-actions">
 
-              <Link
-                to="/register"
-                className="public-primary-button"
-              >
-                {t("getStarted", "Get Started")}
-              </Link>
+  <Link
+    to="/register"
+    className="public-primary-button"
+  >
+    {t("getStarted", "Get Started")}
+  </Link>
 
-              <Link
-                to="/guides"
-                className="public-secondary-button"
-              >
-                {t("financialGuides", "Financial Guides")}
-              </Link>
+  <Link
+    to="/guides"
+    className="public-secondary-button"
+  >
+    {t("financialGuides", "Financial Guides")}
+  </Link>
 
-            </div>
+  <a
+    href="/downloads/loom-android.apk"
+    className="public-download-button"
+    download="loom-android.apk"
+  >
+    {t("downloadAndroid", "Download Android")}
+  </a>
+
+</div>
 
           </div>
 

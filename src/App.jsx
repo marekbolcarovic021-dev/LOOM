@@ -78,7 +78,10 @@ import UnderstandingDebt
 // AUTH CONTEXT
 // ======================================================
 
+import { useEffect } from "react";
 import { useAuth } from "./context/AuthContext";
+import { Capacitor } from "@capacitor/core";
+import { App as CapacitorApp } from "@capacitor/app";
 
 // ======================================================
 // GLOBAL STYLES
@@ -90,8 +93,93 @@ import "./App.css";
 // APP
 // ======================================================
 
+function AndroidStartup() {
+  return (
+    <div
+      style={{
+        minHeight: "100vh",
+        background: "#10182d",
+        display: "flex",
+        alignItems: "center",
+        justifyContent: "center",
+        flexDirection: "column",
+        color: "#ffffff",
+        fontFamily: "Arial, sans-serif",
+      }}
+    >
+      <div
+        style={{
+          fontSize: "42px",
+          fontWeight: "700",
+          letterSpacing: "3px",
+          marginBottom: "12px",
+        }}
+      >
+        LOOM
+      </div>
+
+      <div
+        style={{
+          fontSize: "14px",
+          opacity: 0.65,
+        }}
+      >
+        Loading...
+      </div>
+    </div>
+  );
+}
+
 function App() {
-  const { currentUser } = useAuth();
+  const {
+    currentUser,
+    loading,
+  } = useAuth();
+
+  const isNativeApp =
+    Capacitor.isNativePlatform();
+
+    useEffect(() => {
+  if (!isNativeApp) {
+    return;
+  }
+
+  const backButtonListener =
+    CapacitorApp.addListener(
+      "backButton",
+      ({ canGoBack }) => {
+        if (canGoBack) {
+          window.history.back();
+        } else {
+          CapacitorApp.exitApp();
+        }
+      }
+    );
+
+  return () => {
+    backButtonListener.then(
+      (listener) => listener.remove()
+    );
+  };
+}, [isNativeApp]);
+
+      if (loading) {
+    return (
+      <div
+        style={{
+          minHeight: "100vh",
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "center",
+          background: "#0f172a",
+          color: "#ffffff",
+          fontSize: "18px",
+        }}
+      >
+        LOOM
+      </div>
+    );
+  }
 
   return (
     <BrowserRouter>
@@ -116,9 +204,23 @@ function App() {
         ================================================== */}
 
         <Route
-          path="/"
-          element={<About />}
-        />
+  path="/"
+  element={
+    Capacitor.isNativePlatform()
+      ? loading
+        ? <AndroidStartup />
+        : currentUser
+          ? <Navigate
+              to="/dashboard"
+              replace
+            />
+          : <Navigate
+              to="/login"
+              replace
+            />
+      : <About />
+  }
+/>
 
         {/* ==================================================
             PUBLIC WEBSITE

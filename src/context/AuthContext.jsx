@@ -14,7 +14,13 @@ import {
   browserLocalPersistence,
   signOut,
   onAuthStateChanged,
+  signInWithCredential,
 } from "firebase/auth";
+
+import { Capacitor } from "@capacitor/core";
+import {
+  FirebaseAuthentication,
+} from "@capacitor-firebase/authentication";
 
 import { auth } from "../firebase";
 
@@ -90,15 +96,51 @@ export function AuthProvider({ children }) {
   };
 
   // GOOGLE LOGIN / SIGN UP
-  const googleLogin = async () => {
+ const googleLogin = async () => {
 
-    await authPersistence;
+  await authPersistence;
 
-    return signInWithPopup(
+  // ==================================================
+  // ANDROID / NATIVE APP
+  // ==================================================
+
+  if (Capacitor.isNativePlatform()) {
+
+    const result =
+      await FirebaseAuthentication.signInWithGoogle({
+        useCredentialManager: true,
+        skipNativeAuth: true,
+      });
+
+    const idToken =
+      result.credential?.idToken;
+
+    if (!idToken) {
+      throw new Error(
+        "Google Sign-In did not return an ID token."
+      );
+    }
+
+    const credential =
+      GoogleAuthProvider.credential(
+        idToken
+      );
+
+    return signInWithCredential(
       auth,
-      googleProvider
+      credential
     );
-  };
+  }
+
+  // ==================================================
+  // WEBSITE
+  // ==================================================
+
+  return signInWithPopup(
+    auth,
+    googleProvider
+  );
+};
 
   // LOGOUT
   const logout = async () => {

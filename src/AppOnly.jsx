@@ -1,9 +1,13 @@
+import { useEffect, useState } from "react";
 import {
   BrowserRouter,
   Routes,
   Route,
   Navigate,
+  useLocation,
+  useNavigate,
 } from "react-router-dom";
+import loomSplashSymbol from "./assets/loom-splash-symbol.png";
 
 // ======================================================
 // LOOM APP PAGES
@@ -31,6 +35,7 @@ import Register from "./pages/Register";
 // ======================================================
 
 import { useAuth } from "./context/AuthContext";
+import { App as CapacitorApp } from "@capacitor/app";
 
 // ======================================================
 // GLOBAL STYLES
@@ -42,11 +47,199 @@ import "./App.css";
 // LOOM APP ONLY
 // ======================================================
 
+// ======================================================
+// ANDROID BACK BUTTON
+// ======================================================
+
+function AndroidBackHandler() {
+  const location = useLocation();
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    const backButtonListener =
+      CapacitorApp.addListener(
+        "backButton",
+        () => {
+          const currentPath = location.pathname;
+
+          // ------------------------------------------------
+          // DASHBOARD
+          // ------------------------------------------------
+
+          if (currentPath === "/dashboard") {
+            CapacitorApp.exitApp();
+            return;
+          }
+
+          // ------------------------------------------------
+          // LOGIN
+          // ------------------------------------------------
+
+          if (currentPath === "/login") {
+            CapacitorApp.exitApp();
+            return;
+          }
+
+          // ------------------------------------------------
+          // REGISTER
+          // ------------------------------------------------
+
+          if (currentPath === "/register") {
+            navigate("/login", {
+              replace: true,
+            });
+            return;
+          }
+
+          // ------------------------------------------------
+          // ALL OTHER APP PAGES
+          // ------------------------------------------------
+
+          navigate("/dashboard", {
+            replace: true,
+          });
+        }
+      );
+
+    return () => {
+      backButtonListener.then(
+        (listener) => listener.remove()
+      );
+    };
+  }, [location.pathname, navigate]);
+
+  return null;
+}
+
+// ======================================================
+// LOOM STARTUP INTRO
+// Android only
+// ======================================================
+
+function LoomStartupIntro({ onFinished }) {
+  const [phase, setPhase] = useState("intro");
+
+  useEffect(() => {
+    const timers = [
+      setTimeout(() => {
+        setPhase("logo");
+      }, 120),
+
+      setTimeout(() => {
+        setPhase("text");
+      }, 520),
+
+      setTimeout(() => {
+        setPhase("glow");
+      }, 1050),
+
+      setTimeout(() => {
+        setPhase("exit");
+      }, 1350),
+
+      setTimeout(() => {
+        onFinished();
+      }, 1700),
+    ];
+
+    return () => {
+      timers.forEach(clearTimeout);
+    };
+  }, [onFinished]);
+
+  const logoVisible = [
+    "logo",
+    "text",
+    "glow",
+    "exit",
+  ].includes(phase);
+
+  const textVisible = [
+    "text",
+    "glow",
+    "exit",
+  ].includes(phase);
+
+  const glowVisible = [
+    "glow",
+    "exit",
+  ].includes(phase);
+
+  const exiting = phase === "exit";
+
+  return (
+    <div
+      className={[
+        "loom-startup-intro",
+        logoVisible ? "loom-startup-logo" : "",
+        textVisible ? "loom-startup-text" : "",
+        glowVisible ? "loom-startup-glow" : "",
+        exiting ? "loom-startup-exit" : "",
+      ]
+        .filter(Boolean)
+        .join(" ")}
+      aria-hidden="true"
+    >
+      <div className="loom-startup-content">
+
+        <div className="loom-startup-symbol-wrapper">
+          <img
+  src={loomSplashSymbol}
+  alt=""
+  className="loom-startup-symbol"
+/>
+        </div>
+
+        <div className="loom-startup-wordmark">
+          <span className="loom-letter loom-letter-1">
+            L
+          </span>
+
+          <span className="loom-letter loom-letter-2">
+            O
+          </span>
+
+          <span className="loom-letter loom-letter-3">
+            O
+          </span>
+
+          <span className="loom-letter loom-letter-4">
+            M
+          </span>
+        </div>
+
+      </div>
+    </div>
+  );
+}
+
 function AppOnly() {
-  const { currentUser } = useAuth();
+  const { currentUser, loading } = useAuth();
+
+  const [showStartupIntro, setShowStartupIntro] =
+    useState(true);
+
+  useEffect(() => {
+    document.body.classList.add("loom-native-app");
+
+    return () => {
+      document.body.classList.remove("loom-native-app");
+    };
+  }, []);
+
+  if (showStartupIntro) {
+    return (
+      <LoomStartupIntro
+        onFinished={() => setShowStartupIntro(false)}
+      />
+    );
+  }
 
   return (
     <BrowserRouter>
+
+      <AndroidBackHandler />
+
       <Routes>
 
         {/* ==================================================
