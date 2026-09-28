@@ -1,4 +1,7 @@
-import { Link } from "react-router-dom";
+import {
+  Link,
+  useLocation,
+} from "react-router-dom";
 import { useTranslation } from "react-i18next";
 
 import PublicHeader from "./PublicHeader";
@@ -8,6 +11,7 @@ import AdSenseAnchor from "../AdSenseAnchor";
 import "../../styles/public/PublicLayout.css";
 import "../../styles/articles/ArticleLayout.css";
 import "../../styles/articles/ArticleContent.css";
+import SEO from "../SEO";
 
 function GuideLayout({
   icon,
@@ -19,6 +23,7 @@ function GuideLayout({
 }) {
 
   const { t } = useTranslation();
+  const location = useLocation();
 
 const handlePrivacySettings = () => {
   if (
@@ -33,15 +38,21 @@ const handlePrivacySettings = () => {
 };
 
   return (
-    <div className="public-page article-page">
+  <div className="public-page article-page">
 
-      {/* ==================================================
-          ADSENSE
-          Only guide/article pages use GuideLayout.
-          Legal pages do not load the AdSense tag.
-      ================================================== */}
+    <SEO
+      title={title}
+      description={description}
+      path={location.pathname}
+    />
 
-      <AdSenseAnchor enabled={true} />
+    {/* ==================================================
+        ADSENSE
+        Only guide/article pages use GuideLayout.
+        Legal pages do not load the AdSense tag.
+    ================================================== */}
+
+    <AdSenseAnchor enabled={true} />
 
       <PublicHeader />
 

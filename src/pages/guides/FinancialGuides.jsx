@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 import PublicHeader from "../../components/public/PublicHeader";
 import PublicFooter from "../../components/public/PublicFooter";
 import GuideCard from "../../components/public/GuideCard";
+import SEO from "../../components/SEO";
 
 function FinancialGuides() {
   const { t } = useTranslation();
@@ -88,10 +89,16 @@ function FinancialGuides() {
     },
   ];
 
-  return (
-    <div className="public-page">
+ return (
+  <div className="public-page">
 
-      <PublicHeader />
+    <SEO
+      title="Financial Guides"
+      description="Practical financial guides from LOOM covering budgeting, saving, investing, financial goals, personal finance and debt."
+      path="/guides"
+    />
+
+    <PublicHeader />
 
       <main className="public-main">
 

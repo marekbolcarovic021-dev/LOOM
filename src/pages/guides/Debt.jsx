@@ -1,9 +1,9 @@
 import { useTranslation } from "react-i18next";
 
 import GuideCategoryPage from "../../components/public/GuideCategoryPage";
+import SEO from "../../components/SEO";
 
 function Debt() {
-
   const { t } = useTranslation();
 
   const articles = [
@@ -22,22 +22,28 @@ function Debt() {
   ];
 
   return (
-    <GuideCategoryPage
+    <>
+      <SEO
+        title="Debt"
+        description={t("debtGuideDescription", {
+          defaultValue:
+            "Understand different types of debt and practical approaches to managing repayment.",
+        })}
+        path="/guides/debt"
+      />
 
-      icon="−"
-
-      title={t("debt", {
-        defaultValue: "Debt",
-      })}
-
-      description={t("debtGuideDescription", {
-        defaultValue:
-          "Understand different types of debt and practical approaches to managing repayment.",
-      })}
-
-      articles={articles}
-
-    />
+      <GuideCategoryPage
+        icon="−"
+        title={t("debt", {
+          defaultValue: "Debt",
+        })}
+        description={t("debtGuideDescription", {
+          defaultValue:
+            "Understand different types of debt and practical approaches to managing repayment.",
+        })}
+        articles={articles}
+      />
+    </>
   );
 }
 

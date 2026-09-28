@@ -2,16 +2,24 @@ import PublicHeader from "../components/public/PublicHeader";
 import PublicFooter from "../components/public/PublicFooter";
 import { Link } from "react-router-dom";
 import { useTranslation } from "react-i18next";
+import SEO from "../components/SEO";
 
 function About() {
   const { t } = useTranslation();
 
   return (
-    <div className="public-page">
+    <>
+      <SEO
+        title="Personal Finance Management"
+        description="LOOM is a personal finance platform that helps you understand your financial situation, organize your money, manage budgets, set financial goals and learn about personal finance."
+        path="/"
+      />
 
-      <PublicHeader />
+      <div className="public-page">
 
-      <main className="public-main">
+        <PublicHeader />
+
+        <main className="public-main">
 
         {/* ==================================================
             HERO
@@ -380,7 +388,8 @@ function About() {
 
       <PublicFooter />
 
-    </div>
+        </div>
+    </>
   );
 }
 

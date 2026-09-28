@@ -1,6 +1,7 @@
 import { useTranslation } from "react-i18next";
 
 import GuideCategoryPage from "../../components/public/GuideCategoryPage";
+import SEO from "../../components/SEO";
 
 function Budgeting() {
   const { t } = useTranslation();
@@ -21,17 +22,28 @@ function Budgeting() {
   ];
 
   return (
-    <GuideCategoryPage
-      icon="▣"
-      title={t("budgeting", {
-        defaultValue: "Budgeting",
-      })}
-      description={t("budgetingGuideDescription", {
-        defaultValue:
-          "Learn how to organize your income, understand your spending and build a realistic budget.",
-      })}
-      articles={articles}
-    />
+    <>
+      <SEO
+        title="Budgeting"
+        description={t("budgetingGuideDescription", {
+          defaultValue:
+            "Learn how to organize your income, understand your spending and build a realistic budget.",
+        })}
+        path="/guides/budgeting"
+      />
+
+      <GuideCategoryPage
+        icon="▣"
+        title={t("budgeting", {
+          defaultValue: "Budgeting",
+        })}
+        description={t("budgetingGuideDescription", {
+          defaultValue:
+            "Learn how to organize your income, understand your spending and build a realistic budget.",
+        })}
+        articles={articles}
+      />
+    </>
   );
 }
 

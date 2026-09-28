@@ -1,9 +1,9 @@
 import { useTranslation } from "react-i18next";
 
 import GuideCategoryPage from "../../components/public/GuideCategoryPage";
+import SEO from "../../components/SEO";
 
 function PersonalFinance() {
-
   const { t } = useTranslation();
 
   const articles = [
@@ -22,22 +22,28 @@ function PersonalFinance() {
   ];
 
   return (
-    <GuideCategoryPage
+    <>
+      <SEO
+        title="Personal Finance"
+        description={t("personalFinanceGuideDescription", {
+          defaultValue:
+            "Explore the fundamentals of managing your overall financial situation.",
+        })}
+        path="/guides/personal-finance"
+      />
 
-      icon="◇"
-
-      title={t("personalFinance", {
-        defaultValue: "Personal Finance",
-      })}
-
-      description={t("personalFinanceGuideDescription", {
-        defaultValue:
-          "Explore the fundamentals of managing your overall financial situation.",
-      })}
-
-      articles={articles}
-
-    />
+      <GuideCategoryPage
+        icon="◇"
+        title={t("personalFinance", {
+          defaultValue: "Personal Finance",
+        })}
+        description={t("personalFinanceGuideDescription", {
+          defaultValue:
+            "Explore the fundamentals of managing your overall financial situation.",
+        })}
+        articles={articles}
+      />
+    </>
   );
 }
 

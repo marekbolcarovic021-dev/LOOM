@@ -1,9 +1,9 @@
 import { useTranslation } from "react-i18next";
 
 import GuideCategoryPage from "../../components/public/GuideCategoryPage";
+import SEO from "../../components/SEO";
 
 function Saving() {
-
   const { t } = useTranslation();
 
   const articles = [
@@ -22,22 +22,28 @@ function Saving() {
   ];
 
   return (
-    <GuideCategoryPage
+    <>
+      <SEO
+        title="Saving"
+        description={t("savingGuideDescription", {
+          defaultValue:
+            "Learn practical ways to save money, build financial reserves and prepare for unexpected expenses.",
+        })}
+        path="/guides/saving"
+      />
 
-      icon="◈"
-
-      title={t("saving", {
-        defaultValue: "Saving",
-      })}
-
-      description={t("savingGuideDescription", {
-        defaultValue:
-          "Learn how to build savings, prepare for unexpected expenses and develop sustainable saving habits.",
-      })}
-
-      articles={articles}
-
-    />
+      <GuideCategoryPage
+        icon="◈"
+        title={t("saving", {
+          defaultValue: "Saving",
+        })}
+        description={t("savingGuideDescription", {
+          defaultValue:
+            "Learn how to build savings, prepare for unexpected expenses and develop sustainable saving habits.",
+        })}
+        articles={articles}
+      />
+    </>
   );
 }
 

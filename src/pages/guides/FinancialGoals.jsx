@@ -1,9 +1,9 @@
 import { useTranslation } from "react-i18next";
 
 import GuideCategoryPage from "../../components/public/GuideCategoryPage";
+import SEO from "../../components/SEO";
 
 function FinancialGoals() {
-
   const { t } = useTranslation();
 
   const articles = [
@@ -22,22 +22,28 @@ function FinancialGoals() {
   ];
 
   return (
-    <GuideCategoryPage
+    <>
+      <SEO
+        title="Financial Goals"
+        description={t("financialGoalsGuideDescription", {
+          defaultValue:
+            "Learn how to define realistic financial goals and create a plan to achieve them.",
+        })}
+        path="/guides/financial-goals"
+      />
 
-      icon="◎"
-
-      title={t("financialGoals", {
-        defaultValue: "Financial Goals",
-      })}
-
-      description={t("financialGoalsGuideDescription", {
-        defaultValue:
-          "Learn how to define realistic financial goals and create a plan to achieve them.",
-      })}
-
-      articles={articles}
-
-    />
+      <GuideCategoryPage
+        icon="◎"
+        title={t("financialGoals", {
+          defaultValue: "Financial Goals",
+        })}
+        description={t("financialGoalsGuideDescription", {
+          defaultValue:
+            "Learn how to define realistic financial goals and create a plan to achieve them.",
+        })}
+        articles={articles}
+      />
+    </>
   );
 }
 
