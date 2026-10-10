@@ -7,6 +7,7 @@ import { useTranslation } from "react-i18next";
 import PublicHeader from "./PublicHeader";
 import PublicFooter from "./PublicFooter";
 import AdSenseAnchor from "../AdSenseAnchor";
+import AdsterraSocialBar from "../AdsterraSocialBar";
 
 import "../../styles/public/PublicLayout.css";
 import "../../styles/articles/ArticleLayout.css";
@@ -53,6 +54,7 @@ const handlePrivacySettings = () => {
     ================================================== */}
 
     <AdSenseAnchor enabled={true} />
+    <AdsterraSocialBar enabled={true} />
 
       <PublicHeader />
 
