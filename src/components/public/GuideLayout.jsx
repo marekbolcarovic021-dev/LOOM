@@ -8,6 +8,7 @@ import PublicHeader from "./PublicHeader";
 import PublicFooter from "./PublicFooter";
 import AdSenseAnchor from "../AdSenseAnchor";
 import AdsterraSocialBar from "../AdsterraSocialBar";
+import AdsterraBanner from "../AdsterraBanner";
 
 import "../../styles/public/PublicLayout.css";
 import "../../styles/articles/ArticleLayout.css";
@@ -98,13 +99,21 @@ const handlePrivacySettings = () => {
             ARTICLE CONTENT
         ================================================== */}
 
-        <div className="article-content-wrapper">
+        
+<div className="article-content-layout">
 
-          <article className="article-content">
-            {children}
-          </article>
+  <div className="article-content-wrapper">
+    <article className="article-content">
+      {children}
+    </article>
+  </div>
 
-        </div>
+  <aside className="article-sidebar">
+    <AdsterraBanner />
+  </aside>
+
+</div>
+
 
 
         {/* ==================================================
