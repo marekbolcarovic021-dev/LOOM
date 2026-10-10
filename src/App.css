@@ -15630,3 +15630,30 @@ body.loom-native-app .register-page .auth-return-button {
     max-width: 300px;
   }
 }
+
+/* ABOUT PAGE ADVERTISEMENT */
+
+.about-advertisement {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  padding: 12px 20px 36px;
+  box-sizing: border-box;
+}
+
+.about-advertisement .loom-adsterra-banner {
+  width: 300px;
+  max-width: 100%;
+  margin: 0 auto;
+}
+
+.about-advertisement .loom-adsterra-banner-content {
+  max-width: 100%;
+}
+
+@media (max-width: 480px) {
+  .about-advertisement {
+    padding: 8px 16px 28px;
+  }
+}

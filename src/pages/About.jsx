@@ -3,6 +3,7 @@ import PublicFooter from "../components/public/PublicFooter";
 import { Link } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import SEO from "../components/SEO";
+import AdsterraBanner from "../components/AdsterraBanner";
 
 function About() {
   const { t } = useTranslation();
@@ -78,8 +79,15 @@ function About() {
 
           </div>
 
-        </section>
+                </section>
 
+        {/* ==================================================
+            ADVERTISEMENT
+        ================================================== */}
+
+        <div className="about-advertisement">
+          <AdsterraBanner />
+        </div>
 
         {/* ==================================================
             WHAT IS LOOM
