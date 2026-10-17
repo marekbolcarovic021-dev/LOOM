@@ -1,7 +1,6 @@
-/* =========================================
-   LOOM — MOBILE APP FOUNDATION
-   Desktop styles remain unchanged.
-========================================= */
+
+/* LOOM — MOBILE APP FOUNDATION */
+/* Desktop styles remain unchanged. */
 
 @media (max-width: 767px) {
   html {
@@ -17,21 +16,18 @@
     width: 100%;
   }
 
-  /* Dashboard: use the available screen width */
-
   .dashboard {
     width: 100%;
     max-width: 100%;
     margin: 0;
     padding: 18px 16px 110px;
     animation: none;
+    box-sizing: border-box;
   }
-
-  /* Compact page header */
 
   .header {
     gap: 12px;
-    margin-bottom: 22px;
+    margin-bottom: 18px;
   }
 
   .header h1 {
@@ -53,13 +49,13 @@
     font-size: 18px;
   }
 
-  /* Reduce oversized card spacing */
-
   .card,
   .health-card,
   .main-card {
-    padding: 18px;
-    margin-bottom: 14px;
+    box-sizing: border-box;
+    max-width: 100%;
+    padding: 16px;
+    margin-bottom: 12px;
     border-radius: 18px;
   }
 
@@ -77,12 +73,10 @@
   }
 
   .amount {
-    font-size: clamp(25px, 7vw, 32px);
+    font-size: clamp(24px, 7vw, 32px);
     line-height: 1.2;
     overflow-wrap: anywhere;
   }
-
-  /* Financial health */
 
   .score-circle {
     width: 72px;
@@ -97,16 +91,12 @@
     text-align: center;
   }
 
-  /* Keep fixed navigation from covering content */
-
   .dashboard,
   .goals-page,
   .transactions-page {
     scroll-padding-bottom: 110px;
   }
 }
-
-/* Very small phones */
 
 @media (max-width: 380px) {
   .dashboard {
@@ -117,7 +107,7 @@
   .card,
   .health-card,
   .main-card {
-    padding: 15px;
+    padding: 14px;
   }
 
   .header h1 {
