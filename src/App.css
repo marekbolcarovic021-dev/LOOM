@@ -4797,164 +4797,226 @@ body {
 
 
 /* =========================================================
-   PREMIUM STATISTICS
+   DASHBOARD — FINANCIAL STATISTICS
 ========================================================= */
 
 .premium-stats-grid {
   display: grid;
-
-  grid-template-columns:
-    repeat(2, minmax(0, 1fr));
-
-  gap: 20px;
-
-  margin: 35px 0;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 16px;
+  width: 100%;
+  margin: 24px 0;
 }
-
 
 .premium-stat-card {
   position: relative;
-
+  min-width: 0;
+  padding: 22px 18px;
   overflow: hidden;
+  text-align: left;
 
-  padding: 28px;
+  background: linear-gradient(
+    145deg,
+    #17243a 0%,
+    #131e31 100%
+  );
 
-  text-align: center;
+  border: 1px solid rgba(148, 163, 184, 0.14);
+  border-radius: 18px;
 
-  background:
-    linear-gradient(
-      145deg,
-      rgba(34, 49, 80, 0.96),
-      rgba(24, 37, 64, 0.96)
-    );
-
-  border: 1px solid
-    rgba(79, 140, 255, 0.18);
-
-  border-radius: 24px;
-
-  box-shadow:
-    0 15px 40px rgba(0, 0, 0, 0.32);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.12);
 
   transition:
-    transform 0.3s ease,
-    box-shadow 0.3s ease,
-    border-color 0.3s ease;
+    border-color 0.2s ease,
+    background 0.2s ease;
 }
-
 
 .premium-stat-card:hover {
-  transform: translateY(-5px);
-
-  border-color:
-    rgba(79, 140, 255, 0.38);
-
-  box-shadow:
-    0 24px 50px rgba(0, 0, 0, 0.38),
-    0 0 28px rgba(79, 140, 255, 0.1);
+  border-color: rgba(139, 122, 255, 0.4);
+  background: linear-gradient(
+    145deg,
+    #1a2942 0%,
+    #152138 100%
+  );
+  transform: none;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.12);
 }
-
 
 .premium-stat-card::before {
-  content: "";
-
-  position: absolute;
-
-  top: -60%;
-  left: -60%;
-
-  width: 220%;
-  height: 220%;
-
-  background:
-    radial-gradient(
-      circle,
-      rgba(79, 140, 255, 0.09),
-      transparent 58%
-    );
-
-  pointer-events: none;
+  content: none;
 }
-
 
 .stat-label {
   position: relative;
+  margin-bottom: 12px;
 
-  color: #9fb1d1;
-
-  font-size: 0.95rem;
-
-  margin-bottom: 14px;
+  color: #9aaac2;
+  font-size: 13px;
+  font-weight: 500;
+  line-height: 1.4;
 }
-
 
 .stat-value {
   position: relative;
+  color: #f1f5f9;
 
-  color: #ffffff;
+  font-size: clamp(18px, 1.65vw, 26px);
+  font-weight: 700;
+  line-height: 1.35;
+  letter-spacing: -0.04em;
 
-  font-size: 2rem;
+  overflow-wrap: anywhere;
+  font-variant-numeric: tabular-nums;
+}
 
-  font-weight: 750;
+.stat-value.income {
+  color: #4ade80;
+}
 
-  white-space: nowrap;
+.stat-value.expense {
+  color: #fb7185;
+}
+
+/* Tablet */
+@media (max-width: 1000px) {
+  .premium-stats-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 14px;
+  }
+
+  .premium-stat-card {
+    padding: 20px;
+  }
+
+  .stat-value {
+    font-size: clamp(19px, 3vw, 25px);
+  }
+}
+
+/* Mobile */
+@media (max-width: 480px) {
+  .premium-stats-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 10px;
+    margin: 18px 0;
+  }
+
+  .premium-stat-card {
+    padding: 16px 13px;
+    border-radius: 15px;
+  }
+
+  .stat-label {
+    margin-bottom: 9px;
+    font-size: 12px;
+  }
+
+  .stat-value {
+    font-size: clamp(16px, 4.2vw, 20px);
+    letter-spacing: -0.035em;
+  }
 }
 
 
+
 /* =========================================================
-   OVERVIEW CARD
+   DASHBOARD — MONTHLY OVERVIEW
 ========================================================= */
 
 .overview-card {
   position: relative;
+  width: 100%;
+  min-width: 0;
+  padding: 26px;
+  margin: 24px 0;
 
-  padding: 30px;
+  background: #141f33;
+  border: 1px solid rgba(148, 163, 184, 0.14);
+  border-radius: 18px;
 
-  margin: 30px 0;
-
-  background:
-    linear-gradient(
-      145deg,
-      rgba(32, 45, 72, 0.96),
-      rgba(22, 35, 61, 0.96)
-    );
-
-  border: 1px solid
-    rgba(79, 140, 255, 0.18);
-
-  border-radius: 26px;
-
-  box-shadow:
-    0 15px 40px rgba(0, 0, 0, 0.28);
-
-  transition:
-    transform 0.3s ease,
-    box-shadow 0.3s ease,
-    border-color 0.3s ease;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.12);
 }
-
 
 .overview-card:hover {
-  transform: translateY(-3px);
-
-  border-color:
-    rgba(79, 140, 255, 0.3);
-
-  box-shadow:
-    0 20px 45px rgba(0, 0, 0, 0.34);
+  transform: none;
+  border-color: rgba(148, 163, 184, 0.22);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.12);
 }
 
-
 .overview-card h3 {
-  margin: 0 0 30px;
-
-  text-align: center;
-
-  color: #ffffff;
-
-  font-size: 1.35rem;
-
+  margin: 0 0 24px;
+  color: #f1f5f9;
+  text-align: left;
+  font-size: 18px;
   font-weight: 700;
+  line-height: 1.4;
+  letter-spacing: -0.02em;
+}
+
+.overview-card .overview-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  margin: 20px 0 10px;
+  color: #a8b6cc;
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+.overview-card .overview-item span:last-child {
+  flex-shrink: 0;
+  color: #f1f5f9;
+  font-weight: 650;
+  font-variant-numeric: tabular-nums;
+}
+
+.overview-card .progress-bar {
+  width: 100%;
+  height: 8px;
+  overflow: hidden;
+  background: #26334a;
+  border-radius: 999px;
+}
+
+.overview-card .progress-fill {
+  height: 100%;
+  background: linear-gradient(90deg, #34d399, #22c55e);
+  border-radius: inherit;
+  transition: width 0.35s ease;
+}
+
+.overview-card .progress-fill.purple {
+  background: linear-gradient(90deg, #8b7aff, #a78bfa);
+}
+
+@media (max-width: 700px) {
+  .overview-card {
+    padding: 20px 17px;
+    margin: 18px 0;
+    border-radius: 16px;
+  }
+
+  .overview-card h3 {
+    margin-bottom: 20px;
+    font-size: 17px;
+  }
+
+  .overview-card .overview-item {
+    gap: 10px;
+    margin-top: 18px;
+    font-size: 13px;
+  }
+
+  .overview-card .progress-bar {
+    height: 7px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .overview-card .progress-fill {
+    transition: none;
+  }
 }
 
 
@@ -15824,5 +15886,746 @@ body.loom-native-app .register-page .auth-return-button {
 @media (max-width: 420px) {
   .public-main section[aria-labelledby="what-is-loom-title"] {
     padding: 34px 19px 30px;
+  }
+}
+
+
+/* =========================================================
+   LOOM REDESIGN — GLOBAL COMPONENT LAYER
+   Appended overrides; existing page logic remains unchanged
+========================================================= */
+
+:root {
+  --loom-bg: #0b1120;
+  --loom-surface: #141e32;
+  --loom-surface-raised: #19263d;
+  --loom-surface-hover: #202f49;
+  --loom-border: rgba(157, 174, 202, 0.14);
+  --loom-border-hover: rgba(157, 174, 202, 0.26);
+  --loom-text: #f1f5f9;
+  --loom-muted: #96a6bf;
+  --loom-purple: #8b7aff;
+  --loom-green: #34d399;
+  --loom-red: #fb7185;
+  --loom-radius: 18px;
+}
+
+/* Consistent page canvas */
+
+.dashboard,
+.goals-page,
+.transactions-page,
+.budgets-page,
+.accounts-page,
+.investments-page,
+.advisor-page,
+.profile-page {
+  color: var(--loom-text);
+}
+
+.dashboard,
+.goals-page,
+.transactions-page {
+  width: 100%;
+  max-width: 1200px;
+  margin-inline: auto;
+}
+
+/* Dashboard */
+
+.dashboard {
+  padding: 28px 24px 120px;
+}
+
+.dashboard .header {
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 28px;
+}
+
+.dashboard .header h1 {
+  margin: 0;
+  font-size: clamp(28px, 3vw, 38px);
+  line-height: 1.2;
+  letter-spacing: -1px;
+}
+
+.dashboard .header p {
+  color: var(--loom-muted);
+  font-size: 14px;
+}
+
+.dashboard .profile-circle {
+  flex-shrink: 0;
+  width: 46px;
+  height: 46px;
+  border: 1px solid rgba(139, 122, 255, 0.35);
+  background: linear-gradient(145deg, #8b7aff, #5141c9);
+  box-shadow: 0 8px 22px rgba(89, 70, 220, 0.22);
+}
+
+/* Reusable cards */
+
+.card,
+.health-card,
+.main-card {
+  border: 1px solid var(--loom-border);
+  border-radius: var(--loom-radius);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+  transition:
+    border-color 180ms ease,
+    background-color 180ms ease,
+    box-shadow 180ms ease;
+}
+
+.card {
+  padding: 22px;
+  background: var(--loom-surface);
+}
+
+.card:hover,
+.health-card:hover {
+  border-color: var(--loom-border-hover);
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.18);
+  transform: none;
+}
+
+.card h2 {
+  color: var(--loom-muted);
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.01em;
+}
+
+.amount {
+  font-size: clamp(25px, 3vw, 34px);
+  font-weight: 750;
+  line-height: 1.25;
+  letter-spacing: -0.8px;
+  overflow-wrap: anywhere;
+  font-variant-numeric: tabular-nums;
+}
+
+.main-card {
+  background:
+    radial-gradient(
+      circle at 100% 0%,
+      rgba(139, 122, 255, 0.2),
+      transparent 55%
+    ),
+    linear-gradient(145deg, #192642, #121c30);
+}
+
+.health-card {
+  padding: 24px;
+  background: var(--loom-surface);
+}
+
+.health-card p {
+  color: var(--loom-muted);
+  line-height: 1.65;
+}
+
+.score-circle {
+  box-shadow: 0 8px 26px rgba(52, 211, 153, 0.16);
+}
+
+/* Financial states */
+
+.income {
+  color: var(--loom-green);
+}
+
+.expense {
+  color: var(--loom-red);
+}
+
+/* Forms */
+
+input,
+select,
+textarea {
+  max-width: 100%;
+}
+
+.goal-form input,
+.goal-form select,
+.goal-form textarea {
+  border-color: var(--loom-border);
+  border-radius: 12px;
+  background: var(--loom-surface-raised);
+  color: var(--loom-text);
+}
+
+.goal-form input:focus,
+.goal-form select:focus,
+.goal-form textarea:focus {
+  border-color: var(--loom-purple);
+  outline: 2px solid rgba(139, 122, 255, 0.13);
+  outline-offset: 1px;
+}
+
+/* Goals page */
+
+.goals-page {
+  padding: 32px 24px 120px;
+}
+
+.goals-page h1 {
+  margin-bottom: 28px;
+  font-size: clamp(28px, 3vw, 40px);
+  letter-spacing: -1px;
+  text-shadow: none;
+}
+
+.goal-form {
+  border-color: var(--loom-border);
+  border-radius: 20px;
+  background: var(--loom-surface);
+  box-shadow: var(--shadow);
+}
+
+/* Shared interaction polish */
+
+button,
+[role="button"] {
+  -webkit-tap-highlight-color: transparent;
+}
+
+button {
+  transition:
+    background-color 160ms ease,
+    border-color 160ms ease,
+    box-shadow 160ms ease,
+    transform 160ms ease;
+}
+
+button:active {
+  transform: scale(0.985);
+}
+
+/* Avoid hover movement on touch devices */
+
+@media (hover: none) {
+  .card:hover,
+  .health-card:hover,
+  .main-card:hover {
+    transform: none;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+  }
+}
+
+/* Tablet */
+
+@media (max-width: 1024px) {
+  .dashboard,
+  .goals-page,
+  .transactions-page {
+    padding-right: 20px;
+    padding-left: 20px;
+  }
+
+  .dashboard .header {
+    margin-bottom: 22px;
+  }
+
+  .card {
+    padding: 19px;
+  }
+}
+
+/* Mobile */
+
+@media (max-width: 767px) {
+  .dashboard,
+  .goals-page,
+  .transactions-page {
+    width: 100%;
+    max-width: 100%;
+    padding: 20px 16px 112px;
+  }
+
+  .dashboard .header {
+    gap: 12px;
+    margin-bottom: 20px;
+  }
+
+  .dashboard .header h1 {
+    font-size: clamp(25px, 7vw, 32px);
+  }
+
+  .dashboard .profile-circle {
+    width: 42px;
+    height: 42px;
+    font-size: 17px;
+  }
+
+  .card,
+  .health-card,
+  .main-card {
+    margin-bottom: 12px;
+    border-radius: 16px;
+  }
+
+  .card {
+    padding: 17px;
+  }
+
+  .amount {
+    font-size: clamp(23px, 7vw, 30px);
+  }
+
+  .health-card {
+    padding: 19px;
+  }
+
+  .goals-page h1 {
+    margin-bottom: 22px;
+    text-align: left;
+  }
+
+  .goal-form {
+    padding: 18px;
+    margin-bottom: 24px;
+    border-radius: 17px;
+  }
+}
+
+/* Small mobile */
+
+@media (max-width: 380px) {
+  .dashboard,
+  .goals-page,
+  .transactions-page {
+    padding-right: 12px;
+    padding-left: 12px;
+  }
+
+  .card {
+    padding: 14px;
+  }
+
+  .goal-form {
+    padding: 14px;
+  }
+}
+
+/* Accessibility */
+
+@media (prefers-reduced-motion: reduce) {
+  .card,
+  .health-card,
+  button {
+    transition: none;
+  }
+}
+
+
+/* =========================================================
+   LOOM DASHBOARD — FINANCIAL HEALTH
+========================================================= */
+
+.dashboard .health-card {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  gap: 18px;
+
+  width: 100%;
+  min-width: 0;
+  padding: 26px;
+
+  background: #141f33;
+  border: 1px solid rgba(148, 163, 184, 0.14);
+  border-radius: 18px;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.12);
+}
+
+.dashboard .health-card:hover {
+  transform: none;
+  border-color: rgba(148, 163, 184, 0.22);
+}
+
+.dashboard .health-card > .dashboard-title {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+
+  margin: 0;
+  color: #f1f5f9;
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 1.4;
+  text-align: center;
+}
+
+.dashboard .health-card > .dashboard-title svg {
+  flex-shrink: 0;
+  color: #a78bfa;
+  font-size: 21px;
+}
+
+.dashboard .health-card .score-circle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 112px;
+  height: 112px;
+  flex-shrink: 0;
+  align-self: center;
+
+  margin: 4px 0;
+  border: 6px solid rgba(255, 255, 255, 0.12);
+  border-radius: 50%;
+
+  color: #ffffff;
+  font-size: 34px;
+  font-weight: 750;
+  font-variant-numeric: tabular-nums;
+
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.18);
+}
+
+.dashboard .health-card .health-message {
+  max-width: 620px;
+  align-self: center;
+
+  margin: 0;
+  color: #a8b6cc;
+  font-size: 14px;
+  line-height: 1.7;
+  text-align: center;
+  overflow-wrap: anywhere;
+}
+
+.dashboard .health-card .insights-card {
+  width: 100%;
+  margin: 0;
+  padding: 20px;
+
+  background: #19263b;
+  border: 1px solid rgba(148, 163, 184, 0.12);
+  border-radius: 14px;
+  box-shadow: none;
+}
+
+.dashboard .health-card .insights-card .dashboard-title {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+
+  margin: 0 0 14px;
+  color: #f1f5f9;
+  font-size: 16px;
+  line-height: 1.5;
+}
+
+.dashboard .health-card .insights-card .dashboard-title svg {
+  flex-shrink: 0;
+  color: #a78bfa;
+}
+
+.dashboard .health-card .insight-item {
+  padding: 12px 0;
+  border-bottom: 1px solid rgba(148, 163, 184, 0.12);
+
+  color: #b8c5d9;
+  font-size: 14px;
+  line-height: 1.6;
+  overflow-wrap: anywhere;
+}
+
+.dashboard .health-card .insight-item:last-child {
+  padding-bottom: 0;
+  border-bottom: none;
+}
+
+@media (max-width: 700px) {
+  .dashboard .health-card {
+    gap: 15px;
+    padding: 19px 16px;
+    border-radius: 16px;
+  }
+
+  .dashboard .health-card > .dashboard-title {
+    font-size: 17px;
+  }
+
+  .dashboard .health-card .score-circle {
+    width: 98px;
+    height: 98px;
+    font-size: 30px;
+  }
+
+  .dashboard .health-card .insights-card {
+    padding: 16px;
+  }
+
+  .dashboard .health-card .insight-item {
+    font-size: 13px;
+  }
+
+  .dashboard .health-card .health-message {
+    font-size: 13px;
+  }
+}
+
+
+/* =========================================================
+   LOOM DASHBOARD — SUMMARY, ALERTS & TRANSACTIONS
+========================================================= */
+
+/* Consistent dashboard cards */
+.dashboard > .card {
+  min-width: 0;
+  padding: 22px;
+  margin: 0 0 18px;
+
+  background: #141f33;
+  border: 1px solid rgba(148, 163, 184, 0.14);
+  border-radius: 18px;
+
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.12);
+}
+
+.dashboard > .card:hover {
+  transform: none;
+  border-color: rgba(148, 163, 184, 0.22);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.12);
+}
+
+/* Summary grid */
+.dashboard .summary-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 14px;
+  width: 100%;
+  margin: 24px 0;
+}
+
+.dashboard .summary-grid > .card {
+  min-width: 0;
+  min-height: 140px;
+  margin: 0;
+  padding: 20px;
+  background: #17243a;
+  border: 1px solid rgba(148, 163, 184, 0.14);
+  border-radius: 17px;
+  box-shadow: none;
+}
+
+/* Section headings */
+.dashboard .dashboard-title {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+
+  margin: 0 0 18px;
+  color: #f1f5f9;
+  font-size: 17px;
+  font-weight: 700;
+  line-height: 1.45;
+}
+
+.dashboard .dashboard-title svg {
+  flex-shrink: 0;
+  color: #a78bfa;
+  font-size: 20px;
+}
+
+/* Summary values */
+.dashboard .summary-grid .amount {
+  margin: 0;
+  color: #f1f5f9;
+  font-size: clamp(22px, 2.5vw, 30px);
+  font-weight: 700;
+  line-height: 1.35;
+  letter-spacing: -0.035em;
+  overflow-wrap: anywhere;
+  font-variant-numeric: tabular-nums;
+}
+
+.dashboard .summary-grid .amount.income {
+  color: #4ade80;
+}
+
+.dashboard .summary-grid .amount.expense {
+  color: #fb7185;
+}
+
+.dashboard .summary-grid .card-subtitle {
+  margin-top: 8px;
+  color: #96a6bf;
+  font-size: 13px;
+  line-height: 1.5;
+}
+
+/* Recent transactions */
+.dashboard .transaction-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+
+  padding: 15px 0;
+  border-bottom: 1px solid rgba(148, 163, 184, 0.12);
+}
+
+.dashboard .transaction-item:last-child {
+  border-bottom: none;
+  padding-bottom: 0;
+}
+
+.dashboard .transaction-item > div:first-child {
+  min-width: 0;
+  flex: 1;
+}
+
+.dashboard .transaction-item strong {
+  display: block;
+  color: #e8eef8;
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 1.5;
+  overflow-wrap: anywhere;
+}
+
+.dashboard .transaction-item .transaction-date {
+  margin-top: 4px;
+  color: #96a6bf;
+  font-size: 12px;
+  line-height: 1.5;
+}
+
+.dashboard .transaction-item > div:last-child {
+  flex-shrink: 0;
+  max-width: 48%;
+  font-size: 14px;
+  font-weight: 650;
+  text-align: right;
+  overflow-wrap: anywhere;
+  font-variant-numeric: tabular-nums;
+}
+
+/* Budget warnings */
+.dashboard > .card > p.expense {
+  margin: 10px 0 0;
+  padding: 12px 14px;
+
+  color: #fda4af;
+  background: rgba(251, 113, 133, 0.08);
+  border: 1px solid rgba(251, 113, 133, 0.16);
+  border-radius: 12px;
+
+  font-size: 13px;
+  line-height: 1.6;
+  overflow-wrap: anywhere;
+}
+
+.dashboard > .card > p:not(.expense) {
+  color: #a8b6cc;
+  font-size: 14px;
+  line-height: 1.7;
+}
+
+/* Goal progress rows */
+.dashboard .allocation-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  margin: 14px 0 9px;
+  color: #b8c5d9;
+  font-size: 13px;
+  line-height: 1.5;
+}
+
+.dashboard .allocation-row span:first-child {
+  min-width: 0;
+  overflow-wrap: anywhere;
+}
+
+.dashboard .allocation-row span:last-child {
+  flex-shrink: 0;
+  color: #e8eef8;
+  font-weight: 650;
+  font-variant-numeric: tabular-nums;
+}
+
+.dashboard .dashboard-progress-bar {
+  width: 100%;
+  height: 7px;
+  overflow: hidden;
+  background: #26334a;
+  border-radius: 999px;
+}
+
+.dashboard .dashboard-progress-fill {
+  height: 100%;
+  background: linear-gradient(90deg, #8b7aff, #a78bfa);
+  border-radius: inherit;
+}
+
+/* Mobile */
+@media (max-width: 600px) {
+  .dashboard > .card {
+    padding: 17px;
+    margin-bottom: 14px;
+    border-radius: 16px;
+  }
+
+  .dashboard .summary-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 10px;
+    margin: 18px 0;
+  }
+
+  .dashboard .summary-grid > .card {
+    min-height: 120px;
+    padding: 15px 13px;
+    border-radius: 14px;
+  }
+
+  .dashboard .summary-grid .dashboard-title {
+    gap: 7px;
+    font-size: 13px;
+  }
+
+  .dashboard .summary-grid .dashboard-title svg {
+    font-size: 17px;
+  }
+
+  .dashboard .summary-grid .amount {
+    font-size: clamp(19px, 5vw, 24px);
+  }
+
+  .dashboard .transaction-item {
+    gap: 10px;
+    padding: 13px 0;
+  }
+
+  .dashboard .transaction-item > div:last-child {
+    max-width: 46%;
+    font-size: 12px;
+  }
+
+  .dashboard .dashboard-title {
+    font-size: 16px;
+  }
+}
+
+@media (max-width: 350px) {
+  .dashboard .summary-grid > .card {
+    padding: 12px 10px;
+  }
+
+  .dashboard .summary-grid .dashboard-title {
+    font-size: 12px;
+  }
+
+  .dashboard .summary-grid .amount {
+    font-size: 18px;
   }
 }
