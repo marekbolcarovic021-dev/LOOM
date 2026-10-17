@@ -91,6 +91,8 @@ function AnalyticsCharts() {
   const formatTooltipValue = (value) =>
     formatCurrency(value, currency, i18n.language);
 
+console.log("LOOM pieData:", pieData);
+console.log("LOOM monthlyData:", monthlyData);
   return (
     <div className="analytics-grid">
       {/* EXPENSES BY CATEGORY */}
