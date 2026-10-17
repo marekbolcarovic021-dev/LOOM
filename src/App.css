@@ -16657,3 +16657,242 @@ button:active {
     font-size: 18px;
   }
 }
+
+
+/* =========================================
+   LOOM ANALYTICS — CHART CARDS
+========================================= */
+
+.dashboard .analytics-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 18px;
+  width: 100%;
+  min-width: 0;
+  margin: 24px 0;
+  box-sizing: border-box;
+}
+
+.dashboard .analytics-card {
+  min-width: 0;
+  padding: 22px;
+  overflow: hidden;
+  color: #f1f5f9;
+  background: linear-gradient(145deg, #17243a, #131e31);
+  border: 1px solid rgba(148, 163, 184, 0.15);
+  border-radius: 18px;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+  box-sizing: border-box;
+}
+
+.dashboard .analytics-card-heading {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 12px;
+}
+
+.dashboard .analytics-card-heading h2 {
+  margin: 0;
+  color: #f1f5f9;
+  font-size: 16px;
+  font-weight: 650;
+  line-height: 1.45;
+  overflow-wrap: anywhere;
+}
+
+.dashboard .analytics-card-subtitle {
+  margin: 5px 0 0;
+  color: #8fa1bb;
+  font-size: 12px;
+  line-height: 1.5;
+}
+
+.dashboard .analytics-card-icon {
+  display: flex;
+  flex: 0 0 38px;
+  align-items: center;
+  justify-content: center;
+  width: 38px;
+  height: 38px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 12px;
+  font-size: 23px;
+}
+
+.dashboard .analytics-card-icon-purple {
+  color: #b3a6ff;
+  background: rgba(139, 122, 255, 0.12);
+}
+
+.dashboard .analytics-card-icon-green {
+  color: #6ee7b7;
+  background: rgba(52, 211, 153, 0.1);
+}
+
+.dashboard .analytics-chart-container {
+  width: 100%;
+  min-width: 0;
+}
+
+.dashboard .analytics-empty {
+  display: flex;
+  min-height: 220px;
+  align-items: center;
+  justify-content: center;
+  padding: 16px;
+  color: #96a6bf;
+  text-align: center;
+}
+
+.dashboard .analytics-empty p {
+  margin: 0;
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+.dashboard .analytics-card .recharts-wrapper,
+.dashboard .analytics-card .recharts-surface {
+  max-width: 100%;
+}
+
+@media (max-width: 900px) {
+  .dashboard .analytics-grid {
+    gap: 14px;
+  }
+
+  .dashboard .analytics-card {
+    padding: 18px;
+  }
+}
+
+@media (max-width: 640px) {
+  .dashboard .analytics-grid {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 14px;
+    margin: 18px 0;
+  }
+
+  .dashboard .analytics-card {
+    padding: 18px 14px 14px;
+    border-radius: 16px;
+  }
+
+  .dashboard .analytics-card-heading {
+    margin-bottom: 8px;
+  }
+
+  .dashboard .analytics-card-heading h2 {
+    font-size: 15px;
+  }
+
+  .dashboard .analytics-card-icon {
+    flex-basis: 34px;
+    width: 34px;
+    height: 34px;
+    font-size: 21px;
+  }
+}
+
+
+/* =========================================
+   LOOM DASHBOARD — TRANSACTIONS & GOALS
+========================================= */
+
+.dashboard .transaction-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 15px 0;
+  border-bottom: 1px solid rgba(148, 163, 184, 0.12);
+}
+
+.dashboard .transaction-item:last-child {
+  border-bottom: none;
+}
+
+.dashboard .transaction-item > div:first-child {
+  flex: 1;
+  min-width: 0;
+}
+
+.dashboard .transaction-item strong {
+  display: block;
+  color: #e8eef8;
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 1.5;
+  overflow-wrap: anywhere;
+}
+
+.dashboard .transaction-item .transaction-date {
+  margin: 4px 0 0;
+  color: #8fa1bb;
+  font-size: 12px;
+  line-height: 1.5;
+}
+
+.dashboard .transaction-item > div:last-child {
+  flex-shrink: 0;
+  max-width: 52%;
+  text-align: right;
+  font-size: 14px;
+  font-weight: 650;
+  font-variant-numeric: tabular-nums;
+  overflow-wrap: anywhere;
+}
+
+.dashboard .transaction-item .income {
+  color: #34d399;
+}
+
+.dashboard .transaction-item .expense {
+  color: #fb7185;
+}
+
+/* Financial goals in the dashboard */
+
+.dashboard > .card > .goal-card {
+  margin: 14px 0;
+}
+
+.dashboard > .card > .goal-card:first-of-type {
+  margin-top: 8px;
+}
+
+@media (max-width: 640px) {
+  .dashboard .transaction-item {
+    gap: 12px;
+    padding: 14px 0;
+  }
+
+  .dashboard .transaction-item strong {
+    font-size: 13px;
+  }
+
+  .dashboard .transaction-item > div:last-child {
+    max-width: 46%;
+    font-size: 12px;
+  }
+
+  .dashboard .transaction-item .transaction-date {
+    font-size: 11px;
+  }
+
+  .dashboard > .card > .goal-card {
+    margin: 12px 0;
+  }
+}
+
+@media (max-width: 350px) {
+  .dashboard .transaction-item {
+    gap: 8px;
+  }
+
+  .dashboard .transaction-item > div:last-child {
+    max-width: 44%;
+    font-size: 11px;
+  }
+}
