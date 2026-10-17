@@ -88,6 +88,7 @@ import { App as CapacitorApp } from "@capacitor/app";
 // ======================================================
 
 import "./App.css";
+import "./styles/mobile.css";
 
 // ======================================================
 // APP

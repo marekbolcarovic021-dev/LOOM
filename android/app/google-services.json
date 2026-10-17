@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "496155832958",
+    "firebase_url": "https://loom-5eccb-default-rtdb.europe-west1.firebasedatabase.app",
+    "project_id": "loom-5eccb",
+    "storage_bucket": "loom-5eccb.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:496155832958:android:de9eb6786ecc3b0f0bde2f",
+        "android_client_info": {
+          "package_name": "com.loom.finance"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "496155832958-jhqhr9fl6ofri6b4mcu8m9k2isrlvcec.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.loom.finance",
+            "certificate_hash": "91581179629724ccf3ad6d18a4a378e36dd2c3b2"
+          }
+        },
+        {
+          "client_id": "496155832958-eojpgof62mvoh4pt90jqiq59k2d80fnj.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD88KQd5NTutmt8LrrZwhqRpoSlnnTzI24"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "496155832958-eojpgof62mvoh4pt90jqiq59k2d80fnj.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
