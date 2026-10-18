@@ -1,10 +1,17 @@
+
 import { useEffect } from "react";
-import { Download as DownloadIcon, Smartphone, ShieldCheck, ArrowLeft } from "lucide-react";
+import {
+  Download as DownloadIcon,
+  Smartphone,
+  ShieldCheck,
+  ArrowLeft,
+} from "lucide-react";
 import { Link } from "react-router-dom";
 import "./Download.css";
 
 export default function Download() {
-      useEffect(() => {
+  // Adsterra 728 × 90 banner
+  useEffect(() => {
     const container = document.getElementById("loom-adsterra-slot");
 
     if (!container || container.dataset.loaded === "true") {
@@ -31,47 +38,48 @@ export default function Download() {
 
     container.appendChild(optionsScript);
     container.appendChild(adScript);
-
-    useEffect(() => {
-  const container = document.getElementById(
-    "loom-native-adsterra-slot"
-  );
-
-  if (!container || container.dataset.loaded === "true") {
-    return;
-  }
-
-  container.dataset.loaded = "true";
-
-  const adScript = document.createElement("script");
-  adScript.async = true;
-  adScript.setAttribute("data-cfasync", "false");
-  adScript.src =
-    "https://bicea.org/21/198271fe0b0ec07be381bd5a8b989c66";
-
-  container.appendChild(adScript);
-
-  const nativeContainer = document.createElement("div");
-  nativeContainer.id =
-    "container-198271fe0b0ec07be381bd5a8b989c66";
-
-  container.appendChild(nativeContainer);
-}, []);
-
-    return () => {
-      // Do not remove the external script here; React Strict Mode
-      // may run effect cleanup and setup again during development.
-    };
   }, []);
+
+  // Adsterra Native Banner
+  useEffect(() => {
+    const container = document.getElementById(
+      "loom-native-adsterra-slot"
+    );
+
+    if (!container || container.dataset.loaded === "true") {
+      return;
+    }
+
+    container.dataset.loaded = "true";
+
+    const adScript = document.createElement("script");
+    adScript.async = true;
+    adScript.setAttribute("data-cfasync", "false");
+    adScript.src =
+      "https://bicea.org/21/198271fe0b0ec07be381bd5a8b989c66";
+
+    container.appendChild(adScript);
+
+    const nativeContainer = document.createElement("div");
+    nativeContainer.id =
+      "container-198271fe0b0ec07be381bd5a8b989c66";
+
+    container.appendChild(nativeContainer);
+  }, []);
+
   return (
     <main className="download-page">
       <header className="download-header">
-        <Link to="/about" className="download-brand" aria-label="LOOM homepage">
+        <Link
+          to="/about"
+          className="download-brand"
+          aria-label="LOOM homepage"
+        >
           <img
-  src="/loom-splash-symbol.png"
-  alt="LOOM"
-  className="download-brand-image"
-/>
+            src="/loom-splash-symbol.png"
+            alt="LOOM"
+            className="download-brand-image"
+          />
           <span>LOOM</span>
         </Link>
 
@@ -83,35 +91,43 @@ export default function Download() {
 
       <section className="download-hero">
         <span className="download-eyebrow">LOOM FOR ANDROID</span>
-        <h1>Your finances.<br /><span>In your hands.</span></h1>
+        <h1>
+          Your finances.
+          <br />
+          <span>In your hands.</span>
+        </h1>
         <p>
           Take control of your money with LOOM. Track your spending,
           manage budgets and keep your financial goals close.
         </p>
       </section>
 
-      <section className="download-ad-section" aria-label="Advertisement">
-  <span className="download-ad-label">ADVERTISEMENT</span>
+      {/* Adsterra 728 × 90 banner */}
+      <section
+        className="download-ad-section"
+        aria-label="Advertisement"
+      >
+        <span className="download-ad-label">ADVERTISEMENT</span>
+        <div className="download-ad-slot">
+          <div id="loom-adsterra-slot" />
+        </div>
+      </section>
 
-  <div className="download-ad-slot">
-    <div id="loom-adsterra-slot" />
-  </div>
-</section>
-
-<section
-  className="download-native-ad-section"
-  aria-label="Sponsored content"
->
-  <span className="download-ad-label">SPONSORED</span>
-  <div id="loom-native-adsterra-slot" />
-</section>
+      {/* Adsterra Native Banner */}
+      <section
+        className="download-native-ad-section"
+        aria-label="Sponsored content"
+      >
+        <span className="download-ad-label">SPONSORED</span>
+        <div id="loom-native-adsterra-slot" />
+      </section>
 
       <section className="download-card">
         <img
-  src="/loom-splash-symbol.png"
-  alt="LOOM app icon"
-  className="download-app-image"
-/>
+          src="/loom-splash-symbol.png"
+          alt="LOOM app icon"
+          className="download-app-image"
+        />
 
         <div className="download-card-content">
           <span className="download-platform">ANDROID APP</span>
@@ -119,8 +135,14 @@ export default function Download() {
           <p>Install the Android application on your device.</p>
 
           <div className="download-details">
-            <span><Smartphone size={15} /> Android APK</span>
-            <span><ShieldCheck size={15} /> Official LOOM download</span>
+            <span>
+              <Smartphone size={15} />
+              Android APK
+            </span>
+            <span>
+              <ShieldCheck size={15} />
+              Official LOOM download
+            </span>
           </div>
 
           <a
