@@ -193,10 +193,18 @@ export function FinanceProvider({
   }
 
   async function initialize() {
-    setIsLoading(true);
+  setIsLoading(true);
 
-    try {
-      const data = await loadFinance(user.uid);
+  try {
+    const data = await loadFinance(user.uid);
+
+    console.log("LOOM FINANCE LOAD:", {
+      uid: user.uid,
+      transactionCount: data.transactions?.length,
+      firstTransaction: data.transactions?.[0],
+    });
+
+    setTransactions(data.transactions);
 
       setTransactions(data.transactions);
       setBudgets(data.budgets);

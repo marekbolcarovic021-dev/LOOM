@@ -393,48 +393,56 @@ function Dashboard() {
     )
     .slice(0, 5);
 
+  
   // ==================================================
-  // BUDGET WARNINGS
+  // BUDGET WARNINGS — CURRENT MONTH ONLY
   // ==================================================
 
-  const warnings = budgets.filter(
-    (budget) => {
-      const spent =
-        transactions.reduce(
-          (sum, transaction) => {
-            if (
-              transaction?.type ===
-                "Expense" &&
-              transaction?.category ===
-                budget?.category
-            ) {
-              return (
-                sum +
-                Number(
-                  transaction?.amount ||
-                    0
-                )
-              );
-            }
+  const now = new Date();
+  const currentYear = now.getFullYear();
+  const currentMonth = now.getMonth();
 
-            return sum;
-          },
-          0
-        );
+  const getCurrentMonthCategorySpend = (category) => {
+    return transactions.reduce((sum, transaction) => {
+      if (
+        transaction?.type !== "Expense" ||
+        transaction?.category !== category ||
+        !transaction?.date
+      ) {
+        return sum;
+      }
 
-      return (
-        Number(
-          budget?.limit || 0
-        ) > 0 &&
-        (spent /
-          Number(
-            budget?.limit || 1
-          )) *
-          100 >=
-          70
-      );
+      const transactionDate = new Date(transaction.date);
+
+      if (Number.isNaN(transactionDate.getTime())) {
+        return sum;
+      }
+
+      if (
+        transactionDate.getFullYear() !== currentYear ||
+        transactionDate.getMonth() !== currentMonth
+      ) {
+        return sum;
+      }
+
+      return sum + Number(transaction?.amount || 0);
+    }, 0);
+  };
+
+  const warnings = budgets.filter((budget) => {
+    const limit = Number(budget?.limit || 0);
+
+    if (limit <= 0) {
+      return false;
     }
-  );
+
+    const spent = getCurrentMonthCategorySpend(
+      budget?.category
+    );
+
+    return (spent / limit) * 100 >= 70;
+  });
+
 
   return (
     <div className="dashboard">
@@ -739,42 +747,13 @@ function Dashboard() {
           warnings.map(
             (warning) => {
 
-              const spent =
-                transactions.reduce(
-                  (
-                    sum,
-                    transaction
-                  ) => {
+              const spent = getCurrentMonthCategorySpend(
+  warning.category
+);
 
-                    if (
-                      transaction?.type ===
-                        "Expense" &&
-                      transaction?.category ===
-                        warning.category
-                    ) {
-
-                      return (
-                        sum +
-                        Number(
-                          transaction.amount ||
-                            0
-                        )
-                      );
-
-                    }
-
-                    return sum;
-
-                  },
-                  0
-                );
-
-              const percentage =
-                Math.round(
-                  (spent /
-                    warning.limit) *
-                    100
-                );
+const percentage = Math.round(
+  (spent / Number(warning.limit)) * 100
+);
 
               return (
                 <p

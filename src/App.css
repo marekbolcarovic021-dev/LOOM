@@ -16930,3 +16930,2190 @@ button:active {
   color: #f1f5f9;
   font-weight: 600;
 }
+
+
+/* =========================================
+   LOOM TRANSACTIONS — COMPACT RESPONSIVE UI
+   ========================================= */
+
+.transactions-page {
+  min-width: 0;
+}
+
+.transactions-page > h1 {
+  margin-bottom: 16px;
+}
+
+.transactions-page > .card {
+  min-width: 0;
+  margin-bottom: 16px;
+  padding: 20px;
+  border-radius: 18px;
+}
+
+/* Summary: tighter cards */
+.transactions-page .summary-container {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 12px;
+  margin: 0 0 16px;
+}
+
+.transactions-page .summary-container > .card {
+  min-width: 0;
+  min-height: 0;
+  margin: 0;
+  padding: 17px;
+  border-radius: 16px;
+}
+
+.transactions-page .summary-container h2 {
+  margin: 0 0 9px;
+  font-size: 14px;
+  line-height: 1.35;
+}
+
+.transactions-page .summary-container .amount {
+  overflow-wrap: anywhere;
+  font-size: clamp(18px, 2vw, 25px);
+  line-height: 1.25;
+  font-weight: 750;
+}
+
+/* Search and filters */
+.transactions-page .search-card {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 14px;
+  padding: 14px 16px;
+}
+
+.transactions-page .search-wrapper {
+  flex: 1;
+  min-width: 0;
+}
+
+.transactions-page .search-input {
+  width: 100%;
+  min-width: 0;
+}
+
+.transactions-page .filter-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.transactions-page .filter-btn {
+  white-space: nowrap;
+}
+
+/* Reduce space before the transaction list */
+.transactions-page .transactions-table {
+  width: 100%;
+  min-width: 0;
+  margin-top: 12px;
+  overflow-x: auto;
+  border-radius: 12px;
+}
+
+.transactions-page .transactions-table table {
+  width: 100%;
+  min-width: 0;
+  border-collapse: collapse;
+  table-layout: auto;
+}
+
+.transactions-page .transactions-table th,
+.transactions-page .transactions-table td {
+  padding: 12px 10px;
+  vertical-align: middle;
+  overflow-wrap: anywhere;
+}
+
+.transactions-page .transactions-table th {
+  font-size: 12px;
+  white-space: nowrap;
+}
+
+.transactions-page .transactions-table td {
+  font-size: 13px;
+}
+
+.transactions-page .transactions-table td.income,
+.transactions-page .transactions-table td.expense {
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+.transactions-page .transaction-actions {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 6px;
+}
+
+.transactions-page .transaction-actions button {
+  flex-shrink: 0;
+}
+
+/* Tablet and mobile */
+@media (max-width: 760px) {
+  .transactions-page > .card {
+    padding: 15px;
+    margin-bottom: 12px;
+  }
+
+  .transactions-page .summary-container {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 8px;
+    margin-bottom: 12px;
+  }
+
+  .transactions-page .summary-container > .card {
+    padding: 12px 10px;
+  }
+
+  .transactions-page .summary-container h2 {
+    font-size: 12px;
+  }
+
+  .transactions-page .summary-container .amount {
+    font-size: clamp(14px, 3.6vw, 20px);
+  }
+
+  .transactions-page .search-card {
+    align-items: stretch;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .transactions-page .filter-buttons {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .transactions-page .filter-btn {
+    min-width: 0;
+    padding: 9px 6px;
+    font-size: 12px;
+  }
+
+  /* Replace the wide table with transaction cards */
+  .transactions-page .transactions-table {
+    overflow: visible;
+    margin-top: 10px;
+  }
+
+  .transactions-page .transactions-table table,
+  .transactions-page .transactions-table tbody {
+    display: block;
+    width: 100%;
+  }
+
+  .transactions-page .transactions-table thead {
+    display: none;
+  }
+
+  .transactions-page .transactions-table tbody tr {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    gap: 0 12px;
+    margin-bottom: 10px;
+    padding: 12px;
+    border: 1px solid rgba(148, 163, 184, 0.15);
+    border-radius: 14px;
+    background: rgba(15, 23, 42, 0.48);
+  }
+
+  .transactions-page .transactions-table tbody tr:last-child {
+    margin-bottom: 0;
+  }
+
+  .transactions-page .transactions-table tbody td {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 8px;
+    min-width: 0;
+    padding: 8px 0;
+    border: 0;
+    font-size: 12px;
+    text-align: right;
+  }
+
+  .transactions-page .transactions-table tbody td::before {
+    content: attr(data-label);
+    flex-shrink: 0;
+    color: #91a2bd;
+    font-size: 11px;
+    text-align: left;
+  }
+
+  /* Category is the first, prominent field */
+  .transactions-page .transactions-table tbody td[data-label="Category"],
+  .transactions-page .transactions-table tbody td[data-label="Kategória"] {
+    font-weight: 700;
+  }
+
+  .transactions-page .transactions-table tbody td.income,
+  .transactions-page .transactions-table tbody td.expense {
+    font-size: 14px;
+    font-weight: 750;
+  }
+
+  .transactions-page .transactions-table tbody td:has(.transaction-actions) {
+    grid-column: 1 / -1;
+    align-items: center;
+    justify-content: flex-end;
+    padding-top: 10px;
+    border-top: 1px solid rgba(148, 163, 184, 0.12);
+  }
+
+  .transactions-page .transactions-table tbody td:has(.transaction-actions)::before {
+    content: "";
+    display: none;
+  }
+
+  .transactions-page .transaction-actions {
+    gap: 10px;
+  }
+
+  .transactions-page .transaction-actions button {
+    min-width: 38px;
+    min-height: 38px;
+  }
+
+  /* Keep the empty-state message readable */
+  .transactions-page .transactions-table tbody tr:has(td[colspan]) {
+    display: block;
+    text-align: center;
+  }
+
+  .transactions-page .transactions-table tbody td[colspan] {
+    display: block;
+    text-align: center !important;
+  }
+
+  .transactions-page .transactions-table tbody td[colspan]::before {
+    display: none;
+  }
+}
+
+@media (max-width: 380px) {
+  .transactions-page .summary-container {
+    gap: 6px;
+  }
+
+  .transactions-page .summary-container > .card {
+    padding: 10px 7px;
+  }
+
+  .transactions-page .summary-container h2 {
+    font-size: 11px;
+  }
+
+  .transactions-page .summary-container .amount {
+    font-size: 13px;
+  }
+
+  .transactions-page .transactions-table tbody tr {
+    gap: 0 8px;
+    padding: 10px;
+  }
+}
+
+
+/* ==========================================
+   LOOM TRANSACTIONS — COMPACT MOBILE LAYOUT
+   ========================================== */
+
+/* Reduce general vertical spacing */
+.transactions-page > .card {
+  margin-bottom: 10px;
+  padding: 14px;
+}
+
+.transactions-page > h1 {
+  margin-top: 4px;
+  margin-bottom: 12px;
+}
+
+/* Compact transaction form */
+.transactions-page .goal-form {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 9px;
+  padding: 14px;
+  margin-bottom: 10px;
+}
+
+.transactions-page .goal-form .transaction-selects {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 8px;
+  grid-column: 1 / -1;
+}
+
+.transactions-page .goal-form .transaction-selects select {
+  width: 100%;
+  min-width: 0;
+  height: 42px;
+  padding: 8px 10px;
+  font-size: 13px;
+}
+
+.transactions-page .goal-form > input {
+  width: 100%;
+  min-width: 0;
+  min-height: 42px;
+  height: 42px;
+  padding: 9px 12px;
+  margin: 0;
+  box-sizing: border-box;
+  font-size: 13px;
+}
+
+.transactions-page .goal-form > input:nth-of-type(1) {
+  grid-column: 1 / -1;
+}
+
+.transactions-page .goal-form > input:nth-of-type(2) {
+  grid-column: 1 / -1;
+}
+
+/* Recurring option and save buttons */
+.transactions-page .goal-form .recurring-section {
+  grid-column: 1 / -1;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  margin: 0;
+  padding: 2px 0;
+}
+
+.transactions-page .goal-form .recurring-toggle {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin: 0;
+  font-size: 13px;
+}
+
+.transactions-page .goal-form > button {
+  grid-column: 1 / -1;
+  min-height: 43px;
+  padding: 10px 14px;
+  margin: 0;
+}
+
+/* Search and filters */
+.transactions-page .search-card {
+  gap: 9px;
+  padding: 12px;
+}
+
+.transactions-page .search-wrapper {
+  min-width: 0;
+}
+
+.transactions-page .search-input {
+  height: 42px;
+  min-height: 42px;
+}
+
+.transactions-page .filter-buttons {
+  gap: 7px;
+}
+
+.transactions-page .filter-btn {
+  min-height: 36px;
+  padding: 8px 6px;
+}
+
+/* Month selector: one compact horizontal row */
+.transactions-page > .card:has(.month-navigation) {
+  padding: 12px 14px;
+}
+
+.transactions-page .month-navigation {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  margin: 8px 0 0;
+}
+
+.transactions-page .month-label {
+  flex: 1;
+  min-width: 0;
+  font-size: 15px;
+  line-height: 1.3;
+}
+
+.transactions-page .month-btn {
+  flex: 0 0 36px;
+  width: 36px;
+  height: 36px;
+  min-width: 36px;
+  padding: 0;
+  border-radius: 10px;
+}
+
+/* Summary cards */
+.transactions-page .summary-container {
+  gap: 8px;
+  margin: 0 0 10px;
+}
+
+.transactions-page .summary-container > .card {
+  min-height: 0;
+  padding: 11px 9px;
+  margin: 0;
+  border-radius: 13px;
+}
+
+.transactions-page .summary-container h2 {
+  margin-bottom: 6px;
+  font-size: 11px;
+}
+
+.transactions-page .summary-container .amount {
+  font-size: clamp(13px, 3.5vw, 19px);
+  line-height: 1.25;
+  overflow-wrap: anywhere;
+}
+
+/* Charts: reduce the gap around them */
+.transactions-page .charts-grid {
+  gap: 10px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+/* Compact mobile transaction cards */
+@media (max-width: 760px) {
+  .transactions-page > .card {
+    padding: 12px;
+    margin-bottom: 10px;
+  }
+
+  .transactions-page .goal-form {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 8px;
+    padding: 12px;
+  }
+
+  .transactions-page .goal-form .transaction-selects {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 7px;
+  }
+
+  .transactions-page .goal-form .transaction-selects select {
+    height: 39px;
+    padding: 7px 8px;
+    font-size: 12px;
+  }
+
+  .transactions-page .goal-form > input {
+    height: 40px;
+    min-height: 40px;
+  }
+
+  .transactions-page .goal-form > input:nth-of-type(1),
+  .transactions-page .goal-form > input:nth-of-type(2) {
+    grid-column: 1;
+  }
+
+  .transactions-page .goal-form .recurring-section {
+    flex-wrap: wrap;
+  }
+
+  .transactions-page .month-navigation {
+    margin-top: 6px;
+    gap: 8px;
+  }
+
+  .transactions-page .month-label {
+    font-size: 14px;
+  }
+
+  .transactions-page .transactions-table tbody tr {
+    gap: 0 10px;
+    margin-bottom: 7px;
+    padding: 8px 11px;
+    border-radius: 12px;
+  }
+
+  .transactions-page .transactions-table tbody td {
+    padding: 5px 0;
+    font-size: 11px;
+    line-height: 1.3;
+  }
+
+  .transactions-page .transactions-table tbody td::before {
+    font-size: 10px;
+  }
+
+  .transactions-page .transactions-table tbody td.income,
+  .transactions-page .transactions-table tbody td.expense {
+    font-size: 12px;
+  }
+
+  .transactions-page .transactions-table tbody td:has(.transaction-actions) {
+    padding-top: 7px;
+  }
+
+  .transactions-page .transaction-actions {
+    gap: 7px;
+  }
+
+  .transactions-page .transaction-actions button {
+    min-width: 32px;
+    min-height: 32px;
+    padding: 6px;
+  }
+
+  .transactions-page .transaction-actions svg {
+    width: 16px;
+    height: 16px;
+  }
+}
+
+/* Very narrow phones */
+@media (max-width: 380px) {
+  .transactions-page .summary-container {
+    gap: 5px;
+  }
+
+  .transactions-page .summary-container > .card {
+    padding: 9px 6px;
+  }
+
+  .transactions-page .summary-container h2 {
+    font-size: 10px;
+  }
+
+  .transactions-page .summary-container .amount {
+    font-size: 12px;
+  }
+
+  .transactions-page .transactions-table tbody tr {
+    gap: 0 6px;
+    padding: 8px;
+  }
+}
+
+
+/* ==========================================
+   LOOM TRANSACTIONS — PHONE COMPACT MODE
+   ========================================== */
+
+@media (max-width: 600px) {
+  /* Page */
+  .transactions-page {
+    padding: 12px 8px 90px !important;
+    max-width: 100%;
+    width: 100%;
+    box-sizing: border-box;
+  }
+
+  .transactions-page > h1 {
+    font-size: 23px;
+    line-height: 1.15;
+    margin: 2px 0 10px;
+  }
+
+  /* Compact all main panels */
+  .transactions-page > .card,
+  .transactions-page .goal-form,
+  .transactions-page .search-card {
+    padding: 10px !important;
+    margin-bottom: 8px !important;
+    border-radius: 14px;
+    min-width: 0;
+  }
+
+  .transactions-page h2 {
+    font-size: 13px;
+    line-height: 1.25;
+    margin: 0 0 7px;
+  }
+
+  /* Transaction form */
+  .transactions-page .goal-form {
+    gap: 7px;
+  }
+
+  .transactions-page .goal-form .transaction-selects {
+    gap: 6px;
+  }
+
+  .transactions-page .goal-form .transaction-selects select,
+  .transactions-page .goal-form > input {
+    height: 35px;
+    min-height: 35px;
+    padding: 6px 8px;
+    border-radius: 9px;
+    font-size: 12px;
+  }
+
+  .transactions-page .goal-form .recurring-section {
+    gap: 7px;
+    padding: 0;
+    font-size: 12px;
+  }
+
+  .transactions-page .goal-form .recurring-toggle {
+    gap: 8px;
+    font-size: 12px;
+  }
+
+  .transactions-page .goal-form .toggle-switch {
+    transform: scale(.85);
+    transform-origin: center;
+  }
+
+  .transactions-page .goal-form > button {
+    min-height: 37px;
+    padding: 8px 10px;
+    border-radius: 10px;
+    font-size: 13px;
+  }
+
+  /* Search and filter buttons */
+  .transactions-page .search-card {
+    gap: 7px;
+  }
+
+  .transactions-page .search-input {
+    height: 36px;
+    min-height: 36px;
+    padding: 7px 10px;
+    font-size: 12px;
+  }
+
+  .transactions-page .filter-buttons {
+    gap: 5px;
+  }
+
+  .transactions-page .filter-btn {
+    min-height: 31px;
+    padding: 6px 4px;
+    border-radius: 9px;
+    font-size: 11px;
+  }
+
+  /* Month navigation */
+  .transactions-page > .card:has(.month-navigation) {
+    padding: 9px 11px !important;
+  }
+
+  .transactions-page .month-navigation {
+    margin-top: 4px;
+    gap: 7px;
+  }
+
+  .transactions-page .month-label {
+    font-size: 12px;
+    font-weight: 650;
+  }
+
+  .transactions-page .month-btn {
+    flex-basis: 30px;
+    width: 30px;
+    min-width: 30px;
+    height: 30px;
+    border-radius: 8px;
+    font-size: 14px;
+  }
+
+  /* Income, expenses and balance */
+  .transactions-page .summary-container {
+    gap: 5px;
+    margin: 0 0 8px;
+  }
+
+  .transactions-page .summary-container > .card {
+    padding: 8px 6px;
+    border-radius: 10px;
+  }
+
+  .transactions-page .summary-container h2 {
+    font-size: 9px;
+    line-height: 1.2;
+    margin-bottom: 5px;
+  }
+
+  .transactions-page .summary-container .amount {
+    font-size: clamp(11px, 3vw, 15px);
+    line-height: 1.2;
+  }
+
+  /* Charts */
+  .transactions-page .charts-grid {
+    gap: 7px;
+    margin: 7px 0;
+  }
+
+  .transactions-page .charts-grid > .card {
+    padding: 10px;
+    margin-bottom: 7px;
+  }
+
+  /* Transaction history cards */
+  .transactions-page .transactions-table {
+    margin-top: 7px;
+  }
+
+  .transactions-page .transactions-table tbody tr {
+    gap: 0 8px;
+    margin-bottom: 6px;
+    padding: 7px 9px;
+    border-radius: 10px;
+  }
+
+  .transactions-page .transactions-table tbody td {
+    gap: 5px;
+    padding: 4px 0;
+    font-size: 10px;
+    line-height: 1.25;
+  }
+
+  .transactions-page .transactions-table tbody td::before {
+    font-size: 9px;
+  }
+
+  .transactions-page .transactions-table tbody td.income,
+  .transactions-page .transactions-table tbody td.expense {
+    font-size: 11px;
+  }
+
+  .transactions-page .transactions-table tbody td:has(.transaction-actions) {
+    padding-top: 5px;
+  }
+
+  .transactions-page .transaction-actions {
+    gap: 6px;
+  }
+
+  .transactions-page .transaction-actions button {
+    min-width: 29px;
+    min-height: 29px;
+    padding: 5px;
+    border-radius: 8px;
+  }
+
+  .transactions-page .transaction-actions svg {
+    width: 14px;
+    height: 14px;
+  }
+}
+
+/* Extra-small phones */
+@media (max-width: 380px) {
+  .transactions-page {
+    padding-right: 6px !important;
+    padding-left: 6px !important;
+  }
+
+  .transactions-page > h1 {
+    font-size: 21px;
+  }
+
+  .transactions-page .goal-form .transaction-selects select {
+    font-size: 11px;
+    padding-left: 5px;
+  }
+
+  .transactions-page .summary-container h2 {
+    font-size: 8px;
+  }
+
+  .transactions-page .summary-container .amount {
+    font-size: 10px;
+  }
+
+  .transactions-page .transactions-table tbody tr {
+    gap: 0 5px;
+    padding: 6px 7px;
+  }
+}
+
+
+/* ==========================================
+   LOOM — MOBILE POLISH PASS
+   ========================================== */
+
+@media (max-width: 600px) {
+  /* Page typography and spacing */
+  .transactions-page > h1 {
+    font-size: 22px;
+    letter-spacing: -0.5px;
+    margin-bottom: 9px;
+  }
+
+  .transactions-page > .card,
+  .transactions-page .goal-form,
+  .transactions-page .search-card {
+    border-radius: 13px;
+    box-shadow: 0 5px 16px rgba(0, 0, 0, 0.13);
+  }
+
+  /* Form: consistent control heights */
+  .transactions-page .goal-form {
+    gap: 7px;
+    padding: 10px !important;
+  }
+
+  .transactions-page .goal-form .transaction-selects select,
+  .transactions-page .goal-form > input {
+    height: 36px;
+    min-height: 36px;
+    border-radius: 9px;
+    font-size: 12px;
+  }
+
+  .transactions-page .goal-form > input {
+    background: rgba(30, 45, 70, 0.85);
+  }
+
+  .transactions-page .goal-form .recurring-section {
+    min-height: 34px;
+    align-items: center;
+  }
+
+  .transactions-page .goal-form .recurring-toggle {
+    font-size: 11px;
+    font-weight: 600;
+  }
+
+  .transactions-page .goal-form > button {
+    min-height: 38px;
+    font-size: 12px;
+    font-weight: 700;
+    box-shadow: 0 4px 12px rgba(40, 100, 230, 0.18);
+  }
+
+  /* Search: cleaner alignment */
+  .transactions-page .search-card {
+    padding: 9px !important;
+    gap: 7px;
+  }
+
+  .transactions-page .search-wrapper {
+    position: relative;
+    width: 100%;
+  }
+
+  .transactions-page .search-input {
+    width: 100%;
+    box-sizing: border-box;
+    height: 38px;
+    padding-left: 36px;
+    border-radius: 10px;
+    font-size: 12px;
+  }
+
+  .transactions-page .search-icon {
+    width: 16px;
+    height: 16px;
+  }
+
+  .transactions-page .filter-btn {
+    min-height: 32px;
+    border-radius: 9px;
+    font-size: 11px;
+    font-weight: 600;
+  }
+
+  /* Month selector: compact, aligned controls */
+  .transactions-page > .card:has(.month-navigation) {
+    padding: 10px !important;
+  }
+
+  .transactions-page > .card:has(.month-navigation) > h2 {
+    font-size: 11px;
+    margin-bottom: 6px;
+  }
+
+  .transactions-page .month-navigation {
+    display: grid;
+    grid-template-columns: 32px minmax(0, 1fr) 32px;
+    align-items: center;
+    gap: 8px;
+    margin: 0;
+  }
+
+  .transactions-page .month-btn {
+    width: 32px;
+    min-width: 32px;
+    height: 32px;
+    border-radius: 9px;
+    font-size: 13px;
+  }
+
+  .transactions-page .month-label {
+    grid-column: 2;
+    grid-row: 1;
+    font-size: 12px;
+    text-align: center;
+  }
+
+  .transactions-page .month-btn:first-child {
+    grid-column: 1;
+    grid-row: 1;
+  }
+
+  .transactions-page .month-btn:last-child {
+    grid-column: 3;
+    grid-row: 1;
+  }
+
+  /* Summary: equal-width figures */
+  .transactions-page .summary-container {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 6px;
+    margin-bottom: 8px;
+  }
+
+  .transactions-page .summary-container > .card {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    min-width: 0;
+    min-height: 49px;
+    padding: 9px 7px;
+    border-radius: 11px;
+  }
+
+  .transactions-page .summary-container h2 {
+    font-size: 9px;
+    line-height: 1.25;
+    font-weight: 600;
+    overflow-wrap: anywhere;
+  }
+
+  .transactions-page .summary-container .amount {
+    font-size: clamp(11px, 3vw, 14px);
+    font-weight: 750;
+    letter-spacing: -0.2px;
+  }
+
+  /* Charts: smaller footprint on phones */
+  .transactions-page .charts-grid {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 8px;
+    margin: 8px 0;
+  }
+
+  .transactions-page .charts-grid > .card {
+    padding: 10px !important;
+    margin: 0 0 8px !important;
+    overflow: hidden;
+  }
+
+  .transactions-page .charts-grid h2 {
+    font-size: 12px;
+    margin-bottom: 5px;
+  }
+
+  .transactions-page .charts-grid canvas,
+  .transactions-page .charts-grid svg {
+    max-width: 100%;
+  }
+
+  /* Transaction history: readable, tidy cards */
+  .transactions-page .transactions-table tbody tr {
+    padding: 8px 10px;
+    gap: 0 8px;
+    margin-bottom: 6px;
+    border-radius: 11px;
+  }
+
+  .transactions-page .transactions-table tbody td {
+    font-size: 11px;
+    line-height: 1.35;
+    padding: 4px 0;
+  }
+
+  .transactions-page .transactions-table tbody td::before {
+    font-size: 9px;
+  }
+
+  .transactions-page .transactions-table tbody td.income,
+  .transactions-page .transactions-table tbody td.expense {
+    font-size: 12px;
+  }
+
+  .transactions-page .transaction-actions button {
+    width: 32px;
+    height: 32px;
+    min-width: 32px;
+    min-height: 32px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+  }
+}
+
+
+/* ==========================================
+   LOOM AI COACH — MOBILE HISTORY DRAWER
+   ========================================== */
+
+.mobile-history-btn,
+.mobile-history-header {
+  display: none;
+}
+
+@media (max-width: 600px) {
+  .ai-chat-card {
+    width: 100%;
+    min-width: 0;
+    overflow: hidden;
+    border-radius: 16px;
+  }
+
+  .ai-chat-header {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 12px;
+  }
+
+  .ai-chat-brand {
+    flex: 1;
+    min-width: 0;
+  }
+
+  .ai-chat-brand-text h2 {
+    font-size: 15px;
+    margin: 0;
+  }
+
+  .ai-chat-subtitle {
+    display: none;
+  }
+
+  .mobile-history-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    flex: 0 0 36px;
+    width: 36px;
+    height: 36px;
+    border: 1px solid rgba(125, 151, 210, .3);
+    border-radius: 11px;
+    background: rgba(40, 58, 94, .8);
+    color: #dce6ff;
+  }
+
+  .ai-token-cost {
+    position: static;
+    flex: 0 0 auto;
+  }
+
+  .quick-prompts {
+    display: flex;
+    gap: 7px;
+    padding: 8px 10px;
+    overflow-x: auto;
+    scrollbar-width: none;
+  }
+
+  .quick-prompts::-webkit-scrollbar {
+    display: none;
+  }
+
+  .prompt-btn {
+    flex: 0 0 auto;
+    width: auto;
+    min-height: 34px;
+    max-width: 190px;
+    padding: 7px 10px;
+    border-radius: 18px;
+    font-size: 11px;
+  }
+
+  .chat-layout {
+    position: relative;
+    min-height: 0;
+  }
+
+  /* History drawer */
+  .chat-sidebar {
+    display: flex;
+    flex-direction: column;
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 10001;
+    width: min(82vw, 320px);
+    max-width: 320px;
+    min-height: 0;
+    padding: 16px 12px;
+    overflow-y: auto;
+    background: #101a30;
+    border-right: 1px solid rgba(120, 148, 210, .25);
+    box-shadow: 15px 0 40px rgba(0, 0, 0, .35);
+    transform: translateX(-105%);
+    visibility: hidden;
+    transition: transform .22s ease, visibility .22s ease;
+  }
+
+  .chat-sidebar.history-open {
+    transform: translateX(0);
+    visibility: visible;
+  }
+
+  .mobile-history-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    margin-bottom: 14px;
+    color: #f1f5ff;
+    font-size: 15px;
+    font-weight: 700;
+  }
+
+  .mobile-history-close {
+    width: 34px;
+    height: 34px;
+    border: 1px solid rgba(125, 151, 210, .25);
+    border-radius: 10px;
+    background: rgba(40, 58, 94, .8);
+    color: white;
+    font-size: 23px;
+    line-height: 1;
+  }
+
+  .new-chat-sidebar-btn {
+    min-height: 40px;
+    height: 40px;
+    font-size: 12px;
+  }
+
+  .conversation-list {
+    gap: 5px;
+    margin-top: 10px;
+  }
+
+  .conversation-item {
+    padding: 7px;
+    border-radius: 10px;
+  }
+
+  .conversation-name {
+    font-size: 12px;
+  }
+
+  .chat-main {
+    min-height: 0;
+  }
+
+  .chat-window {
+    min-height: 280px;
+    max-height: 55vh;
+    padding: 14px 10px;
+    gap: 12px;
+  }
+
+  .chat-empty-state {
+    min-height: 250px;
+    padding: 18px 8px;
+  }
+
+  .chat-empty-state h3 {
+    font-size: 17px;
+  }
+
+  .chat-empty-state p {
+    font-size: 12px;
+  }
+
+  .chat-bubble {
+    font-size: 13px;
+    line-height: 1.55;
+  }
+
+  .chat-input-wrapper {
+    padding: 8px 10px 12px;
+  }
+
+  .chat-input-container {
+    min-height: 46px;
+    border-radius: 24px;
+  }
+
+  .chat-input-container input {
+    height: 38px;
+    font-size: 13px;
+  }
+
+  .coach-send-btn {
+    width: 38px;
+    height: 38px;
+    flex-basis: 38px;
+    border-radius: 50%;
+  }
+}
+
+
+/* Mobile chat history — final polish */
+@media (max-width: 600px) {
+  .chat-sidebar {
+    width: min(78vw, 290px);
+    padding: 14px 10px;
+    background: #101a30;
+    box-shadow: 12px 0 35px rgba(0, 0, 0, 0.4);
+  }
+
+  .mobile-history-header {
+    padding-bottom: 10px;
+    border-bottom: 1px solid rgba(140, 160, 205, 0.15);
+  }
+
+  .conversation-item {
+    padding: 8px;
+    margin-bottom: 3px;
+  }
+
+  .conversation-item.active {
+    background: rgba(88, 105, 245, 0.17);
+    border-color: rgba(110, 130, 255, 0.35);
+  }
+
+  .conversation-icon {
+    width: 30px;
+    height: 30px;
+    flex-basis: 30px;
+  }
+
+  .ai-chat-header {
+    position: relative;
+    z-index: 2;
+  }
+
+  .ai-token-cost {
+    flex-shrink: 0;
+  }
+}
+
+
+/* Mobile chat drawer refinements */
+@media (max-width: 600px) {
+  .chat-sidebar {
+    z-index: 10020;
+    width: min(78vw, 290px);
+    padding-bottom: 100px;
+    box-sizing: border-box;
+  }
+
+  .mobile-history-header {
+    position: sticky;
+    top: 0;
+    z-index: 2;
+    background: #101a30;
+  }
+
+  /* Keep the header token badge in normal layout */
+  .ai-chat-header .ai-token-cost {
+    position: static !important;
+    inset: auto !important;
+    transform: none !important;
+  }
+
+  .ai-chat-card > .ai-token-cost {
+    display: none;
+  }
+
+  .chat-sidebar.history-open ~ .chat-main {
+    pointer-events: none;
+  }
+}
+
+
+/* ==========================================
+   LOOM ACCOUNTS — COMPACT MOBILE LAYOUT
+   ========================================== */
+
+@media (max-width: 600px) {
+  /* Main page */
+  .page-container:has(.accounts-grid) {
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+    box-sizing: border-box;
+    padding: 12px 10px 100px;
+  }
+
+  .page-container:has(.accounts-grid) > .page-title {
+    font-size: 23px;
+    line-height: 1.2;
+    margin: 2px 0 10px;
+  }
+
+  /* Add account */
+  .page-container:has(.accounts-grid) .add-account-btn {
+    min-height: 38px;
+    padding: 8px 16px;
+    margin: 0 auto 12px;
+    font-size: 12px;
+    border-radius: 11px;
+  }
+
+  /* Total net worth */
+  .page-container:has(.accounts-grid) .net-worth-card {
+    padding: 10px 13px;
+    margin: 0 0 12px;
+    border-radius: 12px;
+  }
+
+  .page-container:has(.accounts-grid) .net-worth-card h3 {
+    font-size: 12px;
+    margin: 0 0 4px;
+  }
+
+  .page-container:has(.accounts-grid) .net-worth-card h1 {
+    font-size: 23px;
+    line-height: 1.2;
+    margin: 0;
+  }
+
+  /* One compact column of account cards */
+  .page-container:has(.accounts-grid) .accounts-grid {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    gap: 8px;
+    width: 100%;
+    margin: 0 0 12px;
+  }
+
+  .page-container:has(.accounts-grid) .account-card {
+    display: grid;
+    grid-template-columns: 36px minmax(0, 1fr) auto;
+    grid-template-rows: auto auto auto;
+    align-items: center;
+    column-gap: 10px;
+    row-gap: 3px;
+    min-width: 0;
+    padding: 12px;
+    margin: 0;
+    border-radius: 13px;
+    text-align: left;
+  }
+
+  .page-container:has(.accounts-grid) .account-icon {
+    grid-column: 1;
+    grid-row: 1 / 3;
+    width: 34px;
+    height: 34px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0;
+  }
+
+  .page-container:has(.accounts-grid) .account-icon svg {
+    width: 19px;
+    height: 19px;
+  }
+
+  .page-container:has(.accounts-grid) .account-card h3 {
+    grid-column: 2;
+    grid-row: 1;
+    min-width: 0;
+    margin: 0;
+    font-size: 13px;
+    line-height: 1.3;
+    overflow-wrap: anywhere;
+  }
+
+  .page-container:has(.accounts-grid) .account-type {
+    grid-column: 2;
+    grid-row: 2;
+    min-width: 0;
+    margin: 0;
+    font-size: 10px;
+    line-height: 1.3;
+  }
+
+  .page-container:has(.accounts-grid) .account-card > h2 {
+    grid-column: 3;
+    grid-row: 1 / 3;
+    margin: 0;
+    font-size: 14px;
+    line-height: 1.25;
+    text-align: right;
+    overflow-wrap: anywhere;
+  }
+
+  .page-container:has(.accounts-grid) .account-actions {
+    grid-column: 1 / -1;
+    grid-row: 3;
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 7px;
+    margin-top: 7px;
+  }
+
+  .page-container:has(.accounts-grid) .account-actions button {
+    min-width: 0;
+    min-height: 32px;
+    height: 32px;
+    padding: 6px 8px;
+    border-radius: 8px;
+    font-size: 11px;
+  }
+
+  /* Transfer form and history */
+  .page-container:has(.accounts-grid) .transfer-card,
+  .page-container:has(.accounts-grid) .transfer-history-card {
+    padding: 12px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    border-radius: 13px;
+  }
+
+  .page-container:has(.accounts-grid) .transfer-card h2,
+  .page-container:has(.accounts-grid) .transfer-history-card h2 {
+    font-size: 14px;
+    margin-bottom: 10px;
+  }
+
+  .page-container:has(.accounts-grid) .transfer-card select,
+  .page-container:has(.accounts-grid) .transfer-card input {
+    min-height: 38px;
+    height: 38px;
+    padding: 8px 10px;
+    margin-bottom: 7px;
+    font-size: 12px;
+  }
+
+  .page-container:has(.accounts-grid) .transfer-btn {
+    min-height: 37px;
+    padding: 8px 10px;
+    font-size: 12px;
+  }
+
+  .page-container:has(.accounts-grid) .transfer-item {
+    gap: 8px;
+    padding: 9px 0;
+  }
+
+  .page-container:has(.accounts-grid) .transfer-details h3 {
+    font-size: 12px;
+  }
+
+  .page-container:has(.accounts-grid) .transfer-details p {
+    font-size: 10px;
+  }
+
+  .page-container:has(.accounts-grid) .transfer-amount {
+    font-size: 12px;
+  }
+}
+
+/* Extra narrow phones */
+@media (max-width: 380px) {
+  .page-container:has(.accounts-grid) {
+    padding-right: 7px;
+    padding-left: 7px;
+  }
+
+  .page-container:has(.accounts-grid) .account-card {
+    grid-template-columns: 30px minmax(0, 1fr) auto;
+    column-gap: 7px;
+    padding: 10px;
+  }
+
+  .page-container:has(.accounts-grid) .account-icon {
+    width: 29px;
+    height: 29px;
+  }
+
+  .page-container:has(.accounts-grid) .account-card h3 {
+    font-size: 12px;
+  }
+
+  .page-container:has(.accounts-grid) .account-card > h2 {
+    font-size: 12px;
+  }
+}
+
+
+/* ==========================================
+   LOOM PROFILE — COMPACT MOBILE REDESIGN
+   ========================================== */
+
+@media (max-width: 600px) {
+  /* Page and heading */
+  .profile-page {
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+    box-sizing: border-box;
+    padding: 10px 9px 100px !important;
+  }
+
+  .profile-page .profile-header {
+    margin: 8px 0 12px;
+    padding: 0;
+  }
+
+  .profile-page .profile-title {
+    font-size: 27px;
+    line-height: 1.15;
+    margin: 0;
+    letter-spacing: -0.6px;
+  }
+
+  .profile-page .profile-title-line {
+    width: 42px;
+    height: 3px;
+    margin: 7px auto 0;
+  }
+
+  /* Profile card */
+  .profile-page .profile-card {
+    padding: 14px 12px;
+    margin: 0 0 10px;
+    border-radius: 15px;
+  }
+
+  /* Avatar and name */
+  .profile-page .profile-avatar {
+    width: 64px;
+    height: 64px;
+    min-width: 64px;
+    margin: 0 auto 8px;
+    font-size: 25px;
+  }
+
+  .profile-page .profile-avatar .avatar-edit {
+    width: 22px;
+    height: 22px;
+    font-size: 11px;
+  }
+
+  .profile-page .profile-name-wrapper {
+    gap: 6px;
+    margin: 0;
+  }
+
+  .profile-page .profile-name {
+    font-size: 14px;
+    margin: 0;
+  }
+
+  .profile-page .profile-name-edit-button,
+  .profile-page .profile-name-save,
+  .profile-page .profile-name-cancel {
+    min-height: 30px;
+    padding: 5px 10px;
+    border-radius: 8px;
+    font-size: 11px;
+  }
+
+  .profile-page .profile-name-input {
+    min-height: 36px;
+    height: 36px;
+    font-size: 13px;
+  }
+
+  .profile-page .profile-member-since {
+    font-size: 12px;
+    margin: 9px 0 12px;
+  }
+
+  /* Avatar actions: two compact columns */
+  .profile-page .profile-avatar-actions {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 8px;
+    margin: 12px 0;
+  }
+
+  .profile-page .profile-action-card {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    min-width: 0;
+    min-height: 92px;
+    padding: 11px;
+    gap: 5px;
+    border-radius: 12px;
+  }
+
+  .profile-page .profile-action-card svg {
+    width: 17px;
+    height: 17px;
+  }
+
+  .profile-page .profile-action-card h4 {
+    font-size: 12px;
+    line-height: 1.3;
+    margin: 0;
+    overflow-wrap: anywhere;
+  }
+
+  .profile-page .profile-action-card span {
+    font-size: 10px;
+    line-height: 1.35;
+  }
+
+  /* Subscription */
+  .profile-page .subscription-card {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+    padding: 11px;
+    margin-top: 8px;
+    border-radius: 11px;
+  }
+
+  .profile-page .subscription-card h3 {
+    font-size: 13px;
+    margin: 0 0 4px;
+  }
+
+  .profile-page .subscription-card p {
+    font-size: 10px;
+    line-height: 1.4;
+    margin: 0;
+  }
+
+  .profile-page .subscription-card button {
+    flex-shrink: 0;
+    min-height: 32px;
+    padding: 7px 9px;
+    font-size: 10px;
+    border-radius: 8px;
+  }
+
+  /* Summary stats */
+  .profile-page .profile-summary {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 6px;
+    margin: 0 0 10px;
+  }
+
+  .profile-page .summary-card {
+    display: flex;
+    align-items: center;
+    gap: 7px;
+    min-width: 0;
+    padding: 10px 7px;
+    border-radius: 11px;
+  }
+
+  .profile-page .summary-icon {
+    flex: 0 0 auto;
+  }
+
+  .profile-page .summary-icon svg {
+    width: 17px;
+    height: 17px;
+  }
+
+  .profile-page .summary-card h3 {
+    font-size: 15px;
+    margin: 0 0 3px;
+  }
+
+  .profile-page .summary-card p {
+    font-size: 9px;
+    line-height: 1.25;
+    margin: 0;
+    overflow-wrap: anywhere;
+  }
+
+  /* Personal info, preferences and other sections */
+  .profile-page > .card:not(.profile-card) {
+    padding: 12px;
+    margin-bottom: 9px;
+    border-radius: 13px;
+  }
+
+  .profile-page > .card:not(.profile-card) > h3 {
+    font-size: 14px;
+    line-height: 1.3;
+    margin: 0 0 8px;
+  }
+
+  .profile-page .profile-row {
+    display: grid;
+    grid-template-columns: minmax(0, 0.8fr) minmax(0, 1.2fr);
+    align-items: center;
+    gap: 8px;
+    padding: 9px 0;
+  }
+
+  .profile-page .profile-row > span,
+  .profile-page .profile-label > span {
+    font-size: 12px;
+    line-height: 1.35;
+  }
+
+  .profile-page .profile-select,
+  .profile-page .profile-row select {
+    width: 100%;
+    min-width: 0;
+    min-height: 36px;
+    height: 36px;
+    padding: 6px 8px;
+    font-size: 11px;
+    border-radius: 8px;
+  }
+
+  .profile-page .profile-row .switch {
+    justify-self: end;
+    transform: scale(.9);
+    transform-origin: right center;
+  }
+
+  /* Data management buttons */
+  .profile-page .profile-data-actions {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 7px;
+  }
+
+  .profile-page .profile-data-actions button,
+  .profile-page .profile-data-actions .profile-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    min-width: 0;
+    min-height: 36px;
+    padding: 7px 8px;
+    border-radius: 9px;
+    font-size: 11px;
+    line-height: 1.3;
+    overflow-wrap: anywhere;
+  }
+
+  .profile-page .profile-data-actions svg {
+    width: 15px;
+    height: 15px;
+    flex-shrink: 0;
+  }
+
+  .profile-page .profile-about-button {
+    min-height: 32px;
+    padding: 7px 9px;
+    font-size: 11px;
+    border-radius: 8px;
+  }
+
+  /* Logout and version */
+  .profile-page .app-version {
+    margin: 10px 0;
+    font-size: 10px;
+    text-align: center;
+  }
+
+  .profile-page .profile-danger-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 7px;
+    width: 100%;
+    min-height: 38px;
+    padding: 8px 12px;
+    margin: 8px 0;
+    font-size: 12px;
+    border-radius: 10px;
+  }
+
+  /* Delete-account confirmation stays usable */
+  .profile-page .delete-account-modal {
+    width: calc(100% - 28px);
+    max-width: 360px;
+    padding: 18px;
+    border-radius: 15px;
+    box-sizing: border-box;
+  }
+
+  .profile-page .delete-account-modal h2 {
+    font-size: 18px;
+  }
+
+  .profile-page .delete-account-modal p {
+    font-size: 12px;
+    line-height: 1.5;
+  }
+}
+
+/* Very narrow phones */
+@media (max-width: 380px) {
+  .profile-page {
+    padding-right: 7px !important;
+    padding-left: 7px !important;
+  }
+
+  .profile-page .profile-summary {
+    gap: 4px;
+  }
+
+  .profile-page .summary-card {
+    gap: 5px;
+    padding: 8px 5px;
+  }
+
+  .profile-page .summary-card p {
+    font-size: 8px;
+  }
+
+  .profile-page .profile-avatar-actions {
+    gap: 6px;
+  }
+
+  .profile-page .profile-action-card {
+    padding: 9px;
+  }
+}
+
+
+/* ==========================================
+   LOOM BUDGETS — COMPACT MOBILE LAYOUT
+   ========================================== */
+
+@media (max-width: 600px) {
+  .budgets-page {
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+    box-sizing: border-box;
+    padding: 12px 9px 100px !important;
+  }
+
+  .budgets-page > h1 {
+    font-size: 23px;
+    line-height: 1.2;
+    margin: 2px 0 6px;
+  }
+
+  .budgets-page > p {
+    font-size: 11px;
+    margin: 0 0 12px !important;
+  }
+
+  /* Add budget form */
+  .budgets-page .goal-form {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    gap: 7px;
+    padding: 11px !important;
+    margin-bottom: 10px;
+    border-radius: 13px;
+  }
+
+  .budgets-page .goal-form select,
+  .budgets-page .goal-form input {
+    width: 100%;
+    min-width: 0;
+    min-height: 38px;
+    height: 38px;
+    padding: 8px 10px;
+    font-size: 12px;
+    border-radius: 9px;
+    box-sizing: border-box;
+  }
+
+  .budgets-page .goal-form button {
+    width: 100%;
+    min-height: 38px;
+    height: 38px;
+    padding: 8px 10px;
+    font-size: 12px;
+    border-radius: 9px;
+  }
+
+  /* Three summary cards in one row */
+  .budgets-page .summary-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 6px;
+    margin: 0 0 10px;
+  }
+
+  .budgets-page .summary-grid > .card {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    min-width: 0;
+    min-height: 67px;
+    padding: 9px 7px;
+    margin: 0;
+    border-radius: 11px;
+  }
+
+  .budgets-page .summary-grid h2 {
+    font-size: 9px;
+    line-height: 1.25;
+    margin: 0 0 5px;
+    overflow-wrap: anywhere;
+  }
+
+  .budgets-page .summary-grid .amount {
+    font-size: clamp(12px, 3.3vw, 16px);
+    line-height: 1.2;
+    font-weight: 750;
+    overflow-wrap: anywhere;
+  }
+
+  /* Month selector */
+  .budgets-page > .card:has(.month-navigation) {
+    padding: 10px !important;
+    margin: 0 0 10px;
+    border-radius: 12px;
+  }
+
+  .budgets-page > .card:has(.month-navigation) > h2 {
+    font-size: 11px;
+    margin: 0 0 6px;
+  }
+
+  .budgets-page .month-navigation {
+    display: grid;
+    grid-template-columns: 32px minmax(0, 1fr) 32px;
+    align-items: center;
+    gap: 7px;
+    margin: 0;
+  }
+
+  .budgets-page .month-btn {
+    width: 32px;
+    min-width: 32px;
+    height: 32px;
+    border-radius: 9px;
+  }
+
+  .budgets-page .month-label {
+    font-size: 12px;
+    text-align: center;
+  }
+
+  /* Monthly overview */
+  .budgets-page .budget-overview-card {
+    padding: 12px;
+    margin: 0 0 10px;
+    border-radius: 13px;
+  }
+
+  .budgets-page .budget-overview-card > h2 {
+    font-size: 15px;
+    margin: 0 0 9px;
+  }
+
+  .budgets-page .budget-overview-row {
+    gap: 8px;
+    padding: 8px 0;
+    font-size: 11px;
+  }
+
+  .budgets-page .budget-progress {
+    height: 7px;
+    margin: 7px 0 4px;
+    border-radius: 99px;
+    overflow: hidden;
+  }
+
+  .budgets-page .budget-days-left {
+    font-size: 10px;
+    line-height: 1.4;
+    margin: 5px 0 0;
+    text-align: center;
+  }
+
+  /* Budget cards */
+  .budgets-page .budgets-grid {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    gap: 8px;
+    width: 100%;
+    margin: 0;
+  }
+
+  .budgets-page .budget-modern-card {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    min-width: 0;
+    padding: 12px;
+    margin: 0;
+    border-radius: 13px;
+    border-width: 1px !important;
+  }
+
+  .budgets-page .budget-card-header {
+    display: flex;
+    align-items: center;
+    gap: 9px;
+    margin-bottom: 5px;
+  }
+
+  .budgets-page .budget-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 36px;
+    height: 36px;
+    min-width: 36px;
+    border-radius: 11px;
+  }
+
+  .budgets-page .budget-icon svg {
+    width: 19px;
+    height: 19px;
+  }
+
+  .budgets-page .budget-card-header h2 {
+    font-size: 13px;
+    line-height: 1.3;
+    margin: 0 0 3px;
+  }
+
+  .budgets-page .budget-limit {
+    font-size: 10px;
+    line-height: 1.35;
+    margin: 0;
+  }
+
+  .budgets-page .budget-info-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+    padding: 5px 0;
+    font-size: 11px;
+  }
+
+  .budgets-page .budget-info-row > span:last-child {
+    text-align: right;
+    overflow-wrap: anywhere;
+  }
+
+  .budgets-page .budget-progress-text {
+    font-size: 10px;
+    margin: 2px 0;
+    text-align: center;
+  }
+
+  .budgets-page .budget-badge {
+    width: fit-content;
+    max-width: 100%;
+    padding: 4px 7px;
+    border-radius: 7px;
+    font-size: 10px;
+  }
+
+  .budgets-page .budget-warning {
+    padding: 7px 9px;
+    font-size: 10px;
+    line-height: 1.4;
+    border-radius: 8px;
+  }
+
+  .budgets-page .budget-delete-btn {
+    width: 100%;
+    min-height: 33px;
+    height: 33px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    padding: 7px 9px;
+    margin-top: 5px;
+    border-radius: 9px;
+    font-size: 11px;
+  }
+
+  .budgets-page .budget-delete-btn svg {
+    width: 14px;
+    height: 14px;
+  }
+}
+
+/* Very narrow phones */
+@media (max-width: 380px) {
+  .budgets-page {
+    padding-right: 7px !important;
+    padding-left: 7px !important;
+  }
+
+  .budgets-page .summary-grid {
+    gap: 4px;
+  }
+
+  .budgets-page .summary-grid > .card {
+    padding: 8px 5px;
+  }
+
+  .budgets-page .summary-grid h2 {
+    font-size: 8px;
+  }
+
+  .budgets-page .summary-grid .amount {
+    font-size: 11px;
+  }
+
+  .budgets-page .budget-modern-card {
+    padding: 10px;
+  }
+}
+
+
+
+/* Budgets — month selector final fix */
+@media (max-width: 600px) {
+  .budgets-page > .card:has(.month-navigation) {
+    padding: 10px 11px !important;
+  }
+
+  .budgets-page .month-navigation {
+    display: flex !important;
+    align-items: center;
+    justify-content: space-between;
+    gap: 8px;
+    width: 100%;
+    min-width: 0;
+    box-sizing: border-box;
+  }
+
+  .budgets-page .month-navigation .month-btn {
+    flex: 0 0 34px;
+    width: 34px;
+    min-width: 34px;
+    height: 34px;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .budgets-page .month-navigation .month-label {
+    flex: 1 1 auto;
+    min-width: 0;
+    width: auto;
+    margin: 0;
+    text-align: center;
+    white-space: nowrap;
+    overflow: visible;
+    font-size: 12px;
+    font-weight: 700;
+    line-height: 1.3;
+  }
+}

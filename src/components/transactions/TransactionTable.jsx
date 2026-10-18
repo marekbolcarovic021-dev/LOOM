@@ -101,7 +101,7 @@ function TransactionTable({
 
                     {/* DATE */}
 
-                    <td>
+                    <td data-label={t("date")}>
                       {new Date(
                         transaction.date
                       ).toLocaleDateString(
@@ -135,7 +135,7 @@ function TransactionTable({
 
                     {/* TYPE */}
 
-                    <td>
+                    <td data-label={t("type")}>
 
                       {transaction.type ===
                       "Income"
@@ -146,7 +146,7 @@ function TransactionTable({
 
                     {/* ACCOUNT */}
 
-                    <td>
+                    <td data-label={t("account")}>
 
                       {(() => {
 
@@ -189,7 +189,7 @@ function TransactionTable({
 
                     {/* AMOUNT */}
 
-                    <td
+                    <td data-label={t("amount")}
                       className={
                         transaction.type ===
                         "Income"
@@ -211,7 +211,7 @@ function TransactionTable({
 
                     {/* ACTIONS */}
 
-                    <td>
+                   <td data-label={t("actions")}>
 
                       <div className="transaction-actions">
 

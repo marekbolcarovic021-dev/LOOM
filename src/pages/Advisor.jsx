@@ -1021,6 +1021,9 @@ const [input, setInput] =
 const [thinking, setThinking] =
   useState(false);
 
+const [historyOpen, setHistoryOpen] =
+  useState(false);
+
 const chatEndRef =
   useRef(null);
 
@@ -2601,7 +2604,7 @@ onChange={(e) =>
 
    <ResponsiveContainer
   width="100%"
-  height={400}
+  height={200}
 >
   <LineChart
     data={projectionData}
@@ -2611,20 +2614,29 @@ onChange={(e) =>
     />
 
     <XAxis
-      dataKey="year"
-      stroke="#ccc"
-    />
+  dataKey="year"
+  stroke="#94a3b8"
+  tick={{ fontSize: 10 }}
+  tickLine={false}
+  axisLine={false}
+  minTickGap={24}
+  tickFormatter={(year) => String(year)}
+/>
 
-    <YAxis
-      stroke="#ccc"
-      tickFormatter={(value)=>
-formatCurrency(
-value,
-profile.currency,
-i18n.language
-)
-}
-    />
+<YAxis
+  stroke="#94a3b8"
+  tick={{ fontSize: 10 }}
+  tickLine={false}
+  axisLine={false}
+  width={58}
+  tickFormatter={(value) =>
+    formatCurrency(
+      value,
+      profile.currency,
+      i18n.language
+    )
+  }
+/>
 
     <Tooltip
       contentStyle={{
@@ -2759,6 +2771,16 @@ i18n.language,
 
     </div>
 
+    <button
+  type="button"
+  className="mobile-history-btn"
+  onClick={() => setHistoryOpen(true)}
+  aria-label="Open chat history"
+  title="Chat history"
+>
+  <MessageSquare size={18} />
+</button>
+
     <div className="ai-token-cost">
 
       <Coins
@@ -2815,15 +2837,30 @@ i18n.language,
         CHAT HISTORY
         =================================================== */}
 
-    <aside className="chat-sidebar">
+    <aside
+  className={`chat-sidebar ${historyOpen ? "history-open" : ""}`}
+>
+  <div className="mobile-history-header">
+    <span>{t("chatHistory") === "chatHistory" ? "Chat history" : t("chatHistory")}</span>
+
+    <button
+      type="button"
+      className="mobile-history-close"
+      onClick={() => setHistoryOpen(false)}
+      aria-label="Close chat history"
+    >
+      ×
+    </button>
+  </div>
 
       <button
         type="button"
         className="new-chat-sidebar-btn"
         disabled={thinking}
-        onClick={
-          createNewChat
-        }
+        onClick={() => {
+  createNewChat();
+  setHistoryOpen(false);
+}}
       >
 
         <Plus
@@ -2868,6 +2905,8 @@ i18n.language,
                   setActiveConversation(
                     conversation.id
                   );
+                  
+                  setHistoryOpen(false);
 
                   setInput("");
 

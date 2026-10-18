@@ -559,7 +559,7 @@ function Transactions() {
   ];
 
   return (
-    <div className="goals-page">
+    <div className="goals-page transactions-page">
 
       <h1>
         {t("transactions")}

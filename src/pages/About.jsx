@@ -67,13 +67,12 @@ function About() {
     {t("financialGuides", "Financial Guides")}
   </Link>
 
-  <a
-    href="/downloads/loom-android.apk"
-    className="public-download-button"
-    download="loom-android.apk"
-  >
-    {t("downloadAndroid", "Download Android")}
-  </a>
+  <Link
+  to="/download"
+  className="public-download-button"
+>
+  {t("downloadAndroid", "Download Android")}
+</Link>
 
 </div>
 

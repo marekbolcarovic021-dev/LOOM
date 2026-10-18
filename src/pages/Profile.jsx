@@ -784,7 +784,7 @@ function Profile() {
       </div>
 
       <div className="app-version">
-        {t("version")} 1.0.0
+        {t("version")} 2.0.0
       </div>
 
       <button

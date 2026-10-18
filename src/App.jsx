@@ -36,6 +36,7 @@ import About from "./pages/About";
 import Contact from "./pages/Contact";
 import PrivacyPolicy from "./pages/PrivacyPolicy";
 import CookiePolicy from "./pages/CookiePolicy";
+import Download from "./pages/Download";
 
 // ======================================================
 // FINANCIAL GUIDES
@@ -231,6 +232,11 @@ function App() {
           path="/about"
           element={<About />}
         />
+        
+        <Route
+  path="/download"
+  element={<Download />}
+/>
 
         <Route
           path="/login"

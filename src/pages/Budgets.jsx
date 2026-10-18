@@ -202,7 +202,7 @@ if (
 }
 
   return (
-    <div className="goals-page">
+    <div className="goals-page budgets-page">
       <h1>{t("budgets")}</h1>
 
       <p
