@@ -3,14 +3,12 @@ import {
   PieChart,
   Pie,
   Cell,
-  ResponsiveContainer,
   Tooltip,
   BarChart,
   Bar,
   XAxis,
   YAxis,
   CartesianGrid,
-  Legend,
 } from "recharts";
 
 import { useTranslation } from "react-i18next";
@@ -22,7 +20,7 @@ function AnalyticsCharts() {
 
   const { transactions, profile } = useFinance();
 
-  // EXPENSES — pôvodné výpočty zostávajú zachované
+  // EXPENSES — pôvodná logika
 
   const expenses = transactions.filter(
     (transaction) => transaction.type === "Expense"
@@ -47,32 +45,38 @@ function AnalyticsCharts() {
 
   const COLORS = [
     "#8b7aff",
-    "#34d399",
     "#60a5fa",
+    "#34d399",
     "#fbbf24",
     "#fb7185",
     "#22d3ee",
     "#c084fc",
   ];
 
-  // INCOME VS EXPENSES — pôvodné výpočty zostávajú zachované
+  // BAR DATA — pôvodná logika
 
   const monthlyData = [
     {
       name: t("income"),
       value: transactions
-        .filter((transaction) => transaction.type === "Income")
+        .filter(
+          (transaction) => transaction.type === "Income"
+        )
         .reduce(
-          (sum, transaction) => sum + Number(transaction.amount),
+          (sum, transaction) =>
+            sum + Number(transaction.amount),
           0
         ),
     },
     {
       name: t("expenses"),
       value: transactions
-        .filter((transaction) => transaction.type === "Expense")
+        .filter(
+          (transaction) => transaction.type === "Expense"
+        )
         .reduce(
-          (sum, transaction) => sum + Number(transaction.amount),
+          (sum, transaction) =>
+            sum + Number(transaction.amount),
           0
         ),
     },
@@ -91,8 +95,6 @@ function AnalyticsCharts() {
   const formatTooltipValue = (value) =>
     formatCurrency(value, currency, i18n.language);
 
-console.log("LOOM pieData:", pieData);
-console.log("LOOM monthlyData:", monthlyData);
   return (
     <div className="analytics-grid">
       {/* EXPENSES BY CATEGORY */}
@@ -105,6 +107,7 @@ console.log("LOOM monthlyData:", monthlyData);
               {t("expenses")}
             </p>
           </div>
+
           <span className="analytics-card-icon analytics-card-icon-purple">
             <span aria-hidden="true">◔</span>
           </span>
@@ -116,23 +119,24 @@ console.log("LOOM monthlyData:", monthlyData);
           </div>
         ) : (
           <div className="analytics-chart-container">
-            <ResponsiveContainer width="100%" height={290}>
-              <PieChart>
+  <PieChart
+    responsive
+    style={{
+      width: "100%",
+      height: 340,
+      minWidth: 0,
+    }}
+  >
                 <Pie
                   data={pieData}
                   dataKey="value"
                   nameKey="name"
-                  cx="50%"
-                  cy="46%"
-                  outerRadius="68%"
-                  innerRadius="43%"
-                  paddingAngle={3}
-                  stroke="none"
-                  label={false}
+                  outerRadius={90}
+                  label
                 >
                   {pieData.map((entry, index) => (
                     <Cell
-                      key={`${entry.name}-${index}`}
+                      key={index}
                       fill={COLORS[index % COLORS.length]}
                     />
                   ))}
@@ -142,24 +146,29 @@ console.log("LOOM monthlyData:", monthlyData);
                   formatter={formatTooltipValue}
                   contentStyle={tooltipStyle}
                   itemStyle={{ color: "#f1f5f9" }}
-                  labelStyle={{ color: "#a8b6cc", marginBottom: 4 }}
-                />
-
-                <Legend
-                  verticalAlign="bottom"
-                  align="center"
-                  iconType="circle"
-                  iconSize={8}
-                  wrapperStyle={{
-                    fontSize: "12px",
+                  labelStyle={{
                     color: "#a8b6cc",
-                    paddingTop: "8px",
+                    marginBottom: 4,
                   }}
                 />
               </PieChart>
-            </ResponsiveContainer>
+            
           </div>
         )}
+        <div className="analytics-legend">
+  {pieData.map((entry, index) => (
+    <div className="analytics-legend-item" key={entry.name}>
+      <span
+        className="analytics-legend-dot"
+        style={{ backgroundColor: COLORS[index % COLORS.length] }}
+      />
+      <span>{entry.name}</span>
+      <span className="analytics-legend-value">
+        {formatCurrency(entry.value, currency, i18n.language)}
+      </span>
+    </div>
+  ))}
+</div>
       </section>
 
       {/* INCOME VS EXPENSES */}
@@ -172,73 +181,78 @@ console.log("LOOM monthlyData:", monthlyData);
               {t("income")} · {t("expenses")}
             </p>
           </div>
+
           <span className="analytics-card-icon analytics-card-icon-green">
             <span aria-hidden="true">↗</span>
           </span>
         </div>
 
-        <div className="analytics-chart-container">
-          <ResponsiveContainer width="100%" height={290}>
-            <BarChart
-              data={monthlyData}
-              margin={{ top: 12, right: 8, left: 4, bottom: 4 }}
-              barSize={48}
-            >
+       <div className="analytics-chart-container">
+  <BarChart
+    data={monthlyData}
+    responsive
+    style={{
+      width: "100%",
+      height: 340,
+      minWidth: 0,
+    }}
+  >
               <CartesianGrid
-                stroke="rgba(148, 163, 184, 0.13)"
-                strokeDasharray="4 5"
-                vertical={false}
+                strokeDasharray="3 3"
+                stroke="#2d3b5e"
               />
 
               <XAxis
                 dataKey="name"
-                axisLine={false}
-                tickLine={false}
-                tick={{ fill: "#a8b6cc", fontSize: 12 }}
-                tickMargin={12}
+                stroke="#9ca3af"
               />
 
               <YAxis
-                axisLine={false}
-                tickLine={false}
-                tick={{ fill: "#8494ad", fontSize: 11 }}
-                width={48}
-                tickFormatter={(value) =>
-                  new Intl.NumberFormat(i18n.language, {
-                    notation: "compact",
-                    maximumFractionDigits: 1,
-                  }).format(value)
-                }
+                stroke="#9ca3af"
               />
 
               <Tooltip
                 formatter={formatTooltipValue}
                 contentStyle={tooltipStyle}
-                cursor={{ fill: "rgba(148, 163, 184, 0.07)" }}
-                itemStyle={{ color: "#f1f5f9" }}
-                labelStyle={{ color: "#a8b6cc", marginBottom: 4 }}
+                cursor={{
+                  fill: "rgba(148, 163, 184, 0.07)",
+                }}
               />
 
               <Bar
                 dataKey="value"
-                name={t("incomeVsExpenses")}
-                radius={[7, 7, 2, 2]}
-                maxBarSize={58}
-              >
-                {monthlyData.map((entry) => (
-                  <Cell
-                    key={entry.name}
-                    fill={
-                      entry.name === t("income")
-                        ? "#34d399"
-                        : "#fb7185"
-                    }
-                  />
-                ))}
-              </Bar>
+                fill="#4f8cff"
+                radius={[8, 8, 0, 0]}
+              />
             </BarChart>
-          </ResponsiveContainer>
+            
+    
         </div>
+
+<div className="analytics-legend">
+  <div className="analytics-legend-item">
+    <span
+      className="analytics-legend-dot"
+      style={{ backgroundColor: "#4f8cff" }}
+    />
+    <span>{t("income")}</span>
+    <span className="analytics-legend-value">
+      {formatCurrency(monthlyData[0].value, currency, i18n.language)}
+    </span>
+  </div>
+
+  <div className="analytics-legend-item">
+    <span
+      className="analytics-legend-dot"
+      style={{ backgroundColor: "#fb7185" }}
+    />
+    <span>{t("expenses")}</span>
+    <span className="analytics-legend-value">
+      {formatCurrency(monthlyData[1].value, currency, i18n.language)}
+    </span>
+  </div>
+</div>
+
       </section>
     </div>
   );
