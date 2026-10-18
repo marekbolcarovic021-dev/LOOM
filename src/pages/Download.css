@@ -303,3 +303,47 @@
   display: block;
   border-radius: 18px;
 }
+
+.download-ad-section {
+  width: 100%;
+  max-width: 728px;
+  margin: 0 auto 34px;
+  overflow: hidden;
+}
+
+.download-ad-slot {
+  width: 100%;
+  min-height: 90px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  border: none;
+  border-radius: 8px;
+  background: transparent;
+}
+
+#loom-adsterra-slot {
+  width: 728px;
+  max-width: 100%;
+  min-height: 90px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#loom-adsterra-slot iframe {
+  display: block;
+  max-width: 100%;
+  border: 0;
+}
+
+@media (max-width: 760px) {
+  .download-ad-section {
+    max-width: 100%;
+  }
+
+  #loom-adsterra-slot {
+    width: 100%;
+  }
+}

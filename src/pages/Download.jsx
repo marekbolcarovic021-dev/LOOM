@@ -1,9 +1,42 @@
-
+import { useEffect } from "react";
 import { Download as DownloadIcon, Smartphone, ShieldCheck, ArrowLeft } from "lucide-react";
 import { Link } from "react-router-dom";
 import "./Download.css";
 
 export default function Download() {
+      useEffect(() => {
+    const container = document.getElementById("loom-adsterra-slot");
+
+    if (!container || container.dataset.loaded === "true") {
+      return;
+    }
+
+    container.dataset.loaded = "true";
+
+    const optionsScript = document.createElement("script");
+    optionsScript.text = `
+      atOptions = {
+        'key': 'e3f972403d1a4d2c5686c404ede7da28',
+        'format': 'iframe',
+        'height': 90,
+        'width': 728,
+        'params': {}
+      };
+    `;
+
+    const adScript = document.createElement("script");
+    adScript.src =
+      "https://bicea.org/22/e3f972403d1a4d2c5686c404ede7da28";
+    adScript.async = true;
+
+    container.appendChild(optionsScript);
+    container.appendChild(adScript);
+
+    return () => {
+      // Do not remove the external script here; React Strict Mode
+      // may run effect cleanup and setup again during development.
+    };
+  }, []);
   return (
     <main className="download-page">
       <header className="download-header">
@@ -32,12 +65,12 @@ export default function Download() {
       </section>
 
       <section className="download-ad-section" aria-label="Advertisement">
-        <span className="download-ad-label">ADVERTISEMENT</span>
-        <div className="download-ad-slot">
-          {/* Insert your Adsterra ad code here once the ad unit is configured. */}
-          <span>Advertisement</span>
-        </div>
-      </section>
+  <span className="download-ad-label">ADVERTISEMENT</span>
+
+  <div className="download-ad-slot">
+    <div id="loom-adsterra-slot" />
+  </div>
+</section>
 
       <section className="download-card">
         <img
