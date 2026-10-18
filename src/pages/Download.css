@@ -347,3 +347,27 @@
     width: 100%;
   }
 }
+
+.download-native-ad-section {
+  width: 100%;
+  max-width: 728px;
+  margin: 0 auto 34px;
+  overflow: hidden;
+}
+
+#loom-native-adsterra-slot {
+  width: 100%;
+  min-height: 100px;
+  color: #c1cbe0;
+}
+
+#loom-native-adsterra-slot iframe {
+  max-width: 100%;
+  border: 0;
+}
+
+@media (max-width: 600px) {
+  .download-native-ad-section {
+    max-width: 100%;
+  }
+}

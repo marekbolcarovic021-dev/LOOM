@@ -32,6 +32,32 @@ export default function Download() {
     container.appendChild(optionsScript);
     container.appendChild(adScript);
 
+    useEffect(() => {
+  const container = document.getElementById(
+    "loom-native-adsterra-slot"
+  );
+
+  if (!container || container.dataset.loaded === "true") {
+    return;
+  }
+
+  container.dataset.loaded = "true";
+
+  const adScript = document.createElement("script");
+  adScript.async = true;
+  adScript.setAttribute("data-cfasync", "false");
+  adScript.src =
+    "https://bicea.org/21/198271fe0b0ec07be381bd5a8b989c66";
+
+  container.appendChild(adScript);
+
+  const nativeContainer = document.createElement("div");
+  nativeContainer.id =
+    "container-198271fe0b0ec07be381bd5a8b989c66";
+
+  container.appendChild(nativeContainer);
+}, []);
+
     return () => {
       // Do not remove the external script here; React Strict Mode
       // may run effect cleanup and setup again during development.
@@ -70,6 +96,14 @@ export default function Download() {
   <div className="download-ad-slot">
     <div id="loom-adsterra-slot" />
   </div>
+</section>
+
+<section
+  className="download-native-ad-section"
+  aria-label="Sponsored content"
+>
+  <span className="download-ad-label">SPONSORED</span>
+  <div id="loom-native-adsterra-slot" />
 </section>
 
       <section className="download-card">
