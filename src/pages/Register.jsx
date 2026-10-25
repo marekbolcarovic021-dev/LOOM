@@ -152,7 +152,7 @@ function Register() {
       // REDIRECT AFTER REGISTRATION
       // ----------------------------------------------
 
-      navigate("/dashboard");
+      navigate("/about", { replace: true });
 
     } catch (error) {
       console.error(
@@ -258,7 +258,7 @@ function Register() {
         }
       );
 
-      navigate("/dashboard");
+      navigate("/about", { replace: true });
 
     } catch (error) {
       console.error(

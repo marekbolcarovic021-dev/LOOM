@@ -4,9 +4,11 @@ import { Link } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import SEO from "../components/SEO";
 import AdsterraBanner from "../components/AdsterraBanner";
+import { useAuth } from "../context/AuthContext";
 
 function About() {
   const { t } = useTranslation();
+  const { currentUser, loading } = useAuth();
 
   return (
     <>
@@ -53,12 +55,25 @@ function About() {
 
            <div className="public-hero-actions">
 
+ {loading ? (
+  <span className="public-primary-button" aria-live="polite">
+    Loading...
+  </span>
+) : currentUser ? (
+  <Link
+    to="/dashboard"
+    className="public-primary-button"
+  >
+    Open LOOM <span aria-hidden="true">→</span>
+  </Link>
+) : (
   <Link
     to="/register"
     className="public-primary-button"
   >
     {t("getStarted", "Get Started")}
   </Link>
+)}
 
   <Link
     to="/guides"
@@ -321,6 +336,74 @@ function About() {
 
         </section>
 
+{/* ==================================================
+    LOOM MONEY CHECK
+================================================== */}
+
+<section
+  className="public-section money-check-about"
+  aria-labelledby="money-check-about-title"
+>
+  <div className="money-check-about-content">
+    <span className="public-eyebrow">
+      FREE FINANCIAL ASSESSMENT
+    </span>
+
+    <h2 id="money-check-about-title">
+      Understand your financial health.
+    </h2>
+
+    <p>
+      Discover what your income, expenses, savings and debts
+      say about your financial situation. Get a personalized
+      overview and practical next steps based on your answers.
+    </p>
+
+    <div className="money-check-about-benefits">
+      <span>✓ Personalized insights</span>
+      <span>✓ Practical recommendations</span>
+      <span>✓ About 2 minutes</span>
+    </div>
+
+    <Link
+      to="/tools/money-check"
+      className="public-primary-button money-check-about-button"
+    >
+      Check my financial health
+      <span aria-hidden="true">→</span>
+    </Link>
+
+    <small>
+      Free to use. No account required.
+    </small>
+  </div>
+
+  <div className="money-check-about-visual" aria-hidden="true">
+    <div className="money-check-about-orbit money-check-about-orbit-outer" />
+    <div className="money-check-about-orbit money-check-about-orbit-inner" />
+
+    <div className="money-check-about-card">
+      <img
+        src="/loom-splash-symbol.png"
+        alt=""
+      />
+
+      <span>YOUR FINANCIAL SNAPSHOT</span>
+
+      <strong>Your money, made clearer.</strong>
+
+      <div className="money-check-about-bars">
+        <i />
+        <i />
+        <i />
+        <i />
+        <i />
+      </div>
+
+      <small>Understand. Improve. Progress.</small>
+    </div>
+  </div>
+</section>
 
         {/* ==================================================
             FINANCIAL EDUCATION

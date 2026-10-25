@@ -37,6 +37,7 @@ import Contact from "./pages/Contact";
 import PrivacyPolicy from "./pages/PrivacyPolicy";
 import CookiePolicy from "./pages/CookiePolicy";
 import Download from "./pages/Download";
+import MoneyCheck from "./pages/MoneyCheck";
 
 // ======================================================
 // FINANCIAL GUIDES
@@ -247,6 +248,11 @@ function App() {
           path="/register"
           element={<Register />}
         />
+
+<Route
+  path="/tools/money-check"
+  element={<MoneyCheck />}
+/>
 
         {/* Old homepage route.
             Keep it working, but redirect it to the

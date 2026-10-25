@@ -1,11 +1,14 @@
 import { Link, useLocation } from "react-router-dom";
 import { useTranslation } from "react-i18next";
+import { useAuth } from "../../context/AuthContext";
 
 import "../../styles/public/PublicLayout.css";
 
 function PublicHeader() {
   const { t } = useTranslation();
   const location = useLocation();
+
+  const { currentUser, loading } = useAuth();
 
   const navigation = [
     {
@@ -38,12 +41,9 @@ function PublicHeader() {
 
   return (
     <header className="public-header">
-
       <div className="public-header-inner">
 
-        {/* ==================================================
-            LOGO
-        ================================================== */}
+        {/* LOGO */}
 
         <Link
           to="/about"
@@ -54,20 +54,13 @@ function PublicHeader() {
             alt="LOOM"
           />
 
-          <span>
-            LOOM
-          </span>
+          <span>LOOM</span>
         </Link>
 
-
-        {/* ==================================================
-            NAVIGATION
-        ================================================== */}
+        {/* NAVIGATION */}
 
         <nav className="public-navigation">
-
           {navigation.map((item) => (
-
             <Link
               key={item.path}
               to={item.path}
@@ -79,40 +72,46 @@ function PublicHeader() {
             >
               {item.label}
             </Link>
-
           ))}
-
         </nav>
 
-
-        {/* ==================================================
-            AUTH ACTIONS
-        ================================================== */}
+        {/* AUTH ACTIONS */}
 
         <div className="public-header-actions">
+          {!loading && (
+            currentUser ? (
+              <Link
+                to="/dashboard"
+                className="public-register-button"
+              >
+                Open LOOM
+                <span aria-hidden="true"> →</span>
+              </Link>
+            ) : (
+              <>
+                <Link
+                  to="/login"
+                  className="public-login-link"
+                >
+                  {t("login", {
+                    defaultValue: "Login",
+                  })}
+                </Link>
 
-          <Link
-            to="/login"
-            className="public-login-link"
-          >
-            {t("login", {
-              defaultValue: "Login",
-            })}
-          </Link>
-
-          <Link
-            to="/register"
-            className="public-register-button"
-          >
-            {t("register", {
-              defaultValue: "Get Started",
-            })}
-          </Link>
-
+                <Link
+                  to="/register"
+                  className="public-register-button"
+                >
+                  {t("register", {
+                    defaultValue: "Get Started",
+                  })}
+                </Link>
+              </>
+            )
+          )}
         </div>
 
       </div>
-
     </header>
   );
 }

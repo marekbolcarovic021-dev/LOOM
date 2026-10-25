@@ -17,7 +17,7 @@ function Login() {
 
     try {
       await login(email, password);
-      navigate("/dashboard");
+navigate("/about", { replace: true });
     } catch (error) {
       alert(error.message);
     }
@@ -26,7 +26,7 @@ function Login() {
   async function handleGoogleLogin() {
     try {
       await googleLogin();
-      navigate("/dashboard");
+navigate("/about", { replace: true });
     } catch (error) {
       console.error(
         "GOOGLE LOGIN ERROR:",
