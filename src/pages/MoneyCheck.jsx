@@ -775,7 +775,7 @@ function ChoiceQuestion({
       <p className="mc-question-description">
         {question.description}
       </p>
-<AdsterraBanner />
+
       <div className="mc-options">
         {question.options.map((option) => (
           <button
@@ -1397,6 +1397,8 @@ export default function MoneyCheck() {
                 </span>
               </div>
             </section>
+
+<AdsterraBanner />
 
             <section className="mc-question-card">
               <div className="mc-progress-top">
