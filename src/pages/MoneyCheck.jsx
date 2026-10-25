@@ -1353,19 +1353,26 @@ export default function MoneyCheck() {
       <div className="mc-background-glow" aria-hidden="true" />
 
       <header className="mc-header">
-        <a href="/" className="mc-logo" aria-label="LOOM home">
-  <img
-    src="/loom-splash-symbol.png"
-    alt=""
-    className="mc-logo-image"
-  />
-  <span>LOOM</span>
-</a>
+  <a href="/about" className="mc-logo" aria-label="LOOM home">
+    <img
+      src="/loom-splash-symbol.png"
+      alt=""
+      className="mc-logo-image"
+    />
+    <span>LOOM</span>
+  </a>
 
-        <span className="mc-header-label">
-          PERSONAL FINANCE CHECK
-        </span>
-      </header>
+  <div className="mc-header-actions">
+    <a href="/about" className="mc-return-button">
+      <span aria-hidden="true">←</span>
+      <span>Back to LOOM</span>
+    </a>
+
+    <span className="mc-header-label">
+      PERSONAL FINANCE CHECK
+    </span>
+  </div>
+</header>
 
       <div className="mc-container">
         {!finished ? (

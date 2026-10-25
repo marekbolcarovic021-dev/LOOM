@@ -1281,3 +1281,55 @@
   color: #c7d2fe;
   transform: scale(1.08);
 }
+
+.mc-header-actions {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 24px;
+}
+
+.mc-return-button {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 16px;
+  border: 1px solid rgba(148, 163, 184, 0.25);
+  border-radius: 10px;
+  color: #cbd5e1;
+  text-decoration: none;
+  font-size: 13px;
+  font-weight: 600;
+  transition:
+    color 0.2s ease,
+    background 0.2s ease,
+    border-color 0.2s ease;
+}
+
+.mc-return-button:hover {
+  color: #ffffff;
+  background: rgba(129, 140, 248, 0.12);
+  border-color: rgba(129, 140, 248, 0.6);
+}
+
+@media (max-width: 600px) {
+  .mc-header {
+    gap: 12px;
+  }
+
+  .mc-header-actions {
+    flex-direction: column-reverse;
+    align-items: flex-end;
+    gap: 8px;
+  }
+
+  .mc-header-label {
+    font-size: 9px;
+    text-align: right;
+  }
+
+  .mc-return-button {
+    padding: 8px 10px;
+    font-size: 12px;
+  }
+}
