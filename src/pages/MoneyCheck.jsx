@@ -1,5 +1,6 @@
 import { useMemo, useState } from "react";
 import "./MoneyCheck.css";
+import AdsterraBanner from "../components/AdsterraBanner";
 
 const initialAnswers = {
   income: "",
@@ -769,11 +770,12 @@ function ChoiceQuestion({
   onChange,
 }) {
   return (
+    
     <div className="mc-choice-wrap">
       <p className="mc-question-description">
         {question.description}
       </p>
-
+<AdsterraBanner />
       <div className="mc-options">
         {question.options.map((option) => (
           <button
