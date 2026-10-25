@@ -113,14 +113,7 @@ export default function Download() {
         </div>
       </section>
 
-      {/* Adsterra Native Banner */}
-      <section
-        className="download-native-ad-section"
-        aria-label="Sponsored content"
-      >
-        <span className="download-ad-label">SPONSORED</span>
-        <div id="loom-native-adsterra-slot" />
-      </section>
+     
 
       <section className="download-card">
         <img
@@ -169,6 +162,15 @@ export default function Download() {
           <li>Download the APK directly from this LOOM website.</li>
           <li>Only install the file if you trust its source.</li>
         </ul>
+      </section>
+
+       {/* Adsterra Native Banner */}
+      <section
+        className="download-native-ad-section"
+        aria-label="Sponsored content"
+      >
+        <span className="download-ad-label">SPONSORED</span>
+        <div id="loom-native-adsterra-slot" />
       </section>
 
       <footer className="download-footer">
